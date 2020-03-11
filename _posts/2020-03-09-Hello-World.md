@@ -9,5 +9,3 @@ Follow me as I navigate my way through college, academics and the average life o
 ![alt text][logo]
 
 [logo]: https://github.com/brucechanglongxu/brucechanglongxu.github.io/blob/master/images/IMG_2805.JPG "Sunset"
-
-![_config.yml]({{ site.baseurl }}/images/config.png)
