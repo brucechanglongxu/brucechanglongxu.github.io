@@ -17,6 +17,10 @@ Definition 1: Professor Tao definition of "almost all" is based upon the notion 
 
 $$ P(\log(R) \in A) = \frac{\sum_{N \in A \cap R} \frac{1}{N}}{\sum_{N \in R} \frac{1}{N}} $$
 
-(To be continued) 
+The primary advancement that Professor Tao makes in his paper is as follows:
 
-This paper was beautiful. You know, if I wasn't so drawn to the direct impact of medicine on the human condition, I would be hell-bent on pursuing a career in pure Mathematics. 
+The $Col_{min}(N)$ function does not grow as fast as a function that approaches infinity following $N$. In other words, if $\lim_{N \to \infty} f(N) = \infty$ then we must have that $Col_{min}(N) < f(N)$. 
+
+How we get to this result requires a tremendous amount of analytic horsepower, and hopefully by the end of this blog post you and I will have a clearer understanding of the magic behind his argument. 
+
+This paper was beautiful. You know, if I wasn't so head over heels of the direct impact of medicine on the human condition, I would be determined to pursue a career in pure Mathematics. 
