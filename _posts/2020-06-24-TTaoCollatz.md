@@ -19,7 +19,7 @@ $$ P(\log(R) \in A) = \frac{\sum_{N \in A \cap R} \frac{1}{N}}{\sum_{N \in R} \f
 
 The primary advancement that Professor Tao makes in his paper is as follows:
 
-The $Col_{min}(N)$ function does not grow as fast as a function that approaches infinity following $N$. In other words, if $\lim_{N \to \infty} f(N) = \infty$ then we must have that $Col_{min}(N) < f(N)$. 
+The $$Col_{min}(N)$$ function does not grow as fast as a function that approaches infinity following $$N$$. In other words, if $$\lim_{N \to \infty} f(N) = \infty$$ then we must have that $$Col_{min}(N) < f(N)$$. 
 
 How we get to this result requires a tremendous amount of analytic horsepower, and hopefully by the end of this blog post you and I will have a clearer understanding of the magic behind his argument. 
 
