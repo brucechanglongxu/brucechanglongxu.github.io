@@ -1,0 +1,45 @@
+---
+layout: post
+title: Summary of Tengyu Ma, Moses Charikar, Chris Re's CS229 offering
+---
+
+http://cs229.stanford.edu/syllabus-spring2020.html
+
+CS229 (Machine Learning) is the canonical inagauration for all of the students at Stanford who are interested in the field of Machine Learning. I learnt a huge amount from this class, 
+and will try to summarize in this post the key ideas that we learnt from each week. 
+
+Week 1: Supervised Learning / Linear Regression 
+
+This week provided the general framework and issue that Machine Learning is attempting to solve. In a nutshell, it is gradient descent! 
+
+Week 2: Weighted Least Squares / Logistic Regression / Newton's Method / Perceptron / Exponential Family
+
+We were introduced to the idea of the exponential family - a very elegant class of probability distributions that satisfies a lot of neat properties that we are able to eventually exploit. 
+
+Week 3: Gaussian Discriminant Analysis / Naive Bayes / Laplace Smoothing / Support Vector Machines
+
+Why are support vector machines necessary? What are the best default models that an individual should use when trying to build their ML model? These are the central questions being answered during this week. 
+
+Week 4: Kernels 
+
+Here we investigate how mapping between dimesional spaces makes our algorithm much more efficient. Sometimes we are given infinite dimensional data that we don't exactly know what to do with. 
+
+Week 5: Bias-Variance Tradeoff / Regularization
+
+Here we introduce the idea of regularization and how that prevents our model from overfitting the data that we present. 
+
+Week 6: Expectation Maximization / k-Means / GMM 
+
+These are algorithms that allow us to find centering points for the data that we have. 
+
+Week 7: Factor Analysis and Principal Component Analysis
+
+This week focused on key dimesionality reduction techniques that almost every practising STEM individual should be aware of. 
+
+Week 8: Weak supervision
+
+Week 9: Markov Decision Processes / Value and Policy Iteration / Reinforcement Learning
+
+Week 10: Policy Search / Reinforcement Learning continuation
+
+
