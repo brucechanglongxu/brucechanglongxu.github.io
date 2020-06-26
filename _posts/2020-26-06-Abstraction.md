@@ -9,6 +9,8 @@ in your hands right now. There are two ways you can look at this: Either seek fo
 get started with your current knowledge and abilities - there is a subtle difference between learning by doing and learning to do. Whilst the former creates some form of 
 output that can be appreciated or used by others, the latter, whilst enriching for the learner, offers little immediate reward to society as a whole. 
 
+Diving into existing code bases that can be unreadable at times is extremely scary, yet one of the most rewarding activities that an aspiring computer scientist can hope to do. It's a little frightening to invest time and energy into a project that may not pan out well, but that is exactly why you should have several backup projects lined up and a strong motive that does not depend on the project succeeding. This is why the focus should be on learning and growing, not current results. 
+
 This is why it is important to be thrown into an environment that challenges your status quo, imperceptible growth is thrust upon you and often-times unique contributions to 
 the current body of human knowledge arise as a result. Atul Gawande, famous surgeon-writer began his penmanship journey as an outlet for the feelings, emotions and unique experiences
 that he has encountered in the operating room. As a result of continual tension and reflection, he was able to craft a unique perspective with which he could offer the broader medical community.
