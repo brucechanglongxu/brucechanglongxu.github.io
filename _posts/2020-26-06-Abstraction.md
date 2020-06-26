@@ -25,4 +25,6 @@ Given a sequence of free and myalloc requests: $$R_0, R_1, ..., R_{n-1}$$, we de
 
 $$U_k = \frac{\max_i \le k P_i}{H_k}$$ 
 
-An analogous phenomenon in everyday life is to track an individual's baseline aerobic fitness over the course of the year. There will be times of laziness / unproductivity and moments of productive training / health, which correspond to the operations free() and mymalloc() respectively. To maximize utilization means to allocate as much memory as possible over as short a period of time, whilst to m
+An analogous phenomenon in everyday life is to track an individual's academic progress over the course of the quarter or year. To maximize utilization is analogous to storing as much information as compactly as possible into our brain space given the material that we are attempting to learn or master. To maximize throughput is analogous to trying to load up on as many classes, meetings etc. as possible without regard to how effectively we are storing the experiences and knowledge into our long-term systems. Hopefully this makes it a little clearer why utilization and throughput are often conflicting goals! 
+
+(Another way to think about it this way - we have variables time, memory and output. To maximize output/time often requires us to sacrifice output/memory vice. versa. There are a lot of moving parts here that make it super challenging and fun to grasp what exactly is happening :P)
