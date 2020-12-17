@@ -8,7 +8,7 @@ I am thankful that all of the mathematics classes are at most 3 units and most g
 that is not to say that I won't enjoy the journey however! 
 
 Winter Quarter 2021 (22 Units) 
-EE364 - Convex Optimization (3)
+<strong>EE364</strong> - Convex Optimization (3)
 CS261 - Optimization and Algorithmic Paradigms (3)
 MATH173 - Theory of Partial Differential Equations (3)
 MATH121 - Galois Theory (3)
@@ -21,15 +21,17 @@ MATH122 - Module and Representation Theory (3)
 MATH172 - Lebesgue Analysis and Integration (3) 
 
 Summer Quarter 2021 + Research (21 Units)
-MATH63CM - 
-MATH171 - 
+MATH63CM - Continuous Methods (5)
+MATH171 - Fundamental Concepts of Analysis (3)
 PHYS121 - Intermediate Electricity and Magnetism II
 
 Fall Quarter 2021 + Research (21 Units)
-STATS230A - 
-PHYS110 - Advanced Mechanics
-PHYS170 - Statistical Mechanics I
-PHYS330 - Quantum Field Theory I
+STATS230A - The Theory of Probability I (3)
+PHYS110 - Advanced Mechanics (4)
+PHYS170 - Statistical Mechanics I (4)
+PHYS330 - Quantum Field Theory I (3)
+
+Winter Quarter 2022 - 
 
 
 
