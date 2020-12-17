@@ -9,8 +9,7 @@ that is not to say that I won't enjoy the journey however!
 
 Winter Quarter 2021 (22 Units) 
 
-<strong>EE364</strong> - Convex Optimization (3)
-
+<strong>EE364</strong> - Convex Optimization (3) \\
 CS261 - Optimization and Algorithmic Paradigms (3)
 
 MATH173 - Theory of Partial Differential Equations (3)
