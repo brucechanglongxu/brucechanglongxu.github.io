@@ -8,6 +8,7 @@ I am thankful that all of the mathematics classes are at most 3 units and most g
 that is not to say that I won't enjoy the journey however! 
 
 Winter Quarter 2021 (22 Units) 
+
 <strong>EE364</strong> - Convex Optimization (3)
 CS261 - Optimization and Algorithmic Paradigms (3)
 MATH173 - Theory of Partial Differential Equations (3)
