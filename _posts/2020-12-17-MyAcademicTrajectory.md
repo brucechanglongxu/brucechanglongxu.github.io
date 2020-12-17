@@ -11,9 +11,13 @@ Winter Quarter 2021 (22 Units)
 CS261 - Optimization and Algorithmic Paradigms (3)
 
 MATH173 - Theory of Partial Differential Equations (3)
+
 MATH121 - Galois Theory (3)
+
 PHYS120 - Intermediate Electricity and Magnetism (4)
+
 CS254 - Complexity THeory (3)
+
 CHEM123 - Organic Polyfunctional Compounds (3) (May substitute with BIO254 Principles of Neurobiology or CHEM281 Therapeutic Science at the Chemistry/Biology Interface)
 
 Spring Quarter 2021 (22 Units)
