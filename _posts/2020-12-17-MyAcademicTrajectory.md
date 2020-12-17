@@ -5,55 +5,46 @@ title: My Academic Trajectory
 
 In order to complete all four of my major requirements, I will need to maintain myself at an average of 22-units throughout the academic year and continue to take classes throughout the summer. I am thankful that all of the mathematics classes are at most 3 units and most graduate level EE-CS/Physics classes are also three units in total. It is safe to say that I may not receive much rest or sleep over the next few years, that is not to say that I won't enjoy the journey however! I am determined to graduate with a 4.0 GPA. 
 
-Winter Quarter 2021 (22 Units) 
-
+Winter Quarter 2021 (22 Units) \\
 <strong>EE364</strong> - Convex Optimization (3) \\
-CS261 - Optimization and Algorithmic Paradigms (3)
-
+CS261 - Optimization and Algorithmic Paradigms (3) \\
 MATH173 - Theory of Partial Differential Equations (3)
+MATH121 - Galois Theory (3) \\
+PHYS120 - Intermediate Electricity and Magnetism (4) \\
+CS254 - Complexity THeory (3) \\
+CHEM123 - Organic Polyfunctional Compounds (3) (May substitute with BIO254 Principles of Neurobiology or CHEM281 Therapeutic Science at the Chemistry/Biology Interface) \\
 
-MATH121 - Galois Theory (3)
+Spring Quarter 2021 (22 Units) \\
+MATH122 - Module and Representation Theory (3) \\
+MATH172 - Lebesgue Analysis and Integration (3) \\
+PHYS131 - Quantum Mechanics II \\
+CHEM141 - Chemical Principles of Life \\
+CHEM171 - 
 
-PHYS120 - Intermediate Electricity and Magnetism (4)
+Summer Quarter 2021 + Research (21 Units) \\
+MATH63CM - Continuous Methods (5) \\
+MATH171 - Fundamental Concepts of Analysis (3) \\
+PHYS121 - Intermediate Electricity and Magnetism II (4) \\
+CS110 - Principles of Computer Systems (5) \\
 
-CS254 - Complexity THeory (3)
+Fall Quarter 2021 (21 Units) \\
+STATS230A - The Theory of Probability I (3) \\
+PHYS110 - Advanced Mechanics (4) \\
+PHYS170 - Statistical Mechanics I (4) \\
+PHYS330 - Quantum Field Theory I (3) \\
+MATH175 - Functional Analysis (3) \\
+CHEM181 - Biochemistry I (4) \\
 
-CHEM123 - Organic Polyfunctional Compounds (3) (May substitute with BIO254 Principles of Neurobiology or CHEM281 Therapeutic Science at the Chemistry/Biology Interface)
+Winter Quarter 2022
+STATS230B - The Theory of Probability II (3) \\
+PHYS230 - Graduate Quantum Mechanics I (4) \\
+PHYS171 - Statistical Mechanics II (4) \\
+MATH62CM - Continuous Methods (5) \\
+PHYS331 - Quantum Field Theory II (3) \\
 
-Spring Quarter 2021 (22 Units)
-MATH122 - Module and Representation Theory (3) 
-MATH172 - Lebesgue Analysis and Integration (3) 
-PHYS131 - Quantum Mechanics II
-CHEM141 - 
-CHEM171
-
-Summer Quarter 2021 + Research (21 Units)
-MATH63CM - Continuous Methods (5)
-MATH171 - Fundamental Concepts of Analysis (3)
-PHYS121 - Intermediate Electricity and Magnetism II (4)
-CS110 - Principles of Computer Systems (5) 
-
-Fall Quarter 2021 + Research (21 Units)
-STATS230A - The Theory of Probability I (3)
-PHYS110 - Advanced Mechanics (4)
-PHYS170 - Statistical Mechanics I (4)
-PHYS330 - Quantum Field Theory I (3)
-MATH175 - Functional Analysis (3)
-CHEM181 - Biochemistry I (4) 
-
-Winter Quarter 2022 - 
-STATS230B - The Theory of Probability II (3)
-PHYS230 - Graduate Quantum Mechanics I (4)
-PHYS171 - Statistical Mechanics II (4)
-MATH62CM - Continuous Methods (5)
-PHYS331 - Quantum Field Theory II
-
-
-Spring Quarter 2022 - 
+Spring Quarter 2022
 STATS230C - The Theory of Probability III (3) 
 PHYS332 - Quantum Field Theory III (3)
-
-
 
 Summer Quarter 2022 
 
