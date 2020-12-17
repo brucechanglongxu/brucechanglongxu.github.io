@@ -27,7 +27,8 @@ MATH172 - Lebesgue Analysis and Integration (3)
 Summer Quarter 2021 + Research (21 Units)
 MATH63CM - Continuous Methods (5)
 MATH171 - Fundamental Concepts of Analysis (3)
-PHYS121 - Intermediate Electricity and Magnetism II
+PHYS121 - Intermediate Electricity and Magnetism II (4)
+CS110 - Principles of Computer Systems (5) 
 
 Fall Quarter 2021 + Research (21 Units)
 STATS230A - The Theory of Probability I (3)
@@ -36,6 +37,12 @@ PHYS170 - Statistical Mechanics I (4)
 PHYS330 - Quantum Field Theory I (3)
 
 Winter Quarter 2022 - 
+
+Spring Quarter 2022 - 
+
+Summer Quarter 2022 
+
+Fall Quarter 2022 
 
 
 
