@@ -23,6 +23,9 @@ CHEM123 - Organic Polyfunctional Compounds (3) (May substitute with BIO254 Princ
 Spring Quarter 2021 (22 Units)
 MATH122 - Module and Representation Theory (3) 
 MATH172 - Lebesgue Analysis and Integration (3) 
+PHYS131 - Quantum Mechanics II
+CHEM141 - 
+CHEM171
 
 Summer Quarter 2021 + Research (21 Units)
 MATH63CM - Continuous Methods (5)
@@ -35,10 +38,22 @@ STATS230A - The Theory of Probability I (3)
 PHYS110 - Advanced Mechanics (4)
 PHYS170 - Statistical Mechanics I (4)
 PHYS330 - Quantum Field Theory I (3)
+MATH175 - Functional Analysis (3)
+CHEM181 - Biochemistry I (4) 
 
 Winter Quarter 2022 - 
+STATS230B - The Theory of Probability II (3)
+PHYS230 - Graduate Quantum Mechanics I (4)
+PHYS171 - Statistical Mechanics II (4)
+MATH62CM - Continuous Methods (5)
+PHYS331 - Quantum Field Theory II
+
 
 Spring Quarter 2022 - 
+STATS230C - The Theory of Probability III (3) 
+PHYS332 - Quantum Field Theory III (3)
+
+
 
 Summer Quarter 2022 
 
