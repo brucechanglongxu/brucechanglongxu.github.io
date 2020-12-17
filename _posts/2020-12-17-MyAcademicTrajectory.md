@@ -3,9 +3,7 @@ layout: post
 title: My Academic Trajectory
 ---
 
-In order to complete all four of my major requirements, I will need to maintain myself at an average of 22-units throughout the academic year and continue to take classes throughout the summer.
-I am thankful that all of the mathematics classes are at most 3 units and most graduate level EE-CS/Physics classes are also three units in total. It is safe to say that I may not receive much rest or sleep over the next few years, 
-that is not to say that I won't enjoy the journey however! 
+In order to complete all four of my major requirements, I will need to maintain myself at an average of 22-units throughout the academic year and continue to take classes throughout the summer. I am thankful that all of the mathematics classes are at most 3 units and most graduate level EE-CS/Physics classes are also three units in total. It is safe to say that I may not receive much rest or sleep over the next few years, that is not to say that I won't enjoy the journey however! I am determined to graduate with a 4.0 GPA. 
 
 Winter Quarter 2021 (22 Units) 
 
