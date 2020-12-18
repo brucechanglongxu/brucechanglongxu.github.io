@@ -40,7 +40,7 @@ CS221 - Artificial Intelligence, Principles and Techniques (3)
 MATH63CM - Continuous Methods (5) \\
 MATH171 - Fundamental Concepts of Analysis (3) \\
 PHYS121 - Intermediate Electricity and Magnetism II (4) \\
-CS110 - Principles of Computer Systems (5)
+CS110 - Principles of Computer Systems (5) \\
 Physics Research / Bio-X / MCAT(4)
 
 <strong>Fall Quarter 2021 (21 Units)</strong> \\
