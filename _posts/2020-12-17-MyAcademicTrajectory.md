@@ -78,7 +78,7 @@ MATH210A - Graduate Algebra I (3) \\
 MATH215A - Graduate Topology I (3) \\
 CS330 - Deep Multitask and Meta-Learning (3) \\
 CS228 - Probabilistic Graphical Models (3) \\ 
-EE108 - Digital Systems Design (3) \\
+EE108 - Digital Systems Design (3)
 
 <strong>Winter Quarter 2023 (21 Units)</strong> \\
 BIO82 - Genetics (4) \\
@@ -88,7 +88,7 @@ MATH210B - Graduate Algebra II (3) \\
 MATH215B - Graduate Topology II (3) \\
 Chemistry 151 - Inorganic Chemistry I (4)
 
-<strong>Spring Quarter 2023 (22 Units) - Graduation and Start Full Time Job / Work my way through an MS-degree for a Year</strong> \\
+<strong>Spring Quarter 2023 (21 Units) - Graduation and Start Full Time Job / Work my way through an MS-degree for a Year</strong> \\
 PHYS212 - Graduate Statistical Mechanics (3) \\
 PHYS220 - Classical Electrodynamics (3) \\
 EE364B - Convex Optimization II (3) \\
