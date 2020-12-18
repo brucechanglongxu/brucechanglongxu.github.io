@@ -38,6 +38,7 @@ MATH63CM - Continuous Methods (5) \\
 MATH171 - Fundamental Concepts of Analysis (3) \\
 PHYS121 - Intermediate Electricity and Magnetism II (4) \\
 CS110 - Principles of Computer Systems (5)
+Physics Research / Bio-X / MCAT(4)
 
 Fall Quarter 2021 (21 Units) \\
 STATS230A - The Theory of Probability I (3) \\
@@ -62,9 +63,7 @@ PHYS332 - Quantum Field Theory III (3) \\
 Bio 86 - Cell Biology (4) \\
 CS221 - Artificial Intelligence, Principles and Techniques (3) \\
 
-
 Summer Quarter 2022 
-CHEM 33 - 
 
 Fall Quarter 2022 
 BIO 83 - Biochemistry & Molecular Biology (4)
@@ -75,10 +74,14 @@ CS330 - Deep Multitask and Meta-Learning (3) \\
 CHEM 221 - Advanced Organic Chemistry I (3) \\
 
 Winter Quarter 2023
-BIO 82 - Genetics (4)
-BIO 84 - Physiology (4)
+BIO 82 - Genetics (4) \\
+BIO 84 - Physiology (4) \\
+MATH205B - Graduate Real Analysis II (3) \\
+MATH210B - Graduate Algebra II (3) \\
+MATH215B - Graduate Topology II (3) \\
 
-Spring Quarter 2023
+Spring Quarter 2023 - GRADUATE! 
+
 
 
 
