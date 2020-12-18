@@ -88,6 +88,11 @@ MATH215B - Graduate Topology II (3) \\
 Chemistry 151 - Inorganic Chemistry I (4)
 
 <strong>Spring Quarter 2023 - Graduation and Start Full Time Job / Pursue a Master's Degree on a Scholarship</strong>
+PHYS 212 - Graduate Statistical Mechanics (3) \\
+PHYS 220 - Classical Electrodynamics (3) \\
+MATH205C - Graduate Real Analysis III (3) \\
+MATH210C - Graduate Algebra III (3) \\
+MATH215C - Graduate Topology III (3) \\
 
 <strong>Fall 2024 - PhD/MD/MD-PhD Program Matriculation</strong>
 
