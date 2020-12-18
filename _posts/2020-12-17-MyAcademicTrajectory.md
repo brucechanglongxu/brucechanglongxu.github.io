@@ -63,8 +63,10 @@ PHYS332 - Quantum Field Theory III (3) \\
 Bio 86 - Cell Biology (4) \\
 CS221 - Artificial Intelligence, Principles and Techniques (3) 
 
-<strong>Summer Quarter 2022</strong> 
-CURIS/CS-Internship/Finance Internship/GRE/Apply for Full-time Industry Jobs
+<strong>Summer Quarter 2022</strong> \\
+CURIS
+CS-Internship/Finance Internship
+GRE/Apply for Full-time Industry Jobs
 
 <strong>Fall Quarter 2022</strong>  \\
 BIO 83 - Biochemistry & Molecular Biology (4) \\
