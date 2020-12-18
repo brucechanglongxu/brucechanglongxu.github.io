@@ -88,4 +88,6 @@ Chemistry 151 - Inorganic Chemistry I (4)
 
 <strong>Fall 2024 - PhD/MD/MD-PhD Program Matriculation</strong>
 
+Afterwards: Who Knows? 
+
 
