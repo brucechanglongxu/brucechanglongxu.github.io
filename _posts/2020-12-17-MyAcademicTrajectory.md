@@ -59,19 +59,19 @@ MATH62CM - Continuous Methods (5) \\
 PHYS331 - Quantum Field Theory II (3) \\
 CHEM 223 - Advanced Organic Chemistry II or CHEM281 - Therapeutic Science at the Chemistry Biology Interface  (3)
 
-<strong>Spring Quarter 2022</strong> \\
+<strong>Spring Quarter 2022 (22 Units)</strong> \\
 STATS230C - The Theory of Probability III (3)  \\
 PHYS131/231 - Graduate Quantum Mechanics II (3) \\
 PHYS332 - Quantum Field Theory III (3) \\
 Bio 86 - Cell Biology (4) \\
 CS221 - Artificial Intelligence, Principles and Techniques (3) 
 
-<strong>Summer Quarter 2022</strong> \\
+<strong>Summer Quarter 2022 (21 Units)</strong> \\
 CURIS
 CS-Internship/Finance Internship
 GRE/Apply for Full-time Industry Jobs
 
-<strong>Fall Quarter 2022</strong>  \\
+<strong>Fall Quarter 2022 (22 Units) </strong>  \\
 BIO 83 - Biochemistry & Molecular Biology (4) \\
 MATH205A - Graduate Real Analysis I (3) \\
 MATH210A - Graduate Algebra I (3) \\
@@ -79,7 +79,7 @@ MATH215A - Graduate Topology I (3) \\
 CS330 - Deep Multitask and Meta-Learning (3) \\
 CHEM 221 - Advanced Organic Chemistry I (3) 
 
-<strong>Winter Quarter 2023</strong> \\
+<strong>Winter Quarter 2023 (22 Units)</strong> \\
 BIO 82 - Genetics (4) \\
 BIO 84 - Physiology (4) \\
 MATH205B - Graduate Real Analysis II (3) \\
@@ -87,7 +87,7 @@ MATH210B - Graduate Algebra II (3) \\
 MATH215B - Graduate Topology II (3) \\
 Chemistry 151 - Inorganic Chemistry I (4)
 
-<strong>Spring Quarter 2023 - Graduation and Start Full Time Job / Pursue a Master's Degree on a Scholarship in the Fall</strong> \\
+<strong>Spring Quarter 2023 (22 Units) - Graduation and Start Full Time Job / Pursue a Master's Degree on a Scholarship in the Fall</strong> \\
 PHYS 212 - Graduate Statistical Mechanics (3) \\
 PHYS 220 - Classical Electrodynamics (3) \\
 MATH205C - Graduate Real Analysis III (3) \\
