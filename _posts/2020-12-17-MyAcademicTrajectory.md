@@ -23,8 +23,8 @@ CS261 - Optimization and Algorithmic Paradigms (3) \\
 MATH173 - Theory of Partial Differential Equations (3) \\
 MATH121 - Galois Theory (3) \\
 CS254 - Complexity Theory (3) \\
-PHYS120 - Intermediate Electricity and Magnetism (4) \\
-CHEM281 - Therapeutic Science at the Chemistry/Biology Interface or BIO254 - Molecular Cellular Neurobiology (3) 
+BIO254 - Molecular Cellular Neurobiology (3) \\
+PHYS120 - Intermediate Electricity and Magnetism (4)
 
 <strong>Spring Quarter 2021 (21 Units)</strong> \\
 PHYS131 - Quantum Mechanics II (4) \\
@@ -63,8 +63,8 @@ PHYS231 - Graduate Quantum Mechanics II (3) \\
 PHYS332 - Quantum Field Theory III (3) \\
 BIO86 - Cell Biology (4) \\
 CS221 - Artificial Intelligence, Principles and Techniques (3) \\
-MATH233C - Probabilistic Combinatorics (3)
-MATH 
+MATH233C - Probabilistic Combinatorics (3) \\
+MATH154 - Algebraic Number Theory
 
 <strong>Summer Quarter 2022 (21 Units)</strong> \\
 CURIS/CS-Internship/Finance Internship \\
@@ -90,8 +90,10 @@ Chemistry 151 - Inorganic Chemistry I (4)
 <strong>Spring Quarter 2023 (22 Units) - Graduation and Start Full Time Job / Work my way through an MS-degree for a Year</strong> \\
 PHYS212 - Graduate Statistical Mechanics (3) \\
 PHYS220 - Classical Electrodynamics (3) \\
+EE364B - Convex Optimization II (3) \\
 MATH205C - Graduate Real Analysis III (3) \\
 MATH210C - Graduate Algebra III (3) \\
 MATH215C - Graduate Topology III (3) 
+
 
 <strong>Fall 2024 - Graduate School Matriculation / Full-Time Position </strong>
