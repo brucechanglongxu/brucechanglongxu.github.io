@@ -15,7 +15,7 @@ Total Units Completed: 100 Units \\
 Total Units Required: 222 Units
 
 Freshman Year and Sophomore Fall Courses;
-CS106B, CS107, CS229, CS154, CS231N, MATH61CM, MATH63CM, PWR1&2, MATH 116, MATH 120, MATH 171, CHEM 121, WAYS REQUIREMENTS \\
+CS106B, CS107, CS229, CS154, CS231N, MATH61CM, MATH63CM, PWR1&2, MATH 116, MATH 120, MATH 171, CHEM 121, WAYS REQUIREMENTS
 
 <strong>Winter Quarter 2021 (22 Units)</strong> \\
 EE364 - Convex Optimization (3) \\
