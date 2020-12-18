@@ -32,7 +32,7 @@ CHEM141 - Chemical Principles of Life (4) \\
 CHEM171 - Foundations of Physical Chemistry (4) \\
 MATH122 - Module and Representation Theory (3) \\
 MATH172 - Lebesgue Analysis and Integration (3) \\
-CS221 - Artificial Intelligence, Principles and Techniques (3) 
+CS254B - Computational Complexity (3) 
 
 <strong>Summer Quarter 2021 + Research (22 Units)</strong> \\
 MATH63CM - Continuous Methods (5) \\
@@ -43,26 +43,28 @@ Physics Research / Bio-X / MCAT (4)
 
 <strong>Fall Quarter 2021 (21 Units)</strong> \\
 STATS230A - The Theory of Probability I (3) \\
-PHYS110 - Advanced Mechanics (4) \\
-PHYS170 - Statistical Mechanics I (4) \\
 PHYS330 - Quantum Field Theory I (3) \\
 MATH175 - Functional Analysis (3) \\
+PHYS110 - Advanced Mechanics (4) \\
+PHYS170 - Statistical Mechanics I (4) \\
 CHEM181 - Biochemistry I (4) 
 
 <strong>Winter Quarter 2022 (22 Units)</strong> \\
 STATS230B - The Theory of Probability II (3) \\
-PHYS130/230 - Graduate Quantum Mechanics I (4) \\
+PHYS130/230 - Graduate Quantum Mechanics I (3) \\
 PHYS171 - Statistical Mechanics II (4) \\
 MATH62CM - Continuous Methods (5) \\
 PHYS331 - Quantum Field Theory II (3) \\
-CHEM 223 - Advanced Organic Chemistry II or CHEM281 - Therapeutic Science at the Chemistry Biology Interface  (3)
+CHEM123/4 - Organic Polyfunctional Compounds (4) 
 
 <strong>Spring Quarter 2022 (22 Units)</strong> \\
 STATS230C - The Theory of Probability III (3)  \\
-PHYS131/231 - Graduate Quantum Mechanics II (3) \\
+PHYS231 - Graduate Quantum Mechanics II (3) \\
 PHYS332 - Quantum Field Theory III (3) \\
 BIO86 - Cell Biology (4) \\
-CS221 - Artificial Intelligence, Principles and Techniques (3) 
+CS221 - Artificial Intelligence, Principles and Techniques (3) \\
+MATH233C - Probabilistic Combinatorics (3)
+MATH 
 
 <strong>Summer Quarter 2022 (21 Units)</strong> \\
 CURIS/CS-Internship/Finance Internship \\
@@ -80,7 +82,7 @@ CHEM221 - Advanced Organic Chemistry I (3)
 <strong>Winter Quarter 2023 (21 Units)</strong> \\
 BIO82 - Genetics (4) \\
 BIO84 - Physiology (4) \\
-MATH205B - Graduate Real Analysis II (3) \\
+MATH236 - Introduction to Stochastic Differential Equations (3) \\
 MATH210B - Graduate Algebra II (3) \\
 MATH215B - Graduate Topology II (3) \\
 Chemistry 151 - Inorganic Chemistry I (4)
