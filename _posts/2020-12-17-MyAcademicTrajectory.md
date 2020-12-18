@@ -61,7 +61,7 @@ CHEM 223 - Advanced Organic Chemistry II or CHEM281 - Therapeutic Science at the
 
 <strong>Spring Quarter 2022</strong> \\
 STATS230C - The Theory of Probability III (3)  \\
-PHYS131/231 - Graduate Quantum Mechanics II (3)
+PHYS131/231 - Graduate Quantum Mechanics II (3) \\
 PHYS332 - Quantum Field Theory III (3) \\
 Bio 86 - Cell Biology (4) \\
 CS221 - Artificial Intelligence, Principles and Techniques (3) 
