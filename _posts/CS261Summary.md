@@ -1,6 +1,6 @@
 ---
 layout: post
-title: An overview of CS261 
+title: An overview of CS261, EE364A & B
 ---
 
 The following blog post will be a summary of the nineteen lectures offered in the courses CS261 and EE364A/B with the two syllabus listed as follows. It is the author's hope that this 
