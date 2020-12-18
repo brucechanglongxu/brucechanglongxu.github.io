@@ -7,13 +7,13 @@ In order to complete all four of my major requirements, I will need to maintain 
 
 By that time my family life should have stabilised and so I can bring a greater amount of focus to my scientific life and academic career. 
 
-Mathematics Major: 64 Units
-Physics Major: 84 Units
-Computer Science Major: 106 Units
-Electrical Engineering Major: 100 Units
+Mathematics Major: 64 Units \\
+Physics Major: 84 Units \\
+Computer Science Major: 106 Units \\
+Electrical Engineering Major: 100 Units \\
 Chemistry Minor: 32 Units
 
-Total Units Completed: 100 Units
+Total Units Completed: 100 Units \\
 Total Units Required: 222 Units
 
 Freshman Year and Sophomore Fall Courses;
