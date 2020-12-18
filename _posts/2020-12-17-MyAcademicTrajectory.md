@@ -92,7 +92,7 @@ PHYS 212 - Graduate Statistical Mechanics (3) \\
 PHYS 220 - Classical Electrodynamics (3) \\
 MATH205C - Graduate Real Analysis III (3) \\
 MATH210C - Graduate Algebra III (3) \\
-MATH215C - Graduate Topology III (3) \\
+MATH215C - Graduate Topology III (3) 
 
 <strong>Fall 2024 - PhD or MD or MD-PhD Program Matriculation</strong>
 
