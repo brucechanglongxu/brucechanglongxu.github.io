@@ -78,7 +78,7 @@ MATH210A - Graduate Algebra I (3) \\
 MATH215A - Graduate Topology I (3) \\
 CS330 - Deep Multitask and Meta-Learning (3) \\
 CS228 - Probabilistic Graphical Models (3) \\ 
-EE108 - Digital Systems Design (3) 
+EE108 - Digital Systems Design (3) \\
 
 <strong>Winter Quarter 2023 (21 Units)</strong> \\
 BIO82 - Genetics (4) \\
