@@ -87,7 +87,7 @@ MATH210B - Graduate Algebra II (3) \\
 MATH215B - Graduate Topology II (3) \\
 Chemistry 151 - Inorganic Chemistry I (4)
 
-<strong>Spring Quarter 2023 (22 Units) - Graduation and Start Full Time Job / Pursue a Master's Degree on a Scholarship in the Fall</strong> \\
+<strong>Spring Quarter 2023 (22 Units) - Graduation and Start Full Time Job / Pursue an MS-degree on a Scholarship in the Fall</strong> \\
 PHYS 212 - Graduate Statistical Mechanics (3) \\
 PHYS 220 - Classical Electrodynamics (3) \\
 MATH205C - Graduate Real Analysis III (3) \\
