@@ -10,6 +10,8 @@ As an undergraduate at Stanford University I am currently pursuing double dual m
 
 I am a proud member of an amazing team of passionate individuals that make the [Stanford Math Tournament] possible, having served as a power-round writer for 2021. I am currently working with [Zuchero Lab], [Curtis Lab] and an alumnus of [Pauly Group] at Stanford Medicine and Electrical Engineering for the summer REU program. Next summer I will join [Wakatsuki Lab] to investigate protein structures in greater detail with Cryo-Electron Microscopy. 
 
+In my free-time I love to play Kreutzer on the Violin, Rachmaninoff on the Piano and try my hand at cooking Chinese dishes (rather terribly, but still capable of outputting edible dishes with probability close to 1). 
+
 [local running scene]: https://www.instagram.com/p/ByDEVp6gGIx/
 [whole city]: https://www.buffco.hk
 [national]: https://www.flickr.com/photos/187405264@N06/49647213412/in/dateposted-public/
