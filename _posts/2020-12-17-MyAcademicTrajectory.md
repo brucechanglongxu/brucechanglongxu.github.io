@@ -81,7 +81,8 @@ BIO 82 - Genetics (4) \\
 BIO 84 - Physiology (4) \\
 MATH205B - Graduate Real Analysis II (3) \\
 MATH210B - Graduate Algebra II (3) \\
-MATH215B - Graduate Topology II (3) 
+MATH215B - Graduate Topology II (3) \\
+Chemistry 151 - Inorganic Chemistry I (4)
 
 <strong>Spring Quarter 2023 - Graduation and Start Full Time Job / Pursue a Graduate Degree on a Scholarship</strong>
 
