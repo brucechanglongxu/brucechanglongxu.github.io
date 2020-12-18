@@ -90,7 +90,7 @@ MATH236 - Introduction to Stochastic Differential Equations (3) \\
 MATH210B - Graduate Algebra II (3) \\
 MATH215B - Graduate Topology II (3) 
 
-<strong>Spring Quarter 2023 (21 Units) - Graduation and Start Full Time Job / Work my way through an MS-degree for a Year</strong> \\
+<strong>Spring Quarter 2023 (22 Units) - Graduation and Start Full Time Job / Work my way through an MS-degree for a Year</strong> \\
 PHYS212 - Graduate Statistical Mechanics (3) \\
 PHYS220 - Classical Electrodynamics (3) \\
 EE364B - Convex Optimization II (3) \\
