@@ -9,6 +9,7 @@ By that time my family life should have stabilised and so I can bring a greater 
 
 Mathematics and Physics Dual Major: 84 Units \\
 Electrical Engineering and Computer Science Dual Major: 106 Units \\
+Bioengineering Major: 
 Chemistry Minor: 32 Units
 
 Total Units Completed: 100 Units \\
@@ -47,7 +48,7 @@ PHYS110 - Advanced Mechanics (4) \\
 PHYS170 - Statistical Mechanics I (4) \\
 PHYS330 - Quantum Field Theory I (3) \\
 MATH175 - Functional Analysis (3) \\
-CHEM181 - Biochemistry I (4)
+CHEM181 - Biochemistry I (4) 
 
 <strong>Winter Quarter 2022 (22 Units)</strong> \\
 STATS230B - The Theory of Probability II (3) \\
@@ -77,7 +78,7 @@ MATH215A - Graduate Topology I (3) \\
 CS330 - Deep Multitask and Meta-Learning (3) \\
 CHEM 221 - Advanced Organic Chemistry I (3) 
 
-<strong>Winter Quarter 2023 (22 Units)</strong> \\
+<strong>Winter Quarter 2023 (21 Units)</strong> \\
 BIO 82 - Genetics (4) \\
 BIO 84 - Physiology (4) \\
 MATH205B - Graduate Real Analysis II (3) \\
