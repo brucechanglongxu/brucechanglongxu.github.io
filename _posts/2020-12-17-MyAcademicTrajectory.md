@@ -66,9 +66,8 @@ BIO86 - Cell Biology (4) \\
 CS221 - Artificial Intelligence, Principles and Techniques (3) 
 
 <strong>Summer Quarter 2022 (21 Units)</strong> \\
-CURIS \\
-CS-Internship/Finance Internship \\
-GRE/Apply for Full-time Industry Jobs
+CURIS/CS-Internship/Finance Internship \\
+GRE/Apply for Full-time Industry Jobs 
 
 <strong>Fall Quarter 2022 (22 Units) </strong>  \\
 BIO83 - Biochemistry & Molecular Biology (4) \\
