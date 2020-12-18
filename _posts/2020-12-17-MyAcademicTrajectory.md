@@ -68,7 +68,7 @@ BIO86 - Cell Biology (4)
 
 <strong>Summer Quarter 2022 - Work and Research (3 Units)</strong> \\
 CURIS/CS-Internship/Finance Internship \\
-GRE/Apply for Full-time Industry Jobs 
+GRE/Apply for Full-time Industry Jobs \\
 CHEM 33 - Structure and Reactivity of Organic Molecules
 
 <strong>Fall Quarter 2022 (22 Units) </strong>  \\
@@ -77,8 +77,8 @@ MATH205A - Graduate Real Analysis I (3) \\
 MATH210A - Graduate Algebra I (3) \\
 MATH215A - Graduate Topology I (3) \\
 CS330 - Deep Multitask and Meta-Learning (3) \\
-CS228 - Probabilistic Graphical Models \\ 
-CHEM221 - Advanced Organic Chemistry I (3) 
+CS228 - Probabilistic Graphical Models (3) \\ 
+EE108 - Digital Systems Design (3) 
 
 <strong>Winter Quarter 2023 (21 Units)</strong> \\
 BIO82 - Genetics (4) \\
