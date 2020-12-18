@@ -81,7 +81,8 @@ MATH205B - Graduate Real Analysis II (3) \\
 MATH210B - Graduate Algebra II (3) \\
 MATH215B - Graduate Topology II (3) 
 
-<strong>Spring Quarter 2023 - Graduation and Start Full Time Job / Pursue a Graduate Degree on a Scholarship</strong> \\
+<strong>Spring Quarter 2023 - Graduation and Start Full Time Job / Pursue a Graduate Degree on a Scholarship</strong>
+
 <strong>Fall 2024 - PhD/MD/MD-PhD Program Matriculation</strong>
 
 
