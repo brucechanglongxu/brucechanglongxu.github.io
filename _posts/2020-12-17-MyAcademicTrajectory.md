@@ -24,9 +24,9 @@ MATH173 - Theory of Partial Differential Equations (3) \\
 MATH121 - Galois Theory (3) \\
 CS254 - Complexity Theory (3) \\
 PHYS120 - Intermediate Electricity and Magnetism (4) \\
-CHEM123 - Organic Polyfunctional Compounds (3) (May substitute with BIO254 Principles of Neurobiology or CHEM281 Therapeutic Science at the Chemistry/Biology Interface)
+CHEM281 - Therapeutic Science at the Chemistry/Biology Interface or BIO254 - Molecular Cellular Neurobiology (3) 
 
-<strong>Spring Quarter 2021 (22 Units)</strong> \\
+<strong>Spring Quarter 2021 (21 Units)</strong> \\
 PHYS131 - Quantum Mechanics II (4) \\
 CHEM141 - Chemical Principles of Life (4) \\
 CHEM171 - Foundations of Physical Chemistry (4) \\
@@ -34,7 +34,7 @@ MATH122 - Module and Representation Theory (3) \\
 MATH172 - Lebesgue Analysis and Integration (3) \\
 CS221 - Artificial Intelligence, Principles and Techniques (3) 
 
-<strong>Summer Quarter 2021 + Research (21 Units)</strong> \\
+<strong>Summer Quarter 2021 + Research (22 Units)</strong> \\
 MATH63CM - Continuous Methods (5) \\
 MATH171 - Fundamental Concepts of Analysis (3) \\
 PHYS121 - Intermediate Electricity and Magnetism II (4) \\
