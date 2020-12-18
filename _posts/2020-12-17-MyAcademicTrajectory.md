@@ -31,9 +31,10 @@ CHEM123 - Organic Polyfunctional Compounds (3) (May substitute with BIO254 Princ
 <strong>Spring Quarter 2021 (22 Units)</strong> \\
 MATH122 - Module and Representation Theory (3) \\
 MATH172 - Lebesgue Analysis and Integration (3) \\
-PHYS131 - Quantum Mechanics II \\
-CHEM141 - Chemical Principles of Life \\
-CHEM171 - Foundations of Physical Chemistry
+PHYS131 - Quantum Mechanics II (4) \\
+CHEM141 - Chemical Principles of Life (4) \\
+CHEM171 - Foundations of Physical Chemistry (4) \\
+CS221 - Artificial Intelligence, Principles and Techniques (3) 
 
 <strong>Summer Quarter 2021 + Research (21 Units)</strong> \\
 MATH63CM - Continuous Methods (5) \\
