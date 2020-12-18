@@ -67,7 +67,7 @@ MATH233C - Probabilistic Combinatorics (3) \\
 MATH154 - Algebraic Number Theory (3) \\
 BIO86 - Cell Biology (4)
 
-<strong>Summer Quarter 2022 - Work and Research (3 Units)</strong> \\
+<strong>Summer Quarter 2022 - Work and Research (9 Units)</strong> \\
 CURIS/CS-Internship/Finance Internship \\
 GRE/Apply for Full-time Industry Jobs \\
 CHEM 33 - Structure and Reactivity of Organic Molecules \\
