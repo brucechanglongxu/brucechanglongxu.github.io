@@ -22,7 +22,7 @@ CS106B, CS107, CS229, CS154, CS231N, MATH61CM, MATH63CM, PWR1&2, MATH 116, MATH 
 <strong>Winter Quarter 2021 (22 Units)</strong> \\
 EE364 - Convex Optimization (3) \\
 CS261 - Optimization and Algorithmic Paradigms (3) \\
-MATH173 - Theory of Partial Differential Equations (3)
+MATH173 - Theory of Partial Differential Equations (3) \\
 MATH121 - Galois Theory (3) \\
 PHYS120 - Intermediate Electricity and Magnetism (4) \\
 CS254 - Complexity Theory (3) \\
