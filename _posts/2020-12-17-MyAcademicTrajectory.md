@@ -36,7 +36,7 @@ MATH173 - Theory of Partial Differential Equations (3) \\
 MATH121 - Galois Theory (3) \\
 CS254 - Complexity Theory (3) \\
 BIO254 - Molecular Cellular Neurobiology (3) \\
-PHYS120 - Intermediate Electricity and Magnetism (4)
+PHYS120 - Intermediate Electricity and Magnetism I (4)
 
 <strong>Spring Quarter 2021 (21 Units)</strong> \\
 PHYS131 - Quantum Mechanics II (4) \\
