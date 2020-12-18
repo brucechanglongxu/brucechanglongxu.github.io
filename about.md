@@ -10,7 +10,7 @@ As an undergraduate at Stanford University I am currently pursuing double dual m
 
 I am a proud member of an amazing team of passionate individuals that make the [Stanford Math Tournament] possible, having served as a power-round writer for 2021 creating a piece focused on cyclotomic polynomials, the mobius function; motivating and demonstrating beautiful applications. Additionally, I am an editor with the amazing undergraduate team for [Comparative Advantage], Stanford's only undergraduate Economics Journal and a committee member of [HKSA] and [Synapse]. During my freshman year I was fortunate to be part of the incredible [Frosoco] community and the [Stanford Undergraduate Research Association]. I am currently working on several projects with [Zuchero Lab], [Curtis Lab] and an alumnus of [Pauly Group] at Stanford Medicine and Electrical Engineering for the summer REU program. Next summer I will join [Wakatsuki Lab] to investigate protein structures in greater detail with Cryo-Electron Microscopy. 
 
-In my free-time I love to play Kreutzer on the Violin, Rachmaninoff on the Piano and try my hand at cooking Chinese dishes (rather terribly, but still capable of outputting edible dishes with probability close to 1) and of course sketch and run :) 
+In my free-time I love to play Kreutzer on the Violin, Rachmaninoff on the Piano and try my hand at cooking Chinese dishes (rather terribly, but still capable of outputting edible dishes with probability 1 - $\epsilon$) and of course sketch and run :) 
 
 [local running scene]: https://www.instagram.com/p/ByDEVp6gGIx/
 [whole city]: https://www.buffco.hk
