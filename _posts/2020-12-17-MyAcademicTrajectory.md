@@ -39,7 +39,8 @@ MATH63CM - Continuous Methods (5) \\
 CS110 - Principles of Computer Systems (5) \\
 MATH171 - Fundamental Concepts of Analysis (3) \\
 PHYS121 - Intermediate Electricity and Magnetism II (4) \\
-Physics Research / Bio-X / MCAT (4)
+EE101A - Circuits I (4) \\
+Physics Research / Bio-X / MCAT 
 
 <strong>Fall Quarter 2021 (22 Units)</strong> \\
 STATS230A - The Theory of Probability I (3) \\
@@ -69,7 +70,8 @@ BIO86 - Cell Biology (4)
 <strong>Summer Quarter 2022 - Work and Research (3 Units)</strong> \\
 CURIS/CS-Internship/Finance Internship \\
 GRE/Apply for Full-time Industry Jobs \\
-CHEM 33 - Structure and Reactivity of Organic Molecules
+CHEM 33 - Structure and Reactivity of Organic Molecules \\
+EE102A - Signal Processing and Linear Systems
 
 <strong>Fall Quarter 2022 (22 Units) </strong>  \\
 BIO83 - Biochemistry & Molecular Biology (4) \\
