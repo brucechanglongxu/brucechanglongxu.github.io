@@ -3,7 +3,7 @@ layout: post
 title: My Academic Trajectory
 ---
 
-In order to complete all four of my major requirements, I will need to maintain myself at an average of 22-units throughout the academic year and continue to take classes throughout the summer. I am thankful that all of the mathematics classes are at most 3 units and most graduate level EE-CS/Physics classes are also three units in total. It is safe to say that I may not receive much rest or sleep over the next few years, that is not to say that I won't enjoy the journey however! I am determined to graduate with a 4.0 GPA. I may also decide to take a 5-th year to obtain a masters degree at another institution whilst working to save money before applying to Graduate School. The beauty of the dual major is that units can be double counted :)
+In order to complete all four of my major requirements, I will need to maintain myself at an average of 22-units throughout the academic year and continue to take classes throughout the summer. I am thankful that all of the mathematics classes are at most 3 units and most graduate level EE-CS/Physics classes are also three units in total. It is safe to say that I may not receive much rest or sleep over the next few years, that is not to say that I won't enjoy the journey however! I am determined to graduate with a 4.0 GPA or higher. I may also decide to take a 5-th year to obtain a masters degree at another institution whilst working to save money before applying to Graduate School. The beauty of the dual major is that units can be double counted :)
 
 Mathematics Major: 64 Units
 Physics Major: 84 Units
