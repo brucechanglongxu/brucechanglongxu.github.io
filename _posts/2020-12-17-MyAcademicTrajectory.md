@@ -65,24 +65,22 @@ CS221 - Artificial Intelligence, Principles and Techniques (3) \\
 
 Summer Quarter 2022 
 
-Fall Quarter 2022 
-BIO 83 - Biochemistry & Molecular Biology (4)
+Fall Quarter 2022 ]]
+BIO 83 - Biochemistry & Molecular Biology (4) \\
 MATH205A - Graduate Real Analysis I (3) \\
 MATH210A - Graduate Algebra I (3) \\
 MATH215A - Graduate Topology I (3) \\
 CS330 - Deep Multitask and Meta-Learning (3) \\
 CHEM 221 - Advanced Organic Chemistry I (3) \\
 
-Winter Quarter 2023
+Winter Quarter 2023 ]]
 BIO 82 - Genetics (4) \\
 BIO 84 - Physiology (4) \\
 MATH205B - Graduate Real Analysis II (3) \\
 MATH210B - Graduate Algebra II (3) \\
 MATH215B - Graduate Topology II (3) \\
 
-Spring Quarter 2023 - GRADUATE! 
-
-
-
+Spring Quarter 2023 - GRADUATE and START FULL TIME JOB / GRADUATE SCHOLARSHIP \\
+Fall 2024 - PhD/MD/MD-PhD Program Matriculation \\
 
 
