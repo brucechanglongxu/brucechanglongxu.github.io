@@ -46,7 +46,7 @@ MATH122 - Module and Representation Theory (3) \\
 MATH172 - Lebesgue Analysis and Integration (3) \\
 CS254B - Computational Complexity (3) 
 
-<strong>Summer Quarter 2021 + Research (22 Units)</strong> \\
+<strong>Summer Quarter 2021 + Research (21 Units)</strong> \\
 MATH63CM - Continuous Methods (5) \\
 CS110 - Principles of Computer Systems (5) \\
 MATH171 - Fundamental Concepts of Analysis (3) \\
@@ -65,10 +65,10 @@ CHEM181 - Biochemistry I (4)
 <strong>Winter Quarter 2022 (22 Units)</strong> \\
 STATS230B - The Theory of Probability II (3) \\
 PHYS130/230 - Graduate Quantum Mechanics I (3) \\
-PHYS171 - Statistical Mechanics II (4) \\
-MATH62CM - Continuous Methods (5) \\
 PHYS331 - Quantum Field Theory II (3) \\
-CHEM123/4 - Organic Polyfunctional Compounds (4) 
+CHEM123/4 - Organic Polyfunctional Compounds (4) \\
+PHYS171 - Statistical Mechanics II (4) \\
+MATH62CM - Modern Mathematics, Continuous Methods III (5)
 
 <strong>Spring Quarter 2022 (22 Units)</strong> \\
 STATS230C - The Theory of Probability III (3)  \\
@@ -106,9 +106,9 @@ MATH215B - Graduate Topology II (3)
 PHYS212 - Graduate Statistical Mechanics (3) \\
 PHYS220 - Classical Electrodynamics (3) \\
 EE364B - Convex Optimization II (3) \\
-EE180 - Digital Systems Architecture (4) \\
 MATH210C - Graduate Algebra III (3) \\
 MATH215C - Graduate Topology III (3) \\
-CHEM223 - Advanced Organic Chemistry (3) 
+CHEM223 - Advanced Organic Chemistry (3) \\
+EE180 - Digital Systems Architecture (4)
 
 <strong>Fall 2024 - Graduate School Matriculation / Full-Time Position </strong>
