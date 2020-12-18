@@ -94,8 +94,6 @@ MATH205C - Graduate Real Analysis III (3) \\
 MATH210C - Graduate Algebra III (3) \\
 MATH215C - Graduate Topology III (3) 
 
-<strong>Fall 2024 - PhD or MD or MD-PhD Program Matriculation</strong>
-
-Afterwards: Who Knows? 
+<strong>Fall 2024 - PhD or MD or MD-PhD Program Matriculation / Full-time Work</strong>
 
 
