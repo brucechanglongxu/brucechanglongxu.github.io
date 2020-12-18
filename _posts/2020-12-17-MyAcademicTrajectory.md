@@ -42,7 +42,7 @@ PHYS121 - Intermediate Electricity and Magnetism II (4) \\
 EE101A - Circuits I (4) \\
 Physics Research / Bio-X / MCAT 
 
-<strong>Fall Quarter 2021 (22 Units)</strong> \\
+<strong>Fall Quarter 2021 (21 Units)</strong> \\
 STATS230A - The Theory of Probability I (3) \\
 PHYS330 - Quantum Field Theory I (3) \\
 MATH175 - Functional Analysis (3) \\
