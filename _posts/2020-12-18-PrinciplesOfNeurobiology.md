@@ -1,4 +1,9 @@
-Bio 254: Molecular and Cellular Neurobiology
+---
+layout: post
+title: Biology 254 - The Principles of Neurobiology
+---
+
+This class is taught and largely based of Liqun Luo's seminal "Principles of Neurobiology". The following is an outline of the chapter syllabi and this blog post seeks to break down the topics further and hopefully offer some insight why this field is so incredibly rich and fulfilling. 
 
 Lecture 1: Invitation to Neurobiology \\
 Lecture 2: Signalling Within Neurons \\
