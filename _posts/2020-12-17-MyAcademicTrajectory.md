@@ -14,7 +14,7 @@ Chemistry Minor: 32 Units
 Total Units Completed: 100 Units \\
 Total Units Required: 222 Units
 
-Freshman Year and Sophomore Fall Courses;
+<strong>Freshman Year and Sophomore Fall Courses</strong>; \\
 CS106B - Programming Abstractions \\
 CS107 - Computer Organizations and Systems \\
 CS229 - Machine Learning \\
