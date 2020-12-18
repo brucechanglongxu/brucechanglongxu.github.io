@@ -93,7 +93,8 @@ PHYS220 - Classical Electrodynamics (3) \\
 EE364B - Convex Optimization II (3) \\
 MATH205C - Graduate Real Analysis III (3) \\
 MATH210C - Graduate Algebra III (3) \\
-MATH215C - Graduate Topology III (3) 
+MATH215C - Graduate Topology III (3) \\
+CHEM121 - Organic Chemistry of Bioactive Molecules (3) 
 
 
 <strong>Fall 2024 - Graduate School Matriculation / Full-Time Position </strong>
