@@ -61,10 +61,10 @@ CHEM123/4 - Organic Polyfunctional Compounds (4)
 STATS230C - The Theory of Probability III (3)  \\
 PHYS231 - Graduate Quantum Mechanics II (3) \\
 PHYS332 - Quantum Field Theory III (3) \\
-BIO86 - Cell Biology (4) \\
 CS221 - Artificial Intelligence, Principles and Techniques (3) \\
 MATH233C - Probabilistic Combinatorics (3) \\
-MATH154 - Algebraic Number Theory
+MATH154 - Algebraic Number Theory (3) \\
+BIO86 - Cell Biology (4)
 
 <strong>Summer Quarter 2022 (21 Units)</strong> \\
 CURIS/CS-Internship/Finance Internship \\
