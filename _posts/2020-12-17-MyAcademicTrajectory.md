@@ -3,13 +3,12 @@ layout: post
 title: My Academic Trajectory
 ---
 
-In order to complete all four of my major requirements, I will need to maintain myself at an average of 21/22-units throughout the academic year and continue to take classes throughout the summer. I am thankful that all of the mathematics classes are at most 3 units and most graduate level EE-CS/Physics classes are also three units in total. It is safe to say that I may not receive much rest or sleep over the next few years, however that does not imply that I won't enjoy the journey! I may also choose to work for a few years to save money before applying to Graduate School. The beauty of the dual major is that units can be double counted :)
+In order to complete all four of my major requirements, I will need to maintain myself at an average of 21/22-units throughout the academic year and continue to take classes throughout the summer. I am thankful that all of the mathematics classes are at most 3 units and most graduate level EE-CS/Physics classes are also three units in total. It is my goal to maintain a 4.0 or higher GPA throughout college - It is safe to say that I may not receive much rest or sleep over the next few years, however that does not imply that I won't enjoy the journey! I may also choose to work for a few years to save money before applying to Graduate School. The beauty of the dual major is that units can be double counted :)
 
 I would like to thank all my family and friends for their enduring love and support yesterday, today and tomorrow.
 
 Mathematics and Physics Dual Major: 84 Units \\
 Electrical Engineering and Computer Science Dual Major: 106 Units \\
-Bioengineering Major: 100 Units \\
 Chemistry Minor: 32 Units
 
 Total Units Completed: 100 Units \\
