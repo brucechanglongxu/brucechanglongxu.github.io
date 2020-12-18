@@ -94,7 +94,7 @@ Chemistry 151 - Inorganic Chemistry I (4)
 PHYS212 - Graduate Statistical Mechanics (3) \\
 PHYS220 - Classical Electrodynamics (3) \\
 EE364B - Convex Optimization II (3) \\
-MATH205C - Graduate Real Analysis III (3) \\
+EE180 - Digital Systems Architecture (4) \\
 MATH210C - Graduate Algebra III (3) \\
 MATH215C - Graduate Topology III (3) \\
 CHEM223 - Advanced Organic Chemistry (3) 
