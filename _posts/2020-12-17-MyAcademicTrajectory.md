@@ -30,7 +30,7 @@ CHEM 121 - Organic Chemistry of Bioactive Molecules \\
 WAYS REQUIREMENTS
 
 <strong>Winter Quarter 2021 (22 Units)</strong> \\
-EE364 - Convex Optimization (3) \\
+EE364 - Convex Optimization I (3) \\
 CS261 - Optimization and Algorithmic Paradigms (3) \\
 MATH173 - Theory of Partial Differential Equations (3) \\
 MATH121 - Galois Theory (3) \\
@@ -39,11 +39,11 @@ BIO254 - Molecular Cellular Neurobiology (3) \\
 PHYS120 - Intermediate Electricity and Magnetism I (4)
 
 <strong>Spring Quarter 2021 (21 Units)</strong> \\
-PHYS131 - Quantum Mechanics II (4) \\
+PHYS131 - Quantum Mechanics II (3) \\
 CHEM141 - Chemical Principles of Life (4) \\
-CHEM171 - Foundations of Physical Chemistry (4) \\
+MATH154 - Algebraic Number Theory (3) \\
 MATH122 - Module and Representation Theory (3) \\
-MATH172 - Lebesgue Analysis and Integration (3) \\
+EE364B - Convex Optimization II (3) \\
 CS254B - Computational Complexity (3) 
 
 <strong>Summer Quarter 2021 + Research (21 Units)</strong> \\
