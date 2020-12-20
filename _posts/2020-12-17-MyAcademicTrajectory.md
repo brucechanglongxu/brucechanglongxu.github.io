@@ -112,4 +112,6 @@ MATH215C - Graduate Topology III (3) \\
 CHEM223 - Advanced Organic Chemistry (3) \\
 EE180 - Digital Systems Architecture (4)
 
-<strong>Fall 2024 - Graduate School Matriculation / Full-Time Position </strong>
+<strong>Fall 2024 - Graduate School Matriculation / Full-Time Position </strong> \\
+
+Disclaimer: This is a relatively heavy courseload, so please adjust according to your own limits and academic goals. 
