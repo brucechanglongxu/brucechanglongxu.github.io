@@ -114,4 +114,4 @@ EE180 - Digital Systems Architecture (4)
 
 <strong>Fall 2024 - Graduate School Matriculation / Full-Time Position </strong> \\
 
-<strong>Disclaimer:</strong> This is a relatively heavy courseload and barely even necessary, it's simply the way I like to challenge myself. So please adjust according to your own academic needs and goals. 
+<strong>Disclaimer:</strong> This is a relatively heavy courseload and not even particularly necessary, it's simply the way I like to challenge myself. So please adjust according to your own academic needs and goals. 
