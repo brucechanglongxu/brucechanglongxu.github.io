@@ -39,12 +39,13 @@ CHEM123 - Organic Polyfunctional Compounds (3) \\
 PHYS120 - Intermediate Electricity and Magnetism I (4)
 
 <strong>Spring Quarter 2021 (22 Units)</strong> \\
-PHYS131 - Quantum Mechanics II (4) \\
+PHYS231 - Graduate Quantum Mechanics II (3) \\
 CHEM141 - Chemical Principles of Life (4) \\
 MATH154 - Algebraic Number Theory (3) \\
 MATH122 - Module and Representation Theory (3) \\
 EE364B - Convex Optimization II (3) \\
-CS254B - Computational Complexity (3) 
+CS254B - Computational Complexity (3) \\
+CS166 - Data Structures (3) \\
 
 <strong>Summer Quarter 2021 + Research (21 Units)</strong> \\
 MATH63CM - Continuous Methods (5) \\
