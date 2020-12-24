@@ -9,6 +9,7 @@ College students face a lot of pressure socially, academically, financially and 
 
 Mathematics and Physics Dual Major: 84 Units \\
 Electrical Engineering and Computer Science Dual Major: 106 Units \\
+Bioengineering Major: 107 Units \\
 Chemistry Minor: 32 Units
 
 Total Units Completed: 100 Units \\
