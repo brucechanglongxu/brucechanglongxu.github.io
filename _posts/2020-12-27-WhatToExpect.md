@@ -12,11 +12,12 @@ title: Blog Post and New Year's Resolutions
 * Write on this blog and make progress on manuscripts daily for at least one hour to work towards publication
 * Read and Reflect on one cutting-edge paper in Mathematics / EECS / Physics / Medicine & Chemistry & Biology per week
 * Learn and implement one new algorithm / technology every evening 
+* Meet two new people in various industries or fields every month, and offer something of value to them
 * Practice the violin (or piano) for at least one hour per day
 * Call home for 30 minutes per week
 * Get into the habit of reading new article updates from the New York Times / Wall Street Journal / Economist on a Saturday morning 
 * Read one new book every week outside your preassigned syllabus
-* Write one Reflective Essay in Chinese per Week
+* Write one Reflective Essay in Chinese per Week. Send a message to friends in Cantonese as frequently as you have time for
 * Write one Reflective Essay in German or Japanese per Week
-* Advance your arts portfolio every week on a Sunday
+* Advance your arts portfolio every week on a Sunday Morning or Evening
 
