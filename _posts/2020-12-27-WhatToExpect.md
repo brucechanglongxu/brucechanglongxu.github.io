@@ -7,11 +7,13 @@ title: Blog Post and New Year's Resolutions
 
 *New Year's Resolutions*: 
 * Finish your marathon / triathlon training block
-* Drink a bottle of water every single day, carefully monitor your diet and limit to fresh produce / high energy, nutrient foods
+* Drink a bottle of water every single day, carefully monitor your diet and limit yourself to fresh produce / high energy, nutrient foods
 * Limit your time on the phone to 30 minutes per day
 * Write on this blog and make progress on manuscripts daily for at least one hour to work towards publication
 * Read and Reflect on one cutting-edge paper in Mathematics / EECS / Physics / Medicine & Chemistry & Biology per week
+* Learn and implement one new algorithm / technology every evening 
 * Practice the violin (or piano) for at least one hour per day
+* Call home for 30 minutes per week
 * Get into the habit of reading new article updates from the New York Times / Wall Street Journal / Economist on a Saturday morning 
 * Read one new book every week outside your preassigned syllabus
 * Write one Reflective Essay in Chinese per Week
