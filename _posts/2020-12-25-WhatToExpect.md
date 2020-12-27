@@ -38,6 +38,6 @@ title: About This Blog and New Year's Resolutions for 2021
 
 Every evening I will reflect on whether I have accomplished my goals for the day, aligned with my New Year's Resolutions. At the end of each month I will also reflect on whether how the entire four weeks has gone and continue to think deeply about how I can improve for the next month. Lastly, it's important that I send my prayers to my family, friends and loved ones on a daily basis and give thanks for the sustenance that I receive from benefactors. By the end of the year, I hope that I can say that it was a year that was lived well; You never know - it might be your last! 
 
-Each of the above criterion can be rated on a scale from $1$ to $5$ from worst to best respectively, you can maintain a spreadsheet with colours that will keep you accountable throughout the year and show you areas in which you can improve. 
+Each of the above criterion can be rated on a scale from $1$ to $5$ from worst to best respectively, you can maintain a colour-coded spreadsheet that will keep you accountable throughout the year and show you areas in which you can improve. 
 
 The theme of this year is the following: *To take pride in doing the things you do well*
