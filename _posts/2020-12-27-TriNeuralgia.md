@@ -17,9 +17,13 @@ This is a summary and review of the paper published by Giorgio Curccu, Giulia Di
 * Pain is triggered by slight stimulus to the facial region 
 
 *Causes and Pathophysiology*: 
+* The Presence of a Tumour
+* Multiple Sclerosis
+
 *Treatment Options*:
 * Microvascular Decompression: Trigeminal 
+* Gamma Knife 
+* Radiosurgery
 
 *Further Questions*: 
 * How can we concretely characterize the contribution of Multiple Sclerosis to the probability of attaining Trigeminal Neuralgia?
-* 
