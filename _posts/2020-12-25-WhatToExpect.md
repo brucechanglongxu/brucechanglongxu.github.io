@@ -1,6 +1,6 @@
 ---
 layout: post
-title: About This Blog and New Year's Resolutions
+title: About This Blog and New Year's Resolutions for 2021
 ---
 
 *What to expect from this blog*: Daily blog posts about some STEM-related topic relevant to my own academic journey and thinking. 
