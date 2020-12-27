@@ -34,7 +34,7 @@ Ultimately the disease is caused by the compression of the "sensory portion of t
 
 *Further Questions*: 
 * How can we concretely characterize the contribution of Multiple Sclerosis to the probability of attaining Trigeminal Neuralgia?
-* Can we investigate the underlying genetic factors that influence the chance of having Trigeminal Neuralgia?
+* Can we investigate the underlying genetic factors that influence the chance of having Trigeminal Neuralgia? Finding patterns in genetic data in patients with or without Trigeminal Neuralgia is an area of research with huge potential. 
 * What exactly causes the subtle difference between continuous, long-lasting pain and a sharp one? 
 
 Given our current knowledge of the condition, I believe that ultimately it is beneficial to look at the location of where the Trigeminal Nerve is being influenced by surrounding arteries/tumours as well as the nerve structure. An improved understanding of nervous system function will also improve our understanding of the disease. Hopefully in the future there is some large-scale clinical trial that will help elucidate its exact origins and pathophysiology.
