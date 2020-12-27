@@ -3,7 +3,7 @@ title: Trigeminal Neuralgia - A Personal Review
 layout: post
 ---
 
-This is a summary and review of the paper published by Giorgio Curccu, Giulia Di Stefano and Andrew Truini titled *"Trigeminal Neuralgia"* in the New England Journal of Medicine. 
+This is a summary and review of the paper published by Giorgio Curccu, Giulia Di Stefano and Andrew Truini titled *"Trigeminal Neuralgia"* in the New England Journal of Medicine. This disease is fascinating in every sense of the word. 
 
 *Broadly*: Trigeminal neuralgia is an extremely painful condition that afflicts the nervous system, in particular the trigeminal nerve - any form of facial stimulation can cause pain analogous to that of "electric sensation".
 
