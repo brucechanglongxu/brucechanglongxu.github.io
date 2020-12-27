@@ -7,7 +7,18 @@ This is a summary and review of the paper published by Giorgio Curccu, Giulia Di
 
 *Broadly*: Trigeminal neuralgia is an extremely painful condition that afflicts the nervous system, in particular the trigeminal nerve - any form of facial stimulation can cause pain analogous to that of "electric sensation".
 
+*Function of Trigeminal Nerve:* 
+* Largest of the twelve cranial nerves which supplies sensation to the face, mucous membranes and various other regions in the head.
+* Serves a secondary function as a motor nerve for chewing as well as hosting proprioceptive fibers.
+
 *Clinical Criteria*: 
 * Pain restricted to territory of the trigeminal nerve(s)
 * Paroxysm of pain typically lasts for around a few seconds
 * Pain is triggered by slight stimulus to the facial region 
+
+*Causes and Pathophysiology*: 
+*Treatment Options*:
+
+*Further Questions*: 
+* How can we concretely characterize the contribution of Multiple Sclerosis to the probability of attaining Trigeminal Neuralgia?
+* 
