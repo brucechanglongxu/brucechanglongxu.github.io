@@ -7,7 +7,7 @@ title: Blog Post and New Year's Resolutions
 
 *New Year's Resolutions*: 
 * Finish your marathon / triathlon training block
-  * Endurance sport is the love of your life.
+  * Endurance sport is the love of your life, the feeling of pushing your limits and growing as an athlete is one of the most satisfying in the world
 * Drink a bottle of water every single day, carefully monitor your diet and limit yourself to fresh produce / high energy, nutrient foods
   * We only have one body, take care of it well.
 * Limit your time on the phone to 30 minutes per day
