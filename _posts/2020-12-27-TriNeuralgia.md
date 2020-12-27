@@ -18,6 +18,7 @@ This is a summary and review of the paper published by Giorgio Curccu, Giulia Di
 
 *Causes and Pathophysiology*: 
 *Treatment Options*:
+* Microvascular Decompression: Trigeminal 
 
 *Further Questions*: 
 * How can we concretely characterize the contribution of Multiple Sclerosis to the probability of attaining Trigeminal Neuralgia?
