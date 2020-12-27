@@ -10,7 +10,7 @@ title: Blog Post and New Year's Resolutions
 * Drink a bottle of water every single day, carefully monitor your diet and limit yourself to fresh produce / high energy, nutrient foods
 * Limit your time on the phone to 30 minutes per day
 * Write on this blog and make progress on manuscripts daily for at least one hour to work towards publication
-* Read and Reflect on one cutting-edge paper in Mathematics / EECS / Physics / Medicine & Chemistry & Biology per week
+* Read and Reflect on one cutting-edge paper in each of the fields of Mathematics, EECS, Physics, Medicine and Chemistry / Biology per week
 * Learn and implement one new algorithm / technology every evening 
 * Meet two new people in various industries or fields every month, and offer something of value to them
 * Practice the violin (or piano) for at least one hour per day
