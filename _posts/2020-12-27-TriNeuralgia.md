@@ -17,8 +17,10 @@ This is a summary and review of the paper published by Giorgio Curccu, Giulia Di
 * Pain is triggered by slight stimulus to the facial region 
 
 *Causes and Pathophysiology*: 
+Ultimately the disease is caused by the compression of the "sensory portion of the trigeminal nerve" close to the root entry zone to the extent that the nerve distorts or atrophies (dislocation, distortion, flattening etc.). 
 * The Presence of a Tumour
 * Multiple Sclerosis
+* Potential Genetic Origin
 
 *Treatment Options*:
 * Microvascular Decompression: Trigeminal 
