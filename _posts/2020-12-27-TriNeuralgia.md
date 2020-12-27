@@ -16,7 +16,7 @@ This is a summary and review of the paper published by Giorgio Curccu, Giulia Di
 * Paroxysm of pain typically lasts for around a few seconds
 * Pain is triggered by slight stimulus to the facial region 
 
-TN is classified into two categories: Type I and Type II. 
+TN is classified into two categories: Type I and Type II depending on whether the pain felt is sharp or continuous. 
 
 *Causes and Pathophysiology*: 
 Ultimately the disease is caused by the compression of the "sensory portion of the trigeminal nerve" close to the root entry zone to the extent that the nerve distorts or atrophies (dislocation, distortion, flattening etc.). 
@@ -25,9 +25,12 @@ Ultimately the disease is caused by the compression of the "sensory portion of t
 * Potential Genetic Origin
 
 *Treatment Options*:
-* Microvascular Decompression: Trigeminal 
-* Gamma Knife 
-* Radiosurgery
+* First Line
+  * Carbamazepine is a sodium channel blocker that prevents repetitive and sustained action potential firing. 
+* Microvascular Decompression
+  * Gold standard for surgical treatment with demonstrated lasting effects. 
+* Rhyzotomy 
+  * Destruction of the nerve fibers that are responsible for the feelings of pain
 
 *Further Questions*: 
 * How can we concretely characterize the contribution of Multiple Sclerosis to the probability of attaining Trigeminal Neuralgia?
