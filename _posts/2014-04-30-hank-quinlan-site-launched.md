@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hank Quinlan, Horrible Cop, Launches Site"
+title: "Bruce Changlong Xu, launches website"
 date: 2014-04-30
 ---
 
