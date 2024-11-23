@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/about">About</a></li>
-	        		<li><a href="/cv">CV</a></li>
-	        		<li><a href="/blog">Blog</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			{{ content }}
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-	        		<li><a href="mailto:brucechanglongxu@cs.stanford.edu">email</a></li>
-	        		<li><a href="https://github.com/brucechanglongxu">github.com/brucechanglongxu</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+<html>
+<head>
+    <title>{{ page.title }}</title>
+    <!-- Link to main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <!-- MathJax for rendering LaTeX -->
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            },
+            options: {
+                skipHtmlTags: ['noscript', 'style', 'textarea', 'pre'],
+            },
+        };
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/cv">CV</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        {{ content }}
+    </div><!-- /.container -->
+    <footer>
+        <ul>
+            <li><a href="mailto:brucechanglongxu@cs.stanford.edu">email</a></li>
+            <li><a href="https://github.com/brucechanglongxu">github.com/brucechanglongxu</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
