@@ -6,6 +6,8 @@ categories: Intrepretability
 author: Bruce Changlong Xu
 ---
 
+Brainstorming with Dr. Park from the Stanford SMI lab has prompted me to think deeper about what it really means for the AI models that we are deploying to **learn** and **understand** the world around them. 
+
 In the growing field of machine learning, interpretability has become as important as accuracy. Understanding **why** a model makes a particular prediction helps build trust, identify biases, and debug issues. Among the most popular tools for explaining machine learning models are **SHAP (Shapley Additive Explanations)** and **LIME (Local Intpretabile Model-Agnostic Explanations)**. Whilst both are used widely, their methodologies, strengths and weaknesses differ. 
 
 LIME works primarily but creating a local surrogate model - a simplified, interpretable model trained on perturbations of the input data. This surrogate model mimics the predictions of the original black-box model in the local neighborhood of a specific prediction. It works at a high level as follows:
@@ -43,4 +45,4 @@ While spatial permutation offers unique advantages, it does not have to replace 
 
 Implementing spatial feature permutation comes with its own set of challenges. The computational cost of systematically permuting features in high-resolution images can be significant. Moreover, the results of spatial permutation are highly context-dependent, requiring careful tuning to align with the model’s objectives. For SMI-SAMNet, this means tailoring the permutation strategy to different tasks, such as anatomical segmentation or surgical tool identification.
 
-Spatial feature permutation represents an exciting frontier in model interpretability, offering a more nuanced way to analyze models that depend on spatial and structural relationships. For models like SMI-SAMNet, this approach can reveal critical insights into how spatial dependencies influence predictions, bridging the gap between traditional interpretability tools and the unique demands of segmentation and image analysis. By combining spatial permutation with established methods like SHAP and LIME, we can achieve a deeper, more holistic understanding of complex machine learning models.
+Spatial feature permutation represents an exciting frontier in model interpretability, offering a more nuanced way to analyze models that depend on spatial and structural relationships. For models like SMI-SAMNet, this approach can reveal critical insights into how spatial dependencies influence predictions, bridging the gap between traditional interpretability tools and the unique demands of segmentation and image analysis. By combining spatial permutation with established methods like SHAP and LIME, we can achieve a deeper, more holistic understanding of complex machine learning models (*).
