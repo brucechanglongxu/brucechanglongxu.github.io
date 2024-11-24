@@ -14,4 +14,12 @@ The next order of business is to **install all dependencies** and **setting up a
 
 **Preprocessing data:** Typically there is a "preprocess.py" script that is used to preprocess the data that we need to feed into our model. We need to feed in the current arguments to this script to generate the desired preprocessed data files. Now our training file "train.py" must also take in the correct arguments to successfully run. If we receive an error like follows "RuntimeError: CUDA error: invalid device ordinal" this means that there is an error with the GPU device indices, and so we should check our GPU resource constraints with "nvidia-smi" to confirm that (e.g. only one GPU is available, GPU device 0). We can then set the environment variable directly from the terminal to specify the correct GPU "export CUDA_VISIBLE_DEVICES=0" and update the training command to use only one GPU "python train.py --world_size 1 --gpus 1 [other arguments...]". 
 
+Some example of errors that we could potentially run into are "cublas runtime error" which tells us that there is an error during GPU operations during tensor multiplication. To solve this we could:
+
+- Check tensor shapes before the operation to ensure they were compatible.
+- Verify that tensors did not contain NaNs or Infs
+- Reduce the batch size to alleviate potential memory issues
+- Ensure that PyTorch and CUDA versions are compatible
+- Attempt to use mixed-precision training and update model initialization to prevent numerical instability 
+
 
