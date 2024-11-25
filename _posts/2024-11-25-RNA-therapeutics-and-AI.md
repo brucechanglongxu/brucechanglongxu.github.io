@@ -36,6 +36,12 @@ The synergy between RNA therapeutics and AI represents a new era in medicine—o
 
 As researchers continue to unravel the mysteries of RNA and harness the power of AI, the dream of curing CVD—and perhaps many other complex diseases—moves closer to reality. The future is bright, and it speaks the language of RNA and algorithms. 
 
+The most high-impact question that we could answer in the field with these tools is the following (that I could think of): 
+
+**"How can RNA-based therapies be designed and optimized to reverse cardiac fibrosis and restore myocardial function in heart failure patients, using accessible datasets to identify and target key molecular drivers of fibrosis?"**
+
+Cardiac fibrosis is a central, unresolved issue in heart failure, contributing to impaired cardiac function and progression to end-stage disease. Existing antifibrotic therapies are limited and often non-specific, creating an urgent need for precise molecular interventions. Targeting fibrosis-related pathways (e.g. TGF-B signaling, collagen production) using RNA-based therapies like siRNA, antisense oligonucleotides (ASOs) or mRNAs is emerging as a promising approach. There are publicly available datasets (e.g. GEO, GTEx, and dbGaP) which include transcriptomics from heart failure patients and cardiac fibroblasts. Tools like *Reactome, KEGG, STRING* provide data on fibrosis-related genes and pathways, and ample studies provide insights into fibrosis dynamics in animal models, which offers us benchmarks for validating RNA therapeutics. 
+
 **References** 
 
 - "Current RNA strategies in treating cardiovascular diseases", **Molecular Therapy**, Shirley Pei Shan Chia, Jeremy Kah Sheng Pang, Boon-Seng Soh, 2024
