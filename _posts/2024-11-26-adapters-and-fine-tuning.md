@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Adapters, LoRA and Fine-tuning"
+date: 2024-11-25
+categories: RNA Therapy
+author: Bruce Changlong Xu
+---
+
+In recent years, the landscape of artificial intelligence (AI) has been transformed by foundation models capable of tackling complex, domain-specific tasks. While these models—such as GPT-4 in natural language processing or Evo in genomics—are powerful, they often require customization to perform optimally in niche applications. This is where adapters and other fine-tuning techniques come into play, offering efficient, scalable ways to tailor these models without the computational burden of retraining from scratch. This blog post explores the concepts of adapters and fine-tuning methods, using Evo, a genomic foundation model, as a concrete example to illustrate their application in advancing cardiovascular disease (CVD) research.
+
+Fine-tuning is the process of adapting a pre-trained model to a specific task or dataset. While fine-tuning is widely used, traditional approaches often involve updating all the parameters of a model. For large models like Evo, which has 7 billion parameters, this can be computationally expensive and time-consuming. Moreover, fine-tuning on a new domain risks **catastrophic forgetting**, where the model loses knowledge of its original training data.
+
+- Full fine-tuning on all parameters requires immense computational power
+- Risks overfitting, especially on small domain-specific datasets
+
+In this blog post we will discuss several more efficient ways of fine-tuning that enable adaptation of large models without retraining them entirely from scratch. The first is that of **adapters**. 
+
+*Adapters* are lightweight neural network modules inserted between the layers of a pretrained model. Instead of updating all the model's parameters, adapters learn task-specific transformations while keeping the core model frozen. Each adapter layer consists of a down-projection (reducing dimensionality), a non-linear transformation, and an up-projection (back to the original dimensionality). During training, only the adapter layers are updated, whilst the rest of the model remains unchanged. 
