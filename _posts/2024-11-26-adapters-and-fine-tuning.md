@@ -32,3 +32,5 @@ from loralib import lora
 model = lora.apply_lora(model, rank=8)
 optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 ```
+
+In the scenario of fine-tuning Evo for cardiovascular disease, we could first define the tasks that we would like to focus on e.g. predicting RNA stability for sequences involved in angiogenesis (e.g. VEGF), generating siRNA sequences to silence fibrosis-related genes (e.g. TGF-B), and subsequenty choose which fine-tuning technique to use. We then incorporate domain-specific datasets (e.g. RNA sequences from CVD patients) and train with lightweight fine-tuning techniques to minimize computational costs. 
