@@ -33,3 +33,14 @@ optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 ```
 
 In the scenario of fine-tuning Evo for cardiovascular disease, we could first define the tasks that we would like to focus on e.g. predicting RNA stability for sequences involved in angiogenesis (e.g. VEGF), generating siRNA sequences to silence fibrosis-related genes (e.g. TGF-B), and subsequenty choose which fine-tuning technique to use. We then incorporate domain-specific datasets (e.g. RNA sequences from CVD patients) and train with lightweight fine-tuning techniques to minimize computational costs. 
+
+- We can start off with designing mRNA sequences encoding cardioprotective proteins (e.g. VEGF, FDF2) and validate their therapeutic effects in vitro and in vivo. 
+- We can develop siRNA or antisense oligonucleotides targeting fibrosis-related genes and test their efficacy in reducing fibrotic markers. 
+
+**Case Study 1: mRNA Design for Cardioprotective Proteins** 
+
+We can try to design mRNAs encoding cardioprotective proteins (e.g. NRG-1 for myocardial repair) to prevent chemotherapy induced cardiomyopathy. We can develop siRNA/ASOs to modulate inflammatory pathways linked to cardiovascualr toxicity (e.g. IL-6, TNF-a). We can also create RNA aptamers to neutralize circulating pro-inflammatory cytokines without systemic immune suppression. 
+
+- Can RNA-based therapies enhance cardioprotection without reducing cancer treatment efficacy? 
+- How can Evo-designed RNA sequences target biomarkers predicting cardiotoxicity (e.g. troponins, natriuretic peptides)? 
+- Can Evo optimize RNA designs for patient-specific genetic risk factors (e.g. polymorphisms in SOD2 or RARG)? 
