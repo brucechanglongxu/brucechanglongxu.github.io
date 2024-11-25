@@ -29,6 +29,8 @@ Evo also evaluates how sequence-level mutations influence biological function, f
 
 1. **Dataset Curation**: We are aiming to curate high quality CVD-specific datasets from GEO, GTEx, and other repositories, where we focus on high-confidence, experimentally validated sequences rather than excessively large datasets (coding regions of key CVD genes, miRNA/mRNA pairs, lncRNAs). We do not need large scale retraining as using Evo's base model as a pretrained foundation allows us to capture genomic-scale patterns. 
 2. **Optimize Tokens**: We can use Evo's single-nucleotide tokenizer to preprocess sequences to remove redundancies (e.g. repetitive elements or low-complexity regions) to reduce computational overhead. 
+3. **Intelligent Fine-tuning:** We do not need to retrain Evo entirely (this would be very inefficient), and instead we can fine-tune its embeddings or add lightweight layers (e.g. adapters) for mutatione ffect predictions (e.g. SNPs in CVD-related genes), RNA secondary structure stability prediction, and therapeutic RNA generation (mRNA, siRNA, aptamers). We can use methods like LoRA (low-rank adaptation) or prompt tuning to adjust a subset of Evo's parameters and drastically reduce compute costs; we can also freeze the lower layers of Evo that capture general genomic knowledge and fine-tuning only the higher layers for CVD-specific patterns. 
+4. **Incremental Training:** We can start with shorter sequences (e.g. specific RNA regions or UTRs) before scaling to longer genomic contexts, and fine-tune for one task (e.g. mRNA design) before expanding to additional tasks (e.g. RNA-protein interactions). 
 
 The synergy between RNA therapeutics and AI represents a new era in medicine—one where we can decode the molecular language of life and intervene with unprecedented precision. In the fight against cardiovascular disease, this partnership holds the promise of transforming care from reactive to proactive, enabling early detection, targeted interventions, and even disease prevention.
 
@@ -38,3 +40,4 @@ As researchers continue to unravel the mysteries of RNA and harness the power of
 
 - "Current RNA strategies in treating cardiovascular diseases", **Molecular Therapy**, Shirley Pei Shan Chia, Jeremy Kah Sheng Pang, Boon-Seng Soh, 2024
 - "Sequence Modeling and Design from Molecular to Genome Scale with Evo", **Generative Genomics**, Eric Nguyen et. al, 2024
+- "RNA secondary structure prediction using deep learning with thermodynamic regulation", **Nature Communications**, Kengo Sato et. al, 2021 (RNAfold) 
