@@ -31,4 +31,5 @@ As researchers continue to unravel the mysteries of RNA and harness the power of
 
 **References** 
 
-- "Current RNA strategies in treating cardiovascular diseases", __cellpress__ 
+- "Current RNA strategies in treating cardiovascular diseases", **Molecular Therapy**, Shirley Pei Shan Chia, Jeremy Kah Sheng Pang, Boon-Seng Soh, 2024
+- 
