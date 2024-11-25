@@ -26,7 +26,6 @@ LoRA is a technique that adds low-rank decomposition matrices to a model's layer
 LoRA is highly efficient, even for extremely large models, and the base model remains intact, which simplifies deployment. We can use LoRA to fine-tune Evo for predicting secondary RNA structures whilst retaining its ability to model other genomic tasks. 
 
 ```
-# Example code snippet for LoRA
 from loralib import lora
 
 model = lora.apply_lora(model, rank=8)
