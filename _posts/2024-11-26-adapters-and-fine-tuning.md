@@ -2,7 +2,7 @@
 layout: post
 title: "Adapters, LoRA and Fine-tuning"
 date: 2024-11-26
-categories: RNA Therapy
+categories: AI
 author: Bruce Changlong Xu
 ---
 
