@@ -48,8 +48,14 @@ While vectors capture linear relationships, tensors generalize to higher dimensi
 
 This approach is particularly powerful in tasks like knowledge graph completion or image-text interactions, where each mode (e.g., text, image, metadata) contributes uniquely to the whole.
 
+Right now it seems that *tensor embedding space representations are particularly suited for multi-modality* whereas we can use *graph neural networks for scalability*. A tensor is a multi-dimensional generaliaiton of scalars, vectors, and matrices, where a tensor of order $n$ has $n$ dimensions, also known as modes. For example, a 3rd order tensor might represent:
+- **Images**: Width $\times$ Height $\times$ Channels
+- **Words**: Word $\times$ Context $\times$ Part-of-Speech
+- **Joint Modalities**: Image $\times$ Text $\times$ Temporal Interaction
+CLIP embeds images and text into a **shared vector space** trained to align these modalities via contrastive loss. Whilst effective, this approach treats the modalities independently before mapping them to the shared space. Tensors provide a richer structure to jointly model these modalities and their interactions. 
+
 As machine learning evolves, so too must our tools for representing relationships. Moving beyond vector spaces isn’t just an intellectual exercise—it’s a necessity for tackling the complexity of real-world data. Whether it’s manifolds for curvature, tensors for multi-modal composition, or category theory for abstract structure, these frameworks promise richer, more faithful embeddings.
 
-So, the next time you train a model, ask yourself: What space does your data truly belong to? The answer may lie in the annals of pure mathematics, waiting to unlock a new era of machine intelligence.
 
-If this vision excites you, stay tuned as we dive deeper into these advanced frameworks in future posts. Together, lets push the boundaries of how we represent and understand the world through embeddings.
+
+So, the next time you train a model, ask yourself: What space does your data truly belong to? The answer may lie in the annals of pure mathematics, waiting to unlock a new era of machine intelligence. If this vision excites you, stay tuned as we dive deeper into these advanced frameworks in future posts. Together, lets push the boundaries of how we represent and understand the world through embeddings.
