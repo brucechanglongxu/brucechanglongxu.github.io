@@ -1,2 +1,6 @@
+# _config.yml
+markdown: kramdown
+kramdown:
+  input: GFM
 
 

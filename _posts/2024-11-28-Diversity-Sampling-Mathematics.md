@@ -12,4 +12,4 @@ Imagine training a model to detect objects in videos: instead of labeling thousa
 
 The key here is to **define what diversity means**. Quantifying diversity is inherently complex and often domain-specific and establishing appropriate diversity metrics that align with the specific requirements of a given application is crucial for the success of these tehcniques. 
 
-`\frac{1}{N}`
+$$\frac{1}{N}$$
