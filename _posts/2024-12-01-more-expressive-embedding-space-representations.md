@@ -32,6 +32,16 @@ Hyperbolic spaces, with their constant negative curvature, are tailor-made for h
 
 Poincare embeddings are a practical example, already used in NLP and knowledge graph research. They excel at encoding hierarchical relationships with minimal distortion. Imagine mapping "Kingdom" into a hyperbolic space where each component is a branch, maintaining semantic closeness yet capturing the exponential growth of complexity.
 
+**Category Theory: Composing Relationships Abstractly**
+
+What if "Kingdom" is more than just a sum? What if it’s a composition of relationships, where "Land" connects to "Castle," which in turn interacts with "Villages"? Category theory provides a language for such abstractions. Here, objects (like "Castle") and morphisms (relationships) form a network, and the "Kingdom" emerges as the colimit—the most comprehensive composition.
+
+While deeply rooted in pure mathematics, category theory is beginning to influence machine learning, offering a framework for representing abstract compositions in tasks like reasoning and symbolic AI.
+
+**Sheaf Theory: Local-Global Interplay** 
+
+A kingdom isn’t just a collection of parts—it’s an integrated whole. Sheaf theory formalizes this idea, representing local data (e.g., "Castle" or "Forests") and how they interact to create a global entity ("Kingdom"). Sheaves excel at modeling distributed, interdependent systems, making them a natural fit for embeddings that need to balance local and global consistency.
+
 **Tensors: Capturing Multi-Modal Complexity** 
 
 While vectors capture linear relationships, tensors generalize to higher dimensions. A tensor can represent "Kingdom" as a composition of multi-modal interactions: geographical attributes, economic factors, and cultural symbols. Tensor decompositions allow us to disentangle these interactions, identifying latent dimensions like "Royalty" or "Industry" that underpin the concept.
