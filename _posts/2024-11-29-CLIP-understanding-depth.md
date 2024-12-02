@@ -16,5 +16,8 @@ Fine-tuning involves retraining parts (or all) of a pretrained model on a new da
 
 Instead of fine-tuning CLIP2Depth uses **mirror embedding** that serves as an input to CLIP's text encoder bypassing the need to retrain the encoder itself. It replaces human-language tokens like "far" or "close" with task-specific, non-human latent representations. These embeddings are optimized during trainign to adapt the outputs of the frozen text encoder for depth estimation. Both the **image encoder** and **text encoder** remain unchanged during training, and the pretrained joint embedding space is preserved, ensuring that CLIP retains its general-purpose vision-language alignment. Outputs from the text encoder (processed mirror embeddings) are used to modulate image embeddings through **FiLM** layers. This dynamically adjusts the image features for depth estimation without altering the underlying vision model. Whilst the image and text encoders are frozen, *the mirror embeddings and decoders are trainable in this "fine tuning" phase*. 
 
-**FiLM Layers** 
+**Decoder Parameters:** The decoder is a lightweight module that translates the modulated image features into pixel-wise depth predictions; it includes components like deconvolutional layers and FiLM locks that integrate the outputs of the image and text encoders. While this and the mirror emebddings are updated during training, the **core CLIP model** remains *frozen* which means that the pre-trained vision-language alignment learned by CLIP is preserved, the *image encoder* continues to extract general-purpose visual features, the *text encoder* processes the mirror embeddings without any changes to its weights.  
+
+
+
 
