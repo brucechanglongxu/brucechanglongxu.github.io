@@ -18,6 +18,8 @@ Instead of fine-tuning CLIP2Depth uses **mirror embedding** that serves as an in
 
 **Decoder Parameters:** The decoder is a lightweight module that translates the modulated image features into pixel-wise depth predictions; it includes components like deconvolutional layers and FiLM locks that integrate the outputs of the image and text encoders. While this and the mirror emebddings are updated during training, the **core CLIP model** remains *frozen* which means that the pre-trained vision-language alignment learned by CLIP is preserved, the *image encoder* continues to extract general-purpose visual features, the *text encoder* processes the mirror embeddings without any changes to its weights.  
 
+Let's look at mirror embeddings. The **mirror embedding matrix** is initialized to a static set of randomized vectors $$M \in \mathbb{R}^{s \times d}$$, where $$s$$ is the number of trainable latent tokens (MIRROR embeddings), and $$d$$ is the embedding dimension (typically $$512$$ for CLIP's text encoder). Initially, $$M$$ is initialized with random values, often sampled from a Gaussian distribution $$M_{ij} \sim \mathcal{N}(0, \sigma^2)$$, where $$\sigma$$ is a small constant (e.g. $$\sigma = 0.02$$). 
+
 
 
 
