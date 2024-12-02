@@ -16,3 +16,23 @@ CLIP is typically trained on a *massive dataset of image-text pairs* collected f
 
 - **Input Preparation**: We feed the image into an image encoder to produce an embedding vector $$v_i$$, and a text description corresponding to the image is tokenized and fed into the text encoder to produce an embedding vector $$v_t$$. 
 - **Contrastive Loss**: CLIP uses a *contrastive loss function* to train the model, which ensures that the embedding vectors $$v_i$$ and $$v_t$$ for a matching image-text pair have a high similarity, and non-matching pairs are less similar. 
+
+If we consider a batch of $$N$$ image-text pairs, for each pair $$(i, t)$$ the cosine similarity $$s(i, t)$$ is computed between all image and text embeddings in the batch:
+
+$$s(i, t) = \frac{v_i \cdot v_t}{||v_i||||v_t||}$$
+
+The model then computes two distributions:
+
+1. Image-to-Text Similarity:
+
+$$p_{i \to t} = \frac{\exp{s(i, t)}}{\sum_{k = 1}^N \exp{s(i, t_k)}}$$
+
+2. Text-to-Image Similarity:
+
+$$p_{t \to i} = \frac{\exp{s(i, t)}}{\sum_{k = 1}^N \exp{s(i_k, t)}}$$
+
+The contrastive loss for each batch is the average of two cross-entropy losses:
+
+$$\mathcal{L} = -\frac{1}{2N} \sum_{i = 1}^N [\log p_{i \to t} + \log p_{t \to i}]$$
+
+The loss maximizes the similarity $$s(i, t)$$ for correct pairs, and minimizes the similarity $$s(i, t')$$ for mismatched pairs. The model then backpropagates the loss and updates the parameters of both the image encoder and text encoder using a gradient descent algorithm like Adam. The process repeats over many batches until the model converges. 
