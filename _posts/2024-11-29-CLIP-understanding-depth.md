@@ -20,6 +20,8 @@ Instead of fine-tuning CLIP2Depth uses **mirror embedding** that serves as an in
 
 Let's look at mirror embeddings. The **mirror embedding matrix** is initialized to a static set of randomized vectors $$M \in \mathbb{R}^{s \times d}$$, where $$s$$ is the number of trainable latent tokens (MIRROR embeddings), and $$d$$ is the embedding dimension (typically $$512$$ for CLIP's text encoder). Initially, $$M$$ is initialized with random values, often sampled from a Gaussian distribution $$M_{ij} \sim \mathcal{N}(0, \sigma^2)$$, where $$\sigma$$ is a small constant (e.g. $$\sigma = 0.02$$). 
 
+1. **Pretraining CLIP:** Before adapting it for depth estimation, the CLIP base model is pretrained on a massive dataset of image-text pairs, during this pretraining, CLIP learns to align images and text in a shared embedding space using a contrastive loss. Here, CLIP becomes a general-purpose vision-language model capable of understanding diverse visual and textual concepts, performing tasks like image-text retrieval or zero-shot classification.  
+
 
 
 
