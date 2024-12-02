@@ -14,4 +14,5 @@ CLIP is a model trained to match **images with text descriptions** by learning a
 
 CLIP is typically trained on a *massive dataset of image-text pairs* collected from the web, which enables it to generalize well to many tasks. The training process is as follows:
 
-- **Input Preparation**: We feed the image into an image encoder to produce an embedding vector $$v_i$$ 
+- **Input Preparation**: We feed the image into an image encoder to produce an embedding vector $$v_i$$, and a text description corresponding to the image is tokenized and fed into the text encoder to produce an embedding vector $$v_t$$. 
+- **Contrastive Loss**: CLIP uses a *contrastive loss function* to train the model, which ensures that the embedding vectors $$v_i$$ and $$v_t$$ for a matching image-text pair have a high similarity, and non-matching pairs are less similar. 
