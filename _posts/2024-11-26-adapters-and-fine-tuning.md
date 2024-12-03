@@ -15,7 +15,7 @@ Fine-tuning is the process of adapting a pre-trained model to a specific task or
 
 In this blog post we will discuss several more efficient ways of fine-tuning that enable adaptation of large models without retraining them entirely from scratch. The first is that of **adapters**. 
 
-1. **Adapters**
+- **Adapters**
 
 *Adapters* are lightweight neural network modules inserted between the layers of a pretrained model. Instead of updating all the model's parameters, adapters learn task-specific transformations while keeping the core model frozen. Each adapter layer consists of a down-projection (reducing dimensionality), a non-linear transformation, and an up-projection (back to the original dimensionality). During training, only the adapter layers are updated, whilst the rest of the model remains unchanged. 
 
@@ -23,7 +23,7 @@ Adapters are typically added *between layers* or *inside layers* of a pre-traine
 $$\mathcal{AO} = x + W_{up}\sigma(W_{down}x)$$
 where $$W_{down}$$ (a small projection matrix that reduces dimensions), $$W_{up}$$ (a small expansion matrix that restores dimensions), $$\sigma$$ (activation function e.g. ReLU) and $$x$$ (original input to the adapter. The original model's parameters remain frozen, meaning they do not change during training. Only the parameters of the adapter are updated, drastically reducing the number of trainable parameters. For each downstream task, a separate adapter is trained and inserted into the model. The base model remains shared across tasks, and task-specific knowledge is encoded in the adapter. 
 
-2. **LoRA (Low-Rank Adaptation)**
+- **LoRA (Low-Rank Adaptation)**
 
 LoRA is a technique that adds low-rank decomposition matrices to a model's layers, and introduces additional learnable parameters whilst keeping the original model frozen. It works by inserting low-rank matrices into the linear layers of a model, and the rank of these amtrices is much smaller than the dimensionality of the model's layers, reducing computational and memory overhead. 
 
