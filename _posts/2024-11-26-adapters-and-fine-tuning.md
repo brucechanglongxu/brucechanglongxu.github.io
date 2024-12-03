@@ -19,7 +19,9 @@ In this blog post we will discuss several more efficient ways of fine-tuning tha
 
 *Adapters* are lightweight neural network modules inserted between the layers of a pretrained model. Instead of updating all the model's parameters, adapters learn task-specific transformations while keeping the core model frozen. Each adapter layer consists of a down-projection (reducing dimensionality), a non-linear transformation, and an up-projection (back to the original dimensionality). During training, only the adapter layers are updated, whilst the rest of the model remains unchanged. 
 
-
+Adapters are typically added *between layers* or *inside layers* of a pre-trained model, where each adapter consists of **down-projection** (reduces the dimensionality of the input features), **non-linearity** (applies an activation function for expressiveness) and **up-projection** (maps the reduced features back to the original feature space). Mathematically, this can be expressed as:
+$$\mathcal{AO} = x + W_{up}\sigma(W_{down}x)$$
+where $$W_{down}$$ (a small projection matrix that reduces dimensions), $$W_{up}$$ (a small expansion matrix that restores dimensions), $$\sigma$$ (activation function e.g. ReLU) and $$x$$ (original input to the adapter. The original model's parameters remain frozen, meaning they do not change during training. Only the parameters of the adapter are updated, drastically reducing the number of trainable parameters. For each downstream task, a separate adapter is trained and inserted into the model. The base model remains shared across tasks, and task-specific knowledge is encoded in the adapter. 
 
 2. **LoRA (Low-Rank Adaptation)**
 
