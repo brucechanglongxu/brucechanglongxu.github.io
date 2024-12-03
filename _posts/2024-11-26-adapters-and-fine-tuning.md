@@ -32,6 +32,16 @@ model = lora.apply_lora(model, rank=8)
 optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 ```
 
+Let $$W$$ represent a pre-trained weight matrix in the model, instead of updating $$W$$ directly during fine-tuning, LoRA adds a low-rank adaptation:
+$$W' = W + \Delta W$$ 
+where $$\Delta W = A \times B$$ and
+
+- $$A \in \mathbb{R}^{d \times r}$$, a small trainable matrix
+- $$B \in \mathbb{R}^{r \times d}$$, another small, trainable matrix
+- $$r$$ is the rank, a hyperparameter that controls the trade-off between memory savings and adaptation capacity
+
+The original weight matrix $$W$$ is **frozen**, meaning it does not change during fine-tuning. Only the low-rank parameters $$A$$ and $$B$$ are trained, significantly reducing the number of updated parameters. The advantages of this approach is that LoRA drastically reduces the number of trainable parameters. For a large model, this can be orders of magnitude smaller than full fine-tuning. Instead of saving a new version of the entire model for each task, you only store the low-rank matrices $$A$$ and $$B$. LoRA allows a single pre-trained model to adapt to many tasks efficiently by simply swapping out the low-rank matrices. Despite the parameter savings, LoRA often achieves nearly state-of-the-art performance compared to full fine-tuning. 
+
 In the scenario of fine-tuning Evo for cardiovascular disease, we could first define the tasks that we would like to focus on e.g. predicting RNA stability for sequences involved in angiogenesis (e.g. VEGF), generating siRNA sequences to silence fibrosis-related genes (e.g. TGF-B), and subsequenty choose which fine-tuning technique to use. We then incorporate domain-specific datasets (e.g. RNA sequences from CVD patients) and train with lightweight fine-tuning techniques to minimize computational costs. 
 
 - We can start off with designing mRNA sequences encoding cardioprotective proteins (e.g. VEGF, FDF2) and validate their therapeutic effects in vitro and in vivo. 
