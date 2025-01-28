@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Beyond Vector Spaces: Discovering Richer Embedding Representations for Complex Relationships"
+title: "Beyond Vector Spaces: Richer Embedding Representations"
 date: 2024-12-01
 categories: AI
 author: Bruce Changlong Xu
