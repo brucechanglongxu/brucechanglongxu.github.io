@@ -16,10 +16,16 @@ With these techniques, DeepSeekMoE achieves comparable performance to larger mod
 
 Assume that an MoE model with $$E$$ experts, we let each expert $$e \in \{1, 2, \cdots, E\}$$ consist of parameters $$\theta_e$$. In Fine-Grained Expert Segmentation, each expert is divided into $k$ smaller components: 
 $$\theta_e = \{\theta_{e, 1}, \theta_{e, 2}, \cdots, \theta_{e, k}\}$$
-where the $$(e,i)$$ represents the $$i$$-th segment of the $$e$$-th expert. A gating mechanism is used to dynamically activate specific segments based on the input $$\mathcal{A}(x) = \textbf{Top-K}(\textbf{softmax}(W_gx))$$ where $$W_g$$ is the gating network and $$\textbf{Top-K}$$ selects the most relevant components for the task. Segments learn _different parts of the input space_ with careful optimization to minimize overlap. This reduces parameter overlap across experts. 
+where the $$(e,i)$$ represents the $$i$$-th segment of the $$e$$-th expert. A gating mechanism is used to dynamically activate specific segments based on the input 
+
+$$\mathcal{A}(x) = \textbf{Top-K}(\textbf{softmax}(W_gx))$$ 
+
+where $$W_g$$ is the gating network and $$\textbf{Top-K}$$ selects the most relevant components for the task. Segments learn _different parts of the input space_ with careful optimization to minimize overlap. This reduces parameter overlap across experts. 
 
 For shared knowledge, we separate shared and specialized knowledge as follows:
+
 $$f(x) = \alpha \cdot f_s(x) + \beta \cdot f_d(x)$$ 
+
 where $$f_s(x)$$ are shared experts for common knowledge, and $$f_d(x)$$ are domain-specific experts and $$\alpha, \beta$$ are learnable weights. Shared experts are trained using a generalized objective $$\mathcal{L}_s = \mathbb{E}_{(x,y)\sim \mathcal{D}} l(f_s(x), y)$$ ensuring robustness across multiple tasks; and specific expert knowledge are trained using a domain-specific loss $$\mathcal{L}_d = \mathbb{E}_{(x, y) \sim \mathcal{D}_d} l(f_d(x), y)$$. 
 
 DeepSeekMoE leverages sparsity to ensure that only a small subset of experts is active for a given input, drastically reducing computational requirements whilst maintaining high performance. The gating network $$g(x)$$ parameterized by $$W_g$$ determines which experts are active, and in the forward pass the model output is computed using only the selected experts. 
