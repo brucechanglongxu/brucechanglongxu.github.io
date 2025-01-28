@@ -14,7 +14,9 @@ With these techniques, DeepSeekMoE achieves comparable performance to larger mod
 
 **Fine-Grained Expert Segmentation** 
 
-Assume that an MoE model with $E$ experts, we let each expert $e \in \{1, 2, \cdots, E\}$ consist of parameters $\theta_e$.
+Assume that an MoE model with $E$ experts, we let each expert $e \in \{1, 2, \cdots, E\}$ consist of parameters $\theta_e$. In Fine-Grained Expert Segmentation, each expert is divided into $k$ smaller components: 
+$$\theta_e = \{\theta_{e, 1}, \theta_{e, 2}, \cdots, \theta_{e, k}\}$$
+where the $(e,i)$ represents the $i$-th segment of the $e$-th expert. 
 
 更大的模型承诺提供更广泛的知识和更卓越的性能，但这往往伴随着高昂的计算成本。DeepSeekMoE 的出现以大胆的创新颠覆了这一困境，彻底改变了智能的架构本身。多年来，混合专家（Mixture-of-Experts, MoE） 模型一直被誉为一项突破性技术。通过将模型的工作负载分配给多个专业化的专家，MoE 模型在不显著增加计算需求的情况下解锁了更大的容量。但在其承诺之下隐藏着一个关键缺陷：冗余。许多专家的知识范围出现重叠，无法真正实现专业化最大化。更糟糕的是，一些专家的潜力未被充分挖掘，资源被浪费。DeepSeekMoE 敢于提出一个关键问题：我们是否可以真正让专家实现专业化？
 
