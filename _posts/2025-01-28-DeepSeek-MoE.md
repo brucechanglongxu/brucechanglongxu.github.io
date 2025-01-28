@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "DeepDive into DeepSeek MoE: Unlocking Expert Potential"
-date: 2025-01-26
+date: 2025-01-28
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---
@@ -11,6 +11,10 @@ Larger models promise broader knowledge and better performance, but they come at
 At the heart of DeepSeekMoE lies a deceptively simple yet revolutionary concept: **Fine-Grained Expert Segmentation**. Instead of treating experts as monolithic units, DeepSeekMoE divides them into smaller, highly focused components. Each fragment learns a unique slice of knowledge, avoiding overlap and ensuring the model’s full capacity is put to use. Complenting this is **Shared Expert Isolation**, a novel mechanism that dedicates certain experts to capturing common knowledge shared across tasks. This ensures that no resources are wasted relearning what is universal, leaving the other experts free to dive deep into niche areas. The result? A team of specialists working together like a symphony -- each expert perfectly tuned to its role. 
 
 With these techniques, DeepSeekMoE achieves comparable performance to larger models at a fraction of the resources. At 16B parameters, DeepSeekMoE rivals the performance of LLaMA2 7B whilst using just 40 percent of the computational cost. When scaled to 145 billion parameters, it demonstrates remarkable efficiency, matching or outperforming traditional dense models on benchmarks. The story doesn't end with performance metrics -- DeepSeekMoE opens doors that were previously closed; for the first time, a SOTA MoE model can be deployed on a _single GPU with 40GB memory_. It's not just about capacity, it's about how capacity is being used. 
+
+**Fine-Grained Expert Segmentation** 
+
+Assume that an MoE model with $E$ experts, we let each expert $e \in \{1, 2, \cdots, E\}$ consist of parameters $\theta_e$.
 
 更大的模型承诺提供更广泛的知识和更卓越的性能，但这往往伴随着高昂的计算成本。DeepSeekMoE 的出现以大胆的创新颠覆了这一困境，彻底改变了智能的架构本身。多年来，混合专家（Mixture-of-Experts, MoE） 模型一直被誉为一项突破性技术。通过将模型的工作负载分配给多个专业化的专家，MoE 模型在不显著增加计算需求的情况下解锁了更大的容量。但在其承诺之下隐藏着一个关键缺陷：冗余。许多专家的知识范围出现重叠，无法真正实现专业化最大化。更糟糕的是，一些专家的潜力未被充分挖掘，资源被浪费。DeepSeekMoE 敢于提出一个关键问题：我们是否可以真正让专家实现专业化？
 
