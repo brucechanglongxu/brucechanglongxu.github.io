@@ -22,7 +22,7 @@ $$L_{REWARD}(\phi) =  \mathbb{E}_{(x, y^A, y^B) \sim D} \log \sigma(r_{\phi}(x, 
 
 where $$r_{\phi}(x, y)$$ is the reward model parameterized by $$phi$$ and $$\sigma(z) = \frac{1}{1 + e^{-z}}$$ is the sigmoid function. $$D$$ is the dataset of human-labeled comparisons; this loss function ensures that **preferred responses receive higher rewards**. Once the reward model is trained, it guides the policy optimization using RL -- PPO is used as the core RL algorithm due to its stability and efficiency in optimizing large scale models. 
 
-A policy $$\pi_{\theta}(y|x)$$ is optimizezd to maximize the expected rewards:
+A policy $$\pi_{\theta}(y:x)$$ is optimizezd to maximize the expected rewards:
 
 $$J(\theta) = \mathbb{E}_{(x, y) \sim \pi_{\theta}}[r_{\phi}(x, y)]$$
 
