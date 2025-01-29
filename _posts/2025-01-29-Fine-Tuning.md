@@ -16,6 +16,22 @@ LLMs acquire broad knowledge and reasoning abilities through unsupervised pre-tr
 - **Reward Modeling:** A separate model is trained to predict human preference scores based on a dataset of ranked model outputs.
 - **Reinforcement Learning (RL) with PPO:** The model is further fine-tuned to maximize reward whilst staying close to the original model distribution. 
 
+The _reward model_ assigns a scalar reward to a given response, which is then used to fine-tune the policy. Training the reward model involves optimizing over a pairwise ranking loss: 
+
+$$L_{REWARD}(\phi) =  \mathbb{E}_{(x, y^A, y^B) \sim D} \log \sigma(r_{\phi}(x, y^A) - r_{\phi}(x, y^B))$$
+
+where $$r_{\phi}(x, y)$$ is the reward model parameterized by $$phi$$ and $$\sigma(z) = \frac{1}{1 + e^{-z}}$$ is the sigmoid function. $$D$$ is the dataset of human-labeled comparisons; this loss function ensures that **preferred responses receive higher rewards**. Once the reward model is trained, it guides the policy optimization using RL -- PPO is used as the core RL algorithm due to its stability and efficiency in optimizing large scale models. 
+
+A policy $$\pi_{\theta}(y|x)$$ is optimizezd to maximize the expected rewards:
+
+$$J(\theta) = \mathbb{E}_{(x, y) \sim \pi_{\theta}}[r_{\phi}(x, y)]$$
+
+rather than directly optimizing this however, PPO introduces a "clipped surrogate loss" to prevent overly large/destabilizing updates (as mentioned in our previous blog post - see Deep Dive into DeepSeek R1 for explicit loss). Essentially, this new clipped objective ensures that updates to the policy do not drastically alter its behavior. To ensure that the policy does not diverge too far from its pretrained state, an additional KL-divergence penalty is introduced:
+
+$$L_{KL}(\theta) = \beta \mathbb{E}_{(x, y) \sim \pi_{\theta}}[D_{KL}(\theta_{\pi}(y|x) || \pi_0(y | x))]$$
+
+where $$\beta$$ controls the regularization strength. 
+
 Whilst RLHF has produced impressive results in aligning AI behavior, it is computationally expensive, unstable and sensitive to hyperparameters. DPO challenges the necessity of RL in RLHF by introducing a _closed-form optimal policy update_. The core insight is that the RLHF objective (reward maximization with a KL-divergence constraint) can be directly optimized as a simple _binary classification loss_. Instead of training an explicit reward model and optimizing it via RL, DPO reparameterizes the reward function and directly optimizes the model's likelihood of preferred responses relative to dispreferred ones. 
 
 Indeed, DPO implicitly learns the reward funciton within the policy update, removing the need to train and fine-tune a separate reward model. Unlike PPO, which requires sampling and reward estimation at each step, DPO simply modifies the probability ratios of preferred vs. dispreferred responses. By reducing the optimization to a classification problem, DPO avoids the instabilities of RL methods; it is computationally lightweight and requires minimal hyperparameter tuning compared to PPO-based RLHF. Indeed the paper demonstrates that DPO achieves the highest reward at every KL-divergence level, surpassing PPO-based methods, and outperforms PPO in generating high-quality summaries as judged by GPT-4 (whilst requiring less computation). Now, it is a matter of investigating whether DPO can scale to larger LLMs (e.g. GPT-4 scale), multimodal models (e.g. VLMs). 
