@@ -19,10 +19,10 @@ $$
 $$
 
 Here:
-- \( \mathcal{D} \) represents the full dataset.
-- \( \mathcal{S} \) is the selected subset.
-- \( \mathcal{F}(\mathcal{S}) \) is the diversity function measuring the information gain or variability within \( \mathcal{S} \).
-- \( k \) is the budget or maximum size of the subset.
+- $$\( \mathcal{D} \)$$ represents the full dataset.
+- $$\( \mathcal{S} \)$$ is the selected subset.
+- $$\( \mathcal{F}(\mathcal{S}) \)$$ is the diversity function measuring the information gain or variability within $$\( \mathcal{S} \)$$.
+- $$\( k \)$$ is the budget or maximum size of the subset.
 
 Different applications demand different diversity functions. For example:
 - In image datasets, diversity might be measured by pixel-level differences, embeddings in feature space, or even scene variations.
