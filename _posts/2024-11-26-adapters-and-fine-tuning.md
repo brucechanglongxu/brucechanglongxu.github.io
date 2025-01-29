@@ -48,7 +48,7 @@ where $$\Delta W = A \times B$$ and
 
 The original weight matrix $$W$$ is **frozen**, meaning it does not change during fine-tuning. Only the low-rank parameters $$A$$ and $$B$$ are trained, significantly reducing the number of updated parameters. The advantages of this approach is that LoRA drastically reduces the number of trainable parameters. For a large model, this can be orders of magnitude smaller than full fine-tuning. Instead of saving a new version of the entire model for each task, you only store the low-rank matrices $$A$$ and $$B$$. LoRA allows a single pre-trained model to adapt to many tasks efficiently by simply swapping out the low-rank matrices. Despite the parameter savings, LoRA often achieves nearly state-of-the-art performance compared to full fine-tuning. 
 
-- **QLoRA:** Quantized LoRA, enabling efficient fine-tuning on consumer hardware
+- **QLoRA: Quantized LoRA, enabling efficient fine-tuning on consumer hardware**
 
 While LoRA is computationally efficient, it still requires _full precision_ (FP16 or BF16) storage of model parameters, which limits its feasibility for consumer GPUs with lower memory. QLoRA overcomes this by using quantization-aware fine-tuning, allowing models to be fine-tuned efficiently on consumer-grade GPUs (e.g. NVIDIA RTX 3090). QLoRA works in the following manner: 
 
@@ -66,7 +66,7 @@ $$W' = W_{quantized} + AB$$
 
 where $$A, B$$ remain full-precision trainable matrices. The advantage here is that memory consumption is drastically reduced, enabline fine-tuning on GPUs with as little as 24GB VRAM. 
 
-**Case Study 1: mRNA Design for Cardioprotective Proteins** 
+**Case Study: mRNA Design for Cardioprotective Proteins** 
 
 In the scenario of fine-tuning Evo for cardiovascular disease, we could first define the tasks that we would like to focus on e.g. predicting RNA stability for sequences involved in angiogenesis (e.g. VEGF), generating siRNA sequences to silence fibrosis-related genes (e.g. TGF-B), and subsequenty choose which fine-tuning technique to use. We then incorporate domain-specific datasets (e.g. RNA sequences from CVD patients) and train with lightweight fine-tuning techniques to minimize computational costs. 
 
