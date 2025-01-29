@@ -19,7 +19,6 @@ My goal is to **bridge human sensory perception with artificial intelligence**â€
 - **Fine-Tuning Large Models: Adapters, LoRA & QLoRA**  
 - **Semantic Perception & The Future of AI-Augmented Medicine**  
 - **AI/mRNA Integration for Cardiovascular Therapeutics**  
-- **Building a Fantasy Series to Rival Game of Thrones**  
 
 ## ðŸ“š **Research & Projects**  
 My research focuses on **high-performance AI applications in medicine**, including:  
