@@ -11,8 +11,7 @@ My goal is to **bridge human sensory perception with artificial intelligence**�
 - **Machine Learning Optimization & Model Efficiency** ⚡  
 - **Computer Vision & Spatial AI** 📡  
 - **Genomic Foundation Models & RNA-based Therapeutics** 🧬  
-- **Computational Neuroscience & Brain-Inspired AI** 🧠  
-- **Fantasy Writing & Worldbuilding** 📖  
+- **Computational Neuroscience & Brain-Inspired AI** 🧠
 
 ## 🔥 **Featured Posts**  
 - **RLHF & PPO: Deep Dive into AI Alignment**  
