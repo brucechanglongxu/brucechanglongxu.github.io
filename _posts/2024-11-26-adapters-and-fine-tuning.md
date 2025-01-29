@@ -52,9 +52,9 @@ The original weight matrix $$W$$ is **frozen**, meaning it does not change durin
 
 While LoRA is computationally efficient, it still requires _full precision_ (FP16 or BF16) storage of model parameters, which limits its feasibility for consumer GPUs with lower memory. QLoRA overcomes this by using quantization-aware fine-tuning, allowing models to be fine-tuned efficiently on consumer-grade GPUs (e.g. NVIDIA RTX 3090). QLoRA works in the following manner: 
 
-1. _4-bit quantization of base model:_ Instead of keeping model weights in full precision, QLoRA quantizes them to 4-bit integers, significantly reducing memory footprint. 
-2. _LoRA for fine-tuning:_ The low-rank matrices $$(A, B)$$ remain in FP16/BF16, whilst the rest of the model is stored in 4-bit precision. 
-3. _Double Quantization:_ QLoRA introduces **second order quantization** to improve memory efficiency while retaining performance. 
+1. **4-bit quantization of base model:** Instead of keeping model weights in full precision, QLoRA quantizes them to 4-bit integers, significantly reducing memory footprint. 
+2. **LoRA for fine-tuning:** The low-rank matrices $$(A, B)$$ remain in FP16/BF16, whilst the rest of the model is stored in 4-bit precision. 
+3. **Double Quantization:** QLoRA introduces **second order quantization** to improve memory efficiency while retaining performance. 
 
 QLoRA stores the base model in _quantized form_: 
 
