@@ -2,7 +2,7 @@
 layout: post
 title: "Semiconductor Sanity: RTL, DV, DFT and PD"
 date: 2024-12-28
-categories: Inference
+categories: semiconductor
 author: Bruce Changlong Xu
 ---
 
