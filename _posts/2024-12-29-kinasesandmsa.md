@@ -12,10 +12,23 @@ An MSA is able to identify _conserved regions_ across sequences, which often cor
 
 The final output of a **Multiple Sequence Alignment** is essentially a tabular alignment of multiple sequences arranged horizontally, where each column represents a position in the alignment across all sequences. The sequences are adjusted by inserting gaps to ensure that similar residues/nucleotides/amino acids are aligned vertically (this can help tell us that a D in the DFG motif of kinases is highly conserved for instance). An example of a Multiple Sequence Alignment would be:
 
-Seq 1: MKT--PLTAV
-Seq 2: MKTAAALTAV
-Seq 3: MKTAA-LT-V
-Seq 4: MKTAAALTAV
-Seq 5: MK---ALTAV
+$$\usepackage{array} \begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{c|c}
+        \hline
+        Sequence & Alignment \\ 
+        \hline
+        Seq 1 & MKT--PLTAV \\ 
+        Seq 2 & MKTAAALTAV \\ 
+        Seq 3 & MKTAA-LT-V \\ 
+        Seq 4 & MKTAAALTAV \\ 
+        Seq 5 & MK---ALTAV \\ 
+        \hline
+    \end{tabular}
+    \caption{Multiple Sequence Alignment of Five Sequences}
+    \label{tab:msa}
+\end{table}
+$$
 
 Algined letters within the same column suggest homology i.e. that these positions likely evolved from a common ancestor. 
