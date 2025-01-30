@@ -2,7 +2,7 @@
 layout: post
 title: "Training a simple BERT module on a single A10G"
 date: 2024-11-23
-categories: AI GPU
+categories: ai
 author: Bruce Changlong Xu
 ---
 
