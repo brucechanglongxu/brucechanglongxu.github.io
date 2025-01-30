@@ -3,8 +3,39 @@ layout: default
 title: Bruce Changlong Xu's Blog
 ---
 <h1>{{ page.title }}</h1>
+
 <ul class="posts">
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+    <li>
+      <span>{{ post.date | date: "%B %d, %Y" }}</span> »
+      <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+      
+      {% if post.categories %}
+        <small> • Categories: 
+          {% for category in post.categories %}
+            <a href="/categories/{{ category | slugify }}/">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </small>
+      {% endif %}
+      
+      {% if post.excerpt %}
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      {% endif %}
+    </li>
   {% endfor %}
 </ul>
+
+<!-- Optional: Pagination (if many posts) -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="prev">« Previous</a>
+  {% endif %}
+
+  <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next »</a>
+  {% endif %}
+</div>
+{% endif %}
