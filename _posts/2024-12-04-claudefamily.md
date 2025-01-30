@@ -14,5 +14,5 @@ The models were trained on high-performance compute clusters using hardware from
 
 A key focus during training was multimodal learning — incorporating both text and vision inputs to enhance comprehension beyond text-based interactions. This was achieved by incorporating transformer-based vision encoders, allowing Claude 3 models to process images, charts, and graphs alongside text prompts. The resulting multimodal fusion enables more sophisticated contextual reasoning in domains like medical imaging, document analysis, and scientific visualization.
 
-https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf
+- Anthropic. Claude 3: Advancing the frontier of AI reasoning and efficiency. Anthropic, 2024, https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf
 
