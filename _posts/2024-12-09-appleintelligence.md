@@ -66,3 +66,7 @@ $$A_h = \textbf{softmax}(\frac{Q_h K_h^T}{\sqrt{d_k}}) \cdot V_h$$
  $$A_h = \textbf{softmax}(\frac{Q_h K_g^T}{\sqrt{d_k}}) \cdot V_g$$
 
 This technique is employed not only in open-source models like LLaMA2, but at a smaller scale in SOTA frontier models such as GPT-4 and Claude-opus on an ad-hoc basis. 
+
+## Apple-specific GQA Design
+
+Since Apple wants to run their models on-device within strict memory and compute constraints, they only use **8 key-value heads** instead of **24**, which significantly reduces the KV-cache size, hence making inference much more efficient on mobile and embedded devices (e.g. Siri). Specifically, they use **24 query heads**, and only **8 key value** heads, which means that every three query heads share the same KV-pair, reducing redundant storage and computation whilst keeping attention flexibility. 
