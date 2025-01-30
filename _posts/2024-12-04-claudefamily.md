@@ -2,7 +2,7 @@
 layout: post
 title: "Opus, Sonnet and Haiku: Multimodal, Autonomous and Safe Self Awareness"
 date: 2024-12-04
-categories: Software Engineering
+categories: frontiermodels
 author: Bruce Changlong Xu
 ---
 
