@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flash Attention: Redefining Quadratic Paradigm"
-date: 2024-12-09
+date: 2024-12-10
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---
