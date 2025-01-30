@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "AlphaGo and Deep Reinforcement Learning"
-date: 2024-12-21
+title: "AlphaFold: Unravelling Nature's Deepest Secrets"
+date: 2024-12-22
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---
 
-https://discovery.ucl.ac.uk/id/eprint/10045895/1/agz_unformatted_nature.pdf
+https://www.nature.com/articles/s41586-024-07487-w
 
