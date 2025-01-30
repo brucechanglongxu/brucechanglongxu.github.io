@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Whisper, NaturalSpeech and Speech Recognition"
-date: 2024-12-25
+date: 2024-12-26
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---

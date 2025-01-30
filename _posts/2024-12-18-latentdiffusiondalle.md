@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Latent Diffusion and DALL-E"
-date: 2024-12-16
+date: 2024-12-18
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sora, Imagen and Pika Labs"
-date: 2024-12-16
+date: 2024-12-19
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Grounding DINO"
-date: 2024-12-16
+date: 2024-12-20
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---
