@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kinases"
+title: "Structural Kinase Inference"
 date: 2024-12-29
 categories: oncology
 author: Bruce Changlong Xu
