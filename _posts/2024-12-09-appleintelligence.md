@@ -53,7 +53,7 @@ Hence we have multiple set of $$\{W^{(i)}_Q, W^{(i)}_K, W^{(i)}_V\}$$ weight mat
 
 **Why do we scale down by square root of dimension?** The reason is mathematical in nature, to ensure numerical stability and gradient control. Note that in the scaled dot-product attention the attentions cores are computed as $$QK^T$$, which can grow large when $$d_k$$ is large - since the dot product of two random vectors grows proportionally to $$d_k$$ in expectations, the values in $$QK^T$$ can become **very large** when $$d_k$$ is large. The softmax function is sensitive to large input magnitudes, and hence the output values will be heavily skewed towards $$1$$ or $$0$$, reducing the effective range of attention and making our scores closer to a one-hot vector. 
 
-Now if instead $$Q$$ and $$K$$ are random vectors with zero mean and variance $$\frac{1}{d_k}, their dot product will subsequently have variance $$d_k \times \frac{1}{d_k}$$ which is what we want (controlled variance and increased training stability). 
+Now if instead $$Q$$ and $$K$$ are random vectors with zero mean and variance $$\frac{1}{d_k}$$, their dot product will subsequently have variance $$d_k \times \frac{1}{d_k}$$ which is what we want (controlled variance and increased training stability). 
 
 ## Grouped Query Attention (GQA) 
 
