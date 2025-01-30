@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Clash of Inference: Odyseey LLM versus TensorRT LLM"
-date: 2024-12-26
+date: 2024-12-27
 categories: Inference
 author: Bruce Changlong Xu
 ---
