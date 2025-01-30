@@ -2,7 +2,7 @@
 layout: post
 title: "Cerebras CePO and Chain of Thought Prompting"
 date: 2024-12-16
-categories: Software Engineering
+categories: reasoning inference
 author: Bruce Changlong Xu
 ---
 

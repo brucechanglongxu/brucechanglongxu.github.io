@@ -2,7 +2,7 @@
 layout: post
 title: "AlphaGo Zero: Insights into Reinforcement Learning and Compute Efficiency"
 date: 2024-11-22
-categories: AI
+categories: AI RL
 author: Bruce Changlong Xu
 ---
 
