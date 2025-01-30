@@ -2,11 +2,9 @@
 layout: post
 title: "AlphaGo Zero: Insights into Reinforcement Learning and Compute Efficiency"
 date: 2024-11-22
-categories: AI Reinforcement-Learning AlphaGo
+categories: AI
 author: Bruce Changlong Xu
 ---
-
-## What is AlphaGo Zero?
 
 AlphaGo Zero (AGZ) is a landmark in AI, showcasing how reinforcement learning (RL) can achieve superhuman performance in complex domains without human supervision. Unlike its predecessor, AlphaGo, which relied on human gameplay data, AGZ learns entirely from self-play, guided by:
 
