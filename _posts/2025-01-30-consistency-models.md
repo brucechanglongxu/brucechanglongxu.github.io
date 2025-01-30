@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Consistent Intelligence"
-date: 2025-01-28
+date: 2025-01-30
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---
