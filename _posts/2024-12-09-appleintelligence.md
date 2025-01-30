@@ -65,7 +65,7 @@ $$A_h = \textbf{softmax}(\frac{Q_h K_h^T}{\sqrt{d_k}}) \cdot V_h$$
 
  $$A_h = \textbf{softmax}(\frac{Q_h K_g^T}{\sqrt{d_k}}) \cdot V_g$$
 
-This technique is employed not only in open-source models like LLaMA2, but at a smaller scale in SOTA frontier models such as GPT-4 and Claude-opus on an ad-hoc basis. 
+This technique is employed not only in open-source models like LLaMA2, but at a smaller scale in SOTA frontier models such as GPT-4 and [Claude-opus](https://www.anthropic.com) on an ad-hoc basis. 
 
 ## Apple-specific GQA Design
 
