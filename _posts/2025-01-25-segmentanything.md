@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AGI: Apple General Intelligence"
-date: 2024-12-09
+title: "Segment Anything: Zero Shot Segmentation"
+date: 2025-01-25
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---
