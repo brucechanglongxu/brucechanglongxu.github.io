@@ -11,7 +11,7 @@ Apple around half a year ago introduced its foundation language models as part o
 1. **AFM-on-device:** A ~3 billion parameter model optimized for local processing, ensuring fast and secure interactions. 
 2. **AFM-server:** A more powerful model running in the cloud, handling complex computations while maintaing privacy protections.
 
-**GQA over MHSA** 
+## GQA over MHSA
 
 Apple's foundation models build upon a (decoder-only) transformer backbone, with several key architectural refinements. They employ **Grouped-Query Attention (GQA)** instead of standard multi-head self-attention (MHSA), reducing computational overhead whilst maintaing expressivity. This leads to faster inference time (30 percent less computation versus full MHSA), lower memory footprint, and retains competitive performance in reasoning tasks. In vanilla self-attention, each input token attends to all others using Query (Q), Key (K) and Value (V) projections, computed as follows:
 
@@ -47,4 +47,3 @@ $$A = \frac{QK^T}{\sqrt{d_k}}$$
 
 which represents an $$n \times n$$ matrix that includes all the attention weights between all tokens in the sequence (i.e. how much attention does each input token pay to another). Think of it like a heatmap of token relationships, each row $$i$$ tells us how much token $$i$$ should attend to every other token. Indeed, $$Q, K \in \mathbb{R}^{n \times d_k}$$ represents how much each token wants to "ask" and "offer" information respectively. Now since $$A_{ij} = q_i \cdot k_j$$, we see that the matrix multiplication gives us a set of entries where the $$(i, j)$$-th entry represents how well token $$i$$ attends to token $$j$$. 
 
- Our MHSA architecture determines relationships between the tokens (Q, K, V), and the model then generates a probability distribution over the possible next words. The output seqeunce (response) is generated one token at at ime using our fixed/trained model weights. 
