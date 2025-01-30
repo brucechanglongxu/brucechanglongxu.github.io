@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "DeepSeek Math and Coder"
-date: 2024-11-30
+title: "DeepSeek Math"
+date: 2024-12-08
 categories: Software Engineering
 author: Bruce Changlong Xu
 ---
