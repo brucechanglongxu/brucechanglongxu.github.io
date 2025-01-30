@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apple General Intelligence: GQA vs MHSA"
+title: "Apple General Intelligence (Part I): GQA vs MHSA"
 date: 2024-12-09
 categories: Software Engineering
 author: Bruce Changlong Xu
@@ -11,7 +11,7 @@ Apple around half a year ago introduced its foundation language models as part o
 1. **AFM-on-device:** A ~3 billion parameter model optimized for local processing, ensuring fast and secure interactions. 
 2. **AFM-server:** A more powerful model running in the cloud, handling complex computations while maintaing privacy protections.
 
-## Multihead Self Attention
+## Multihead Self Attention (MHSA) 
 
 Apple's foundation models build upon a (decoder-only) transformer backbone, with several key architectural refinements. They employ **Grouped-Query Attention (GQA)** instead of standard multi-head self-attention (MHSA), reducing computational overhead whilst maintaing expressivity. This leads to faster inference time (30 percent less computation versus full MHSA), lower memory footprint, and retains competitive performance in reasoning tasks. In vanilla self-attention, each input token attends to all others using Query (Q), Key (K) and Value (V) projections, computed as follows:
 
@@ -50,3 +50,15 @@ which represents an $$n \times n$$ matrix that includes all the attention weight
 Now why do we typically use _multiple attention heads?_. The reason is, each attention head is assigned a **different attention focus**, for example one head might focus on syntax (e.g. subject-verb agreement), another might focus on semantic meaning, and another could track long-range dependencies. Instead of compressing all the information into a _single_ attention map, multiple attention heads allow the model to learn different types of relationships in the input prompt. Each head captures a different "view" of the sequence, and combining multiple heads allows a richer understanding of the input, which leads to a better response. 
 
 Hence we have multiple set of $$\{W^{(i)}_Q, W^{(i)}_K, W^{(i)}_V\}$$ weight matrices for each attention head. Each head operates on a _lower dimensional_ subspace of the model's total embedding dimension. Each of the learned attention head matrices are linear projections that transform the original embedding space down to a smaller subspace before computing attention. We map each input token from the full embedding space of size $$d_{m}$$ down to $$d_m / h$$ where $$h$$ is the number of attention heads i.e. each attention head works in a fraciton of the space. Finally, after each head has computed its attention output, they are concatenated back together and mapped back to the full embedding space. 
+
+## Grouped Query Attention (GQA) 
+
+The key difference between GQA and MHSA is that in MHSA, each attention head learns its own independent set of Q, K, V matrices, computing self-attention independently and producing separate attention outputs (which are then concatenated and linearly transformed into the final output -- each attention head $$h$$ has its own $$Q, K, V$$).
+
+$$A_h = \textbf{softmax}(\frac{Q_h K_h^T}{\sqrt{d_k}}) \cdot V_h$$
+
+ GQA reduces the number of learned weights whilst aiming to retain the expressivity of multi-head attention -- instead of each attention head having its own Q, K and V, GQA **shares the key and value matrices across multiple heads** (whilst still having a unique query matrix). This leads to faster inference speed and lower memory usage, whilst maintaining diverse query interactions (multiple heads share the same $$K_g, V_g$$ but still use unique $$Q_h$$, reducing redundancy in key, value computations since queries tend to be unique, but keys and values are often redundant across heads e.g. "cat" seems to have a similar meaning and lookup characteristics across multiple input prompts). 
+
+ $$A_h = \textbf{softmax}(\frac{Q_h K_g^T}{\sqrt{d_k}}) \cdot V_g$$
+
+This technique is employed not only in open-source models like LLaMA2, but at a smaller scale in SOTA frontier models such as GPT-4 and Claude-opus on an ad-hoc basis. 
