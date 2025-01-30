@@ -12,12 +12,12 @@ An MSA is able to identify _conserved regions_ across sequences, which often cor
 
 The final output of a **Multiple Sequence Alignment** is essentially a tabular alignment of multiple sequences arranged horizontally, where each column represents a position in the alignment across all sequences. The sequences are adjusted by inserting gaps to ensure that similar residues/nucleotides/amino acids are aligned vertically (this can help tell us that a D in the DFG motif of kinases is highly conserved for instance). An example of a Multiple Sequence Alignment would be:
 
-                                                    | Sequence | Alignment   |
-                                                    |----------|-------------|
-                                                    | Seq 1    | MKT00PLTAV  |
-                                                    | Seq 2    | MKTAAALTAV  |
-                                                    | Seq 3    | MKTAA0LT0V  |
-                                                    | Seq 4    | MKTAAALTAV  |
-                                                    | Seq 5    | MK000ALTAV  |
+                                                | Sequence | Alignment   |
+                                                |----------|-------------|
+                                                | Seq 1    | MKT00PLTAV  |
+                                                | Seq 2    | MKTAAALTAV  |
+                                                | Seq 3    | MKTAA0LT0V  |
+                                                | Seq 4    | MKTAAALTAV  |
+                                                | Seq 5    | MK000ALTAV  |
 
-Aligned letters within the same column suggest homology i.e. that these positions likely evolved from a common ancestor. Here, we use the number 0 to represents "gaps" in the sequence for homology alignment. 
+Aligned letters within the same column suggest homology i.e. that these positions likely evolved from a common ancestor. Here, we use the number 0 to represents "gaps" in the sequence for homology alignment. A recent study constructed a high-accuracy MSA of 497 human protein kinase domains, integrating both sequence and structural alignment data. The methodology used
