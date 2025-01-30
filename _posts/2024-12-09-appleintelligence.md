@@ -51,6 +51,10 @@ Now why do we typically use _multiple attention heads?_. The reason is, each att
 
 Hence we have multiple set of $$\{W^{(i)}_Q, W^{(i)}_K, W^{(i)}_V\}$$ weight matrices for each attention head. Each head operates on a _lower dimensional_ subspace of the model's total embedding dimension. Each of the learned attention head matrices are linear projections that transform the original embedding space down to a smaller subspace before computing attention. We map each input token from the full embedding space of size $$d_{m}$$ down to $$d_m / h$$ where $$h$$ is the number of attention heads i.e. each attention head works in a fraciton of the space. Finally, after each head has computed its attention output, they are concatenated back together and mapped back to the full embedding space. 
 
+**Why do we scale down by square root of dimension?** The reason is mathematical in nature, to ensure numerical stability and gradient control. Note that in the scaled dot-product attention the attentions cores are computed as $$QK^T$$, which can grow large when $$d_k$$ is large - since the dot product of two random vectors grows proportionally to $$d_k$$ in expectations, the values in $$QK^T$$ can become **very large** when $$d_k$$ is large. The softmax function is sensitive to large input magnitudes, and hence the output values will be heavily skewed towards $$1$$ or $$0$$, reducing the effective range of attention and making our scores closer to a one-hot vector. 
+
+Now if instead $$Q$$ and $$K$$ are random vectors with zero mean and variance $$\frac{1}{d_k}, their dot product will subsequently have variance $$d_k \times \frac{1}{d_k}$$ which is what we want (controlled variance and increased training stability). 
+
 ## Grouped Query Attention (GQA) 
 
 The key difference between GQA and MHSA is that in MHSA, each attention head learns its own independent set of Q, K, V matrices, computing self-attention independently and producing separate attention outputs (which are then concatenated and linearly transformed into the final output -- each attention head $$h$$ has its own $$Q, K, V$$).
