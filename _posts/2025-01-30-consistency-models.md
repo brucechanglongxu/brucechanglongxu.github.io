@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Consistent Perception"
+title: "Consistent Visual Perception"
 date: 2025-01-30
 categories: Software Engineering
 author: Bruce Changlong Xu
