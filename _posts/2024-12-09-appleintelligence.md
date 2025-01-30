@@ -57,7 +57,7 @@ Now if instead $$Q$$ and $$K$$ are random vectors with zero mean and variance $$
 
 ## Grouped Query Attention (GQA) 
 
-The key difference between GQA and MHSA is that in MHSA, each attention head learns its own independent set of Q, K, V matrices, computing self-attention independently and producing separate attention outputs (which are then concatenated and linearly transformed into the final output -- each attention head $$h$$ has its own $$Q, K, V$$).
+The key difference between [GQA](https://arxiv.org/pdf/2305.13245) and MHSA is that in MHSA, each attention head learns its own independent set of Q, K, V matrices, computing self-attention independently and producing separate attention outputs (which are then concatenated and linearly transformed into the final output -- each attention head $$h$$ has its own $$Q, K, V$$).
 
 $$A_h = \textbf{softmax}(\frac{Q_h K_h^T}{\sqrt{d_k}}) \cdot V_h$$
 
@@ -65,7 +65,7 @@ $$A_h = \textbf{softmax}(\frac{Q_h K_h^T}{\sqrt{d_k}}) \cdot V_h$$
 
  $$A_h = \textbf{softmax}(\frac{Q_h K_g^T}{\sqrt{d_k}}) \cdot V_g$$
 
-This technique is employed not only in open-source models like LLaMA2, but at a smaller scale in SOTA frontier models such as GPT-4 and [Claude-opus](https://www.anthropic.com) on an ad-hoc basis. 
+This technique is employed not only in open-source models like LLaMA2, but at a smaller scale in SOTA frontier models such as GPT-4 and [Claude-opus](https://www.anthropic.com/news/claude-3-family) on an ad-hoc basis. 
 
 ## Apple-specific GQA Design
 
