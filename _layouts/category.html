@@ -1,6 +1,16 @@
 ---
-layout: category
-title: "Software"
-category: "Software"
-permalink: /categories/software/
+layout: default
 ---
+
+<h1>Category: {{ page.category }}</h1>
+
+<ul class="posts">
+  {% for post in site.posts %}
+    {% if post.categories contains page.category %}
+      <li>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span> »
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
