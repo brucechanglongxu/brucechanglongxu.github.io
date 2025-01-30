@@ -13,7 +13,7 @@ title: Bruce Changlong Xu's Blog
       {% if post.categories %}
         <small> • Categories: 
           {% for category in post.categories %}
-            <a href="/categories/{{ category | slugify }}/">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+            <a href="/categories/{{ category | downcase | replace: ' ', '-' }}/">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
           {% endfor %}
         </small>
       {% endif %}
