@@ -29,6 +29,8 @@ Traditional _de novo_ protein design involves engineering proteins to fold into 
 
 Unlike AlphaFold, which primarily focuses on pairwise relationships between residues, RoseTTAFold operates on a _three-track_ network that integrates **1D information** (sequence features), **2D information** (residue-residue relationships), **3D information** (atomic coordinates of protein structures). This simultaneous processing allows [RoseTTAFold](https://www.nature.com/articles/s41587-024-02395-w) to refine its predictions iteratively, which subsequently improves structural accuracy. Indeed RoseTTAFold is not only used for structure prediction, but also in _de novo protein design_, where it helps generate new proteins with specific structures and functions. 
 
+**RFDiffusion** 
+
 RFdiffusion uses a _denoising process_ to iteratively construct new protein backbones whilst maintaining biologically feasible structures, and adds an extra fine-tuning layer on top of RoseTTAFold. The core idea is to train a network to _gradually reverse a noising process_ that corrupts protein structures, allowing it to generate new, functional proteins from simple constraints. We first use a diffusion process where protein structures are gradually corrupted with Gaussian noise, the model then learns to reverse this noise, progressively refining a protein backbone from an initial random structure. 
 
 - Watson, J.L., Juergens, D., Bennett, N.R. et al. De novo design of protein structure and function with RFdiffusion. Nature 620, 1089–1100 (2023). https://doi.org/10.1038/s41586-023-06415-8
