@@ -12,9 +12,7 @@ Let's work with the example of surgical AI. Indeed for an intelligent, autonomou
 
 Intuitively, we want to fuse data modalities early when we have tighly coupled and interdependent modalities (e.g. video, depth and kinematics during robotic surgery) and when we want joint feaeture learning across modalities. This is particularly amenable for low-dimensional structured inputs, where we jointly encode multimodal features with self-supervised learning methodologies (e.g. contrastive learning, masked prediction). This lets the model learn generalizable, shared features without overfitting on a particular data-set. Late fusion is much better when the modalities aren't directly aligned, each modality needs independent deep feature extraction before merging, or some modalities might be missing. 
 
-- Weng, Lilian. (Jun 2022). Generalized visual language models. Lil’Log. https://lilianweng.github.io/posts/2022-06-09-vlm/.
-- Fini, Enrico, et al. Multimodal Autoregressive Pre-training of Large Vision Encoders. Apple, 21 Nov. 2024, arXiv:2411.14402. https://github.com/apple/ml-aim.
-- Chameleon Team. Chameleon: Mixed-Modal Early-Fusion Foundation Models. FAIR at Meta, 17 May 2024, arXiv:2405.09818.
-- Redmon, Joseph, et al. You Only Look Once: Unified, Real-Time Object Detection. University of Washington, Allen Institute for AI, and Facebook AI Research, 2016, arXiv:1506.02640.
-
-https://huyenchip.com/2023/10/10/multimodal.html
+- Weng, Lilian. (Jun 2022). _"Generalized visual language models."_ Lil’Log. https://lilianweng.github.io/posts/2022-06-09-vlm/.
+- Fini, Enrico, et al. _"Multimodal Autoregressive Pre-training of Large Vision Encoders."_ Apple, 21 Nov. 2024, arXiv:2411.14402. https://github.com/apple/ml-aim.
+- Chameleon Team. _"Chameleon: Mixed-Modal Early-Fusion Foundation Models."_ FAIR at Meta, 17 May 2024, arXiv:2405.09818.
+- Redmon, Joseph, et al. _"You Only Look Once: Unified, Real-Time Object"_ Detection. University of Washington, Allen Institute for AI, and Facebook AI Research, 2016, arXiv:1506.02640.
