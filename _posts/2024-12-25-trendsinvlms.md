@@ -12,6 +12,8 @@ Let's work with the example of surgical AI. Indeed for an intelligent, autonomou
 
 Intuitively, we want to fuse data modalities early when we have tighly coupled and interdependent modalities (e.g. video, depth and kinematics during robotic surgery) and when we want joint feaeture learning across modalities. This is particularly amenable for low-dimensional structured inputs, where we jointly encode multimodal features with self-supervised learning methodologies (e.g. contrastive learning, masked prediction). This lets the model learn generalizable, shared features without overfitting on a particular data-set. Late fusion is much better when the modalities aren't directly aligned, each modality needs independent deep feature extraction before merging, or some modalities might be missing. 
 
+## LLaVA
+
 
 
 - Weng, Lilian. (Jun 2022). _"Generalized visual language models."_ Lil’Log. https://lilianweng.github.io/posts/2022-06-09-vlm/.
