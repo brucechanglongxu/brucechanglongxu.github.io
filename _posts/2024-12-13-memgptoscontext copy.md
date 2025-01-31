@@ -2,7 +2,7 @@
 layout: post
 title: "Paging the Future: How MemGPT Uses OS Principles to Expand LLM Memory"
 date: 2024-12-13
-categories: Software Engineering
+categories: AI LLM context
 author: Bruce Changlong Xu
 ---
 

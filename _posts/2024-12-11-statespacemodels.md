@@ -2,7 +2,7 @@
 layout: post
 title: "State Space Models: Scalable Sequence Modeling"
 date: 2024-12-11
-categories: Software Engineering
+categories: AI
 author: Bruce Changlong Xu
 ---
 

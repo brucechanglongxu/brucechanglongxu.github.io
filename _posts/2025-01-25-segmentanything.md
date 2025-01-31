@@ -2,7 +2,7 @@
 layout: post
 title: "Segment Anything: Zero Shot Segmentation"
 date: 2025-01-25
-categories: Software Engineering
+categories: AI vision
 author: Bruce Changlong Xu
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "DeepSeek Math"
 date: 2024-12-08
-categories: Software Engineering
+categories: AI frontiermodels reasoning
 author: Bruce Changlong Xu
 ---
 
