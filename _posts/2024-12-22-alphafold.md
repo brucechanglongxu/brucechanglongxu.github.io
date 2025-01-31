@@ -71,7 +71,13 @@ It allows prompt-based controllable generation, making it responsive to biologic
 
 _Preference Learning with Contrastive Reward_ 
 
-Lastly, to refine 
+Lastly, to refine protein selection, ESM3 learns human-like preferences through contrastive learning. We first collect preference pairs $$(x_A, x_B)$$ where $$x_A$$ is higher quality than $$x_B$$ (both are generated sequences). We first train a reward model $$R(x)$$ to distinguish high versus low-quality proteins:
+
+$$P(x_A > x_B) = \frac{e^{R(x_A)}}{e^{R(x_A)} + e^{R(x_B)}}
+
+and use the trained $$R(x)$$ to optimize ESM3's generators:
+
+$$\mathcal{L}_{finetune} = -\mathbb{E}_{x \sim P_{\theta}}[\log P(x_A > x_B)]$$
 
 ## RoseTTAFold and RFDiffusion
 
