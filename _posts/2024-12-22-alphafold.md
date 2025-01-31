@@ -29,6 +29,8 @@ Standard models like AlphaFold2 and RoseTTAFold rely on MSA's, whereas ESM-2's i
 
 **ESMFold** uses ESM-2's learned representations to predict _3D protein structures_ directly from a single amino acid sequence. It runs an order of magnitude faster than AlphaFold2, and does not require MSAs for structure predictions -- it only needs a single protein sequence. Whilst it is comparable to AlphaFold2 on seequences it understands well (low perplexity), it performs slightly worse for more challenging sequences. 
 
+**ESM3** 
+
 ## RoseTTAFold and RFDiffusion
 
 Traditional _de novo_ protein design involves engineering proteins to fold into specific structures and perform desired functions, such as binding to a target or acting as an enzyme. Deep learning has improved protein design but struggles with complex relationships between protein backbone geometry and sequences. **[RFDiffusion](https://www.nature.com/articles/s41586-023-06415-8)** extends the success of diffusion models from image/text to protein design, augmenting RoseTTAFold to a generative AI framework which is capable of designing diverse protein structures. 
