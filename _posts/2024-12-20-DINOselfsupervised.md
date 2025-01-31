@@ -16,6 +16,14 @@ Moreover, the computational optimizations introduced in Grounding DINO 1.5 Edge 
 
 ## Self-supervised Learning
 
+Self-Supervised Learning (SSL) is a paradigm within machine learning that enables models to learn discriminative representations from unlabeled data without relying on human-annotated labels. It is considered a subset of unsupervised learning, where models extract useful features by solving pretext tasks—tasks that use pseudo-labels derived from the data itself. SSL has gained significant traction due to its ability to reduce the dependency on large-scale labeled datasets, which are often expensive and time-consuming to curate. SSL can be broadly categorized into several algorithmic approaches, each leveraging different mechanisms to learn representations:
+
+1. **Contrastive Learning (CL):** Contrastive SSL methods, such as MoCo, SimCLR, and BYOL, learn representations by maximizing similarity between augmented views of the same image while distinguishing them from other instances. These methods often rely on contrastive loss functions such as the InfoNCE loss.
+2. **Masked Image Modeling (MIM):** Inspired by NLP techniques like BERT, MIM-based approaches, such as BEiT and MAE, mask portions of input images and train models to predict the missing information. This approach focuses on learning robust feature representations by leveraging spatial context within images.
+3. **Generative Models:** Some SSL methods use generative tasks, such as autoencoders or adversarial learning, to reconstruct or synthesize missing parts of images, facilitating feature learning without explicit labels.
+4. **Feature Decorrelation-Based Methods:** Approaches like Barlow Twins and VICReg aim to enforce independence among feature representations, reducing redundancy and encouraging diverse feature learning.
+5. **Hybrid Models:** Some state-of-the-art SSL frameworks combine contrastive and generative learning principles, leveraging the strengths of both paradigms to improve representation quality. For example, CMAE and iBOT integrate MIM with contrastive objectives.
+
 **BYOL**
 
 **SimCLR** 
