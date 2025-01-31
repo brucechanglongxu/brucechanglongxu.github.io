@@ -85,6 +85,18 @@ $$P(x_A > x_B) = \frac{e^{R(x_A)}}{e^{R(x_A)} + e^{R(x_B)}}$$
 
 this is similar to logistic regression, and ensures that if $$R(x_A) >> R(x_B)$$ then $$P(x_A > x_B) \to 1$$, if the rewards are roughly equal, there is around a half probability that $$P(x_A > x_B)$$ and similarly if $$R(x_A) << R(x_B)$$ then $$P(x_A > x_B) \to 0$$. We train $$R(x)$$ using contrastive loss, also called _pairwise ranking_ loss:
 
+$$\mathcal{L}_{preference} = - \mathbb{E}_{(x_A, x_B)}[\log P(x_A > x_B) = -\mathbb{E}_{(x_A, x_B)}[\log \frac{e^{R(x_A)}}{e^{R(x_A)} + e^{R(x_B)}}]$$
+
+this loss encourages the model to **increase** $$R(x_A)$$ when $$x_A$$ is preferred, and **decrease** $$R(x_B)$$ when $$x_B$$ is less favorable. Using stochastic gradient descent (SGD), the update for parameters $$\theta$$ of the reward model is:
+
+$$\nabla_{\theta} \mathcal{L} = \mathbb{E}_{(x_A, x_B)}[(P(x_A  > x_B) - 1) \nabla_{\theta} R(x_A) + P(x_A > x_B) \nabla_{\theta} R(x_B)]$$
+
+where if $$P(x_A > x_B)$$ is too low, the model increases $$R(x_A)$$ more, and if $$P(x_A > x_B)$$ is too high, the model reduces $$R(x_A)$$ slightly, ensuring a smooth learning process. Note that the reward function **does not predict absolute values** (for example fluorescence intensity), instead if learns **relative rankings** e.g. "this protein is better than the other protein". This form of _relative_ learning is more robust than absolute rewards because absolute values can be noisy, and rankings remain valid even if absolute rewards change slightly. 
+
+After training $$R(x)$$, we fine tune the protein generation model using reinforcement learning by maximizing the expected reward under a policy.
+
+$$\mathbb{E}_{x \sim P_{\theta}(x:s, f)}[R(x)]$$
+
 ## RoseTTAFold and RFDiffusion
 
 Traditional _de novo_ protein design involves engineering proteins to fold into specific structures and perform desired functions, such as binding to a target or acting as an enzyme. Deep learning has improved protein design but struggles with complex relationships between protein backbone geometry and sequences. **[RFDiffusion](https://www.nature.com/articles/s41586-023-06415-8)** extends the success of diffusion models from image/text to protein design, augmenting RoseTTAFold to a generative AI framework which is capable of designing diverse protein structures. 
