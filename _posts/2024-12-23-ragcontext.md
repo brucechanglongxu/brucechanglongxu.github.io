@@ -2,7 +2,7 @@
 layout: post
 title: "Why Retrieval Still Matters -- Even for Long-Context LLMs"
 date: 2024-12-23
-categories: Software Engineering
+categories: RAG context
 author: Bruce Changlong Xu
 ---
 
