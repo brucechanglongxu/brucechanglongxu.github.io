@@ -49,7 +49,7 @@ Once pretraining is complete, ESM3 undergoes _fine-tuning through reinforcement 
 
 $$\mathcal{L}_{finetune} = \mathbb{E}_{x \in P_{\theta}(x | s, f)}[R(x, s, f)]$$
 
-where $$R(x, s, f)$$ is the reward function measuring protein quality, and $$P_{\theta}(x|s, f)$$ is the generative probability distribution. The model is trained to maximize expected reward, where the reward function combines **protein stability** ($$R_s$$ measured in Rosetta folding scores), **functional relevance** ($$R_f$$ distance to known functional motifs), and **evolutionary plausibility** ($$R_e$$ measured in divergence from known proteins). 
+where $$R(x, s, f)$$ is the reward function measuring protein quality, and $$P_{\theta}(x:s, f)$$ is the generative probability distribution. The model is trained to maximize expected reward, where the reward function combines **protein stability** ($$R_s$$ measured in Rosetta folding scores), **functional relevance** ($$R_f$$ distance to known functional motifs), and **evolutionary plausibility** ($$R_e$$ measured in divergence from known proteins). 
 
 $$R(x, s, f) = w_s R_s(x) + w_f R_f(x) + w_e R_e(x)$$
 
@@ -59,11 +59,11 @@ _Reinforcement Learning with PPO_
 
 ESM3 is subsequently fine-tuned using **Reinforcement Learning with PPO** which balances exploration (novel proteins) and exploitation (high reward sequences). It parameterizes a policy $$\pi_{\theta}(x|s, f)$$ which generates proteins. The update rule follows **gradient ascent** on the expected reward:
 
-$$\Nabla_{\theta} J(\theta) = \mathbb{E}_{x \sim \pi_{\theta}}[\Nabla_{\theta} \log \pi_{\theta}(x|s, f) \cdot R(x, s, f)]$$
+$$\Nabla_{\theta} J(\theta) = \mathbb{E}_{x \sim \pi_{\theta}}[\Nabla_{\theta} \log \pi_{\theta}(x:s, f) \cdot R(x, s, f)]$$
 
 to stabilize training, **PPO enforces a trust-region constraint:
 
-$$\mathcal{L}_{PPO} = \mathbb{E}_{x \sim \pi_{\theta}}[\min (\frac{\pi_{\theta}(x|s, f)}{\pi_{\theta_{old}}(x|s, f)} \cdot R(x, s, f), c)]$$
+$$\mathcal{L}_{PPO} = \mathbb{E}_{x \sim \pi_{\theta}}[\min (\frac{\pi_{\theta}(x:s, f)}{\pi_{\theta_{old}}(x:s, f)} \cdot R(x, s, f), c)]$$
 
 where $$c$$ is a clipping threshold that prevents excessively large updates, and $$\pi_{\theta_{old}}$$ is the previous policy. This prevents _overfitting to local maxima_ and allows _smooth policy updates_. 
 
