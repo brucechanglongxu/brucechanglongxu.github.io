@@ -29,7 +29,49 @@ Standard models like AlphaFold2 and RoseTTAFold rely on MSA's, whereas ESM-2's i
 
 **ESMFold** uses ESM-2's learned representations to predict _3D protein structures_ directly from a single amino acid sequence. It runs an order of magnitude faster than AlphaFold2, and does not require MSAs for structure predictions -- it only needs a single protein sequence. Whilst it is comparable to AlphaFold2 on seequences it understands well (low perplexity), it performs slightly worse for more challenging sequences. 
 
-**ESM3** 
+**ESM3** integrates sequence-based representations (like traditional language models), structure-based representations (encoded through tokenization of 3D structures), and functional representations (annotations of biological activity). It is released in parameter sizes 1.4B, 7B and 98B, with a training set including 2.78 billion proteins, 236 million protein structures, and 539 million functionally annotated proteins. The training consists of a _masked language modeling_ objective, and uses a variable masking rate (unlike traditional MLM) to improve both representation learning and generative ability. 
+
+_Pretraining through MLM_ 
+
+$$\mathcal{L}_{MLM} = - \mathbb{E}_{(x, s, f) \sim \mathcal{D}} \sum_{i \in \mathcal{M}} \log P(x_i | x_{\i}, s, f; \theta)$$
+
+where $$x = (x_1, x_2, \cdots, x_n)$$ is the protein sequence, and $$s = (s1, s_2, \cdots, s_n)$$ represents the structural embeddings. $$f$$ represents the functional annotations and $$\mathcal{M}$$ represents the set of masked positions. The $$P$$ probability represents the probability of the correct token $$x_i$$ conditioned on the unmasked tokens $$x_{\i}$$ structure, and function ($$\theta$$ denotes the model parameters). 
+
+Unlike BERT, which uses a fixed $$15$$ percent masking rate, $$ESM3$$ employs _variable masking_ sampling from a Beta distribution:
+
+$$m \sim \textbf{Beta}(\alpha, \beta)$$
+
+where $$\alpha$$ and $$\beta$$ are hyperparameters that determine masking sparsity versus density. This improves generalization, allowing the model to interpolate between denoising and sequence completion. 
+
+_Fine tuning with preference optimization_ 
+
+Once pretraining is complete, ESM3 undergoes _fine-tuning through reinforcement learning_ with _preference optimization_ where the model learns to generate proteins optimized for structure and function. Given a dataset $$\mathcal{D} = \{(x, s, f)\}$$ containing proteins with high functional activity, we optimize for proteins with improved characteristics:
+
+$$\mathcal{L}_{finetune} = \mathbb{E}_{x \in P_{\theta}(x | s, f)}[R(x, s, f)]$$
+
+where $$R(x, s, f)$$ is the reward function measuring protein quality, and $$P_{\theta}(x|s, f)$$ is the generative probability distribution. The model is trained to maximize expected reward, where the reward function combines **protein stability** ($$R_s$$ measured in Rosetta folding scores), **functional relevance** ($$R_f$$ distance to known functional motifs), and **evolutionary plausibility** ($$R_e$$ measured in divergence from known proteins). 
+
+$$R(x, s, f) = w_s R_s(x) + w_f R_f(x) + w_e R_e(x)$$
+
+where $$w_s, w_f, w_e$$ are weighting coefficients. 
+
+_Reinforcement Learning with PPO_ 
+
+ESM3 is subsequently fine-tuned using **Reinforcement Learning with PPO** which balances exploration (novel proteins) and exploitation (high reward sequences). It parameterizes a policy $$\pi_{\theta}(x|s, f)$$ which generates proteins. The update rule follows **gradient ascent** on the expected reward:
+
+$$\Nabla_{\theta} J(\theta) = \mathbb{E}_{x \sim \pi_{\theta}}[\Nabla_{\theta} \log \pi_{\theta}(x|s, f) \cdot R(x, s, f)]$$
+
+to stabilize training, **PPO enforces a trust-region constraint:
+
+$$\mathcal{L}_{PPO} = \mathbb{E}_{x \sim \pi_{\theta}}[\min (\frac{\pi_{\theta}(x|s, f)}{\pi_{\theta_{old}}(x|s, f)} \cdot R(x, s, f), c)]$$
+
+where $$c$$ is a clipping threshold that prevents excessively large updates, and $$\pi_{\theta_{old}}$$ is the previous policy. This prevents _overfitting to local maxima_ and allows _smooth policy updates_. 
+
+It allows prompt-based controllable generation, making it responsive to biological prompts. ESM3 is demonstrated to generate proteins based on a combination of sequence prompts (e.g. partial sequences), structure prompts (e.g. backbone coordinates) and functional promtps (e.g. binding sites, enzymatic function). 
+
+_Preference Learning with Contrastive Reward_ 
+
+Lastly, to refine 
 
 ## RoseTTAFold and RFDiffusion
 
