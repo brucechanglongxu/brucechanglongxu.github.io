@@ -20,3 +20,9 @@ The backbone of the AlphaFold architecture is a _transformer-based_ model design
 _**What is a [Multiple Sequence Alignment (MSA)](https://www.nature.com/articles/s41598-019-56499-4)?**_ Proteins do not evolve randomly, instead functional constraints force certain amino acids to remain conserved. Some amino acids mutate together, meaning if one changes, another must also change to maintain stability. Hence evolution leaves behind a hidden pattern of co-evolution which can be mined from large sequence databases. A _[MSA (Multiple Sequence Alignment)](https://brucechanglongxu.github.io/oncology/2024/12/29/kinasesandmsa.html)_ is a _matrix representation_ of how similar proteins from different species align. Given a target protein sequence, we search large genetic databases such as Uniprot to find homologous sequences, and align them. The output is an alignment of many sequences with columns showing _evolutionary variation_ at each position. 
 
 In short, it is a method used to align three or more biological sequences (DNA, RNA, protein) to identify regions of similarity that may indicate functional, structural, or evolutionary relationships. 
+
+## RFDiffusion
+
+Traditional _de novo_ protein design involves engineering proteins to fold into specific structures and perform desired functions, such as binding to a target or acting as an enzyme. Deep learning has improved protein design but struggles with complex relationships between protein backbone geometry and sequences. **RFDiffusion** extends the success of diffusion models from image/text to protein design, augmenting RoseTTAFold to a generative AI framework which is capable of designing diverse protein structures. 
+
+- Watson, J.L., Juergens, D., Bennett, N.R. et al. De novo design of protein structure and function with RFdiffusion. Nature 620, 1089–1100 (2023). https://doi.org/10.1038/s41586-023-06415-8
