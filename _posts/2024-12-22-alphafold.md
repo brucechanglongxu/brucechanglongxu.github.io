@@ -31,7 +31,7 @@ Standard models like AlphaFold2 and RoseTTAFold rely on MSA's, whereas ESM-2's i
 
 **ESM3** integrates sequence-based representations (like traditional language models), structure-based representations (encoded through tokenization of 3D structures), and functional representations (annotations of biological activity). It is released in parameter sizes 1.4B, 7B and 98B, with a training set including 2.78 billion proteins, 236 million protein structures, and 539 million functionally annotated proteins. The training consists of a _masked language modeling_ objective, and uses a variable masking rate (unlike traditional MLM) to improve both representation learning and generative ability. 
 
-_Pretraining through MLM_ 
+_Pretraining through [masked language modeling](https://huggingface.co/docs/transformers/en/tasks/masked_language_modeling)_ 
 
 $$\mathcal{L}_{MLM} = - \mathbb{E}_{(x, s, f) \sim \mathcal{D}} \sum_{i \in \mathcal{M}} \log P(x_i | x_{\i}, s, f; \theta)$$
 
@@ -43,7 +43,7 @@ $$m \sim \textbf{Beta}(\alpha, \beta)$$
 
 where $$\alpha$$ and $$\beta$$ are hyperparameters that determine masking sparsity versus density. This improves generalization, allowing the model to interpolate between denoising and sequence completion. 
 
-_Fine tuning with preference optimization_ 
+_Fine tuning with [preference optimization](https://cerebras.ai/blog/fine-tuning-language-models-using-direct-preference-optimization)_ 
 
 Once pretraining is complete, ESM3 undergoes _fine-tuning through reinforcement learning_ with _preference optimization_ where the model learns to generate proteins optimized for structure and function. Given a dataset $$\mathcal{D} = \{(x, s, f)\}$$ containing proteins with high functional activity, we optimize for proteins with improved characteristics:
 
