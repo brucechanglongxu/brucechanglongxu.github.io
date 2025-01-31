@@ -79,7 +79,11 @@ and use the trained $$R(x)$$ to optimize ESM3's generators:
 
 $$\mathcal{L}_{finetune} = -\mathbb{E}_{x \sim P_{\theta}}[\log P(x_A > x_B)]$$
 
-The goal of learning $$R$$ is as follows -- given two generated proteins $$(x_A, x_B)$$ where $$x_A$$ is preferred over $$x_B$$, the function $$R(x)$$ should satisfy $$R(x_A) > R(x_B)$$. This is different from traditional reward models that predict absolute reward values, instead $$R(x)$$ is trained to rank proteins correctly by assigning a higher proabibility to a better one. 
+The goal of learning $$R$$ is as follows -- given two generated proteins $$(x_A, x_B)$$ where $$x_A$$ is preferred over $$x_B$$, the function $$R(x)$$ should satisfy $$R(x_A) > R(x_B)$$. This is different from traditional reward models that predict absolute reward values, instead $$R(x)$$ is trained to rank proteins correctly by assigning a higher proabibility to a better one. We model the probability that $$x_A$$ is better than $$x_B$$ using a _softmax-based preference function_:
+
+$$P(x_A > x_B) = \frac{e^{R(x_A)}}{e^{R(x_A)} + e^{R(x_B)}}$$
+
+this is similar to logistic regression, and ensures that if $$R(x_A) >> R(x_B)$$ then $$P(x_A > x_B) \to 1$$, if the rewards are roughly equal, there is around a half probability that $$P(x_A > x_B)$$ and similarly if $$R(x_A) << R(x_B)$$ then $$P(x_A > x_B) \to 0$$. We train $$R(x)$$ using contrastive loss, also called _pairwise ranking_ loss:
 
 ## RoseTTAFold and RFDiffusion
 
