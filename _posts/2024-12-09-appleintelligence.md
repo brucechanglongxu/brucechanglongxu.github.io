@@ -2,7 +2,7 @@
 layout: post
 title: "Apple General Intelligence (Part I): GQA vs MHSA"
 date: 2024-12-09
-categories: Software Engineering
+categories: AI frontiermodels transformer
 author: Bruce Changlong Xu
 ---
 

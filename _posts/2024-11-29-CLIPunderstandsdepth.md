@@ -2,7 +2,7 @@
 layout: post
 title: "CLIP understanding depth"
 date: 2024-11-29
-categories: AI
+categories: vision
 author: Bruce Changlong Xu
 ---
 
