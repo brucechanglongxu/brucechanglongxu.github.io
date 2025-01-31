@@ -14,5 +14,15 @@ Expanding upon these principles, [Grounding DINO](https://arxiv.org/pdf/2303.054
 
 Moreover, the computational optimizations introduced in Grounding DINO 1.5 Edge demonstrate the feasibility of deploying such models in resource-constrained environments. By streamlining feature enhancers and refining detection pipelines, this approach aligns well with real-world deployment needs, such as intraoperative consoles and robotic systems.
 
-- Caron, Mathilde, et al. "Emerging Properties in Self-Supervised Vision Transformers." arXiv preprint arXiv:2104.14294, 24 May 2021, https://arxiv.org/abs/2104.14294.
+## Self-supervised Learning
+
+**BYOL**
+
+**SimCLR** 
+
+- Caron, Mathilde, et al. _"Emerging Properties in Self-Supervised Vision Transformers."_ arXiv preprint arXiv:2104.14294, 24 May 2021, https://arxiv.org/abs/2104.14294.
+- Chen, Ting, et al. _"A Simple Framework for Contrastive Learning of Visual Representations."_ 2020, arXiv preprint, arXiv:2002.05709. https://arxiv.org/abs/2002.05709.
+- Grill, Jean-Bastien, et al. _"Bootstrap Your Own Latent: A New Approach to Self-Supervised Learning."_ 2020, arXiv preprint, arXiv:2006.07733. https://arxiv.org/abs/2006.07733.
+- Tomasev, Nenad, et al. _"Pushing the Limits of Self-Supervised ResNets: Can We Outperform Supervised Learning Without Labels on ImageNet?"_ 2022, arXiv preprint, arXiv:2201.05119. https://arxiv.org/abs/2201.05119.
+- Ericsson, Linus, et al. _"How Well Do Self-Supervised Models Transfer?"_ 2020, arXiv preprint, arXiv:2011.13377. https://arxiv.org/abs/2011.13377.
 
