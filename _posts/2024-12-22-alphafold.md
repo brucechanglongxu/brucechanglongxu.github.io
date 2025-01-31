@@ -23,6 +23,12 @@ _**What is a [Multiple Sequence Alignment (MSA)](https://www.nature.com/articles
 
 Traditional _de novo_ protein design involves engineering proteins to fold into specific structures and perform desired functions, such as binding to a target or acting as an enzyme. Deep learning has improved protein design but struggles with complex relationships between protein backbone geometry and sequences. **[RFDiffusion](https://www.nature.com/articles/s41586-023-06415-8)** extends the success of diffusion models from image/text to protein design, augmenting RoseTTAFold to a generative AI framework which is capable of designing diverse protein structures. 
 
+**RoseTTAFold**
+
+Unlike AlphaFold, which primarily focuses on pairwise relationships between residues, RoseTTAFold operates on a _three-track_ network that integrates **1D information** (sequence features), **2D information** (residue-residue relationships), **3D information** (atomic coordinates of protein structures). This simultaneous processing allows RoseTTAFold to refine its predictions iteratively, which subsequently improves structural accuracy. Indeed RoseTTAFold is not only used for structure prediction, but also in _de novo protein design_, where it helps generate new proteins with specific structures and functions. 
+
+RFdiffusion uses a _denoising process_ to iteratively construct new protein backbones whilst maintaining biologically feasible structures, and adds an extra fine-tuning layer on top of RoseTTAFold. 
+
 - Watson, J.L., Juergens, D., Bennett, N.R. et al. De novo design of protein structure and function with RFdiffusion. Nature 620, 1089–1100 (2023). https://doi.org/10.1038/s41586-023-06415-8
 - Lisanza, S.L., Gershon, J.M., Tipps, S.W.K. et al. Multistate and functional protein design using RoseTTAFold sequence space diffusion. Nat Biotechnol (2024). https://doi.org/10.1038/s41587-024-02395-w
 - Jumper, J., Evans, R., Pritzel, A. et al. Highly accurate protein structure prediction with AlphaFold. Nature 596, 583–589 (2021). https://doi.org/10.1038/s41586-021-03819-2
