@@ -19,3 +19,4 @@ A **timing path** is a sequence of elements (logic gates, flip-flops, wires) tha
 3. **Clock Skew:** The variation in arrival times of a clock signal at different points in the circuit. 
 4. **Clock Jitter:** Uncertainty in clock edge timing due to noise or process variations. 
 
+Hence it is natural that the three main types of timing analysis are _setup analysis_ (ensuring data arrives before the clock edge), _hold analysis_ (ensuring data remains stable after the clock edge), and _clock domain crossing analysis_ (checking for timing violations between different clock domains). 
