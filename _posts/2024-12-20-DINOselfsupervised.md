@@ -14,4 +14,5 @@ Expanding upon these principles, [Grounding DINO](https://arxiv.org/pdf/2303.054
 
 Moreover, the computational optimizations introduced in Grounding DINO 1.5 Edge demonstrate the feasibility of deploying such models in resource-constrained environments. By streamlining feature enhancers and refining detection pipelines, this approach aligns well with real-world deployment needs, such as intraoperative consoles and robotic systems.
 
-https://arxiv.org/abs/2104.14294
+- Caron, Mathilde, et al. "Emerging Properties in Self-Supervised Vision Transformers." arXiv preprint arXiv:2104.14294, 24 May 2021, https://arxiv.org/abs/2104.14294.
+
