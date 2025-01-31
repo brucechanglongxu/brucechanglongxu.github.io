@@ -15,9 +15,6 @@ Intuitively, we want to fuse data modalities early when we have tighly coupled a
 - Weng, Lilian. (Jun 2022). Generalized visual language models. Lil’Log. https://lilianweng.github.io/posts/2022-06-09-vlm/.
 - Fini, Enrico, et al. Multimodal Autoregressive Pre-training of Large Vision Encoders. Apple, 21 Nov. 2024, arXiv:2411.14402. https://github.com/apple/ml-aim.
 - Chameleon Team. Chameleon: Mixed-Modal Early-Fusion Foundation Models. FAIR at Meta, 17 May 2024, arXiv:2405.09818.
-- 
+- Redmon, Joseph, et al. You Only Look Once: Unified, Real-Time Object Detection. University of Washington, Allen Institute for AI, and Facebook AI Research, 2016, arXiv:1506.02640.
 
 https://huyenchip.com/2023/10/10/multimodal.html
-https://arxiv.org/pdf/2405.09818
-https://arxiv.org/pdf/2411.14402
-https://arxiv.org/pdf/1506.02640
