@@ -2,7 +2,7 @@
 layout: post
 title: "Latent Diffusion and DALL-E"
 date: 2024-12-18
-categories: Software Engineering
+categories: AI vision
 author: Bruce Changlong Xu
 ---
 

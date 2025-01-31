@@ -2,7 +2,7 @@
 layout: post
 title: "AlphaFold, RFDiffusion and ESM: Unravelling Nature's Deepest Secrets"
 date: 2024-12-22
-categories: Software Engineering
+categories: AI oncology
 author: Bruce Changlong Xu
 ---
 

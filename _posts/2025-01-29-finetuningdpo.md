@@ -2,7 +2,7 @@
 layout: post
 title: "Fine Tuning, your Grace"
 date: 2025-01-29
-categories: Software Engineering
+categories: AI RL
 author: Bruce Changlong Xu
 ---
 

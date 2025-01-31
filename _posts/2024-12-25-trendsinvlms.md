@@ -2,7 +2,7 @@
 layout: post
 title: "YOLO, Flamingo, Chameleon and AIMv2: Trends in Vision Language Models"
 date: 2024-12-25
-categories: Software Engineering
+categories: AI vision
 author: Bruce Changlong Xu
 ---
 

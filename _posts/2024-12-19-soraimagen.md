@@ -2,7 +2,7 @@
 layout: post
 title: "Sora, Imagen and Pika Labs"
 date: 2024-12-19
-categories: Software Engineering
+categories: AI vision
 author: Bruce Changlong Xu
 ---
 
