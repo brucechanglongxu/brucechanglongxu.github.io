@@ -23,7 +23,7 @@ _**What is a [Multiple Sequence Alignment (MSA)](https://www.nature.com/articles
 
 ## ESM: Evolutionary Scale Modeling
 
-**ESM-2** is the largest protein language model developed to data, which is trained on protein sequences with up to _15 billion parameters_. The training objective uses a masked language modeling approach (similar to BERT), where 15 percent of amino acids in a sequence are masked, and the model is trained to predict them. This forces the model to learn relationships between amino acids, evolutionary constraints, and structural patterns. As the model grows from 8M to 15B parameters, it is observed to learn increasing detailed protein structural features (where improvements are non-linear). 
+**[ESM-2](https://github.com/facebookresearch/esm)** is the largest protein language model developed to data, which is trained on protein sequences with up to _15 billion parameters_. The training objective uses a masked language modeling approach (similar to BERT), where 15 percent of amino acids in a sequence are masked, and the model is trained to predict them. This forces the model to learn relationships between amino acids, evolutionary constraints, and structural patterns. As the model grows from 8M to 15B parameters, it is observed to learn increasing detailed protein structural features (where improvements are non-linear). 
 
 Standard models like AlphaFold2 and RoseTTAFold rely on MSA's, whereas ESM-2's international representations learn structural features purely from sequences, eliminating the need for explicit evolutionary homologs. The model runs entirely on GPUs, 6x faster than AlphaFold2 for long sequences, and 60x for shorter sequences, and can also run on consumer hardware (e.g. Apple M1). 
 
@@ -44,3 +44,4 @@ RFdiffusion uses a _denoising process_ to iteratively construct new protein back
 - Watson, J.L., Juergens, D., Bennett, N.R. et al. De novo design of protein structure and function with RFdiffusion. Nature 620, 1089–1100 (2023). https://doi.org/10.1038/s41586-023-06415-8
 - Lisanza, S.L., Gershon, J.M., Tipps, S.W.K. et al. Multistate and functional protein design using RoseTTAFold sequence space diffusion. Nat Biotechnol (2024). https://doi.org/10.1038/s41587-024-02395-w
 - Jumper, J., Evans, R., Pritzel, A. et al. Highly accurate protein structure prediction with AlphaFold. Nature 596, 583–589 (2021). https://doi.org/10.1038/s41586-021-03819-2
+- Lin, Zeming, et al. “Evolutionary-Scale Prediction of Atomic-Level Protein Structure with a Language Model.” Science, vol. 379, no. 6637, 2023, pp. 1123–1130. https://doi.org/10.1126/science.ade2574
