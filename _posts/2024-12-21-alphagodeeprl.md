@@ -2,7 +2,7 @@
 layout: post
 title: "AlphaGo and Deep Reinforcement Learning"
 date: 2024-12-21
-categories: Software Engineering
+categories: RL
 author: Bruce Changlong Xu
 ---
 
