@@ -2,7 +2,7 @@
 layout: post
 title: "Grounding DINO: The Future of Self-supervised Vision Transformers"
 date: 2024-12-20
-categories: Software Engineering
+categories: vision
 author: Bruce Changlong Xu
 ---
 
