@@ -57,9 +57,9 @@ where $$w_s, w_f, w_e$$ are weighting coefficients.
 
 _Reinforcement Learning with PPO_ 
 
-ESM3 is subsequently fine-tuned using **Reinforcement Learning with PPO** which balances exploration (novel proteins) and exploitation (high reward sequences). It parameterizes a policy $$\pi_{\theta}(x|s, f)$$ which generates proteins. The update rule follows **gradient ascent** on the expected reward:
+ESM3 is subsequently fine-tuned using **Reinforcement Learning with PPO** which balances exploration (novel proteins) and exploitation (high reward sequences). It parameterizes a policy $$\pi_{\theta}(x:s, f)$$ which generates proteins. The update rule follows **gradient ascent** on the expected reward:
 
-$$\Nabla_{\theta} J(\theta) = \mathbb{E}_{x \sim \pi_{\theta}}[\Nabla_{\theta} \log \pi_{\theta}(x:s, f) \cdot R(x, s, f)]$$
+$$\nabla_{\theta} J(\theta) = \mathbb{E}_{x \sim \pi_{\theta}}[\nabla_{\theta} \log \pi_{\theta}(x:s, f) \cdot R(x, s, f)]$$
 
 to stabilize training, **PPO enforces a trust-region constraint:
 
@@ -73,11 +73,13 @@ _Preference Learning with Contrastive Reward_
 
 Lastly, to refine protein selection, ESM3 learns human-like preferences through contrastive learning. We first collect preference pairs $$(x_A, x_B)$$ where $$x_A$$ is higher quality than $$x_B$$ (both are generated sequences). We first train a reward model $$R(x)$$ to distinguish high versus low-quality proteins:
 
-$$P(x_A > x_B) = \frac{e^{R(x_A)}}{e^{R(x_A)} + e^{R(x_B)}}
+$$P(x_A > x_B) = \frac{e^{R(x_A)}}{e^{R(x_A)} + e^{R(x_B)}}$$
 
 and use the trained $$R(x)$$ to optimize ESM3's generators:
 
 $$\mathcal{L}_{finetune} = -\mathbb{E}_{x \sim P_{\theta}}[\log P(x_A > x_B)]$$
+
+The goal of learning $$R$$ is as follows -- given two generated proteins $$(x_A, x_B)$$ where $$x_A$$ is preferred over $$x_B$$, the function $$R(x)$$ should satisfy $$R(x_A) > R(x_B)$$. This is different from traditional reward models that predict absolute reward values, instead $$R(x)$$ is trained to rank proteins correctly by assigning a higher proabibility to a better one. 
 
 ## RoseTTAFold and RFDiffusion
 
