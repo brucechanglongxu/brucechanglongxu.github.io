@@ -2,7 +2,7 @@
 layout: post
 title: "DeepDive into DeepSeek MoE: Unlocking Expert Potential"
 date: 2025-01-28
-categories: Software Engineering
+categories: AI
 author: Bruce Changlong Xu
 ---
 
