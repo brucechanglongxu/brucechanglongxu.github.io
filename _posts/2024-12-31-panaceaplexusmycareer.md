@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Panacea Plexus: My Career Vision"
-date: 2024-12-30
+date: 2024-12-31
 categories: AI
 author: Bruce Changlong Xu
 ---
