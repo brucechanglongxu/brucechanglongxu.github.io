@@ -13,8 +13,8 @@ This post outlines the vision behind Panacea Plexus, a blueprint for where I see
 My dream job would be **EVP of R&D, Oncology, Immunology, Cardiovascular and Metabolic Disease** at **Sanofi**. In addition to this, I want to have a secondary role as **SVP of AI Strategy and Partnerships** at **NVIDIA**. Due to my educational history/upbringing, I want to have adjunct/honorary professorships at _Li Ka Shing Faculty of Medicine, Metabolic Medicine (State Key Laboratory)_ **[in my father/mother's footsteps]** and _Stanford Medicine (secondary Stanford Electrical Engineering and Computer Science)_ **[my alma mater]**; whilst being a Venture Partner at _VMS Group (Life Sciences and AGI Fund)_ **[my mentors]**, and Chief Scientific/Medical AI advisor to the _HKSAR/New Zealand governments_ **[my hometowns]**. Hence there are four axis in which I will be developing:
 
 1. Artificial General Intelligence (SVP, AI Strategy @ NVIDIA)
-2. Global Pharmaceutical R&D and Translational Medicine (Research, less clinical) (EVP R&D Oncology, Immunology, Cardiometabolic @ Sanofi)
-3. Academia and Next Generation Mentorship (HKU Medicine, Stanford Medicine and Engineering) 
+2. Global Pharmaceutical R&D (EVP R&D Oncology, Immunology, Cardiometabolic @ Sanofi)
+3. Academia (HKU Medicine, Stanford Medicine and Engineering) 
 4. Entrepreneurial Venture Investing (3Cap AGI, VMS Group)
 
-_How do I get there?_ Right now I hold a BS/MS from Stanford University, and have tenures at Apple, NVIDIA and Cerebras Systems. My primary goal within the next seven years is to reach **director/distinguished engineer** level of AI-infrastructure at Cerebras Systems. 
+_How do I get there?_ Right now I hold a BS/MS from Stanford University, and have tenures at Apple, NVIDIA and Cerebras Systems. My primary goal within the next **seven years** is to reach **distinguished engineer** level at Cerebras (less so management, more so having very strong technical foundations) (which according to historical data will take approximately six and a half years). Hence I should stay in this role for the duration of my 7 year MD/PhD. 
