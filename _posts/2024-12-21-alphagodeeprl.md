@@ -12,8 +12,9 @@ For centuries, the ancient board game of Go was considered the ultimate test of 
 
 AlphaGo Zero's breakthrough was made possible by deep reinforcement learning (RL), a paradigm in which an AI learns by interacting with an environment and improving based on feedback. Instead of mimicking human gameplay, AlphaGo Zero trained itself purely through self-play using the following techniques:
 
-1. **Monte Carlo Tree Search**
-2. 
+1. **Monte Carlo Tree Search:** AlphaGo Zero combines deep learning with search by using MCTS to evaluate moves more effectively than brute-force methods. The MCTS process balances exploration and exploitation to refine move selection over time Instead of conducting exhaustive rollouts, AlphaGo Zero leverages neural network evaluations to improve search efficiency, ensuring more informed move selection.
+2. **Policy and Value Networks:** A deep residual neural network predicts the best moves (policy network) and evaluates board positions (value network). These networks evolve over time as AlphaGo Zero optimizes its predictions through gradient descent and experience replay. The architecture features multiple residual blocks, allowing for efficient feature extraction and learning from raw board states without handcrafted features.
+3. **Self-Play with Reinforcement Learning:** AlphaGo Zero generates its own training data by playing against itself, continuously improving its strategies. The AI assigns probabilities to moves based on prior training and refines them through iterative learning. Through self-play, the model undergoes a continual process of policy improvement, exploring novel strategies that would be unlikely to emerge in human-guided training.
 
 AlphaGo Zero exemplifies the power of reinforcement learning and self-play, achieving superhuman performance without human guidance. This represents a paradigm shift in AI development, moving towards more general and self-sufficient learning systems that can surpass human expertise in a variety of domains.
 
