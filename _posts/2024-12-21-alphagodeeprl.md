@@ -12,6 +12,11 @@ For centuries, the ancient board game of Go was considered the ultimate test of 
 
 AlphaGo Zero's breakthrough was made possible by deep reinforcement learning (RL), a paradigm in which an AI learns by interacting with an environment and improving based on feedback. Instead of mimicking human gameplay, AlphaGo Zero trained itself purely through self-play using the following techniques:
 
+1. **Monte Carlo Tree Search**
+2. 
+
+AlphaGo Zero exemplifies the power of reinforcement learning and self-play, achieving superhuman performance without human guidance. This represents a paradigm shift in AI development, moving towards more general and self-sufficient learning systems that can surpass human expertise in a variety of domains.
+
 - Silver, D., Schrittwieser, J., Simonyan, K. et al. Mastering the game of Go without human knowledge. Nature 550, 354–359 (2017). https://doi.org/10.1038/nature24270
 - Silver, D., Huang, A., Maddison, C. et al. Mastering the game of Go with deep neural networks and tree search. Nature 529, 484–489 (2016). https://doi.org/10.1038/nature16961
 
