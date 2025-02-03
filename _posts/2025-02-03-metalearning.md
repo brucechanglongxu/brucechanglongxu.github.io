@@ -27,13 +27,13 @@ MAML operates on the fundamental principle of **meta-learning**, which aims to o
 
 ### Step 1: Defining the Meta-Learning Problem  
 
-Let’s assume we have a **distribution of tasks** $$\( p(T) \)$$, where each task $$\( T_i \)$$ has its own dataset $$\( D_i = (X_i, Y_i) \)$$. The goal is not to train a model to perform well on a single task but to find an initialization $$\( \theta \)$$ that allows for **rapid adaptation** to any task sampled from $$\( p(T) \)$$.  
+Let’s assume we have a **distribution of tasks** $$p(T)$$, where each task $$T_i$$ has its own dataset $$D_i = (X_i, Y_i)$$. The goal is not to train a model to perform well on a single task but to find an initialization $$\theta$$ that allows for **rapid adaptation** to any task sampled from $$p(T)$$.  
 
-MAML defines a **base model** $$\( f_{\theta} \)$$ with parameters $$\( \theta \)$$ and uses gradient descent to optimize its performance across multiple tasks.  
+MAML defines a **base model** $$f_{\theta}$$ with parameters $$\theta$$ and uses gradient descent to optimize its performance across multiple tasks.  
 
 ### Step 2: Inner Loop – Learning on Individual Tasks  
 
-For a given task $$\( T_i \)$$, we sample a small batch of training data $$\( D_i^{train} \)$$. The model performs a few steps of gradient descent using **task-specific data** to update its parameters:  
+For a given task $$T_i$$, we sample a small batch of training data $$D_i^{train}$$. The model performs a few steps of gradient descent using **task-specific data** to update its parameters:  
 
 $$\[
 \theta'_i = \theta - \alpha \nabla_{\theta} \mathcal{L}_{T_i}(\theta)
@@ -42,7 +42,7 @@ $$
 
 where:  
 
-- $$\( \mathcal{L}_{T_i}(\theta) \)$$ is the loss function for task $$\( T_i \)$$.  
+- $$\mathcal{L}_{T_i}(\theta)$$ is the loss function for task $$T_i$$.  
 - $$\( \alpha \)$$ is the **inner loop learning rate** (usually small).  
 - $$\( \nabla_{\theta} \mathcal{L}_{T_i}(\theta) \)$$ is the gradient of the loss with respect to the model parameters $$\( \theta \)$$.  
 
