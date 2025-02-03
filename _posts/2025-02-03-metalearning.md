@@ -15,3 +15,14 @@ MAML differs from standard deep learning approaches in that it does not train a 
 If you got holes in your system, you should expose those holes to reinforcement learning. More RL solves more hallucinations. 
 
 It becomes more and more clear that the path to AGI is RL. See David Silver’s talk. (David Silver is a leading AI researcher, and the brain behind RL at DeepMind, contributing significantly to AlphaGo and AlphaZero.)
+
+## What is MAML?
+
+At it's core, _meta-learning_ (or "learning to learn") trains models to generalize quickly to new, unseen tasks. MAML achieves this by:
+
+1. Training a model on multiple related tasks rather than a single one. 
+2. Optimizing the model's parameters so that a few gradient updates allow it to solve new tasks efficiently. 
+
+Unlike traditional deep learning, which requires extensive fine-tuning when shifting to new domains, MAML ensures that the model starts form a **highly adaptable state.** The key insight is that instead of training a model to solve a task directly, MAML trains a model to be highly efficient at learning new tasks. This meta-learning framework is **model-agnostic**, meaning it can be applied to any neural network architecture, making it widely applicable across various domains from robotics to NLP and healthcare AI. 
+
+A fascinating parallel exists between MAML and DeepSeek's MoE model; MAML selectively learns from a local set of tasks rather than attempting to generlalize over an entire dataset. Similarly, DeepSeek's MoE model selectively activates only certain experts per input, focusing comutaitonal power only where needed. Both MAML and MoE prioritize localized learning and efficient adaptation, avoiding the inefficiencies of brute-force computation. 
