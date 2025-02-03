@@ -30,3 +30,12 @@ A fascinating parallel exists between MAML and DeepSeek's MoE model; MAML select
 Most AI models are trained to _solve a specific task_. Once trained, they don't generalize well to new tasks without extensive fine tuning. For example, a standard neural network trained on cat versus dog classification won't perform well on fox versus wolf classification without additional training. It needs a lot of new labeled data and time-consuming updates. MAML flips this idea around, instead of training a model to solve one task, we train it to be good at **adapting to new tasks quickly**. Instead of training on "cat vs dog", "fox vs wolf", "apple vs banana" separately, MAML learns a generalizable starting point that can quickly adapt to any new classification problem with just a few gradient updates. 
 
 In standard supervised learning, you train a model on **one task** using gradient descent. Once trained, the model only knows that one task and struggles to generalize to new ones. If you want to adapt it to a new task, you have to fine-tune it with more trianing data, which takes time, compute and labels. Instead of optimizing a model to perform well on one fixed task, MAML optimizes it to be easily adaptable to new tasks. It doesn't learn just one task -- it learns how to quickly learn any task. It fines an initial set of parameters $$\theta$$ that allows the model to quickly fine-tune itself with just a few gradient updates. 
+
+**Step 1: Define a Set of Tasks**
+
+Assume we have multiple tasks $$T_1, T_2, \cdots, T_N$$, each task has its own dataset $$D_i = (X_i, Y_i)$$. In traditional learning we train a model on one task at a time, and in MAML we train a model across many tasks so that it can adapt quickly to new ones. 
+
+**Step 2: Find an Initial Model that Learns Quickly** 
+
+MAML does this by optimizing for a model parameter $$\theta$$ that is easy to fine-tune. Given a task $$T_i$$, we start with an initial model parameter $$\theta$$; we perform one or a few gradient steps on the loss function for that task, updating the parameters to $$\theta_i'$$. Mathematically:
+$$\theta_i' = \theta - \alpha \nabla_{\theta} \mathcal{L}_{T_i}(\theta)$$
