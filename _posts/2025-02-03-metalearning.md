@@ -62,19 +62,21 @@ $$
 
 where:  
 
-- \( \beta \) is the **meta-learning rate** (typically larger than \( \alpha \)).  
-- \( \sum_{i} \mathcal{L}_{T_i}(\theta'_i) \) computes the performance of the adapted model across multiple tasks.  
-- The gradient \( \nabla_{\theta} \mathcal{L}_{T_i}(\theta'_i) \) is computed with respect to the **original \( \theta \), not \( \theta'_i \)**.  
+- $$\( \beta \)$$ is the **meta-learning rate** (typically larger than $$\( \alpha \)$$).  
+- $$\( \sum_{i} \mathcal{L}_{T_i}(\theta'_i) \)$$ computes the performance of the adapted model across multiple tasks.  
+- The gradient $$\( \nabla_{\theta} \mathcal{L}_{T_i}(\theta'_i) \)$$ is computed with respect to the **original $$\( \theta \), not \( \theta'_i \)$$**.  
 
-This step ensures that the next time a new task is encountered, **the model starts from an initialization \( \theta \) that allows for rapid fine-tuning**, requiring minimal computational resources.  
+This step ensures that the next time a new task is encountered, **the model starts from an initialization $$\( \theta \)$$ that allows for rapid fine-tuning**, requiring minimal computational resources.  
 
 ### Computational Complexity and Second-Order Gradients  
 
-One important technical challenge in MAML is that the outer loop requires computing **second-order gradients**. Since the loss function \( \mathcal{L}_{T_i} \) depends on \( \theta'_i \), and \( \theta'_i \) itself is a function of \( \theta \), the meta-update involves:  
+One important technical challenge in MAML is that the outer loop requires computing **second-order gradients**. Since the loss function $$\( \mathcal{L}_{T_i} \)$$ depends on $$\( \theta'_i \)$$, and $$\( \theta'_i \)$$ itself is a function of $$\( \theta \)$$, the meta-update involves:  
 
+$$
 \[
 \nabla_{\theta} \mathcal{L}_{T_i}(\theta'_i) = \nabla_{\theta} \mathcal{L}_{T_i}(\theta - \alpha \nabla_{\theta} \mathcal{L}_{T_i}(\theta))
 \]
+$$
 
 This introduces **higher-order derivatives**, which can be computationally expensive. In practice, researchers often approximate these gradients using **first-order MAML (FOMAML)**, which ignores second-order terms to reduce computational costs.  
 
