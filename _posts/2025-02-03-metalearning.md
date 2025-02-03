@@ -35,9 +35,8 @@ MAML defines a **base model** $$f_{\theta}$$ with parameters $$\theta$$ and uses
 
 For a given task $$T_i$$, we sample a small batch of training data $$D_i^{train}$$. The model performs a few steps of gradient descent using **task-specific data** to update its parameters:  
 
-$$\[
+$$
 \theta'_i = \theta - \alpha \nabla_{\theta} \mathcal{L}_{T_i}(\theta)
-\]
 $$
 
 where:  
@@ -55,9 +54,7 @@ Instead of optimizing $$\theta$$ to minimize loss on a single task, MAML **optim
 To achieve this, MAML minimizes the loss of the adapted model across all tasks:  
 
 $$
-\[
 \theta \leftarrow \theta - \beta \sum_{i} \nabla_{\theta} \mathcal{L}_{T_i}(\theta'_i)
-\]
 $$
 
 where:  
@@ -73,9 +70,7 @@ This step ensures that the next time a new task is encountered, **the model star
 One important technical challenge in MAML is that the outer loop requires computing **second-order gradients**. Since the loss function $$\mathcal{L}_{T_i}$$ depends on $$\theta'_i$$, and $$\theta'_i$$ itself is a function of $$\theta$$, the meta-update involves:  
 
 $$
-\[
 \nabla_{\theta} \mathcal{L}_{T_i}(\theta'_i) = \nabla_{\theta} \mathcal{L}_{T_i}(\theta - \alpha \nabla_{\theta} \mathcal{L}_{T_i}(\theta))
-\]
 $$
 
 This introduces **higher-order derivatives**, which can be computationally expensive. In practice, researchers often approximate these gradients using **first-order MAML (FOMAML)**, which ignores second-order terms to reduce computational costs.  
