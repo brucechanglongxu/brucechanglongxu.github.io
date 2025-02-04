@@ -20,5 +20,7 @@ where $$R(Z)$$ represents the total "information volume" of all features, $$R_c(
 
 ## Self Consistency: Ensuring Reliable and Adaptive Learning
 
+While Parsimony ensure efficient representation, **Self-Consistency** guarantees that the learned models are _internally coherent_ and _adaptive_ to changes in the environment. The Principle of Self Consistency posits that an intelligent system should seek a model of the external world that can regenerate observed data while minimizing internal discrepancy. 
+
 - Ma, Yi, et al. On the Principles of Parsimony and Self-Consistency for the Emergence of Intelligence. University of California, Berkeley, 2022. arXiv:2207.04630.
 - Olshausen, Bruno A., and David J. Field. "Sparse Coding of Sensory Inputs." Current Opinion in Neurobiology, vol. 14, no. 4, 1996, pp. 481–487.
