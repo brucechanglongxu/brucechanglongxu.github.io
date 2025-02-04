@@ -154,3 +154,6 @@ This implementation captures the core principles of MAML:
 2. An outer loop update that optimizes for fast adaptation across tasks.
 
 In practical implementations, MAML can be extended to convolutional networks (for vision), transformers (for NLP), or reinforcement learning policies. MAML represents a fundamental shift in AI training paradigms, moving from task-specific learning to learning-to-learn. By optimizing for adaptability rather than brute-force memorization, MAML-trained models can generalize faster, adapt with minimal data, and require significantly fewer updates than traditional deep learning models.
+
+- Finn, Chelsea, Pieter Abbeel, and Sergey Levine. Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks. Proceedings of the 34th International Conference on Machine Learning, 2017, arXiv:1703.03400
+- Duan, Yan, John Schulman, Xi Chen, Peter L. Bartlett, Ilya Sutskever, and Pieter Abbeel. On First-Order Learning Algorithms. arXiv preprint arXiv:1803.02999, 2018
