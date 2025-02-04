@@ -20,7 +20,21 @@ where $$R(Z)$$ represents the total "information volume" of all features, $$R_c(
 
 ## Self Consistency: Ensuring Reliable and Adaptive Learning
 
-While Parsimony ensure efficient representation, **Self-Consistency** guarantees that the learned models are _internally coherent_ and _adaptive_ to changes in the environment. The Principle of Self Consistency posits that an intelligent system should seek a model of the external world that can regenerate observed data while minimizing internal discrepancy. 
+While Parsimony ensure efficient representation, **Self-Consistency** guarantees that the learned models are _internally coherent_ and _adaptive_ to changes in the environment. The Principle of Self Consistency posits that an intelligent system should seek a model of the external world that can regenerate observed data while minimizing internal discrepancy. This means that a learning system should not only extract compact representations but also ensure that these representations faithfully reconstruct and regenerate the original inputs. 
+
+Mathematically, this principle translates into a closed-loop auto-encoding framework, where a model $$f(x)$$ maps sensory input $$x$$ to a compressed representation $$z$$ and a decoder $$g(z)$$ reconstructs the original input:
+
+$$x \to f(x) \to z \to g(z) \to \hat{x}$$
+
+A well-trained system satisfies **self-consistency** when:
+
+$$f(x) = f(g(f(x)))$$
+
+That is, the encoded and reconstructed representations should be **indistinguishable** under the encoding function $$f$$. This self-consistency ensures that the learned representations are _not only compact but also meaningful_. To achieve this, the authors propose a min-max game between the encoder $$f(x)$$ and the decoder $$g(z)$$ where:
+
+$$\max_{\theta} \min_{\nu} \Delta R(Z, \hat{Z})$$
+
+This dynamic optimization ensures that the encoder refines its feature extraction to maximize information preservation, while the decoder continuously improves its ability to reconstruct data, minimizing the loss of essential details. 
 
 - Ma, Yi, et al. On the Principles of Parsimony and Self-Consistency for the Emergence of Intelligence. University of California, Berkeley, 2022. arXiv:2207.04630.
 - Olshausen, Bruno A., and David J. Field. "Sparse Coding of Sensory Inputs." Current Opinion in Neurobiology, vol. 14, no. 4, 1996, pp. 481–487.
