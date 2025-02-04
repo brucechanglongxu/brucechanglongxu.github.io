@@ -10,7 +10,9 @@ The quest to understand intelligence—both natural and artificial—has driven 
 
 ## Parsiomony: The Art of Learning Efficient Representations
 
-The _Principle of Parsimony_ states that an intelligent system should identify and represent low-dimensional structures in high-dimensional sensory data in the most compact and structured way. This notion has deep roots in information theory and neuroscience, where the brain is hypothesized to encode sensory inputs efficiently through structured, sparse representations. In mathematical terms, the principle of parsimony is about **seeking compact, structured, and maximally independent representations** of data. The authors introduce **Linear Discriminative Representations (LDR)** as a way to achieve this goal. The idea is to map complex, high-dmensional sensory data onto 
+The _Principle of Parsimony_ states that an intelligent system should identify and represent low-dimensional structures in high-dimensional sensory data in the most compact and structured way. This notion has deep roots in information theory and neuroscience, where the brain is hypothesized to encode sensory inputs efficiently through structured, sparse representations. In mathematical terms, the principle of parsimony is about **seeking compact, structured, and maximally independent representations** of data. The authors introduce **Linear Discriminative Representations (LDR)** as a way to achieve this goal. The idea is to map complex, high-dmensional sensory data onto _low dimensional, independent subspaces_, capturing the essential information while filtering out redundancies. 
+
+For example, in vision, raw pixel data is inherently high-dimensional, but meaningful objects and features exist in much lower-dimensional manifolds. By enforcing parsimony, a learning system can extract **minimal but sufficient** representatiosn that generalize well to new inputs. This perspective aligns with classical information theory, which seeks optimal compression while preserving necessary details. 
 
 ## Self Consistency: Ensuring Reliable and Adaptive Learning
 
