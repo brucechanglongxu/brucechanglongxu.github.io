@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "NVIDIA's Segformer"
+title: "Hormone Regulation"
 date: 2025-02-05
-categories: AI vision
+categories: endocrinology
 author: Bruce Changlong Xu
 ---
