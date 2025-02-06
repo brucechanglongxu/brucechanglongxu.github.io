@@ -14,7 +14,7 @@ Most transformer-based segmentation models rely on computationally expensive arc
 2. **Removes Position Embeddings:** In contrast to standard ViTs, SegFormer removes positional embeddings which allows it to generalize across different image resolutions without requiring fixed input sizes.
 3. **Lightweight MLP Decoder:** Instead of heavy segmentation heads, SegFormer uses a simple MLP-based decoder, efficiently aggregating multi-scale features while keeping computational costs low.
 
-with these innovations, SegFormer is able to achieve SOTA perfrmance with fewer parameters than other leading ViT (or CNN) models. 
+with these innovations, SegFormer is able to achieve SOTA perfrmance with fewer parameters than other leading ViT (or CNN) models. SegFormer is able to presrve local features in early layers, whilst capturing long-range dependencies at deeper layers; hence combining the best of CNNs and Transformers (CNN-like local receptive fields and Transformer-like global context). 
 
 ## Mix Transformer (MiT) Backbone
 
