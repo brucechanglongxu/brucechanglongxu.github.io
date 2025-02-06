@@ -19,3 +19,5 @@ with these innovations, SegFormer is able to achieve SOTA perfrmance with fewer 
 ## Mix Transformer (MiT) Backbone
 
 At the core of Segformer is MiT (Mix Transformer), an efficient vision transformer designed for dense prediction tasks. Instead of traditional ViT patch embeddings, MiT _overlaps patches_ to better capture spatial structures. Unlike global self-attention (which scales quadratically), MiT uses _local attention_ within each hierarchical stage, making computation more scalable. Similar to CNNs, tokens are progressively downsampled to reduce spatial redundancy and capture multi-scale features. 
+
+Unlike prior Transformer-based segmentation models such as SETR (which extracts single-scale low-resolution feature maps), SegFormer employs a hierarchical Transformer encoder (MiT), which processes multi-scale feature maps, removes positional encoding, and uses overlapping patch merging which retains spatial continuity. 
