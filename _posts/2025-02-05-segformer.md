@@ -15,3 +15,7 @@ Most transformer-based segmentation models rely on computationally expensive arc
 3. **Lightweight MLP Decoder:** Instead of heavy segmentation heads, SegFormer uses a simple MLP-based decoder, efficiently aggregating multi-scale features while keeping computational costs low.
 
 with these innovations, SegFormer is able to achieve SOTA perfrmance with fewer parameters than other leading ViT (or CNN) models. 
+
+## Mix Transformer (MiT) Backbone
+
+At the core of Segformer is MiT (Mix Transformer), an efficient vision transformer designed for dense prediction tasks. Instead of traditional ViT patch embeddings, MiT _overlaps patches_ to better capture spatial structures. Unlike global self-attention (which scales quadratically), MiT uses _local attention_ within each hierarchical stage, making computation more scalable. Similar to CNNs, tokens are progressively downsampled to reduce spatial redundancy and capture multi-scale features. 
