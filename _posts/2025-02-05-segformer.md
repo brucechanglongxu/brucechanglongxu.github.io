@@ -27,3 +27,9 @@ $$N = \frac{H \times W}{P^2}$$
 where $$P$$ is the patch size. In vanilla ViTs, self-attention operates on a matrix of shape $$(N, N)$$, which means that the computational complexity is $$O(N^2)$$. For example, if we process an image of size $$512 \times 512$$, with $$16 \times 16$$ patches, we have:
 $$N = \frac{512 \times 512}{16^2} = 1024$$
 so the attention operation would require computing a $$1024 \times 1024$$ matrix, which is costly. Instead of computing full self-attention on all $$N$$ patches, SegFormer introduces _sequence reduction_, which groups patches together and reduces the number of tokens before applying self-attention. Instead of directly applying self-attention to $$N$$ patches, SegFormer downsamples the key ($$K$$) and value ($$V$$) matrices by a factor of $$R$$, the sequence reduction ratio. 
+
+The keys and values are reshaped _before_ applying attention:
+$$K' = \textbf{Reshape}(\frac{N}{R}, C \times R) (K)$$
+where $$R$$ is the reduction ratio ($$4, 8$$) $$C$$ is the number of channels in the feature representation, which means that the reshaped $$K'$$ matrix is $$\frac{N}{R} \times C$$ instead of $$N \times C$$, meaning that we **attend to fewer tokens**. Since $$K'$$ and $$V'$$ have fewer tokens, the attention computation now operates over a smaller $$\frac{N}{R} \times N$$ matrix rather than an $$N \times N$$ matrix. This reduces the computational cost to:
+$$O(\frac{N^2}{R})$$
+which is $$R$$ times more efficient than standard self-attention.
