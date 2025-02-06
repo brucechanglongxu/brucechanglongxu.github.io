@@ -12,4 +12,10 @@ Coming back from the 2025 _Precision Medicine World Conference_ in the Santa Cla
 
 In the 1980s, Hood revolutionized the entire genomics field by developing the first automated DNA sequencer, which used fluorescent dyes and laser detection, instead of radioactive methods. This innovation drastically accelerated the speed, and reduced the cost of sequencing, enabling large-scale projects like the Human Genome Project. He invented foundational platforms for scientific inquiry (2/3 of the Central Dogma); the DNA synthesizer for custom DNA strands, the protein/peptide sequencer for analyzing amino acids, and constructing proteins -- hence carries the well-earned title of _"the father of molecular biotechnology"_. 
 
+## Leroy's Most Impactful Papers
+
+1. Initial sequencing and analysis of the human genome _(25350 citations)_ **(Nature 2001)**
+2. A distinct lineage of CD4 T cells regulates tissue inflammation by producing interleukin 17 _(6169 citations)_ **Nature Immunology (2005)**
+3. 
+
 - "My Life and Adventures Integrating Biology and Technology," _A Commemorative Lecture for the 2002 Kyoto Prize in Advanced Technologies_, https://web.archive.org/web/20120716225254/https://www.systemsbiology.org/download/2002Kyoto.pdf
