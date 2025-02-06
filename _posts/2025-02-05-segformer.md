@@ -12,4 +12,6 @@ Most transformer-based segmentation models rely on computationally expensive arc
 
 1. **Hierarchical Multi-Scale Feature Extraction:** SegFormer extracts features at multiple resolutions, mimicking CNN-like spatial hierarchies whilst leveraging the global context-awareness of transformers.
 2. **Removes Position Embeddings:** In contrast to standard ViTs, SegFormer removes positional embeddings which allows it to generalize across different image resolutions without requiring fixed input sizes.
-3. 
+3. **Lightweight MLP Decoder:** Instead of heavy segmentation heads, SegFormer uses a simple MLP-based decoder, efficiently aggregating multi-scale features while keeping computational costs low.
+
+with these innovations, SegFormer is able to achieve SOTA perfrmance with fewer parameters than other leading ViT (or CNN) models. 
