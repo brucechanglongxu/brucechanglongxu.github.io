@@ -32,7 +32,7 @@ _Insulin_ and _Glucagon_ are the major endocrine peptide (require second messeng
 
 **Receptor Tyrosine Kinases and GPCRs**
 
-
+The pancreas is a receptor-rich organ that integrates hormonal, neuronal and metabolic signals to regulate key physiological processes. 
 
 - La Merrill, M.A., Smith, M.T., McHale, C.M. et al. Consensus on the key characteristics of metabolism disruptors. Nat Rev Endocrinol (2024). https://doi.org/10.1038/s41574-024-01059-8
 - Karakose E, Ackeifi C, Wang P, Stewart AF. Advances in drug discovery for human beta cell regeneration. Diabetologia. 2018 Aug;61(8):1693-1699. doi: 10.1007/s00125-018-4639-6. Epub 2018 May 16. PMID: 29770834; PMCID: PMC6239977.
