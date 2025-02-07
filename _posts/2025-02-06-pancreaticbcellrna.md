@@ -38,6 +38,8 @@ _Insulin_ secreted by the B-cells in the pancreas is the **storage hormone** tha
 
 Insulin secretion follows a _biphasic pattern_, where the first phase (rapid, stored insulin release) occurs within minutes of glucose uptake; the second phase (sustained, newly synthesized insulin) lasts longer and adapts to glucose levels. **GLUT2** allows passive glucose entry (concentration-dependent), 
 
+- _Insulin Signaling (Tyrosine Kinase):_ Insulin binds to the insulin receptor (Tyrosine Kinase), and activates Insulin Receptor Substrate, before triggering PI3K-Akt pathway that stimulates **GLUT4 translocation** to the cell membrane (gluose uptake in muscle/adipose), **Glycogen synthesis** (activates glycogen synthase), and **Protein synthesis** (activates mTOR), and subsequent **Lipogenesis** (inhibits hormone-sensitive lipase). **Insulin-dependent GLUT4 is only in muscle and adipose; whilst insulin-independent GLUT2 is found in the liver/pancreas**. 
+
 Hence therapeutic strategies for T1/2D include enhancing insulin action (Insulin therapy, GLP-1 agonists), suppressing Glucagon (Glucagon receptor antagonists), beta-cell preservation (mainly via. immunotherapy e.g. Teplizumab for T1D) and Glucose-responsive insulin (GLP-1/insulin hybrids). 
 
 **Receptor Tyrosine Kinases and GPCRs**
