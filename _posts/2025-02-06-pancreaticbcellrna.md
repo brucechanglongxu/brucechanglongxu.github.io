@@ -32,7 +32,9 @@ _Insulin_ and _Glucagon_ are the major endocrine peptide (require second messeng
 
 **Insulin-Glucagon Regulation** 
 
-_Insulin_ secreted by the B-cells in the pancreas is the **storage hormone** that promotes glucose uptake and anabolic processes (glycogenesis, lipogenesis and protein synthesis). _Glucagon_ (secreted by a-cells) is the **counter-regulatory hormone** mobilizing glucose through a catabolic pathway (glycogenolysis, gluconeogenesis, lipolysis), and their opposing actions maintain glucose within a tight physiological range. 
+_Insulin_ secreted by the B-cells in the pancreas is the **storage hormone** that promotes glucose uptake and anabolic processes (glycogenesis, lipogenesis and protein synthesis). _Glucagon_ (secreted by a-cells) is the **counter-regulatory hormone** mobilizing glucose through a catabolic pathway (glycogenolysis, gluconeogenesis, lipolysis), and their opposing actions maintain glucose within a tight physiological range. If there exists a **high I/G ratio (fed state)** in the body, insulin dominates and glucose is subsequently stored (anabolism). Conversely, if there exists a **low I/G ratio (fasting state)**, glucagon dominates, and glucose is subsequently mobilized (catabolism). 
+
+Insulin secretion follows a _biphasic pattern_, where the first phase (rapid, stored insulin release) occurs within minutes of glucose uptake; the second phase (sustained, newly synthesized insulin) lasts longer and adapts to glucose levels. 
 
 **Receptor Tyrosine Kinases and GPCRs**
 
