@@ -10,6 +10,10 @@ Diabetes affects over $$537$$ million people globally and is a major cause of mo
 
 We will optimize and validate our RNA cargos using _AI-driven design_ for enhanced stability and translational efficiency. Comprehensive evaluation will occur in human pancreatic organoids and humanized diabetic mouse models, employing single-cell transcriptomics to assess beta cell identity, survival and function. Our overarching goal is to develop a **first-in-class RNA therapeutic** that fundamentally redefines diabetes treatment -- potentially offering a cure rather than merely managing hyperglycemia. By leveraging cutting-edge RNA technologies, our project aims to replace and protect pancreatic beta cells in patients with T1D and T2D. If successful, this approach would eliminate the need for lifelong insulin injections in T1D and significantly enhance glycemic control in T2D, greatly reducing complications and healthcare costs. 
 
+## Diabetes
+
+**Type 1 Diabetes** arises from autoimmune destructuion of B-cells, which leads to a deficient (or lack therof) insulin, and hence imbalanced, unopposed glucagon. This leads to hyperglycemia (no glucose uptake), ketoacidosis (upregulated lipolysis -> ketogenesis). **Type 2 Diabetes** arises from insulin resistance, and susbequent increased glucagon secretion. 
+
 ## The Pancreas 
 
 The _pancreas_ is a dual-function gland (both exocrine and endocrine), located in the upper abdomen (epigastric and left hypochondriac regions). It plays a central role in digestion (exocrine secretions) and blood glucose regulation (endocrine hormones). The exocrine component 
@@ -35,6 +39,8 @@ _Insulin_ and _Glucagon_ are the major endocrine peptide (require second messeng
 _Insulin_ secreted by the B-cells in the pancreas is the **storage hormone** that promotes glucose uptake and anabolic processes (glycogenesis, lipogenesis and protein synthesis). _Glucagon_ (secreted by a-cells) is the **counter-regulatory hormone** mobilizing glucose through a catabolic pathway (glycogenolysis, gluconeogenesis, lipolysis), and their opposing actions maintain glucose within a tight physiological range. If there exists a **high I/G ratio (fed state)** in the body, insulin dominates and glucose is subsequently stored (anabolism). Conversely, if there exists a **low I/G ratio (fasting state)**, glucagon dominates, and glucose is subsequently mobilized (catabolism). 
 
 Insulin secretion follows a _biphasic pattern_, where the first phase (rapid, stored insulin release) occurs within minutes of glucose uptake; the second phase (sustained, newly synthesized insulin) lasts longer and adapts to glucose levels. **GLUT2** allows passive glucose entry (concentration-dependent), 
+
+Hence therapeutic strategies for T1/2D include enhancing insulin action (Insulin therapy, GLP-1 agonists), suppressing Glucagon (Glucagon receptor antagonists), beta-cell preservation (mainly via. immunotherapy e.g. Teplizumab for T1D) and Glucose-responsive insulin (GLP-1/insulin hybrids). 
 
 **Receptor Tyrosine Kinases and GPCRs**
 
