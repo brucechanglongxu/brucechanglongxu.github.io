@@ -21,9 +21,14 @@ The Exocrine component of the pancreas accounts for $$85$$ percent of total mass
 **Endocrine Function** 
 
 The Endocrine component accounts for only $$1-2$$ percent of pancreatic mass but is crucial for metabolic regulation, it presents itself as discrete clusters of endocrine cells scattered throughout the pancreas. 
+
 - **Beta Cells (70%):** Secrete insulin (reduces blood glucose)
 - **Alpha Cells (20%):** Secrete glucagon (increases blood glucose)
 - **Delta Cells (5-10%):** Secrete somatostatin (inhibits secretion of insulin, glucagon, and other hormones)
 - **PP (F) Cells:** Secrete pancreatic polypeptide (regulates pancreatic exocrine and gallbladder function)
 - **Epsilon Cells:** Secrete _ghrelin_ (for appetite regulation)
 
+_Insulin_ and _Glucagon_ are the major endocrine hormones secreted by the pancreas, where 
+
+- Karakose E, Ackeifi C, Wang P, Stewart AF. Advances in drug discovery for human beta cell regeneration. Diabetologia. 2018 Aug;61(8):1693-1699. doi: 10.1007/s00125-018-4639-6. Epub 2018 May 16. PMID: 29770834; PMCID: PMC6239977.
+- 
