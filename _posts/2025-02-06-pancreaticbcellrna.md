@@ -30,6 +30,10 @@ The Endocrine component accounts for only $$1-2$$ percent of pancreatic mass but
 
 _Insulin_ and _Glucagon_ are the major endocrine peptide (require second messenger?) hormones secreted by the pancreas, that are produced in the endocrine (islet of Langerhans) portion of the pancreas. They have opposing actions on blood glucose levels, maintaining it within a tight physiological range ($$70-100$$ mg/dL fasting), whereby insulin lowers blood glucose whilst glucagon raises it. The balance/ratio of insulin to glucagon is crucial for normal metabolism, regluating glycogen storage, lipid metabolism and protein synthesis. 
 
+**Insulin-Glucagon Regulation** 
+
+_Insulin_ secreted by the B-cells in the pancreas is the **storage hormone** that promotes glucose uptake and anabolic processes (glycogenesis, lipogenesis and protein synthesis). _Glucagon_ (secreted by a-cells) is the **counter-regulatory hormone** mobilizing glucose through a catabolic pathway (glycogenolysis, gluconeogenesis, lipolysis), and their opposing actions maintain glucose within a tight physiological range. 
+
 **Receptor Tyrosine Kinases and GPCRs**
 
 The pancreas is a receptor-rich organ that integrates hormonal, neuronal and metabolic signals to regulate key physiological processes. Receptors can be generally classified into hormonal (endocrine) receptors _[these respond to insulin, glucagon, somatostatin]_, neurotransmitter (autonomic) receptors _[these mediate parasympathetic, and sympathetic regulation]_, growth factor receptors _[these are involved in beta-cell proliferation, survival, and regeneration]_, nutrient-sensing receptors _[these detect glucose, amino acids, and lipids to regulate insulin and glucagon secretion]_, and immune/inflammatory receptors _[these contribute to autoimmune T1D and pancreatitis]_. 
