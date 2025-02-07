@@ -48,6 +48,12 @@ The pancreas is a receptor-rich organ that integrates hormonal, neuronal and met
 
 Beta cells express receptors that regulate insulin secretion in response to glucose, hormones and neural signals. The key receptors here are **Glucagon Receptors (Gas-coupled GPCR)**, **Insulin Receptors (Tyrosine Kinase Receptor)**, **GLP-1 Receptors (Gas-coupled GPCR)**, **GIP Receptors (Gas-coupled GPCR)**. 
 
+**Practice Questions** 
+
+A patient is injected with glucagon. What metabolic processes will be stimulated?
+
+_Since glucagon stimulates glucose release pathways, Glycogenolysis and Gluconeogenesis will be stimulated._
+
 - La Merrill, M.A., Smith, M.T., McHale, C.M. et al. Consensus on the key characteristics of metabolism disruptors. Nat Rev Endocrinol (2024). https://doi.org/10.1038/s41574-024-01059-8
 - Karakose E, Ackeifi C, Wang P, Stewart AF. Advances in drug discovery for human beta cell regeneration. Diabetologia. 2018 Aug;61(8):1693-1699. doi: 10.1007/s00125-018-4639-6. Epub 2018 May 16. PMID: 29770834; PMCID: PMC6239977.
 - 
