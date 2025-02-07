@@ -34,6 +34,8 @@ _Insulin_ and _Glucagon_ are the major endocrine peptide (require second messeng
 
 The pancreas is a receptor-rich organ that integrates hormonal, neuronal and metabolic signals to regulate key physiological processes. Receptors can be generally classified into hormonal (endocrine) receptors _[these respond to insulin, glucagon, somatostatin]_, neurotransmitter (autonomic) receptors _[these mediate parasympathetic, and sympathetic regulation]_, growth factor receptors _[these are involved in beta-cell proliferation, survival, and regeneration]_, nutrient-sensing receptors _[these detect glucose, amino acids, and lipids to regulate insulin and glucagon secretion]_, and immune/inflammatory receptors _[these contribute to autoimmune T1D and pancreatitis]_. 
 
+Beta cells express receptors that regulate insulin secretion in response to glucose, hormones and neural signals. The key receptors here are **Glucagon Receptors (Gas-coupled GPCR)**, **Insulin Receptors (Tyrosine Kinase Receptor)**, **GLP-1 Receptors (Gas-coupled GPCR)**, **GIP Receptors (Gas-coupled GPCR)**. 
+
 - La Merrill, M.A., Smith, M.T., McHale, C.M. et al. Consensus on the key characteristics of metabolism disruptors. Nat Rev Endocrinol (2024). https://doi.org/10.1038/s41574-024-01059-8
 - Karakose E, Ackeifi C, Wang P, Stewart AF. Advances in drug discovery for human beta cell regeneration. Diabetologia. 2018 Aug;61(8):1693-1699. doi: 10.1007/s00125-018-4639-6. Epub 2018 May 16. PMID: 29770834; PMCID: PMC6239977.
 - 
