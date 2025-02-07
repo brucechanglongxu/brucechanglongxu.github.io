@@ -12,3 +12,18 @@ We will optimize and validate our RNA cargos using _AI-driven design_ for enhanc
 
 ## The Pancreas 
 
+The _pancreas_ is a dual-function gland (both exocrine and endocrine), located in the upper abdomen (epigastric and left hypochondriac regions). It plays a central role in digestion (exocrine secretions) and blood glucose regulation (endocrine hormones). The exocrine component 
+
+**Exocrine Function**
+
+The Exocrine component of the pancreas accounts for $$85$$ percent of total mass, and is organized into 
+
+**Endocrine Function** 
+
+The Endocrine component accounts for only $$1-2$$ percent of pancreatic mass but is crucial for metabolic regulation, it presents itself as discrete clusters of endocrine cells scattered throughout the pancreas. 
+- **Beta Cells (70%):** Secrete insulin (reduces blood glucose)
+- **Alpha Cells (20%):** Secrete glucagon (increases blood glucose)
+- **Delta Cells (5-10%):** Secrete somatostatin (inhibits secretion of insulin, glucagon, and other hormones)
+- **PP (F) Cells:** Secrete pancreatic polypeptide (regulates pancreatic exocrine and gallbladder function)
+- **Epsilon Cells:** Secrete _ghrelin_ (for appetite regulation)
+
