@@ -30,5 +30,6 @@ The Endocrine component accounts for only $$1-2$$ percent of pancreatic mass but
 
 _Insulin_ and _Glucagon_ are the major endocrine peptide (require second messenger?) hormones secreted by the pancreas, that are produced in the endocrine (islet of Langerhans) portion of the pancreas. They have opposing actions on blood glucose levels, maintaining it within a tight physiological range ($$70-100$$ mg/dL fasting), whereby insulin lowers blood glucose whilst glucagon raises it. The balance/ratio of insulin to glucagon is crucial for normal metabolism, regluating glycogen storage, lipid metabolism and protein synthesis. 
 
+- La Merrill, M.A., Smith, M.T., McHale, C.M. et al. Consensus on the key characteristics of metabolism disruptors. Nat Rev Endocrinol (2024). https://doi.org/10.1038/s41574-024-01059-8
 - Karakose E, Ackeifi C, Wang P, Stewart AF. Advances in drug discovery for human beta cell regeneration. Diabetologia. 2018 Aug;61(8):1693-1699. doi: 10.1007/s00125-018-4639-6. Epub 2018 May 16. PMID: 29770834; PMCID: PMC6239977.
 - 
