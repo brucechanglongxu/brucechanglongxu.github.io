@@ -16,6 +16,12 @@ On the other hand _gluconeogenesis_ ensures that glucose is available when dieta
 
 ## Krebs Cycle and Oxidative Phosphorylation: The powerhouses of ATP production
 
+The Krebs cycle (also called the citric acid cycle or TCA cycle) is where metabolism's true energy extraction occurs. Taking place in the _mitochondrial matrix_, this cycle processes _Acetyl-CoA_, derived from carbohydrates, fats or proteins, to generate NADH and FADH2; high energy electron carriers that fuel the electron transport chain. Unlike glycolysis, the Krebs cycle is **strictly aerobic** as the cycle itself doesn't use oxygen but depends on the ETC to regenerate NAD+ and FAD. 
+
+The **electron transport chain** embedded in the **inner mitochondrial membrane** is the final step of cellular respiration. NADH and FADH2 donate electrons to a series of protein complexes, which pump protons across the membrane, establishing a proton gradient. THis gradient drives ATP synthase, a molecualr turbine that generates ATP from ADP and inorganic phosphate (Pi). This process, known as oxidative phosphorylation, produces the majority of ATP needed for survival. 
+
+Hormonal regulation plays a vital role in controlling the Krebs cycle and oxidative phosphorylation. **Thyroid hormone (T3, T4) upregulates metbaolic activity**, increasing oxygen consumption and ATP production. Conversely, in a starvation state, glucagon and epinephrine signal the body to conserve glucose and switch to alternative fuels like fatty acids and ketones, slowing the Krebs cycle in glucose-dependent tissues while maintaining ATP production in energy-demanding organs such as brain and muscles. 
+
 ## Glycogen Metabolism: Storing for the future
 
 Not all glucose is immediately used for energy. During times of energy surplus, the body stores excess glucose as glycogen -- a branched polymer of glucose molecules. This process, called glycogenesis, occurs primarily in the liver and skeletal muscles. The enzyme glycogen synthase, activate by insulin, facilitates the incorporatin of glucose into glycogen. Liver glycogen serves as a reservoir for blood glucose homeostais, while muscle glycogen provides fuel for local muscle contraction during exercise. 
