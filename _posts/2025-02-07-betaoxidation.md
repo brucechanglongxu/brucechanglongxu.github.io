@@ -12,3 +12,7 @@ Energy is the currency of life, and when carbohydrates are scarce, our bodies re
 
 Beta-oxidation is the stepwise breakdown of fatty acids into **Acetyl-CoA**, which enters the Krebs cycle for ATP production. This process is essential during fasting and prolonged exercise, when glycogen stores are depleted, forcing the body to mobilize stored triglycerides. The liver, muscle, and heart rely heavily on beta-oxidation for energy, while the brain and red blood cells depend primarily on glucose and ketone bodies. 
 
+Fatty acids are stored as **triglycerides (triacyglycerols)** in adipose tissue. When energy is needed, hormone sensitive lipase breaks down triglycerides into free fatty acids (FFAs) and glycerol, releasing them into the bloodstream. These fatty acids are transported to the mitochondria, where beta-oxidation begins. 
+
+(*) Note that fatty acids cannot directly enter the mitochondria, and require the carnitine shuttle
+
