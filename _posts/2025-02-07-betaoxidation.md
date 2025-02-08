@@ -16,3 +16,4 @@ Fatty acids are stored as **triglycerides (triacyglycerols)** in adipose tissue.
 
 (*) Note that fatty acids cannot directly enter the mitochondria, and require the carnitine shuttle
 
+- Dellomonaco, C., Clomburg, J., Miller, E. et al. Engineered reversal of the β-oxidation cycle for the synthesis of fuels and chemicals. Nature 476, 355–359 (2011). https://doi.org/10.1038/nature10333
