@@ -20,4 +20,6 @@ On the other hand _gluconeogenesis_ ensures that glucose is available when dieta
 
 ## Fatty Acid and Amino Acid Metabolism: Alternative Energy Pathways
 
-When glucose is scarce, the body shifts to alternative fuel sources, primarily fatty acids and amino acids. Fatty acids undergo beta-oxidation, a mitochondrial process that breaks down long-chain fatty acids into **Acetyl-CoA**, feeding directly into the Krebs cycle. 
+When glucose is scarce, the body shifts to alternative fuel sources, primarily fatty acids and amino acids. Fatty acids undergo beta-oxidation, a mitochondrial process that breaks down long-chain fatty acids into **Acetyl-CoA**, feeding directly into the Krebs cycle. This transition is critical during fasting, prolonged exercise, and ketogenic states, where fatty acids become the primary source of ATP. 
+
+In extreme conditions, such as starvation, fatty acid metbaolism generates ketone bodies (B-hydroxybutyrate and acetoacetate).
