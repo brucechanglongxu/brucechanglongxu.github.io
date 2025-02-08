@@ -22,6 +22,8 @@ Not all glucose is immediately used for energy. During times of energy surplus, 
 
 In contrast, glycogenolysis is the breakdown of glycogen into glucose-1-phosphate, which is converted to glucose-6-phosphate and utilized for energy. In the liver, this glucose-6-phosphate can be converted into free glucose and released into the bloodstream, ensuring blood glucose levels remain stable during fasting. However, muscle cells lack glucose-6-phosphatase, meaning that glycogen breakdown in muscles supports only local ATP generation, not bloog glucose homeostasis. 
 
+The balance between glycogenesis and glycogenolysis is hormonally controlled. Insulin stimulates glycogen synthesis, promoting storage, while glucagon and epinephrine activate glycogenolysis, mobilizing energy when needed. This explains why insulin resistance in diabetes disrupts not only blood glucose levels but also energy storage and retrieval. 
+
 ## Fatty Acid and Amino Acid Metabolism: Alternative Energy Pathways
 
 When glucose is scarce, the body shifts to alternative fuel sources, primarily fatty acids and amino acids. Fatty acids undergo beta-oxidation, a mitochondrial process that breaks down long-chain fatty acids into **Acetyl-CoA**, feeding directly into the Krebs cycle. This transition is critical during fasting, prolonged exercise, and ketogenic states, where fatty acids become the primary source of ATP. 
