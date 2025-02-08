@@ -18,6 +18,10 @@ On the other hand _gluconeogenesis_ ensures that glucose is available when dieta
 
 ## Glycogen Metabolism: Storing for the future
 
+Not all glucose is immediately used for energy. During times of energy surplus, the body stores excess glucose as glycogen -- a branched polymer of glucose molecules. This process, called glycogenesis, occurs primarily in the liver and skeletal muscles. The enzyme glycogen synthase, activate by insulin, facilitates the incorporatin of glucose into glycogen. Liver glycogen serves as a reservoir for blood glucose homeostais, while muscle glycogen provides fuel for local muscle contraction during exercise. 
+
+In contrast, glycogenolysis is the breakdown of glycogen into glucose-1-phosphate, which is converted to glucose-6-phosphate and utilized for energy. In the liver, this glucose-6-phosphate can be converted into free glucose and released into the bloodstream, ensuring blood glucose levels remain stable during fasting. However, muscle cells lack glucose-6-phosphatase, meaning that glycogen breakdown in muscles supports only local ATP generation, not bloog glucose homeostasis. 
+
 ## Fatty Acid and Amino Acid Metabolism: Alternative Energy Pathways
 
 When glucose is scarce, the body shifts to alternative fuel sources, primarily fatty acids and amino acids. Fatty acids undergo beta-oxidation, a mitochondrial process that breaks down long-chain fatty acids into **Acetyl-CoA**, feeding directly into the Krebs cycle. This transition is critical during fasting, prolonged exercise, and ketogenic states, where fatty acids become the primary source of ATP. 
