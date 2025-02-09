@@ -27,9 +27,14 @@ Beta-oxidation is the stepwise breakdown of fatty acids into **Acetyl-CoA**, whi
 
 Fatty acids are stored as **triglycerides (triacyglycerols)** in adipose tissue. When energy is needed, hormone sensitive lipase breaks down triglycerides into free fatty acids (FFAs) and glycerol, releasing them into the bloodstream. These fatty acids are transported to the mitochondria, where beta-oxidation begins. 
 
-Beta-oxidation occurs in the mitochondiral matrix in four key steps (each round removes $$2$$ carbons from the fatty acid chain, producing $$1$$ Acetyl-CoA, $$1$$ NADH, and $$1$$ FADH2):
+Beta-oxidation occurs in the mitochondiral matrix in four key steps (each round removes $$2$$ carbons from the fatty acid chain, producing $$1$$ Acetyl-CoA, $$1$$ NADH, and $$1$$ FADH2); the cycle repeats until the entire fatty acid chain is converted into Acetyl-CoA:
 
-1. 
+1. Oxidation $$1$$ (FADH2 produced); Acyl-CoA Dehydrogenase forms a double bond between $$\alpha$$ and $$\beta$$ carbons.
+2. Hydration; Enoyl-CoA Hydratase adds H2O, forming hydroxyacyl-CoA. 
+3. Oxidation $$2$$ (NADH produced); Hydrocyacyl-CoA Dehydrogenase converts hydroxyacyl-CoA into a keto group.
+4. Thiolysis (Acetyl-CoA released); Beta-Ketothiolase cleaves off Acetyl-CoA, shortening the chain by $$2$$ carbons. 
+
+Let's take Palmitic Acid for example (C16:0). $$7$$ cycles of beta-oxidation produce $$8$$ Acetyl-CoA (which enters the Krebs cycle, yielding $$80$$ ATP). $$7$$ NADH, which yields $$17.5$$ ATP, and $$7$$ FADH2 which yields $$10.5$$ ATP. This leads to around $$108$$ ATp per fatty acid molecule. 
 
 (*) Note that fatty acids cannot directly enter the mitochondria, and require the carnitine shuttle. They are activated in the cytoplasm (fatty Acyl-CoA is formed) by Fatty Acyl-CoA Synthetase (which requires ATP). They are then transported into mitochondria through the Carnitine Shuttle:
 
