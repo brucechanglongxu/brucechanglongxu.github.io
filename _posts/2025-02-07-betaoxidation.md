@@ -12,7 +12,7 @@ Energy is the currency of life, and when carbohydrates are scarce, our bodies re
 
 Fatty acids are long hydrocarbon chains with a carboxyl (-COOH) group at one end. Saturated fatty acids have _no double bonds_ (e.g. palmitic acid), whereas unsaturated fatty acids contain _one or more double bonds_ (e.g. oleic acid, linoleic acid). Unsaturated fatty acids are more fluid (lower melting points), while saturated fatty acids pack tightly and are more solid. 
 
-**Dietary fats** are packaged into _chylomicrons_ and are absored via the lymphatic system. 
+**Dietary fats** are packaged into _chylomicrons_ and are absored via the lymphatic system. Lipoproteins transport fats through blood i.e. Chylomicrons carry dietary lipids, VLDL transports triglycerides from the liver, and LDL ("bad" cholesterol) delivers cholesterol to tissues. HDL ("good" cholesterol) removes excess cholesterol. Triglycerides are the main storage form of fats in adipose tissue. **Hormone-sensitive lipase (HSL) breaks down triglycerides into glycerol and free fatty acids during fasting/exercise.**
 
 ## What is Beta-Oxidation? 
 
@@ -20,6 +20,14 @@ Beta-oxidation is the stepwise breakdown of fatty acids into **Acetyl-CoA**, whi
 
 Fatty acids are stored as **triglycerides (triacyglycerols)** in adipose tissue. When energy is needed, hormone sensitive lipase breaks down triglycerides into free fatty acids (FFAs) and glycerol, releasing them into the bloodstream. These fatty acids are transported to the mitochondria, where beta-oxidation begins. 
 
-(*) Note that fatty acids cannot directly enter the mitochondria, and require the carnitine shuttle
+Beta-oxidation occurs in the mitochondiral matrix in four key steps:
+
+1. 
+
+(*) Note that fatty acids cannot directly enter the mitochondria, and require the carnitine shuttle. They are activated in the cytoplasm (fatty Acyl-CoA is formed) by Fatty Acyl-CoA Synthetase (which requires ATP). They are then transported into mitochondria through the Carnitine Shuttle:
+
+- **Carnitine Palmitoyl Transferase I (CPT-I)** replaces CoA with carnitine (outer mitochondrial membrane). 
+- **Translocase** moves Fatty Acyl-Carnitine into the mitochondrial matrix. 
+- **Carnitine Palmitoyl Transferase II (CPT-II)** removes canitine, regenerating Fatty Acyl-CoA for beta-oxidation. 
 
 - Dellomonaco, C., Clomburg, J., Miller, E. et al. Engineered reversal of the β-oxidation cycle for the synthesis of fuels and chemicals. Nature 476, 355–359 (2011). https://doi.org/10.1038/nature10333
