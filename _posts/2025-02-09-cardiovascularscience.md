@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Genetics"
+date: 2025-02-08
+categories: genomics
+author: Bruce Changlong Xu
+---
+
+## Hardy-Weinberg Equation
+
+For a population in _genetic equilibrium_, $$p^2 + 2pq + q^2 = 1$$ (genotypic frequencies), and $$p + q = 1$$ (allelic frequencies). $$p^2$$ is the homozygoud dominant frequency, $$2pq$$ is the heterozygous frequency, and $$q^2$$ is the homozygous recessive frequency. Note that if a **population is evolving, Hardy-Weinberg does not apply**. The principle states that _allele and genotype frequencies_ in a population remain constant from generation to generation **if no evolutionary forces are acting upon it**. The principle is useful because it provides a baseline to compare real populations i.e. if a population deviates from Hardy-Weinberg equilibrium, it indicates that evolutionary forces (e.g. selection, mutation, migration) are at play. 
+
+Hardy-Weinberg consists of two equations:
+
+1. **Allele Frequencies:** Since each individual inherits two alleles (one from each parent), the sum of allele frequencies must equal $$1$$. $$p$$ is the frequency of the dominant allele (A) and $$q$$ is the frequency of the recessive allele (a).  
+
+$$p + q = 1$$
+
+2. **Genotypic Frequencies:** This equation describes how alleles combine to form different genotypes in a population. $$p^2$$ is the frequency of homozygoud dominant individuals (AA), $$2pq$$ is the frequency of heterozygous individuals (Aa), and $$q^2$$ is the frequency of homozygous recessive individuals (aa). 
+
+$$p^2 + 2pq + q^2 = 1$$
+
+Hence if we are given the frequency of one genotype, we can deterine all others using these equations. For a population to be in _Hardy-Weinberg equilibrium_, five key conditions must be met:
+
+1. There must be no mutations i.e. no new alleles are introduced or deleted. 
+2. Random Mating i.e. no mate selection is based on genotype. 
+3. No natural selection i.e. no genotype has a survival advantage
+4. Large population size i.e. this reduces genetic drift
+5. No gene flow (migration) i.e. no movement of alleles into or out of the population
+
+Note that if a population is **evolving**, then at least one of these assumptions is being violated. 
