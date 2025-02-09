@@ -6,7 +6,7 @@ categories: endocrinology
 author: Bruce Changlong Xu
 ---
 
-Energy is the currency of life, and when carbohydrates are scarce, our bodies rely on **fatty acids** as an alternative fuel source. **Beta-oxidation** is the metabolic pathway that breaks down fatty acids into **Acetyl-CoA**, which then fuels the Krebs cycle and oxidative phosphorylation to generate ATP. This process occurs in the **mitochondria**, allowing cells to extract maximum energy from stored fats. 
+Energy is the currency of life, and when carbohydrates are scarce, our bodies rely on **fatty acids** as an alternative fuel source. **Beta-oxidation** is the metabolic pathway that breaks down fatty acids into **Acetyl-CoA**, which then fuels the Krebs cycle and oxidative phosphorylation to generate ATP. This process occurs in the **mitochondria**, allowing cells to extract maximum energy from stored fats. Note that **fatty acids yield more ATP than glucose (32) because they are highly reduced**. 
 
 ## Fatty Acid Structure and Transport
 
@@ -14,7 +14,7 @@ Fatty acids are long hydrocarbon chains with a carboxyl (-COOH) group at one end
 
 **Dietary fats** are packaged into _chylomicrons_ and are absored via the lymphatic system. Lipoproteins transport fats through blood i.e. Chylomicrons carry dietary lipids, VLDL transports triglycerides from the liver, and LDL ("bad" cholesterol) delivers cholesterol to tissues. HDL ("good" cholesterol) removes excess cholesterol. Triglycerides are the main storage form of fats in adipose tissue. **Hormone-sensitive lipase (HSL) breaks down triglycerides into glycerol and free fatty acids during fasting/exercise.**
 
-## What is Beta-Oxidation? 
+## What is Beta-Oxidation?
 
 Beta-oxidation is the stepwise breakdown of fatty acids into **Acetyl-CoA**, which enters the Krebs cycle for ATP production. This process is essential during fasting and prolonged exercise, when glycogen stores are depleted, forcing the body to mobilize stored triglycerides. The liver, muscle, and heart rely heavily on beta-oxidation for energy, while the brain and red blood cells depend primarily on glucose and ketone bodies. 
 
