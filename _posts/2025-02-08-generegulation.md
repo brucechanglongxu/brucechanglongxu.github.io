@@ -17,4 +17,12 @@ Prokaryotic gene regulation is _efficient and rapid_, ensuring that bacteria onl
 
 Operons allow for coordinate expression of multiple genes under a single promoter, making gene expression efficient. 
 
+**Lac Operon (Inducible System)** 
+
+**Trp Operon (Repressible System)** 
+
+The _trp operon_ controls genes for try
+
 ## Eukaryotic Gene Regulation
+
+Eukaryotic gene regulation is more complex due to multicellular specialization, chromatin organization, and nuclear compartmentalization. 
