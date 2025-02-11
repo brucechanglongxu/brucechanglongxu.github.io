@@ -35,3 +35,4 @@ Eukaryotic gene regulation is more complex due to multicellular specialization, 
 
 **Post-Transcriptional Regulation** 
 
+- Gibney, E., Nolan, C. Epigenetics and gene expression. Heredity 105, 4–13 (2010). https://doi.org/10.1038/hdy.2010.54
