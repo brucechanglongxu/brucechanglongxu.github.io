@@ -39,4 +39,6 @@ Eukaryotic gene regulation is more complex due to multicellular specialization, 
 
 Epigenetic processes that stably alter gene expression patterns (and/or transmit the alterations at cell division) are thought to include 1. cytosine methylation 2. post-translational modifications of histone proteins and remodelling of chromatin 3. RNA-based mechanisms. 
 
+The initial step in gene expression is the transcription of the DNA molecule into an exact RNA copy; RNA polymerase binds to a particular region of the DNA (promoter), and starts to make a strand of mRNA complementary to one of the DNA strands. 
+
 - Gibney, E., Nolan, C. Epigenetics and gene expression. Heredity 105, 4–13 (2010). https://doi.org/10.1038/hdy.2010.54
