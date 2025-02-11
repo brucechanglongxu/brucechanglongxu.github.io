@@ -37,7 +37,7 @@ Eukaryotic gene regulation is more complex due to multicellular specialization, 
 
 **Epigenetic Regulation** 
 
-Epigenetic processes that stably alter gene expression patterns (and/or transmit the alterations at cell division) are thought to include 1. cytosine methylation 2. post-translational modifications of histone proteins and remodelling of chromatin 3. RNA-based mechanisms. Unlike the genome, which is essentially identical in all cells of a vertebrate and stable throughout the lifetime of an individual, the epigenome differs from cell to cell and is plastic, changing with time and with exposure to the environment. 
+Epigenetic processes that stably alter gene expression patterns (and/or transmit the alterations at cell division) are thought to include 1. cytosine methylation 2. post-translational modifications of histone proteins and remodelling of chromatin 3. RNA-based mechanisms. Unlike the genome, which is essentially identical in all cells of a vertebrate and stable throughout the lifetime of an individual, the epigenome differs from cell to cell and is plastic, changing with time and with exposure to the environment. The epigenome appears to be particularly vulnerable to environmental influences during certain stages of development (cleavage, perinatal period, puberty) and alterations in gene expression patterns induced at these times may eprsist for long periods, influencing the phenotype of the adult. 
 
 **Methylation**
 
