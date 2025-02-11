@@ -31,6 +31,8 @@ Eukaryotic gene regulation is more complex due to multicellular specialization, 
 
 **Chromatin Remodeling (Epigenetic Control)** 
 
+Histone deacytelation. 
+
 **Transcriptional Regulation (Transcription Factors)** 
 
 **Post-Transcriptional Regulation** 
