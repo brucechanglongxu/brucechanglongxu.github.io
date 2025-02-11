@@ -35,4 +35,8 @@ Eukaryotic gene regulation is more complex due to multicellular specialization, 
 
 **Post-Transcriptional Regulation** 
 
+**Epigenetic Regulation** 
+
+Epigenetic processes that stably alter gene expression patterns (and/or transmit the alterations at cell division) are thought to include 1. cytosine methylation 2. post-translational modifications of histone proteins and remodelling of chromatin 3. RNA-based mechanisms. 
+
 - Gibney, E., Nolan, C. Epigenetics and gene expression. Heredity 105, 4–13 (2010). https://doi.org/10.1038/hdy.2010.54
