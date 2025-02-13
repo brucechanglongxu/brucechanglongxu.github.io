@@ -6,7 +6,7 @@ categories: genomics
 author: Bruce Changlong Xu
 ---
 
-Glycolysis and Gluconeogenesis are highly interconnected with fatty acid oxidation, amino acid metabolism, and the citric acid cycle, which makes them critical for metabolic regulation and energy homeostasis. 
+Glycolysis and Gluconeogenesis are highly interconnected with fatty acid oxidation, amino acid metabolism, and the citric acid cycle, which makes them critical for metabolic regulation and energy homeostasis. These are fundamental metabolic processes that are involved with the generation of energy for cellular use. 
 
 ## Glycolysis: The First Step in Energy Extraction
 
