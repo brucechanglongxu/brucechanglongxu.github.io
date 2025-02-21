@@ -19,3 +19,5 @@ This occurs in the cytoplasm, and breaks down one glucose (C6) into two pyruvate
 During anaerobic glycolysis (e.g. exercise, hypoxia, RBC metabolism), lactate builds up and is sent to the liver for gluconeogenesis. 1. Muscle produces lactate from pyruvate (via Lactate Dehydrogenase) 2. Liver converts lactate back into glucose through gluconeogenesis 3. Glucose is sent back to the muscle for energy. 
 
 **The Cori cycle allows ATP production in anaerobic tissues while preventing metabolic acidosis**
+
+Intimate dance and link between metabolic processes.
