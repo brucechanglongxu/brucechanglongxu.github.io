@@ -37,3 +37,5 @@ When glucose is scarce, the body shifts to alternative fuel sources, primarily f
 In extreme conditions, such as starvation, fatty acid metbaolism generates ketone bodies (B-hydroxybutyrate and acetoacetate). These serve as a vital alternative energy source for the brain and muscles when glucose is unavailable. While short-term ketosis is an adaptive survival mechanism, chronic ketosis -- such as in diabetic ketoacidosis (DKA) -- can lead to severe acidosis and metabolic dysfunction. Amino acids also contribute to metabolism, particularly during fasting or protein-rich diets. Certain amino acids are glucogenic, meaning they can be converted into glucose via gluconeogenesis, while others are ketogenic, producing ketone bodies instead. The liver plays a central role in amino acid metabolism, processing nitrogen waste via the urea cycle to prevent toxic ammonia buildup. 
 
 ## Acetyl-CoA as the Hinge
+
+## Pyruvate Dehydrogenase Complex
