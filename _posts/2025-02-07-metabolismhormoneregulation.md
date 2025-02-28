@@ -39,3 +39,5 @@ In extreme conditions, such as starvation, fatty acid metbaolism generates keton
 ## Acetyl-CoA as the Hinge
 
 ## Pyruvate Dehydrogenase Complex
+
+## Lactate Pathway and Anaerobic Respiration
