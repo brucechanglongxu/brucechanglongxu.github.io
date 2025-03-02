@@ -63,5 +63,9 @@ There is a modest frequency/power hit for the very widest operations. Historical
 
 The 256-bit SIMD ALU is implemented as an array of lane units operating in parallel. For example, a 256-bit wide adder can be build as 16 times 16 bit adders that operate concurrently under a single vector instruction. Each lane handles a portion of the data (e.g. element 0 in lane0, element 1 in lane 1 etc.) and the RTL should be parameterized for different element widths (8, 16, 32, 64-bit) selecting the appropriate number of lanes. 
 
+All lanes execute the same operation in lockstep, controlled by a single decoded instruction, which simplifies control logic. Care must be taken for SIMD mode control e.g. if an instruction is only 8-wide (32-bit each), the hardware might deactivate the unused lanes or merge results to reduce power. Ensuring data aligns to lane boundaries is important so that no lane is idle or handling misaligned chunks. For Heisenberg's special SIMD-32 mode (for 8-bit ops), this likely involves an extra set of 8 ALUs ("wart" datapath) or time-multiplexing existing lanes, which the RTL must integrate so that a single instruction can drive twice as many operations. 
+
+**Pipeline Depth and Latency:** To minimize latency, we kept the pipeline relatively shallow for arithmetic operations (the goal being 2-3 cycle result latency for most ops). In RTL, this means combining logic stages carefully. For instance, an FMA (fused multiply-add) might be split into a multiple stage and an add stage with intermediate register, achiving a 2-cycle latency. Bypasses are then inserted from the output of the add stage back to the input of a subsequent operation. Wherever a single-cycle bypass wasn't feasible (due to wide datapath or long wire delay), the architecture employs multi-cycle bypass with scoreboard control. 
+
 ## DFT and Testability
 
