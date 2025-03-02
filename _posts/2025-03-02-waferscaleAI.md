@@ -21,3 +21,6 @@ Since a wafer-scale chip has thousands of tiles, not all tiles are active at onc
 
 ## Interconnect Fabric
 
+The heisenberg interconnect fabric is a network-on-chip (NoC) that is designed for high-bandwidth, low-latency communication between tiles. Distributed execution through wavelet propagation, and scalability to thousands of tiles without bottlenecks. The interconnect uses a hybrid topology combining 2D mesh (short-distance communication and fast local tile to tile communication), a hierarchical tree (long distance aggregation which leads to efficient global data reduction) and broadcast/multiple networks (optimized for AI workloads requiring data replication). 
+
+The interconnect can be routed through 1. Static routing (pre-assigned tile to tile paths for structured workloads like GEMM, FFTs) 2. Adaptive routing (dynamic path selection based on tile congestion and execution readiness) 3. Load-balanced execution (which ensures fair distribution of wavelets to prevent bottlenecks). 
