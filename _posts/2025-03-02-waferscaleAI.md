@@ -73,5 +73,11 @@ Modern wide SIMD architectures (e.g. Intel AVX-512, Cerebras Wafer Scale, NVIDIA
 
 Driving 512-bit bypass signals across the entire execution unit in a single cycle consumes huge amounts of power, indeed a single-cycle bypass would require decoding the instruction, checking dependencies, routing 512-bit operands back into the ALU all within a single clock cycle; violating pipeline timing at high clock speeds. In a standard CPU pipeline, bypassing a 64-bit result in one cycle is feasible, but in a SIMD-512 system, each register file entry is 8x larger than a CPU's (because it holds 16 FP32 values); the bypass network must drive 16 times more data, making it difficult to meet timing closure. Fanout increases (one register must forward results to multiple SIMD lanes), leading to power and delay issues. If we need to bypass 512-bit results, we must route 512 bits from ALU output to ALU input in one cycle, which requires physically routing a massive amount of data across the chip in a single clock cycle. 
 
+## Formal Verification
+
+"for any two instructions A and B, if B reads a register that A writes, and B is issued N cycles after A (with N meeting the documented latency), then B will receive A's value". 
+
+With formal we can ensure end-to-end correctness for FP8/FP16/FP32/FP64 operations across varying SIMD widths, which implies writing properties for the arithmetic results (checking that the hardware FMA matches an IEEE reference model for all operands). Formal can be used to control logic liveness e.g. proving that the pipeline cannot deadlock or livelock i.e. "the instruction retire point always advances within a certain number of cycles" or "a waiting consumer eventually gets its data" and used formal to ensure no sequence of stalls can cause an indefinite hang. Formal can also be used to target specific tricky logic like scoreboard update or the FSM that controls FP8 format translation, to ensure no illegal state or glitch is possible. It is excellent for datapath slices and control corner cases that are erorr prone. 
+
 ## DFT and Testability
 
