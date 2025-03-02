@@ -21,6 +21,13 @@ Since a wafer-scale chip has thousands of tiles, not all tiles are active at onc
 
 ## Interconnect Fabric
 
-The heisenberg interconnect fabric is a network-on-chip (NoC) that is designed for high-bandwidth, low-latency communication between tiles. Distributed execution through wavelet propagation, and scalability to thousands of tiles without bottlenecks. The interconnect uses a hybrid topology combining 2D mesh (short-distance communication and fast local tile to tile communication), a hierarchical tree (long distance aggregation which leads to efficient global data reduction) and broadcast/multiple networks (optimized for AI workloads requiring data replication). 
+The wafer-scale interconnect fabric is a network-on-chip (NoC) that is designed for high-bandwidth, low-latency communication between tiles. Distributed execution through wavelet propagation, and scalability to thousands of tiles without bottlenecks. The interconnect uses a hybrid topology combining 2D mesh (short-distance communication and fast local tile to tile communication), a hierarchical tree (long distance aggregation which leads to efficient global data reduction) and broadcast/multiple networks (optimized for AI workloads requiring data replication). 
 
 The interconnect can be routed through 1. Static routing (pre-assigned tile to tile paths for structured workloads like GEMM, FFTs) 2. Adaptive routing (dynamic path selection based on tile congestion and execution readiness) 3. Load-balanced execution (which ensures fair distribution of wavelets to prevent bottlenecks). 
+
+## Memory Subsystem
+
+Wafer-scale memory architecture minimizes off-chip DRAM usage by relying on on-chip memory tiers. PE registers (limited ot a single PE), scratchpad memory (limited to a single tile), global SRAM (multi-tile access) and HBM (global, accessible by CPU and Wafer Scale Engine) are a hierarchical tier of memories. 
+
+Instead of traditional cache hierarchies, Heisenberg tiles explicitly fetch and store data using wavelets. This avoids cache coherence overhead, and minimizes memory stalls by prefetching wavelets. It supports sparse memory access patterns (Transformers, GNNs etc.). Unlike CPUs, which use a program counter, or GPUs, which use thread blocks, Wafer Scale Processors execute **wavelets**. 
+
