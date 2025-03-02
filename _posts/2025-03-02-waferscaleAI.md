@@ -31,3 +31,8 @@ Wafer-scale memory architecture minimizes off-chip DRAM usage by relying on on-c
 
 Instead of traditional cache hierarchies, Heisenberg tiles explicitly fetch and store data using wavelets. This avoids cache coherence overhead, and minimizes memory stalls by prefetching wavelets. It supports sparse memory access patterns (Transformers, GNNs etc.). Unlike CPUs, which use a program counter, or GPUs, which use thread blocks, Wafer Scale Processors execute **wavelets**. 
 
+The host system first injects tasks as wavelets, the interconnect then routes wavelets to available tiles, a tile processes the wavelet using SIMD PEs, and the result is either stored or forwarded to another tile. There are three wavelet types:
+
+1. **Compute Wavelets:** For SIMD operations (GEMM, Convolutions, FFTs)
+2. **Memory Wavelets:** For Data Movement (Load/Store)
+3. **Synchronization Wavelets:** For barrier synchronization across tiles. 
