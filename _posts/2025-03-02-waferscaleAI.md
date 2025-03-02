@@ -36,3 +36,7 @@ The host system first injects tasks as wavelets, the interconnect then routes wa
 1. **Compute Wavelets:** For SIMD operations (GEMM, Convolutions, FFTs)
 2. **Memory Wavelets:** For Data Movement (Load/Store)
 3. **Synchronization Wavelets:** For barrier synchronization across tiles. 
+
+## Pipeline Bypass
+
+To support wider datapaths, the waferscale pipeline introduces new bypass logic. Without this, any floating-point or memory result could not be used until 3 cycles later; however this new logical allows certain results to be forwarded with only a 2-cycle delay. This 2-cycle bypass applies under limited conditions (e.g. only for the _src0_ operand of an instruction, and only if producer and consumer execute on the same datapath lane). Integer pipeline results are generally more freely bypassable, whereas FP results can only fast-bypass to another FP operation of the same type (FP16 to FP16 or FP32 to FP32). We define specific FP ops that support the 2-cycle bypass path; 
