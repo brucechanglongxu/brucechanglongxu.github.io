@@ -56,3 +56,12 @@ Numerous smaller tweaks support the above changes, for example the instruction s
 Heisenberg's architectural upgrades aim to boost per-tile throughput, especially for AI workloads but they come with carefull tradeoffs. The doubled SIMD width greatly improves raw compute bandwidth per cycle, _provided the software can supply enough parallel data_. In dense linear algebra or deep learning kernels this is achievable, yielding big speedups. However wider vectors also stress the memory subsystem (more bytes fetched per instruction) and can expose more altency if code has cross-lane dependencies (as noted with the 4-cycle bypass penalty). We mitigate some latency by introducing selective 2-cycle bypassing, which is helpful for acceleration accunulators in MAC-heavy loops (common in ML).
 
 There is a modest frequency/power hit for the very widest operations. Historically, other high performance chips show that adding 512-bit execution can reduce max clock speed and increase power if not carefully managed (e.g. Intel's early AVX-512 implementations ran at lower frequencies because the 512-bit units were physically distant from the main pipeline and drew heavy power). HBG design uses physical partitioning (and conditional activation) of the wide SIMD units to minimize impact on common 16/32-bit operations. Because the wafer packs hundreds/thousands of tiles on a wafer, each tile must not bloat too much in area or power. 
+
+"We conciously traded a small increase in instruction latency for huge area and power savings on each core, allowing us to fit more cores on the wafer and keep power per operation low, which is why Cerebras can offer $$210$$ times speedups over GPUs in certain tasks". 
+
+## RTL Design
+
+The 256-bit SIMD ALU is implemented as an array of lane units operating in parallel. For example, a 256-bit wide adder can be build as 16 times 16 bit adders that operate concurrently under a single vector instruction. Each lane handles a portion of the data (e.g. element 0 in lane0, element 1 in lane 1 etc.) and the RTL should be parameterized for different element widths (8, 16, 32, 64-bit) selecting the appropriate number of lanes. 
+
+## DFT and Testability
+
