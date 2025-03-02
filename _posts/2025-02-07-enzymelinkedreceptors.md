@@ -16,3 +16,4 @@ Unlike receptor tyrosine kinases, **JAK-STAT receptors** _lack intrinsic kinase 
 
 ## Nuclear Receptors: Slow and Long-lasting Pathway
 
+Nuclear receptors are _intracellular receptors_ that directly regulate gene transcription. 
