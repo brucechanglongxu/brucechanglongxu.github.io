@@ -79,5 +79,7 @@ Driving 512-bit bypass signals across the entire execution unit in a single cycl
 
 With formal we can ensure end-to-end correctness for FP8/FP16/FP32/FP64 operations across varying SIMD widths, which implies writing properties for the arithmetic results (checking that the hardware FMA matches an IEEE reference model for all operands). Formal can be used to control logic liveness e.g. proving that the pipeline cannot deadlock or livelock i.e. "the instruction retire point always advances within a certain number of cycles" or "a waiting consumer eventually gets its data" and used formal to ensure no sequence of stalls can cause an indefinite hang. Formal can also be used to target specific tricky logic like scoreboard update or the FSM that controls FP8 format translation, to ensure no illegal state or glitch is possible. It is excellent for datapath slices and control corner cases that are erorr prone. 
 
+Formal verification and cover properties. 
+
 ## DFT and Testability
 
