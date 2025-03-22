@@ -1,4 +1,4 @@
-# Bruce Changlong Xu's Blog  
+# Bruce Changlong Xu's M.D., Ph.D. Blog  
 
 Welcome to my personal blog, where I explore the intersection of **AI, medicine, and innovation**. My writings cover topics ranging from **semantic perception, AI in biomedicine, advanced computer architecture, and cutting-edge developments in machine learning**.  
 
