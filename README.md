@@ -2,7 +2,7 @@
 
 Welcome to my personal blog, where I explore the intersection of **AI, medicine, and innovation**. My writings cover topics ranging from **semantic perception, AI in biomedicine, advanced computer architecture, and cutting-edge developments in machine learning**.  
 
-**Inspirations Include:** Professor Ching-Chuen Chan (GBS, JP, PhD (HKU))
+**Inspirations Include:** Professor Ching-Chuen Chan (GBS, JP, PhD (HKU), FREng, FIEEE) 
 
 ## 🌟 **Mission**  
 My goal is to **bridge human sensory perception with artificial intelligence**—leveraging AI to **enhance clinical decision-making, drive medical breakthroughs, and push the boundaries of high-performance computing and biotechnology**.  
