@@ -1,6 +1,6 @@
 # Bruce Changlong Xu's M.D., Ph.D. Blog  
 
-Welcome to my personal blog, where I explore the intersection of **AI, medicine, and innovation**. My writings cover topics ranging from **semantic perception, AI in biomedicine, advanced computer architecture, and cutting-edge developments in machine learning**.  
+Welcome to my personal blog, where I explore the intersection of **AI, medicine, and innovation**. My writings cover topics ranging from **semantic perception, AI in biomedicine, advanced computer architecture, and cutting-edge developments in machine learning**. Hi!
 
 **Inspirations Include:** Professor Ching-Chuen Chan (GBS, JP, PhD (HKU), FREng, FIEEE) 
 
