@@ -14,6 +14,8 @@ Born in Hong Kong, Chan completed his secondary education at Salesian English Sc
 
 As a researcher, Chan specializes in computational mathematics, with interests in image processing, computer vision, and computational brain mapping. He has published over 200 refereed papers and is among the most cited mathematicians globally. Chan's contributions have been recognized with several honors. He is a member of the U.S. National Academy of Engineering and a Fellow of the Institute of Electrical and Electronics Engineers (IEEE), the Society for Industrial and Applied Mathematics (SIAM), and the American Association for the Advancement of Science (AAAS). In 2020, he received the SIAM Prize for Distinguished Service to the Profession.
 
+Ghibli-style photos. 
+
 ## 🌟 **Mission**  
 My goal is to **bridge human sensory perception with artificial intelligence**—leveraging AI to **enhance clinical decision-making, drive medical breakthroughs, and push the boundaries of high-performance computing and biotechnology**.  
 
