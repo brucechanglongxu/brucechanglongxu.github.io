@@ -14,7 +14,15 @@ Born in Hong Kong, Chan completed his secondary education at Salesian English Sc
 
 As a researcher, Chan specializes in computational mathematics, with interests in image processing, computer vision, and computational brain mapping. He has published over 200 refereed papers and is among the most cited mathematicians globally. Chan's contributions have been recognized with several honors. He is a member of the U.S. National Academy of Engineering and a Fellow of the Institute of Electrical and Electronics Engineers (IEEE), the Society for Industrial and Applied Mathematics (SIAM), and the American Association for the Advancement of Science (AAAS). In 2020, he received the SIAM Prize for Distinguished Service to the Profession.
 
-hi
+_Professor Harry Shum BBS, JP (PhD, IEEE Fellow, ACM Fellow, HKUST Council Member)_
+
+Professor Harry Shum is one of the most influential figures in the evolution of artificial intelligence and computer vision, widely credited with transforming Microsoft’s research and development organization into a global AI powerhouse. Over his three-decade career at Microsoft, Shum rose to become Executive Vice President of Microsoft’s Artificial Intelligence and Research Group, overseeing more than 8,000 computer scientists and engineers. His leadership was instrumental in the integration of AI into flagship products like Bing, Cortana, Office, and Azure, and in incubating breakthroughs such as the Microsoft Cognitive Toolkit and HoloLens.
+
+A Hong Kong-born computer scientist with a PhD in Robotics from Carnegie Mellon University, Shum began his career as a researcher at Microsoft Research China, where he played a foundational role in establishing the lab’s reputation as one of the top AI research centers globally. His early academic work in 3D computer vision and graphics laid the groundwork for commercial applications in augmented reality, autonomous systems, and neural rendering. He has authored over 200 papers and holds dozens of U.S. patents, many of which underpin modern AI systems in multimedia, human-computer interaction, and visual understanding.
+
+Professor Shum is a Fellow of the Institute of Electrical and Electronics Engineers (IEEE), the Association for Computing Machinery (ACM), and the American Academy of Arts and Sciences. He serves on the governing council of the Hong Kong University of Science and Technology (HKUST), where he is actively shaping research agendas at the intersection of AI, science, and society. In recent years, he has returned to the forefront of academia and technology policy, advocating for responsible AI, talent development in Greater China, and global scientific collaboration. 
+
+Professor Shum’s enduring legacy lies not only in advancing frontier AI research but also in bridging industrial scale with academic rigor, and Eastern innovation with global impact.
 
 Ghibli-style photos. 
 
