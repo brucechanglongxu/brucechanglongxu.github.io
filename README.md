@@ -24,6 +24,18 @@ Professor Shum is a Fellow of the Institute of Electrical and Electronics Engine
 
 Professor Shum’s enduring legacy lies not only in advancing frontier AI research but also in bridging industrial scale with academic rigor, and Eastern innovation with global impact.
 
+_Professor Dennis Lo-Yuk Ming, GBS, SBS, FRS, MD, PhD_ 
+
+Professor Dennis Lo, GBS, SBS, FRS, is globally celebrated as the pioneer of non-invasive prenatal testing (NIPT) and a founding father of molecular diagnostics and liquid biopsy. His discovery that fetal DNA circulates in maternal blood revolutionized prenatal care and gave rise to a multibillion-dollar global industry. His work continues to shape early detection of genetic diseases and cancer using circulating nucleic acids — earning him recognition as a true visionary in translational medicine.
+
+Born and raised in Hong Kong, Professor Lo earned his medical degree from the University of Oxford, followed by a PhD in molecular biology. After clinical training and early scientific work in the UK, he returned to Hong Kong in the late 1990s, where he began a decades-long career at The Chinese University of Hong Kong (CUHK). He currently serves as Professor of Chemical Pathology and the Director of the Li Ka Shing Institute of Health Sciences.
+
+Professor Lo’s research career is marked by a consistent focus on translating fundamental science into clinical applications. Beyond prenatal testing, his recent breakthroughs in early cancer detection via cfDNA fragmentomics and molecular counting have shaped the next generation of liquid biopsy platforms. He has published over 400 papers, many in Nature, Science, and PNAS, and holds dozens of global patents.
+
+His contributions have earned him the Breakthrough Prize in Life Sciences (2021), election to the Royal Society (FRS), and top honors from Hong Kong, including the Gold and Silver Bauhinia Stars. He was the first Hong Kong-based scientist awarded the Future Science Prize in Life Sciences, often regarded as the “Chinese Nobel.”
+
+Professor Lo exemplifies how fundamental discoveries, when nurtured by institutional commitment and entrepreneurial spirit, can redefine healthcare globally — and position Hong Kong as a hub of biomedical innovation.
+
 Ghibli-style photos. 
 
 ## 🌟 **Mission**  
