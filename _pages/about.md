@@ -9,7 +9,7 @@ redirect_from:
 
 This is the personal website of **Bruce Changlong Xu**. 
 
-Mathematics, Technology, Medicine
+Mathematics, Technology and Medicine
 ------
 
 
