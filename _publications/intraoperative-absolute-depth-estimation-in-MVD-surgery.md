@@ -3,9 +3,9 @@ title: "Intraoperative Absolute Depth Estimation in MVD Surgery"
 collection: publications
 category: manuscripts
 permalink: /publication/mvd-depth-estimation/
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
+excerpt: "This paper introduces a real-time method for absolute depth estimation during microvascular decompression (MVD) surgery. By leveraging intraoperative video, we enable spatially precise guidance to protect cranial nerves and enhance surgical safety. Depth prediction for additional neurosurgical procedures is left for future work."
 date: 2009-10-01
-venue: "38th IEEE International Symposium on Computer-Based Medical Systems (CBMS 2025), Special Track on Surgery AI"
+venue: "38th IEEE International Symposium on Computer-Based Medical Systems (CBMS), Special Track on Surgery AI"
 slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'http://academicpages.github.io/files/paper1.pdf'
 bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'
