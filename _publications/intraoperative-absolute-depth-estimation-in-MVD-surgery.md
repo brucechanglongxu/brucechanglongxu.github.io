@@ -6,9 +6,7 @@ permalink: /publication/mvd-depth-estimation/
 excerpt: "This paper introduces a real-time method for absolute depth estimation during microvascular decompression (MVD) surgery. By leveraging intraoperative video, we enable spatially precise guidance to protect cranial nerves and enhance surgical safety. Depth prediction for additional neurosurgical procedures is left for future work."
 date: 2025-06-20
 venue: "38th IEEE International Symposium on Computer-Based Medical Systems (CBMS), Special Track on Surgery AI"
-slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'http://academicpages.github.io/files/cbms_mvd_depth.pdf'
-bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'
 citation: "Jinhee Lee, Hwanhee Lee, Jay Park, Ethan Htun, Bruce Changlong Xu, Sang Hoon Cho, Sanghoon Lee, and Vivek Buch. (2025). **Intraoperative absolute depth estimation in MVD surgery.** _In Proceedings of the 38th IEEE International Symposium on Computer-Based Medical Systems (CBMS 2025)_, Special Track on Surgery AI."
 
 ---
