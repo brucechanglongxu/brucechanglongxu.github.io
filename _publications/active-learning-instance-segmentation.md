@@ -1,7 +1,7 @@
 ---
 title: "Enhancing Surgeon-Machine Interface in Neurosurgery: Methodology for Efficient Annotation and Segmentation Model Development by Leveraging Embedding-Based Clustering Techniques"
 collection: publications
-category: manuscripts
+category: conferences
 permalink: /publication/smi-diversity-sampling
 excerpt: "The emergence of computer vision in surgery is revolutionizing intraoperative analytics and anatomical understanding. Developing real-time, surgeon-assistive technologies—such as the Surgeon-Machine Interface (SMI)—requires extensive annotation of surgical video data, especially for instance segmentation. However, annotation is time-consuming, costly, and prone to bias. Embedding-based diversity sampling provides a pathway toward more sample-efficient model training and generalizable system design. This paper introduces an embedding-based diversity sampling approach to reduce annotation burden in neurosurgical video segmentation, demonstrating performance improvements over random and similar sampling baselines."
 date: 2025-05-30
