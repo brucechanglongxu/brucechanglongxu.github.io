@@ -1,7 +1,7 @@
 ---
-title: 'Future Blog Post'
-date: 2199-01-01
-permalink: /posts/2012/08/blog-post-4/
+title: 'Letting Go'
+date: 2025-06-15
+permalink: /posts/2025/06/letting-go
 tags:
   - cool posts
   - category1
