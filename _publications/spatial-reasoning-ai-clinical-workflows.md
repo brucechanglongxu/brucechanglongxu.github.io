@@ -1,14 +1,14 @@
 ---
-title: "Paper Title Number 3"
+title: "Transforming Clinical Workflows with Spatial Reasoning AI: A Scoping Review of Real-Time Systems and Architectures"
 collection: publications
 category: manuscripts
-permalink: /publication/2015-10-01-paper-title-number-3
-excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
-date: 2015-10-01
-venue: 'Journal 1'
-slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
-paperurl: 'http://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2015). &quot;Paper Title Number 3.&quot; <i>Journal 1</i>. 1(3).'
+permalink: /publication/srai-review
+excerpt: "This systematic review and meta-analysis examines how Spatial Reasoning AI (SRAI) systems are reshaping clinical decision-making across radiology, surgery, cardiovascular imaging, and chronic disease management. It evaluates model performance, architectural trends, and clinical translation readiness."
+date: 2025-07-01
+venue: "Nature Digital Medicine (under review)"
+#slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
+#paperurl: 'http://academicpages.github.io/files/paper3.pdf'
+citation: "Bruce Changlong Xu, Alexander J. Ryu, Arnold Lee, James Jose, Shant Ayanian, and Ray Qian. (2025). Transforming Clinical Workflows with Spatial Reasoning AI: A Scoping Review of Real-Time Systems and Architectures. Nature Digital Medicine (under review)"
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+This comprehensive scoping review synthesizes findings from over 30 studies that explore the emergence, performance, and clinical integration of Spatial Reasoning AI (SRAI) models. Unlike conventional AI systems reliant on 2D or tabular data, SRAI systems incorporate anatomical priors, 3D modeling, and multimodal reasoning to enable spatially informed diagnosis, prognosis, and intraoperative guidance.Following PRISMA guidelines, we categorize models into a tiered taxonomy—Emergent, Advanced, and Task-Specific—based on spatial modeling capabilities and clinical versatility. Meta-analytic and narrative synthesis reveals consistent gains in segmentation (Dice 0.77–0.92), diagnostic AUCs (0.79–0.94), and prognostic indices (C-index >0.85). Across radiology, neurology, cardiology, and procedural medicine, SRAI models enhance interpretability, reduce annotation burden, and enable real-time feedback.We highlight breakthrough applications including transformer-based surgical video understanding, AI-assisted mammography with reduced radiologist workload, and multimodal fusion pipelines for neuro-oncology and dementia prediction. Architectural innovations such as 3D convolutional networks, point cloud reasoning, and anatomically informed segmentation underpin these advances.However, deployment hurdles persist: lack of standard spatial benchmarks, variable generalization, and limited regulatory pathways. We advocate for open datasets, rigorous prospective validation, and integration into clinician-facing workflows. As foundation models evolve to encode spatial priors and multimodal context, SRAI is poised to redefine clinical AI—bridging perception and decision-making in high-stakes, real-world care settings.Future directions include benchmarking initiatives, multi-center trials, and hybrid systems combining spatial AI with clinician feedback. This review provides a roadmap for scaling anatomically intelligent models from lab to bedside, ensuring that AI not only sees—but understands—human anatomy in action.
