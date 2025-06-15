@@ -26,10 +26,10 @@ author:
   name             : "Bruce Changlong Xu"
   pronouns         : # example: "she/her"  
   bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  location         : "Silicon Valley, Bay Area California"
+  employer         : "Stanford University"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "brucechanglongxu@cs.stanford.edu" 
 
   # Academic websites
   academia         : # URL
