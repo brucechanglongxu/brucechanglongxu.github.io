@@ -1,6 +1,6 @@
 ---
 title: 'Anatomy of a Vaccine'
-date: 2013-08-14
+date: 2025-06-15
 permalink: /posts/2025-06-15/anatomy-of-a-vaccine
 tags:
   - cool posts

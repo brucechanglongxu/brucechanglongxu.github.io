@@ -1,6 +1,6 @@
 ---
 title: 'Towards Human Machine Interfaces'
-date: 2015-08-14
+date: 2025-06-15
 permalink: /posts/2012/08/blog-post-4/
 tags:
   - cool posts
