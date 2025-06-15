@@ -5,7 +5,7 @@ category: manuscripts
 permalink: /publication/mvd-depth-estimation/
 excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
 date: 2009-10-01
-venue: 
+venue: "38th IEEE International Symposium on Computer-Based Medical Systems (CBMS 2025), Special Track on Surgery AI"
 slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'http://academicpages.github.io/files/paper1.pdf'
 bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'
