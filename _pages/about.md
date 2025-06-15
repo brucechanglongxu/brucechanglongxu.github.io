@@ -9,5 +9,5 @@ redirect_from:
 
 This is the personal website of **Bruce Changlong Xu**. 
 
-A data-driven personal website
+Mathematics, Technology, Medicine
 ------
