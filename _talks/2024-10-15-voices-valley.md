@@ -5,6 +5,6 @@ type: "Private Investor Conference"
 permalink: /talks/voices-from-valley
 venue: "VMS Group"
 date: 2024-10-15
-location: "Hong Kong SAR, China"
+location: "Hong Kong SAR"
 ---
 
