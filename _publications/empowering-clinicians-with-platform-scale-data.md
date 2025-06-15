@@ -8,7 +8,7 @@ By highlighting four recurring evidence gaps—(1) guideline equivalence zones, 
 date: 2025-05-17
 venue: "Nature Digital Medicine"
 #paperurl:
-citation: "Bruce Changlong Xu, Santiago Romero Brufau, Alexander J. Ryu. (2025). Empowering Clinicians with Platform-Scale Patient Data: From Database to Bedside. Nature Digital Medicine."
+citation: "Bruce Changlong Xu*, Santiago Romero Brufau, Alexander J. Ryu. (2025). Empowering Clinicians with Platform-Scale Patient Data: From Database to Bedside. Nature Digital Medicine."
 
 ---
 
