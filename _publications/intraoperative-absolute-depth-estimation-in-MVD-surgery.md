@@ -1,7 +1,7 @@
 ---
 title: "Intraoperative Absolute Depth Estimation in MVD Surgery"
 collection: publications
-category: manuscripts
+category: conferences
 permalink: /publication/mvd-depth-estimation/
 excerpt: "This paper introduces a real-time method for absolute depth estimation during microvascular decompression (MVD) surgery. By leveraging intraoperative video, we enable spatially precise guidance to protect cranial nerves and enhance surgical safety. Depth prediction for additional neurosurgical procedures is left for future work."
 date: 2025-06-20
