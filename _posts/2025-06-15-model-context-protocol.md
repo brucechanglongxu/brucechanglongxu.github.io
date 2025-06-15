@@ -11,4 +11,6 @@ In LLMs, **context** isn't just "previous tokens", it is a dynamic substrate of 
 
 *A structured way to define and manage the evolving scope of understanding between a model and its tasks, memory, environment, and user*
 
+For most of the 21st century, developers have relied on REST APIs as the dominant interface for connecting applications to external services. REST offered a simple, stateless protocol, but its simplicity concealed a critical flaw: every service spoke its own language. Integrating APIs meant wrestling with inconsistencies in endpoints, parameters, authentication methods, rate limits, error codes, and response formats. While this worked for humans who could interpret documentation and manually write glue code, it created massive barriers to automation and scale.
 
+When large language models like GPT-3 and GPT-4 burst onto the scene, they showcased stunning abilities to generate and understand natural language. But there was a fundamental limitation—LLMs are, at their core, next-token predictors. They cannot fetch data, query databases, send emails, or take action in the world. They excel at describing reality but remain completely incapable of acting upon it without external scaffolding.
