@@ -3,7 +3,7 @@ title: "Transforming Clinical Workflows with Spatial Reasoning AI: A Scoping Rev
 collection: publications
 category: manuscripts
 permalink: /publication/srai-review
-excerpt: "This systematic review and meta-analysis presents a comprehensive synthesis of Spatial Reasoning AI (SRAI) in healthcare—an emerging paradigm that integrates geometric priors, multimodal inputs, and 3D anatomical understanding to enable real-time guidance, volumetric analysis, and clinical decision support. We review over 1000 peer-reviewed studies spanning neuro-oncology, cardiovascular imaging, and interventional radiology, classifying them into Emergent, Advanced, and Task-Specific SRAI systems. These models consistently outperform traditional pipelines in segmentation, classification, and prognosis. The paper also highlights architectural trends, translational gaps, and offers recommendations for benchmarking, regulatory pathways, and future research."
+excerpt: "Spatial Reasoning AI (SRAI) is redefining the boundaries of clinical intelligence—enabling machines to interpret complex anatomy, fuse multimodal data, and support high-stakes decisions in real time. This work maps the architectural frontier of SRAI systems deployed across neuro-oncology, cardiovascular imaging, and surgical guidance, revealing how innovations like transformer-based attention, 3D volumetric modeling, and anatomical priors are translating into meaningful clinical gains. Beyond summarizing recent progress, we outline the foundational principles and future directions that will shape SRAI as a core infrastructure of personalized, spatially-aware medicine."
 date: 2025-07-01
 venue: "Nature Digital Medicine (under review)"
 #slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
