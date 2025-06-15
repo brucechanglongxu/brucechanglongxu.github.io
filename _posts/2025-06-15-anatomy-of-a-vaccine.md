@@ -1,7 +1,7 @@
 ---
-title: 'Blog Post number 2'
+title: 'Anatomy of a Vaccine'
 date: 2013-08-14
-permalink: /posts/2013/08/blog-post-2/
+permalink: /posts/2025-06-15/anatomy-of-a-vaccine
 tags:
   - cool posts
   - category1

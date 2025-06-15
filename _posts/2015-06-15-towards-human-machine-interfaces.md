@@ -1,5 +1,5 @@
 ---
-title: 'Blog Post number 4'
+title: 'Towards Human Machine Interfaces'
 date: 2015-08-14
 permalink: /posts/2012/08/blog-post-4/
 tags:
