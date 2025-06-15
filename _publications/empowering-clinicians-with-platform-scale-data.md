@@ -1,10 +1,10 @@
 ---
 title: "Empowering Clinicians with Platform-Scale Patient Data: From Database to Bedside"
 collection: publications
-category: conferences
+category: manuscripts
 permalink: /publication/platform-scale-data-clinicians
 excerpt: "This perspective explores how large-scale, structured real-world data platforms can transform clinical decision-making—bridging the gap between retrospective data and real-time bedside care."
-date: 2024-02-17
+date: 2025-05-17
 venue: "Nature Digital Medicine"
 paperurl:
 citation:
