@@ -12,7 +12,7 @@ en: &DEFAULT_EN
   ext_link_label             : "Direct Link"
   less_than                  : "less than"
   minute_read                : "minute read"
-  share_on_label             : "Share on"
+#  share_on_label             : "Share on"
   meta_label                 :
   tags_label                 : "Tags:"
   categories_label           : "Categories:"
@@ -60,7 +60,7 @@ es: &DEFAULT_ES
   ext_link_label             : "Enlace"
   less_than                  : "menos de"
   minute_read                : "minuto de lectura"
-  share_on_label             : "Compartir"
+ # share_on_label             : "Compartir"
   meta_label                 :
   tags_label                 : "Etiquetas:"
   categories_label           : "Categorías:"
@@ -104,7 +104,7 @@ fr: &DEFAULT_FR
   ext_link_label             : "Lien direct"
   less_than                  : "plus petit que"
   minute_read                : "minute de lecture"
-  share_on_label             : "Partager sur"
+#  share_on_label             : "Partager sur"
   meta_label                 :
   tags_label                 : "Tags :"
   categories_label           : "Catégories :"
@@ -150,7 +150,7 @@ tr: &DEFAULT_TR
   ext_link_label             : "Doğrudan Bağlantı"
   less_than                  : "Şu süreden az: "
   minute_read                : "dakika tahmini okuma süresi"
-  share_on_label             : "Paylaş"
+ # share_on_label             : "Paylaş"
   meta_label                 :
   tags_label                 : "Etiketler:"
   categories_label           : "Kategoriler:"
@@ -192,7 +192,7 @@ pt: &DEFAULT_PT
   ext_link_label             : "Link direto"
   less_than                  : "menor que"
   minute_read                : "minutos de leitura"
-  share_on_label             : "Compartilhe em"
+#  share_on_label             : "Compartilhe em"
   meta_label                 :
   tags_label                 : "Tags:"
   categories_label           : "Categorias:"
@@ -236,7 +236,7 @@ it: &DEFAULT_IT
   ext_link_label             : "Link"
   less_than                  : "meno di"
   minute_read                : "minuto/i di lettura"
-  share_on_label             : "Condividi"
+ # share_on_label             : "Condividi"
   meta_label                 :
   tags_label                 : "Tags:"
   categories_label           : "Categorie:"
@@ -278,7 +278,7 @@ zh: &DEFAULT_ZH
   ext_link_label             : "直接链接"
   less_than                  : "少于"
   minute_read                : "分钟阅读时长"
-  share_on_label             : "分享到"
+ # share_on_label             : "分享到"
   meta_label                 :
   tags_label                 : "标签："
   categories_label           : "分类："
@@ -320,7 +320,7 @@ zh-HK: &DEFAULT_ZH_HK
   ext_link_label             : "直接連結"
   less_than                  : "少於"
   minute_read                : "分鐘閱讀時長"
-  share_on_label             : "分享到"
+#  share_on_label             : "分享到"
   meta_label                 :
   tags_label                 : "標籤："
   categories_label           : "分類："
