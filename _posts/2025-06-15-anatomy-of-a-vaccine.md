@@ -5,6 +5,7 @@ permalink: /posts/2025-06-15/anatomy-of-a-vaccine
 tags:
   - vaccines
   - immunology
+  - pharmaceuticals
 ---
 
 A vaccine is not merely a medical intervention; it is the architecture of memory encoded in molecules. Within its vial lies the quiet convergence of disciplines—immunology, molecular biology, engineering, public trust. It offers the body a rehearsal: a chance to meet a ghost of the enemy before the real encounter arrives. What we call immunity is not defense alone—it is recognition, a sacred biological form of knowing. In a world where so much is reactive, a vaccine is radically proactive: a whisper to the immune system, preparing it for storms it has never yet seen.
