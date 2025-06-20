@@ -15,3 +15,5 @@ The elegance of this preparation lies not only in the science, but in the symmet
 I think often about how we teach machines to learn, and how we teach the body to remember. Both are questions of architecture and time. A well-designed vaccine, like a well-designed algorithm, generalizes from the known to guard against the unknown. But unlike code, immunity lives—it forgets, adapts, decays, renews. Perhaps that is what makes the vaccine so astonishing: it does not promise perfection, only resilience. And in that quiet promise, it becomes not just medicine, but hope, made molecular.
 
 Let's take a step back -- what exactly _is_ a vaccine? A vaccine is a biological product that can safely induce an immune response that confers protection against infection and/or disease on subsequent exposure from the pathogen. 
+
+## Taxonomy of Vaccines
