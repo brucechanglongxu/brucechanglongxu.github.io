@@ -9,7 +9,7 @@ I have the privilege to support my talented friends at [**3Cap AGI Partners**](h
 
 I have previously worked at **Apple** and **NVIDIA**, and completed my undergraduate and graduate studies in Mathematics and Computer Science at **Stanford University**, working with phenomenal researchers at [SAIL](https://ai.stanford.edu/), [HAI](https://hai.stanford.edu/), [Stanford Cardiovascular Institute](https://www.ahajournals.org/doi/10.1161/CIRCRESAHA.124.325652), and [Stanford Neurosurgery](https://ieeexplore.ieee.org/document/11058715). Earlier in my life, I was deeply involved Olympiad Mathematics, earning Gold/Silver medals at the British and Asian Pacific Mathematical Olympiads, and representing Hong Kong at the International Mathematical Olympiad as HKG01.
 
-Together with cofounders, I started _**Eiro**_ a stealth platform building a global pervasive fabric defining multimodal AI infrastructure for science and medicine. In my free time, I love to run, draw, and spend time with my family.
+Together with cofounders, I started _**Eiro**_ a stealth platform building a global pervasive fabric defining multimodal AI infrastructure for science and medicine. In my free time, I love running, art, music (violin and the piano), and spenning time with my border collie Aegis, and family. 
 
 ---
 
