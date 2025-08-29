@@ -2,7 +2,7 @@
 title: "Bruce Changlong Xu"
 description: "Vision for AI, healthcare, and the road to superintelligence."
 ---
-I believe AI should be judged by a simple standard: does it expand human dignity, health, and possibility? If we align it to that purpose, the next decade of artificial intelligence can truly catalyze human flourishing. Oncology, cardiology, neuroscience—fields that move at the pace of experiments and regulation—can move at the pace of ideas, with a thousand careful collaborators working in parallel rather than a handful working in series.
+I believe AI should be judged by a simple standard: does it catalyze human flourishing? If we align it to that purpose, the next decade can transform healthcare, science, and society in ways that expand dignity, health, and possibility. Oncology, cardiology, neuroscience—fields that move at the pace of experiments and regulation—can begin to move at the pace of ideas, with a thousand careful collaborators working in parallel rather than a handful working in series.
 
 In healthcare, intelligence is not magic; it is the ability to ask better questions, design cleaner experiments, and translate evidence into care that reaches everyone. AI will help us do the mundane work that matters: harmonizing messy data, auditing provenance, spotting bias before it harms, and running countless “virtual experiments” to narrow real ones. That is how you make discovery predictable rather than lucky. It is also how you make care safer: every recommendation traceable, every assumption testable, every model re-trained against drift and equity metrics, not only accuracy.
 
@@ -18,4 +18,4 @@ What, then, is the role of people? More human than before. AI can draft, search,
 
 If we succeed, the visible signs will be simple: fewer funerals cut short by cancer; fewer lives narrowed by chronic disease or untreated mental illness; more healthy years, everywhere. The deeper sign will be quieter: a healthcare system that feels competent, kind, and transparent because it is engineered to be all three.
 
-This is the future I’m working toward: trustworthy intelligence, built for care; rigorous science, accelerated; and a health system that finally earns the confidence people want to give it.
+This is the future I’m working toward: trustworthy intelligence, built for care; rigorous science, accelerated; and a health system that finally earns the confidence people want to give it—an era where AI catalyzes human flourishing.
