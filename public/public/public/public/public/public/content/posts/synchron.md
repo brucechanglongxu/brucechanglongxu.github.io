@@ -1,5 +1,5 @@
 ---
-title: "Investing in Endovascular BCI and Building Cognitive Generai Intelligence"
+title: "Investing in Synchron: Building Cognitive General Intelligence"
 date: 2025-08-28T00:00:00Z
 draft: false
 ---
