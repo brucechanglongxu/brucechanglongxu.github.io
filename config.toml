@@ -1,6 +1,6 @@
 baseURL = "https://brucechanglongxu.github.io/"
 languageCode = "en-us"
-title = "Bruce Changlong Xu"
+title = "Bruce C. Xu"
 theme = "dario"
 
 [params]
