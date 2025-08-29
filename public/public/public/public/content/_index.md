@@ -9,7 +9,7 @@ I have the privilege to support my talented friends at [**3Cap AGI Partners**](h
 
 I have previously worked at **Apple** and **NVIDIA**, and completed my undergraduate and graduate studies in Mathematics and Computer Science at **Stanford University**, working with phenomenal researchers at [SAIL](https://ai.stanford.edu/), [HAI](https://hai.stanford.edu/), [Stanford Cardiovascular Institute](https://www.ahajournals.org/doi/10.1161/CIRCRESAHA.124.325652), and [Stanford Neurosurgery](https://ieeexplore.ieee.org/document/11058715). Earlier in my life, I was deeply involved Olympiad Mathematics, earning Gold/Silver medals at the British and Asian Pacific Mathematical Olympiads, and representing Hong Kong at the International Mathematical Olympiad as HKG01.
 
-Together with cofounders, I started _**Eiro**_ a stealth platform building a global pervasive fabric defining multimodal AI infrastructure for science and medicine. In my free time, I love running, art, music (violin and the piano), and spenning time with my border collie Aegis, and family. 
+Together with cofounders, I started _**Eiro**_ a stealth platform building a global pervasive fabric defining multimodal AI infrastructure for science and medicine. In my free time, I love running, art, music (violin and the piano), and spenning time with my border collie Aegis, and of course my family. 
 
 ---
 
@@ -30,3 +30,5 @@ What, then, is the role of people? More human than before. AI can draft, search,
 If we succeed, the visible signs will be simple: fewer funerals cut short by cancer; fewer lives narrowed by chronic disease or untreated mental illness; more healthy years, everywhere. The deeper sign will be quieter: a healthcare system that feels competent, kind, and transparent because it is engineered to be all three.
 
 This is the future I’m working toward: trustworthy intelligence, built for care; rigorous science, accelerated; and a health system that finally earns the confidence people want to give it—an era where AI catalyzes human flourishing.
+
+_Thank you to [Dario Amodei](https://www.darioamodei.com/) for providing the template for this website_
