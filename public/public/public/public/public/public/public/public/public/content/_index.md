@@ -7,7 +7,7 @@ I currently support frontier AI training and inference systems at **Cerebras**, 
 
 I am honored to support my talented friends at [**3Cap AGI Partners**](https://3cagi.vc/) to invest in the next generation of companies defining AGI infrastructure. Alongside them, I was fortunate to personally invest in [**Synchron**'s Series D](https://synchron.com/), which is pioneering endovascular brain-computer interface technology for patients worldwide. As a member of **Asia Society's Dragon and Eagle Rising Leaders Council**, I am part of a wonderful community that helps to promote crucial dialogue between the East and the West in areas such as AI Governance and Oncology Clinical Trial Harmonization. 
 
-I have previously worked at **Apple** and **NVIDIA**, and studied **Mathematics and Computer Science at Stanford University**. Earlier in my life, I had a passion for Olympiad Mathematics, earning a Gold Medal and Perfect Score in the British Mathematical Olympiad, Silver Medal in the Asian Pacific Mathematical Olympiad, participating in the International Mathematical Olympiad as HKG01.
+I have previously worked at **Apple** and **NVIDIA**, and completed my undergraduate and graduate diploma at **Stanford University**. Earlier in my life, I had a passion for Olympiad Mathematics, earning a Gold Medal and Perfect Score in the British Mathematical Olympiad, Silver Medal in the Asian Pacific Mathematical Olympiad, participating in the International Mathematical Olympiad as HKG01.
 
 With great cofounders, I started _**Eiro**_ a stealth platform building a global pervasive fabric defining multimodal AI infrastructure for science and medicine. 
 
