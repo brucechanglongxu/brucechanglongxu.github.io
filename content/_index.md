@@ -31,4 +31,4 @@ If we succeed, the visible signs will be simple: fewer funerals cut short by can
 
 This is the future I’m working toward: trustworthy intelligence, built for care; rigorous science, accelerated; and a health system that finally earns the confidence people want to give it—an era where AI catalyzes human flourishing.
 
-_Thank you to [Dario Amodei](https://www.darioamodei.com/) for providing the template for this website_
+_Thank you to Dario Amodeifor providing the template for this website_
