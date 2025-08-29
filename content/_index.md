@@ -3,9 +3,9 @@ title: "Bruce Changlong Xu"
 description: "AI, healthcare, and the road to superintelligence."
 ---
 
-I am honored to be supporting frontier AI training and inference systems at **Cerebras**, where we work with the world's most impressive enterprises, governments, and institutions such as Mayo Clinic, M42/G42, Aleph Alpha, GlaxoSmithKline, Novo Nordisk, Perplexity, Mistral, and Hugging Face to build transformative artificial intelligence.  
+I currently support frontier AI training and inference systems at **Cerebras**, where we work with the world's most pioneering enterprises, governments, and institutions such as Mayo Clinic, M42/G42, Aleph Alpha, GlaxoSmithKline, Novo Nordisk, Perplexity, Mistral, and Hugging Face to build transformative artificial intelligence.  
 
-I have previously worked at **Apple** and **NVIDIA**, and studied **Mathematics and Computer Science at Stanford University**. I am honored to support my talented friends at [3Cap AGI Partners](https://3cagi.vc/) to invest in the next generation of companies defining AGI infrastructure. Alongside them, I was fortunate to personally invest in [Synchron's Series D](https://synchron.com/), which is pioneering endovascular brain-computer interface technology for patients worldwide.
+I have previously worked at **Apple** and **NVIDIA**, and studied **Mathematics and Computer Science at Stanford University**. I am honored to support my talented friends at [3Cap AGI Partners](https://3cagi.vc/) to invest in the next generation of companies defining AGI infrastructure. Alongside them, I was fortunate to personally invest in [Synchron's Series D](https://synchron.com/), which is pioneering endovascular brain-computer interface technology for patients worldwide. As a member of Asia Society's Dragon and Eagle Rising Leaders Council, I am part of a community that helps to promote crucial dialogue between the East and the West in areas such as AI Governance and Oncology Clinical Trial Harmonization. 
 
 ---
 
