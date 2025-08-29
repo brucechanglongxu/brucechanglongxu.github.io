@@ -1,0 +1,13 @@
+baseURL = "https://brucechanglongxu.github.io/"
+languageCode = "en-us"
+title = "Bruce Changlong Xu"
+theme = "dario"
+
+[params]
+  description = "Notes, research, and projects."
+  colorScheme = "toggle" # or "system" | "light" | "dark"
+
+  [params.author]
+    name = "Bruce Changlong Xu"
+    email = "you@example.com"
+
