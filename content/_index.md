@@ -1,7 +1,14 @@
 ---
 title: "Bruce Changlong Xu"
-description: "Vision for AI, healthcare, and the road to superintelligence."
+description: "AI, healthcare, and the road to superintelligence."
 ---
+
+I am honored to be supporting frontier AI training and inference systems at **Cerebras**, where we work with the world's most impressive enterprises, governments, and institutions such as Mayo Clinic, M42/G42, Aleph Alpha, GlaxoSmithKline, Novo Nordisk, Perplexity, Mistral, and Hugging Face to build transformative artificial intelligence.  
+
+I have previously worked at **Apple** and **NVIDIA**, and studied **Mathematics and Computer Science at Stanford University**. I am honored to support my talented friends at [3Cap AGI Partners](https://3cagi.vc/) to invest in the next generation of companies defining AGI infrastructure. Alongside them, I was fortunate to personally invest in [Synchron's Series D](https://synchron.com/), which is pioneering endovascular brain-computer interface technology for patients worldwide.
+
+---
+
 I believe AI should be judged by a simple standard: does it catalyze human flourishing? If we align it to that purpose, the next decade can transform healthcare, science, and society in ways that expand dignity, health, and possibility. Oncology, cardiology, neuroscience—fields that move at the pace of experiments and regulation—can begin to move at the pace of ideas, with a thousand careful collaborators working in parallel rather than a handful working in series.
 
 In healthcare, intelligence is not magic; it is the ability to ask better questions, design cleaner experiments, and translate evidence into care that reaches everyone. AI will help us do the mundane work that matters: harmonizing messy data, auditing provenance, spotting bias before it harms, and running countless “virtual experiments” to narrow real ones. That is how you make discovery predictable rather than lucky. It is also how you make care safer: every recommendation traceable, every assumption testable, every model re-trained against drift and equity metrics, not only accuracy.
