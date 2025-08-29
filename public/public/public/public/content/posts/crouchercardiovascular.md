@@ -2,6 +2,7 @@
 title: "Croucher Foundation Cardiovascular Invited Lecture"
 date: 2025-08-28T00:00:00Z
 draft: false
+type: "lectures"
 ---
 
 This summer I had the opportunity to present at the Croucher Foundation Summer Course in Cardiovascular Science, where I shared work developed with my mentors at the Stanford Cardiovascular Institute on immune checkpoint inhibitor–associated myocarditis. This is a rare but highly fatal complication of PD-1 and CTLA-4 blockade, with incidence as low as 0.04–1.4% but mortality approaching 40%. Using single-cell RNA-seq, TCR-seq, and CITE-seq, our group identified a clear axis of disease biology: CXCR3^hi CD8+ T cells clonally expand in the myocardium with upregulated perforin and granzyme programs, while simultaneously a novel macrophage population expressing CXCL9 and CXCL10 emerges. These interferon-inducible chemokines create steep local gradients that recruit and retain the cytotoxic T cells, producing chemokine “niches” in the heart that amplify injury rather than resolving it.
