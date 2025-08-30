@@ -1,5 +1,5 @@
 ---
-title: "Croucher Foundation Invited Lecture: Future of Cardiovascular Medicine"
+title: "Croucher Foundation Cardiovascular Invited Lecture"
 date: 2025-08-28T00:00:00Z
 draft: false
 ---
