@@ -11,3 +11,5 @@ theme = "dario"
     name = "Bruce Changlong Xu"
     email = "you@example.com"
 
+# Show these sections in nav / homepage
+mainSections = ["initiatives", "essays", "lectures"]
