@@ -95,7 +95,7 @@ Once you've chosen a parallelism strategy, the next question is: _what throughpu
 
 $$T_{step} = \textbf{max}(T_{compute}, T_{comm}) + T_{bubble} + T_{overhead}$$
 
-The compute time is how long the math itself takes - the sum of forward and backward passes [^3] once you've squeezed the kernels with roofline discipline. 
+The compute time is how long the math itself takes - the sum of forward and backward passes [^3] once you've squeezed the kernels with roofline discipline. $T_{comm}$ is the communication cost: gradient all-reduces, activation exchanges, expert dispatches. If these don't overlap well with compute, they set the floor. $T_{bubble}$ captures pipeline idle time. When you split a model into stages, some GPUs sit idle while the pipeline fills or drains. Microbatching controls this, but it never fully disappears. $T_{overhead}$ is everything else: framework bookkeeping, launch latency, data loading, scheduling hiccups. 
 
 ## Closing Remarks
 
