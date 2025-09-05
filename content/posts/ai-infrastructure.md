@@ -68,6 +68,10 @@ In practice, large-scale training is almost always a hybrid. A cluster might use
 
 This is the heart of the training loop: balancing compute, memory, and communication by deciding how to partition the model. Each form of parallelism is a different answer to the same question: _how do we make this model fit across the hardware we actually have, without leaving performance on the floor?_ 
 
+### A Practical Throughput Model
+
+Once you've chosen a parallelism strategy, the next question is: _what throughput will I actually get?_ Raw FLOP counts don't tell the story at scale. The real unit of progress in training is **tokens per second per GPU**, 
+
 ### References
 1. Zhe Jia, Marco Maggioni, Benjamin Staiger, Daniele P. Scarpazza. Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1804.06826 [cs.DC], 2018. [Online]. Available: https://arxiv.org/abs/1804.06826
 2. Zhe Jia, Marco Maggioni, Jeffrey Smith, Daniele P. Scarpazza. Dissecting the NVIDIA Turing T4 GPU via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1903.07486 [cs.DC], 2019. [Online]. Available: https://arxiv.org/abs/1903.07486
