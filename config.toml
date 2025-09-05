@@ -10,15 +10,13 @@ theme = "dario"
   [params.author]
     name = "Bruce Changlong Xu"
     email = "you@example.com"
+  math = true
 
 # Show these sections in nav / homepage
 mainSections = ["initiatives", "essays", "lectures"]
 
 [build]
   buildFuture = true
-
-[params]
-  math = true
 
 [markup]
   [markup.goldmark]
