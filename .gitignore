@@ -7,4 +7,4 @@ Thumbs.db
 node_modules/
 /tmp/
 /cache/
-/.sass-cache/
+/sass-cache/
