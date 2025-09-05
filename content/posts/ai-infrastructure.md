@@ -97,6 +97,14 @@ $$T_{step} = \textbf{max}(T_{compute}, T_{comm}) + T_{bubble} + T_{overhead}$$
 
 The compute time is how long the math itself takes - the sum of forward and backward passes [^3] once you've squeezed the kernels with roofline discipline. $T_{comm}$ is the communication cost: gradient all-reduces, activation exchanges, expert dispatches. If these don't overlap well with compute, they set the floor. $T_{bubble}$ captures pipeline idle time. When you split a model into stages, some GPUs sit idle while the pipeline fills or drains. Microbatching controls this, but it never fully disappears. $T_{overhead}$ is everything else: framework bookkeeping, launch latency, data loading, scheduling hiccups. 
 
+### Failure Modes at Scale
+
+Scaling training across racks of GPUs isn’t just about bandwidth and FLOPs. It’s also about fragility. The bigger your job, the more ways it can fall apart. Every team that has trained a large model has lived through the same failures: sudden throughput collapse, out-of-memory explosions, inexplicable bubbles in the pipeline, or MoE experts that refuse to balance. Understanding these failure modes—and how to tame them—is the difference between a run that converges in weeks and one that limps along for months.
+
+**OOM isn't just about parameters:** At small scale, “out of memory” means your batch doesn’t fit. At large scale, it gets subtler. The optimizer state balloons with data parallelism. Activations pile up in pipeline stages. Gradient shards and activation rematerialization interact in non-obvious ways. The mitigation playbook is now well established: shard optimizer states with ZeRO or FSDP; checkpoint or recompute activations to trade memory for extra FLOPs; drop precision (FP16, BF16, FP8) where numerically safe. But the real discipline is in modeling memory budgets ahead of time. Teams that don’t do this end up firefighting OOM crashes mid-run.
+
+**Throughput collapse at scale:** Every scaling curve looks linear—until it doesn’t. The telltale sign is tokens/sec per GPU dropping sharply as you cross some cluster boundary (say, 8 → 64 → 512 GPUs). The root cause is almost always communication outpacing compute. Maybe gradient all-reduce buckets are too small and serialize; maybe tensor-parallel collectives stretch across a fabric that can’t hide latency; maybe your comm streams aren’t overlapping with math. The mitigation is topology-aware design: keep tensor parallelism inside NVLink islands, push pipeline parallelism across racks, size communication buckets to amortize latency but not starve overlap. It sounds obvious, but most jobs die here first.
+
 ## Closing Remarks
 
 AI infrastructure is diagnosis first, optimization second. In the **inner loop**, we should decide if we're compute, memory, or overhead bound and act accordingly. In the **training loop**, we choose the right parallelism/memory/communication mix and make failure routine.
