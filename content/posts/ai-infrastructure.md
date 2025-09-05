@@ -30,6 +30,18 @@ Finally, there are subtle low-level effects taht the microbenchmark papers docum
 
 In short, the inner loop is about **discipline at the kernel level**. It is the layer where hardware meets math. Get this wrong, and your scaling experiments or serving infrastructure will always be operating at a handicap. Get it right, and you establish the foundation on which the outer loops - distributed training and serving - can actually pay off. 
 
+### Memory hierarchy (L1/L2/TLB): why kernels stall
+
+Modern accelerators live and die by their memory systems. The same kernel can look _compute-bound_ on one device and _memory-bound_ on another simply because L1/L2/DRAM behavior shifts the roofline under your feet. We will build a mental model of the GPU memory stack, and what to do when profiles show that our math engines are waiting. 
+
+## The Training Loop: making many GPUs act like one
+
+Once we have squeezed everything we can out of a single GPU, the next challenge is scale. Modern foundation models don't fit on a single device's memory, and even if they did, training them in a reasonable wall-clock time requires spreading the work across dozens, hundreds, or thousands of accelerators. That shift takes us from the **inner loop** (are we doing useful math on one GPU?) to the **training loop:** how do we coordinate many GPUs so they behave like one coherent machine? 
+
+The essence of the training loop is deceptively simple. Every step of the gradient descent has two phases: forward/backward computation, and parameter updates. On a single device, this happens locally. At scale, the computation must be partitioned, and the updates must be communicated. Suddely, your "roofline" is no longer defined just by arithmetic intensity versus memory bandwidth - it is defined by the balance between compute, memory, and communication across the whole cluster. 
+
+This introduces a new kind of bottleneck: the interconnect. Within a single node, GPUs may talk over NVLink or NVSwitch, with hundreds of GB/s bandwidth and low latency. Across racks, communication shfits to InfiniBand and Ethernet fabrics, where latency is higher and oversubscription looms. What looks compute-bound in isolation can become communication-bound at scale. For example, an attention layer that runs smoothly on eight GPUs might grind to a halt on 256 if gradient all-reduce saturates the fabric or if pipeline bubbles dominate. 
+
 ### References
 1. Zhe Jia, Marco Maggioni, Benjamin Staiger, Daniele P. Scarpazza. Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1804.06826 [cs.DC], 2018. [Online]. Available: https://arxiv.org/abs/1804.06826
 2. Zhe Jia, Marco Maggioni, Jeffrey Smith, Daniele P. Scarpazza. Dissecting the NVIDIA Turing T4 GPU via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1903.07486 [cs.DC], 2019. [Online]. Available: https://arxiv.org/abs/1903.07486
