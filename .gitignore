@@ -1,0 +1,10 @@
+/public
+/resources/_gen/
+/hugo_stats.json
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+/tmp/
+/cache/
+/.sass-cache/

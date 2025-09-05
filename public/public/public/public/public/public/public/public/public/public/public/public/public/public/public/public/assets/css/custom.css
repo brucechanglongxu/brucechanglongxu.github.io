@@ -1,6 +1,0 @@
-/* Prevent header title from being truncated */
-header, header * {
-  text-overflow: clip !important;
-  overflow: visible !important;
-  white-space: normal !important;
-}
