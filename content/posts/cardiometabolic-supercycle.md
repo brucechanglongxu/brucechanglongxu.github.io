@@ -1,7 +1,7 @@
 ---
 title: "Cardiometabolic Supercycle"
 date: 2025-09-04T18:20:41-07:00
-draft: true
+draft: false
 ---
 
 Cardiometabolic disease is not a single diagnosis, it is a cluster: obesity, type 2 diabetes, hypertension, dyslipiedmia, chronic kidney disease, and fatty-liver disease. Together, they drive more deaths and disability than any other category in modern health. Over the past few years, this space has flipped form incrementalism to a genuine supercycle. Incretin drugs once dismissed as "just weight loss shots" now move hard outocomes like heart attack, kidney failure, and even sleep apnea. Lipids are entering a new era beyond statins. Liver disease finally has an approved therapy. Devices and surgey still matter. The common thread tying all of this together is not just science -- it is data: governed, multimodal, auditable data that can translate trial wins into day to day care. 
