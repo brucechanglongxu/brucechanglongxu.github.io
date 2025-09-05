@@ -2,6 +2,7 @@
 title: "AI Infrastructure: A Bird's Eye View"
 date: 2025-09-05T14:17:07-07:00
 draft: false
+math: true
 ---
 
 GPUs and custom AI hardware are the engines driving progress in AI research and applications. But raw hardware alone doesn’t explain why some teams ship reliable systems at scale while others struggle with bottlenecks and cost explosions. The difference comes down to how you think about optimization.

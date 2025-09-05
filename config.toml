@@ -16,3 +16,6 @@ mainSections = ["initiatives", "essays", "lectures"]
 
 [build]
   buildFuture = true
+
+[params]
+  math = true
