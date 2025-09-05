@@ -1,5 +1,5 @@
 ---
-title: "Ai Infrastructure: A Bird's Eye View"
+title: "AI Infrastructure: A Bird's Eye View"
 date: 2025-09-05T14:17:07-07:00
 draft: false
 ---
