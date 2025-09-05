@@ -19,3 +19,10 @@ mainSections = ["initiatives", "essays", "lectures"]
 
 [params]
   math = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      typographer = true
