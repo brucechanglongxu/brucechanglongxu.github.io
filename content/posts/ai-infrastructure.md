@@ -42,6 +42,12 @@ The essence of the training loop is deceptively simple. Every step of the gradie
 
 This introduces a new kind of bottleneck: the interconnect. Within a single node, GPUs may talk over NVLink or NVSwitch, with hundreds of GB/s bandwidth and low latency. Across racks, communication shfits to InfiniBand and Ethernet fabrics, where latency is higher and oversubscription looms. What looks compute-bound in isolation can become communication-bound at scale. For example, an attention layer that runs smoothly on eight GPUs might grind to a halt on 256 if gradient all-reduce saturates the fabric or if pipeline bubbles dominate. 
 
+The training loop is also where parallelism strategies become design choices. Should you shard your data and simply average gradients (data parallelism)? Split your matmuls across devices (tensor parallelism)? Cut the model into layer chunks and run a conveyer belt (pipeline parallelism)? Or introduce sparsity with mixtures of experts (MoE)? Each strategy trades compute, memory, and communication differently, and the optimal recipe depends on both the model architecture and the topology of your hardware. 
+
+And finally, the training loop is where **failure modes multiply**. On a single device, a kernel crash just means restarting the process. On a thousand-GPU job, one flaky node can stall everything unless you've built checkpointing, elasticity, and fault tolerance into the loop. The reliability of the whole training stack is set here. 
+
+Put simply: the training loop is the art of making many GPUs act like one. It's where distributed systems thinking meets numerical optimization. And it's the layer where your wall-clock training time is determined - not just by how fast a GPU runs its kernels, but by how efficiency you can keep a fleet of them working together without steppiing on each other's toes. 
+
 ### References
 1. Zhe Jia, Marco Maggioni, Benjamin Staiger, Daniele P. Scarpazza. Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1804.06826 [cs.DC], 2018. [Online]. Available: https://arxiv.org/abs/1804.06826
 2. Zhe Jia, Marco Maggioni, Jeffrey Smith, Daniele P. Scarpazza. Dissecting the NVIDIA Turing T4 GPU via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1903.07486 [cs.DC], 2019. [Online]. Available: https://arxiv.org/abs/1903.07486
