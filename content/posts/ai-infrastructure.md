@@ -70,7 +70,7 @@ This is the heart of the training loop: balancing compute, memory, and communica
 
 ### A Practical Throughput Model
 
-Once you've chosen a parallelism strategy, the next question is: _what throughput will I actually get?_ Raw FLOP counts don't tell the story at scale. The real unit of progress in training is **tokens per second per GPU**, 
+Once you've chosen a parallelism strategy, the next question is: _what throughput will I actually get?_ Raw FLOP counts don't tell the story at scale. The real unit of progress in training is **tokens per second per GPU**, and wall-clock convergence depends on how well you keep that number high. 
 
 ### References
 1. Zhe Jia, Marco Maggioni, Benjamin Staiger, Daniele P. Scarpazza. Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1804.06826 [cs.DC], 2018. [Online]. Available: https://arxiv.org/abs/1804.06826
