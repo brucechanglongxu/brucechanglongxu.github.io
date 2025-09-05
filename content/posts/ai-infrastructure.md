@@ -28,7 +28,7 @@ And whent he GPU seems underfed, the problem often lies outside the device. Data
 
 Finally, there are subtle low-level effects taht the microbenchmark papers document (Jia et al.) and that few developers think about. Volta and Turing both use two 64-bit wide register banks, which means that certain three-operand instructions like FFMA can still suffer from bank conflicts if all sources happen to map to the same bank. Researchers showed that remapping registers to avoid these conflicts yielded 15% throughput improvements. Similarly, the T4's "uniform datapath" for scalar integer ops was introduced precisely to prevent loop counters and address arithmetic from polluting the main floating-point pipelines. These are the kinds of details that explain why a kernel doesn't hit its theoretical throughput even when you've done everything else "right". 
 
-> In short, the inner loop is about **discipline at the kernel level**. 
+> **In short**, _the inner loop is about **discipline at the kernel level**._ 
 
 It is the layer where hardware meets math. Get this wrong, and your scaling experiments or serving infrastructure will always be operating at a handicap. Get it right, and you establish the foundation on which the outer loops - distributed training and serving - can actually pay off. 
 
@@ -48,7 +48,7 @@ The training loop is also where parallelism strategies become design choices. Sh
 
 And finally, the training loop is where **failure modes multiply**. On a single device, a kernel crash just means restarting the process. On a thousand-GPU job, one flaky node can stall everything unless you've built checkpointing, elasticity, and fault tolerance into the loop. The reliability of the whole training stack is set here. 
 
-> Put simply: the training loop is the art of making many GPUs act like one. 
+> **Put simply:** _the training loop is the art of making many GPUs act like one._ 
 
 It's where distributed systems thinking meets numerical optimization. And it's the layer where your wall-clock training time is determined - not just by how fast a GPU runs its kernels, but by how efficiency you can keep a fleet of them working together without steppiing on each other's toes. 
 
