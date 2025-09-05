@@ -52,6 +52,10 @@ And finally, the training loop is where **failure modes multiply**. On a single 
 
 It's where distributed systems thinking meets numerical optimization. And it's the layer where your wall-clock training time is determined - not just by how fast a GPU runs its kernels, but by how efficiency you can keep a fleet of them working together without steppiing on each other's toes. 
 
+### The Mechanics of Parallelism
+
+When you scale beyond a single GPU, you have four main levers to pull: **data parallelism, tensor parallelism, pipeline parallelism, and mixture of experts**. Each one slices the problem differently. Think of them as four ways of making the same model fit into distributed hardware, each with its own costs and quirks. 
+
 ### References
 1. Zhe Jia, Marco Maggioni, Benjamin Staiger, Daniele P. Scarpazza. Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1804.06826 [cs.DC], 2018. [Online]. Available: https://arxiv.org/abs/1804.06826
 2. Zhe Jia, Marco Maggioni, Jeffrey Smith, Daniele P. Scarpazza. Dissecting the NVIDIA Turing T4 GPU via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1903.07486 [cs.DC], 2019. [Online]. Available: https://arxiv.org/abs/1903.07486
