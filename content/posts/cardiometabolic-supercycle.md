@@ -34,4 +34,4 @@ _**Note:** This post is information and not medical advice. Patients should disc
 
 ## Energy Homeostasis: why weight fights back
 
-Think of body weight as a **defended state**. Hypothalamic circuits (POMC/AgRP) integrate peripheral signals (leptin, insulin, GLP-1, ghrelin, amylin) and actively push back when weight falls - by increasing hunger and trimming resting energy expenditure (adaptive thermogeneis)
+Body weight is "defended", not merely accumulated. The brain treats stored energy like a survival asset and deploys redundant controls to keep it from drifting downward. The hypothalamus - especially POMC (anorexigenic) and AgRP/NPY (orexigenic) neurons - integrates long-term signals (leptin ,insulin) with meal-to-meal cues (GLP-1, amylin, PYY, CCK, ghrelin) and then adjusts both appetite and energy expenditure. In this framing, obesity isn't just extra calories; it is a _new defended level_ of energy stores maintained by interlocking bioenergetic and neurobiological feedback. 
