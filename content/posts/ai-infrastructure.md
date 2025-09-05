@@ -58,6 +58,14 @@ When you scale beyond a single GPU, you have four main levers to pull: **data pa
 
 **Data parallelism** is the most straightforward. Every GPU (or groups of GPUs) gets a copy of the model, processes a different shard of the training data, and at the end of each step all the gradients are averaged. It is conceptually simple and works well for medium-sized models, but it comes with a hidden tax: every device must hold a fully copy of the model's parameters and optimizer state. For tody's multi-hundred-billion-parameter models, that memory overhead is unsustainable unless you shard optimizer state with systems like ZeRO or Fully Sharded Data Parallel (FSDP). Data parallelism scales throughput linearly with more devices, but only if the all-reduce [^2] bandwidth is there to keep up. 
 
+**Tensor parallelism:**
+
+**Pipeline parallelism:**
+
+In practice, large-scale training is almost always a hybrid. A cluster might use tensor parallelism inside a node to exploit NVLink bandwidth, pipeline parallelism across nodes to manage memory, and data parallelism on top to shard the dataset. MoE can be layered on top of that, introducing sparsity to extend capacity further. The art is in choosing the recipe that matches your topology. A 512-GPU DGX pod wired with NVSwitch will want a different mix than a cloud cluster built on Ethernet. 
+
+This is the heart of the training loop: balancing compute, memory, and communication by deciding how to partition the model. Each form of parallelism is a different answer to the same question: _how do we make this model fit across the hardware we actually have, without leaving performance on the floor?_ 
+
 ### References
 1. Zhe Jia, Marco Maggioni, Benjamin Staiger, Daniele P. Scarpazza. Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1804.06826 [cs.DC], 2018. [Online]. Available: https://arxiv.org/abs/1804.06826
 2. Zhe Jia, Marco Maggioni, Jeffrey Smith, Daniele P. Scarpazza. Dissecting the NVIDIA Turing T4 GPU via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1903.07486 [cs.DC], 2019. [Online]. Available: https://arxiv.org/abs/1903.07486
