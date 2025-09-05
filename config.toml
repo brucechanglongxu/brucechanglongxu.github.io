@@ -13,3 +13,6 @@ theme = "dario"
 
 # Show these sections in nav / homepage
 mainSections = ["initiatives", "essays", "lectures"]
+
+[build]
+  buildFuture = true
