@@ -1,5 +1,5 @@
 ---
-title: "Reflections on Organising a Global AI Governance Summit"
+title: "Organising a Global AI Governance Summit"
 date: 2025-08-28T00:00:00Z
 draft: false
 ---

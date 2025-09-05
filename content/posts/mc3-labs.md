@@ -1,5 +1,5 @@
 ---
-title: "Reflections on Building MC3-Labs with Mayo Clinic"
+title: "Building MC3-Labs with Mayo"
 date: 2025-08-28T00:00:00Z
 draft: false
 ---
