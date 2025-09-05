@@ -1,0 +1,19 @@
+---
+title: "Cardiometabolic Supercycle"
+date: 2025-09-04T18:20:41-07:00
+draft: true
+---
+
+Cardiometabolic disease is not a single diagnosis, it is a cluster: obesity, type 2 diabetes, hypertension, dyslipiedmia, chronic kidney disease, and fatty-liver disease. Together, they drive more deaths and disability than any other category in modern health. Over the past few years, this space has flipped form incrementalism to a genuine supercycle. Incretin drugs once dismissed as "just weight loss shots" now move hard outocomes like heart attack, kidney failure, and even sleep apnea. Lipids are entering a new era beyond statins. Liver disease finally has an approved therapy. Devices and surgey still matter. The common thread tying all of this together is not just science -- it is data: governed, multimodal, auditable data that can translate trial wins into day to day care. 
+
+The scale is staggering: Cardiovascular disease remains the world's leading killer. Diabetes and obesity curves keep rising across every income level. For health systems, the implication is obvious: either bend these curves or get overwhelmed by complications - heart failure, dialysis, stroke, disability. For industry, the implications are equally clear: therapies that change those curves are rapidly becoming ht edefining franchises of the 2020s. Forecasts for anti-obesity and diabetes druges vary widely because so much hinges on manufacturing and coverage - but even conservative scenarios re-rank the global pharma league table. That said, the real constraint is no longer scientific imagination; it is the ability to deliver safely, durably, and equitably at population scale. 
+
+The inflection point arrived when large cardiovascular and kidney outcomes trials returned unambiguous signals. A high dose GLP-1 reduced major adverse cardiovascular events in people with overweight or obesity - even without diabetes - settlting the debate over whether weight reduction translates into fewer heart attacks and strokes. In parallel, another trial showed risk reductions for a kidney composite endpoint in people with diabetes and chronic kidney disease, alongside lower cardiovascular and all-cause mortality. An in sleep medicine, a dual GLP-1/GIP markedly lowered apnea-hypopnea index while cutting weight - hinting that we are treating the physiology at the root of obstructive sleep apnea, not just its symptoms. Cliincally, this shifts SLP-1s and GLP-1/GIP duals from "cosmetic" to foundational in selected risk profiles. Strategically, it expands the addressable market from body-mass-index management to cardiovascular, renal, and pulmonary endpoints - exactly the kinds of outcomes payers and policymakers care about.
+
+First generation incretins taught us two rules. First, more is not always better - aggressive weight loss must preserve lean mass, bone health, and metabolic resilience. Second, combination physiology wins: pairing GLP-1 with amylin or GLP-1 with long-acting amylin analogs can push deeper weight loss and potentially improve satiety dynamics. Next generation candidates - amylin-augmented "co-agnosts," GLP-1 plus amylin combinations, and triple-agonists that also target glucagon - are designed around that insight. The goal is not only to lower weight; it is also healthier weight and durable maintenance with acceptable side-effect profiles. Expect "induce and maintain" strategies to become common: an intensive induction phase, then a gentler maintenance dose or a switch to a companion agent that keeps weight and biomarkers steady. 
+
+Fatty-liver disease
+
+## Energy Homeostasis: why weight fights back
+
+Think of body weight as a **defended state**. Hypothalamic circuits (POMC/AgRP) integrate peripheral signals (leptin, insulin, GLP-1, ghrelin, amylin) and actively push back when weight falls - by increasing hunger and trimming resting energy expenditure (adaptive thermogeneis)
