@@ -36,6 +36,10 @@ It is the layer where hardware meets math. Get this wrong, and your scaling expe
 
 Modern accelerators live and die by their memory systems. The same kernel can look _compute-bound_ on one device and _memory-bound_ on another simply because L1/L2/DRAM behavior shifts the roofline under your feet. We will build a mental model of the GPU memory stack, and what to do when profiles show that our math engines are waiting. 
 
+### Case study: 2-simplicial attention meets the roofline (TLX on H100)
+
+As a concrete example of inner-loop optimization paying real dividends, the PyTorch team recentlyd etailed a fused TLX (Triton Low-level Extensions) kernel for **2-Simplicial Attention** - an attention variant that models trilinear interactions among token triples. 
+
 ## The Training Loop: making many GPUs act like one
 
 Once we have squeezed everything we can out of a single GPU, the next challenge is scale. Modern foundation models don't fit on a single device's memory, and even if they did, training them in a reasonable wall-clock time requires spreading the work across dozens, hundreds, or thousands of accelerators. That shift takes us from the **inner loop** (are we doing useful math on one GPU?) to the **training loop:** how do we coordinate many GPUs so they behave like one coherent machine? 
@@ -70,13 +74,23 @@ This is the heart of the training loop: balancing compute, memory, and communica
 
 ### A Practical Throughput Model
 
-Once you've chosen a parallelism strategy, the next question is: _what throughput will I actually get?_ Raw FLOP counts don't tell the story at scale. The real unit of progress in training is **tokens per second per GPU**, and wall-clock convergence depends on how well you keep that number high. 
+Once you've chosen a parallelism strategy, the next question is: _what throughput will I actually get?_ Raw FLOP counts don't tell the story at scale. The real unit of progress in training is **tokens per second per GPU**, and wall-clock convergence depends on how well you keep that number high. A useful way to think about step time is with a simple model:
+
+$$T_{step} = \textbf{max}(T_{compute}, T_{comm}) + T_{bubble} + T_{overhead}$$
+
+The compute time is how long the math itself takes - the sum of forward and backward passes once you've squeezed the kernels with roofline discipline. 
+
+## Closing Remarks
+
+AI infrastructure is diagnosis first, optimization second. In the **inner loop**, we should decide if we're compute, memory, or overhead bound and act accordingly. In the **training loop**, we choose the right parallelism/memory/communication mix and make failure routine.
 
 ### References
 1. Zhe Jia, Marco Maggioni, Benjamin Staiger, Daniele P. Scarpazza. Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1804.06826 [cs.DC], 2018. [Online]. Available: https://arxiv.org/abs/1804.06826
 2. Zhe Jia, Marco Maggioni, Jeffrey Smith, Daniele P. Scarpazza. Dissecting the NVIDIA Turing T4 GPU via Microbenchmarking. Technical Report, Citadel Enterprise Americas, LLC. arXiv:1903.07486 [cs.DC], 2019. [Online]. Available: https://arxiv.org/abs/1903.07486
 3. Cristiano Malossi, et al. Characterizing the Performance and Scalability of Graphcore’s IPU Architecture via Microbenchmarking. arXiv:2104.07346 [cs.DC], 2021. [Online]. Available: https://arxiv.org/abs/2104.07346
 4. Harris, M. (2012, July 2). Six ways to SAXPY. NVIDIA Technical Blog. https://developer.nvidia.com/blog/six-ways-saxpy/
+5. Chen, S., Chou, T., Roy, A., Yu, H., Fang, Y., Wang, X., Yu, J., Liu, T. C. W., Zhuge, C., Fromm, J., Zhang, Y., Anil, R., & Mathews, A. (2025, Sept 5). Fast 2-Simplicial Attention: Hardware-Efficient Kernels in TLX. PyTorch Blog. Code: https://github.com/pytorch/FBGEMM/tree/main/fbgemm_gpu/experimental/simplicial_attention
+. (Discusses TLX refactor of 2-Simplicial Attention with fused kernels, asymmetric windows, head-packing, and Hopper-specific scheduling, achieving up to 588 BF16 TFLOPs on H100.)
 
 [^1]: This is a performance bottleneck that occurs in multi-threaded programs when a CPU-intensive thread holds the Global Interpreter Lock (GIL) for an extended period, preventing other threads - including I/O-bound ones - from running. This effectively serializes execution and can cause application-wide delays, leading to unresponsiveness. 
 [^2]: All-reduce is a fundamental collective communication operation used in distributed Ai training, to efficiently synchronize and aggregate data (most commonly gradients), across multiple devices. The first phase **reduction phase** each device calculates its local contribution to the overall computation (e.g. gradients from a subset of data), and these are then combined "reduced" across all devices (via summation, averaging or another operation) to incorporate into a global result. The second phase is the **broadcast phase** where the aggregated global result is then distributed back to all participating devices, so every device has access to the same, synchronized information for subsequent steps. 
