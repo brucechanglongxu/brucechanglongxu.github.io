@@ -1,5 +1,5 @@
 ---
-title: "Croucher Foundation Cardiovascular Invited Lecture"
+title: "Croucher Cardiovascular Invited Lecture"
 date: 2025-08-28T00:00:00Z
 draft: false
 type: "lectures"
