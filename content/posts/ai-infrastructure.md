@@ -95,7 +95,7 @@ Once you've chosen a parallelism strategy, the next question is: _what throughpu
 
 $$T_{step} = \textbf{max}(T_{compute}, T_{comm}) + T_{bubble} + T_{overhead}$$
 
-The compute time is how long the math itself takes - the sum of forward and backward passes once you've squeezed the kernels with roofline discipline. 
+The compute time is how long the math itself takes - the sum of forward and backward passes [^3] once you've squeezed the kernels with roofline discipline. 
 
 ## Closing Remarks
 
@@ -110,3 +110,4 @@ AI infrastructure is diagnosis first, optimization second. In the **inner loop**
 
 [^1]: This is a performance bottleneck that occurs in multi-threaded programs when a CPU-intensive thread holds the Global Interpreter Lock (GIL) for an extended period, preventing other threads - including I/O-bound ones - from running. This effectively serializes execution and can cause application-wide delays, leading to unresponsiveness. 
 [^2]: All-reduce is a fundamental collective communication operation used in distributed AI training, to efficiently synchronize and aggregate data (most commonly gradients), across multiple devices. The first phase **reduction phase** each device calculates its local contribution to the overall computation (e.g. gradients from a subset of data), and these are then combined "reduced" across all devices (via summation, averaging or another operation) to incorporate into a global result. The second phase is the **broadcast phase** where the aggregated global result is then distributed back to all participating devices, so every device has access to the same, synchronized information for subsequent steps. 
+[^3]: The forward pass in AI is like an orchestra performing a symphony: each musician (neuron) plays their part from the sheet music (input data), and together they produce the music heard by the audience (the output prediction). The conductor compares what was played to the intended score (the ground truth), and the difference is the loss. In the backward pass, the conductor walks back through the sections, giving targeted feedback—“violins, soften here,” “trumpets, enter later”—so each player adjusts. These corrections propagate backward from the overall performance to individual musicians, refining the ensemble so that next time the music aligns more closely with the composer’s vision.
