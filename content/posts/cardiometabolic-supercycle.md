@@ -1,11 +1,8 @@
 ---
 title: "Cardiometabolic Supercycle"
-date: 2025-09-04T00:00:00-07:00
-publishDate: 2025-09-04T00:00:00-07:00
-lastmod: 2025-09-04T00:00:00-07:00
+date: 2025-09-04T19:10:40-07:00
 draft: false
 ---
-
 
 Cardiometabolic disease is not a single diagnosis, it is a cluster: obesity, type 2 diabetes, hypertension, dyslipiedmia, chronic kidney disease, and fatty-liver disease. Together, they drive more deaths and disability than any other category in modern health. Over the past few years, this space has flipped form incrementalism to a genuine supercycle. Incretin drugs once dismissed as "just weight loss shots" now move hard outocomes like heart attack, kidney failure, and even sleep apnea. Lipids are entering a new era beyond statins. Liver disease finally has an approved therapy. Devices and surgey still matter. The common thread tying all of this together is not just science -- it is data: governed, multimodal, auditable data that can translate trial wins into day to day care. 
 
@@ -38,3 +35,4 @@ _**Note:** This post is information and not medical advice. Patients should disc
 ## Energy Homeostasis: why weight fights back
 
 Body weight is "defended", not merely accumulated. The brain treats stored energy like a survival asset and deploys redundant controls to keep it from drifting downward. The hypothalamus - especially POMC (anorexigenic) and AgRP/NPY (orexigenic) neurons - integrates long-term signals (leptin ,insulin) with meal-to-meal cues (GLP-1, amylin, PYY, CCK, ghrelin) and then adjusts both appetite and energy expenditure. In this framing, obesity isn't just extra calories; it is a _new defended level_ of energy stores maintained by interlocking bioenergetic and neurobiological feedback. 
+
