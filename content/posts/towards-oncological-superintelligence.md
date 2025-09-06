@@ -1,5 +1,5 @@
 ---
-title: "Vagelos Series I: Towards Oncological Superintelligence"
+title: "Vagelos Series I: Oncological Superintelligence"
 date: 2025-09-03
 draft: false
 ---
