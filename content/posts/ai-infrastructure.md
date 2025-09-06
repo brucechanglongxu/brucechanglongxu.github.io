@@ -1,5 +1,5 @@
 ---
-title: "AI Infrastructure: A Bird's Eye View"
+title: "Real world ASI II: Infrastructure"
 date: 2025-09-05T14:17:07-07:00
 draft: false
 math: true
