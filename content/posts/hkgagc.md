@@ -1,5 +1,6 @@
 ---
 title: "BCX Reflects III: AGI/ASI Governance"
+subtitle: "Organising Inaugural Hong Kong Global AI Governance Summit"
 date: 2025-08-28T00:00:00Z
 draft: false
 ---
