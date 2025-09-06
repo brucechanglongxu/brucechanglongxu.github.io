@@ -23,12 +23,6 @@ window.MathJax = {
 
 ---
 
-title: "Real world ASI III: Pretraining"
-date: 2025-09-05T14:17:07-07:00
-draft: false
-math: true
-----------
-
 Pretraining is where you turn a mountain of tokens into a general-purpose model that actually understands the world you care about. The target is simple to say and hard to execute: learn a policy that predicts the next symbol so well, across such a broad and balanced mixture, that useful capabilities emerge without hand-holding. Everything starts with intent. Write down the capabilities you expect to surface at the end of the run—language, code, math, tool-use priors, multimodal alignment, long-context recall—and let that plan drive what enters the corpus and how it is proportioned over time. A trillion indiscriminate tokens won’t beat a carefully balanced hundred billion that genuinely reflect the deployment world.
 
 Formally, pretraining minimizes the negative log-likelihood over a mixture of datasets. Let the training distribution be $M=\sum_{i}\lambda_i D_i$ with $\lambda_i\ge 0$ and $\sum_i \lambda_i=1$. The objective is the usual autoregressive loss
