@@ -4,3 +4,16 @@ header, header * {
   overflow: visible !important;
   white-space: normal !important;
 }
+
+.post-subtitle{
+  margin: -0.25rem 0 1rem 0;
+  font-size: 1.05rem;
+  color: #555;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.post-list-item .post-subtitle{
+  margin-top: 0.15rem;
+  margin-bottom: 0.6rem;
+}
