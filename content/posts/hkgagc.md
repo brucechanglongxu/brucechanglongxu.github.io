@@ -1,5 +1,5 @@
 ---
-title: "BCX Reflects III: AGI/ASI Governance Summit"
+title: "BCX Reflects III: AGI/ASI Governance"
 date: 2025-08-28T00:00:00Z
 draft: false
 ---
