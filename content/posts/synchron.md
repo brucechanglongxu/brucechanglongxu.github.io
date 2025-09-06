@@ -1,5 +1,5 @@
 ---
-title: "Investing in Synchron: Building CGI"
+title: "BCX Reflections: Investing in Synchron, Building CGI"
 date: 2025-08-28T00:00:00Z
 draft: false
 ---
