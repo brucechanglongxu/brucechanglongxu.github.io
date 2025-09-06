@@ -37,15 +37,15 @@ $$
 \mathcal{L}_{\mathrm{DPO}}(\pi)
 = - \mathbb{E}_{(x,y^+,y^-)}
 \left[
-\log \sigma\!\left(
-\beta\!\left[\log \pi(y^+\!\mid x) - \log \pi(y^-\!\mid x)\right]
--
-\left[\log \pi_{0}(y^+\!\mid x) - \log \pi_{0}(y^-\!\mid x)\right]
-\right)
+  \log \sigma\!\left(
+    \beta\!\left[\log \pi(y^+\!\mid x) - \log \pi(y^-\!\mid x)\right]
+    -
+    \left[\log \pi_{0}(y^+\!\mid x) - \log \pi_{0}(y^-\!\mid x)\right]
+  \right)
 \right],
 $$
 
-with $\sigma(t)=1/(1+e^{-t})$. In both cases, signal quality dominates everything else. Diversify annotators, filter templated pairs, mix in deliberately tricky negatives, and watch for pathologies like verbosity inflation, hedging, and gratuitous citations. Short SFT refreshes interleaved with preference steps keep the policy anchored; periodically updating the reference or re-anchoring to $\pi_0$ prevents slow drift. Over-optimization shows up first in diversity and calibration, so monitor response variety, tokens-per-answer, grounding precision, and confidence calibration rather than a single aggregate score.
+with $\sigma(t)=\frac{1}{1+e^{-t}}$. In both cases, signal quality dominates everything else. Diversify annotators, filter templated pairs, mix in deliberately tricky negatives, and watch for pathologies like verbosity inflation, hedging, and gratuitous citations. Short SFT refreshes interleaved with preference steps keep the policy anchored; periodically updating the reference or re-anchoring to $\pi_0$ prevents slow drift. Over-optimization shows up first in diversity and calibration, so monitor response variety, tokens-per-answer, grounding precision, and confidence calibration rather than a single aggregate score.
 
 Safety and policy shaping belong in layers around generation, not as a single classifier stapled on at the end. Inputs should pass through basic validation, policy screening, and retrieval grounding where required, so the model sees the right context before it speaks. During generation, you can enforce citation-required modes for specific domains, constrain decoding in sensitive areas, and keep refusal patterns consistent. After generation, run lightweight PII scrubbers, domain-specific safety filters, and, for tools that can make irreversible changes, guard commit points behind evidence thresholds. Red-team corpora—adversarial prompts, jailbreak attempts, harmful content—should be versioned assets in the training and evaluation pipeline, not a side folder. Pair that with a human-readable policy document and a changelog so behavior shifts are explainable at each release.
 
