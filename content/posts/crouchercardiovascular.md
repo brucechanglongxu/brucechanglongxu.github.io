@@ -1,5 +1,5 @@
 ---
-title: "BCX Reflects IV: Croucher Cardiovascular Invited Lecture"
+title: "BCX Reflects IV: Croucher Invited Lecture"
 date: 2025-08-28T00:00:00Z
 draft: false
 type: "lectures"
