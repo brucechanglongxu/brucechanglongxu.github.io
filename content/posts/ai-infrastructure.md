@@ -105,6 +105,8 @@ Scaling training across racks of GPUs isn’t just about bandwidth and FLOPs. It
 
 **Throughput collapse at scale:** Every scaling curve looks linear—until it doesn’t. The telltale sign is tokens/sec per GPU dropping sharply as you cross some cluster boundary (say, 8 → 64 → 512 GPUs). The root cause is almost always communication outpacing compute. Maybe gradient all-reduce buckets are too small and serialize; maybe tensor-parallel collectives stretch across a fabric that can’t hide latency; maybe your comm streams aren’t overlapping with math. The mitigation is topology-aware design: keep tensor parallelism inside NVLink islands, push pipeline parallelism across racks, size communication buckets to amortize latency but not starve overlap. It sounds obvious, but most jobs die here first.
 
+**Pipeline bubbles (hidden idle time)** Pipeline parallelism looks elegant on paper - different stages working in lockstep. In practice, the edges fray. When microbatch count is too low, early stages sit idle while later ones drain; when it's too high, memory usage balloons. 
+
 ## Closing Remarks
 
 AI infrastructure is diagnosis first, optimization second. In the **inner loop**, we should decide if we're compute, memory, or overhead bound and act accordingly. In the **training loop**, we choose the right parallelism/memory/communication mix and make failure routine.
