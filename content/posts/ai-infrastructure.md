@@ -130,6 +130,13 @@ The inference engine core consists of three main components - a scheduler, a KV-
 
 The KV-cache manager assigns fixed-size memory blocks that store key/value vectors for attention, which lets the system grow sequences without right-padding and reuse memory efficiently. Continuous batching allows new requests to join at every step, rather than waiting for the next global batch, and prefix caching avoids recomputing shared tokens across requests with the same prefix. Together, these components ensure high GPU utilization while keeping per-request latency bounded, forming the foundation that later features and scaling layers build on. 
 
+Every inference request alternates between two workloads - prefill and decode. 
+
+1. **Prefill** is the initial forward pass over all prompt tokens. It is compute-bound i.e. each layer must process the entire prompt, and the cost grows linearly with prompt length. At the end of prefill, the engine produces logits for the final position and samples the first output token. 
+2. **Decode** is the steady-state loop that follows. Each step only process the most recent token, since all previous key/value vectors are already in the cache. This makes decode much lighter in FLOP,s but it is memory-bandwidth-bound: the model weights and cached KVs still need to be ready every step just to produce one new token.
+
+Serving systems must juggle both at once. Long prefills are bursty and can monopolize GPU time if not chunked, while decodes are latency-sensitive and dominate user experience. Modern schedulers therefore prioritize decodes (to minimize time-to-next-token), and use chunked prefill or disaggregated prefill/decode execution to keep throughput high without letting single long prompts stall the system. 
+
 ## Closing Remarks
 
 AI infrastructure is diagnosis first, optimization second. In the **inner loop**, we should decide if we're compute, memory, or overhead bound and act accordingly. In the **training loop**, we choose the right parallelism/memory/communication mix and make failure routine.
