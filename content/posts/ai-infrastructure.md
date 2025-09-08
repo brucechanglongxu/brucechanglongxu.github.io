@@ -109,6 +109,14 @@ Scaling training across racks of GPUs isn’t just about bandwidth and FLOPs. It
 
 **MoE instability and tail experts:** Sparse models promise trillion-parameter capacity, but they come with their own demons. In early training, the router may overload a handful of experts while others sit idle, leading to both instability and wasted compute. Tokens pile up at _"tail" experts, spilling capacity and spiking latency. The usual antidotes are auxiliary losses that encourage balance, capacity factors that cap per-expert load, and token drop strategies when overload can't be avoided. But the deeper truth is that MoE is hypersensitive to parallelism topology: if your all-to-all dispatch spans slow links, imbalance gets amplified. Co-locating expert groups within fast interconnect domains is as important as the algorithmic tweaks. 
 
+## The Product Loop: serving and inference engines
+
+> How do we turn a trained model into a fast, scalable service?
+
+This section breaks down a modern LLM inference engine through the lens of vLLM - paged attention, continuous batching, prefix caching, speculative decoding, and how these pieces scale from a single GPU to multi-node serving with load balancing and autoscaling. It closes with the metrics that matter (TTFT/TIL/throughput) and how to tune for them. 
+
+The inference engine core consists of three main components - a scheduler, a KV-cache manager, and a model executor. Requests arrive as tokenized prompts, and are packed into a continuous batch. The scheduler decies whether each step will handle prefill (processing the full prompt) or decode (processing only the newest token), and mixes them when possible. 
+
 ## Closing Remarks
 
 AI infrastructure is diagnosis first, optimization second. In the **inner loop**, we should decide if we're compute, memory, or overhead bound and act accordingly. In the **training loop**, we choose the right parallelism/memory/communication mix and make failure routine.
