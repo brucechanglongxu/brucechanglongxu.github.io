@@ -128,6 +128,8 @@ This section breaks down a modern LLM inference engine through the lens of vLLM 
 
 The inference engine core consists of three main components - a scheduler, a KV-cache manager, and a model executor. Requests arrive as tokenized prompts, and are packed into a continuous batch. The scheduler decies whether each step will handle prefill (processing the full prompt) or decode (processing only the newest token), and mixes them when possible. 
 
+The KV-cache manager assigns fixed-size memory blocks that store key/value vectors for attention, which lets the system grow sequences without right-padding and reuse memory efficiently. Continuous batching allows new requests to join at every step, rather than waiting for the next global batch, and prefix caching avoids recomputing shared tokens across requests with the same prefix. Together, these components ensure high GPU utilization while keeping per-request latency bounded, forming the foundation that later features and scaling layers build on. 
+
 ## Closing Remarks
 
 AI infrastructure is diagnosis first, optimization second. In the **inner loop**, we should decide if we're compute, memory, or overhead bound and act accordingly. In the **training loop**, we choose the right parallelism/memory/communication mix and make failure routine.
