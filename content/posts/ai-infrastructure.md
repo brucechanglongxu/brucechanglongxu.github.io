@@ -20,6 +20,17 @@ window.MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
 
+<!-- Enable blockquotes -->
+<style>
+blockquote {
+  font-style: italic;
+  color: #444;
+  border-left: 4px solid #aaa;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background: #f9f9f9;
+}
+</style>
 
 GPUs and custom AI hardware are the engines driving progress in AI research and applications. But raw hardware alone doesn’t explain why some teams ship reliable systems at scale while others struggle with bottlenecks and cost explosions. The difference comes down to how you think about optimization.
 
