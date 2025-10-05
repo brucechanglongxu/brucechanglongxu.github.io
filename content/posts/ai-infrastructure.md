@@ -60,6 +60,7 @@ Across infrastructure (macro-scale) for the full-pipeline, preprocessing, I/O, s
 1. **Fusion:** Converting multiple small kernels into one large kernel to reduce launch overhead (reducing the serial fraction).
 2. **Asynchronous execution:** Overlapping compute and data movement (hides the serial part under parallel compute)
 3. **Rerouting:** Moving serial or low-intensity tasks onto faster subsystems (e.g. FP8 Tensor Cores, NVLink all-reduce engines)
+4. **Pipeline parallelism:** Converting formerly sequential layer execution into overlapping stages (which reduces the effective serial region)
 
 All of these strategies reduces or hides the non-parallel/serial part of the workload, which is the primary way we can combat Amdahl's ceiling. 
 
