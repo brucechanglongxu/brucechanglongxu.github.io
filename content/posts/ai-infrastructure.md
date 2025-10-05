@@ -104,7 +104,19 @@ Here `d_x` and `d_y` are pointers to vectors in GPU memory. cuBLAS handles the k
 
 > **Tensor cores** perform mixed-precision arithmetic. They are hardware blocks that accelerate matrix multiplies (and MMA), exploiting spatial/temporal reuse out of the data that allow us to bridge the memory wall, exploiting nice algorithmic properties about MMA and thereby increasing arithmetic intensity. 
 
-As mentioned thematically, all of artifiical intelligence and high performance computing workloads essentially boil down to linear algebra, and particularly matrix-multiple-accumulate (GEMM) [^6]; every GPU instruction should be computing $$C = A \times B + C$$ but on huge matrices, billions of times per second. Before Tensor Cores existed, GPUs used **CUDA cores** (which are 'scalar' or 'vector' ALUs) to do 
+As mentioned thematically, all of artifiical intelligence and high performance computing workloads essentially boil down to linear algebra, and particularly matrix-multiple-accumulate (GEMM) [^6]; every GPU instruction should be computing $$C = A \times B + C$$ but on huge matrices, billions of times per second. Before Tensor Cores existed, GPUs used **CUDA cores** (which are 'scalar' or 'vector' ALUs) to do these operations, though rather inefficiently. We eventually realizes that the whilst the math throughput grew rapidly (due to more CUDA cores), the memory bandwidth could no longer keep up, so GPUs spent cycles feeding operands instead of doing math; hence a dedicated hardware unit that performed small matrix multiplication directly, with less data motion was introduced i.e. the Tensor Core. 
+
+| Feature                   | **CUDA Core**                 | **Tensor Core**                                        |
+| ------------------------- | ----------------------------- | ------------------------------------------------------ |
+| **Type of unit**          | Scalar/vector ALU             | Matrix math accelerator                                |
+| **Operation**             | One multiply or add per cycle | Many (hundreds) of multiply-accumulate per cycle       |
+| **Data granularity**      | Operates on individual floats | Operates on small matrices (e.g., 4×4, 16×8×8)         |
+| **Precision focus**       | FP32, FP64, Int32             | FP16, BF16, TF32, INT8, FP8                            |
+| **Programming interface** | Implicit via CUDA C/C++       | Explicit via WMMA / cuBLAS / CUTLASS                   |
+| **Goal**                  | General-purpose compute       | Dense linear algebra (esp. GEMM)                       |
+| **Performance**           | High flexibility              | High throughput (10–100× higher TFLOPs for matrix ops) |
+
+Ultimately, Tensor Cores are _specialized, fixed-function units_ built inside the GPU's Streaming Multiprocessor (SMs), where each one executes a _matrix fused multiply-add_ (MMA) on a small tile of operands - on Volta/Turing this is defined as $$16 x 8 x 8$$. This tile size is the shape of the micro-matrix each Tensor Core computes per instruction i.e. we a multiply a $$16 x 8$$ tile of matrix A by an $$8 x 8$$ tile of matrix B, and accumulate the result into a $$16 x 8$$ tile of C. 
 
 ## The Training Loop: making many GPUs act like one
 
