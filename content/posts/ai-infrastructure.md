@@ -98,10 +98,6 @@ Here `d_x` and `d_y` are pointers to vectors in GPU memory. cuBLAS handles the k
 
 ### A short primer on Tensor Cores
 
-![Alt text](image-1.png)
-
-![Alt text](image-3.png)
-
 > **Tensor cores** perform mixed-precision arithmetic. They are hardware blocks that accelerate matrix multiplies (and MMA), exploiting spatial/temporal reuse out of the data that allow us to bridge the memory wall, exploiting nice algorithmic properties about MMA and thereby increasing arithmetic intensity. 
 
 As mentioned thematically, all of artifiical intelligence and high performance computing workloads essentially boil down to linear algebra, and particularly matrix-multiple-accumulate (GEMM) [^6]; every GPU instruction should be computing $$C = A \times B + C$$ but on huge matrices, billions of times per second. Before Tensor Cores existed, GPUs used **CUDA cores** (which are 'scalar' or 'vector' ALUs) to do these operations, though rather inefficiently. We eventually realizes that the whilst the math throughput grew rapidly (due to more CUDA cores), the memory bandwidth could no longer keep up, so GPUs spent cycles feeding operands instead of doing math; hence a dedicated hardware unit that performed small matrix multiplication directly, with less data motion was introduced i.e. the Tensor Core. 
@@ -116,7 +112,28 @@ As mentioned thematically, all of artifiical intelligence and high performance c
 | **Goal**                  | General-purpose compute       | Dense linear algebra (esp. GEMM)                       |
 | **Performance**           | High flexibility              | High throughput (10–100× higher TFLOPs for matrix ops) |
 
-Ultimately, Tensor Cores are _specialized, fixed-function units_ built inside the GPU's Streaming Multiprocessor (SMs), where each one executes a _matrix fused multiply-add_ (MMA) on a small tile of operands - on Volta/Turing this is defined as $16 * 8 * 8$. This tile size is the shape of the micro-matrix each Tensor Core computes per instruction i.e. we a multiply a $16 * 8$ tile of matrix A by an $8 * 8$ tile of matrix B, and accumulate the result into a $16 * 8$ tile of C.
+Ultimately, Tensor Cores are _specialized, fixed-function units_ built inside the GPU's Streaming Multiprocessor (SMs), where each one executes a _matrix fused multiply-add_ (MMA) on a small tile of operands - on Volta/Turing this is defined as $16 * 8 * 8$. This tile size is the shape of the micro-matrix each Tensor Core computes per instruction i.e. we a multiply a $16 * 8$ tile of matrix A by an $8 * 8$ tile of matrix B, and accumulate the result into a $16 * 8$ tile of C. Each instruction `mma.sync.m16n8k8` performs 128 multiply-add operations per thread group, or 256 FLOPs. When thousands of threads across warps execute these in parallel, the throughput explodes. 
+
+By fusing 128+ multiply-add operations into one instruction and keepign operands local in registers/shared memory, Tensor Cores massively raise FLOPs without increasing memory traffic. This is why every AI workload (transformers, CNNs, diffusion models) now run primarily on Tensor Cores. 
+
+| Operation         | FLOPs per memory access | Approx throughput   |
+| ----------------- | ----------------------- | ------------------- |
+| FP32 CUDA cores   | 1 FLOP / 4 bytes        | ~15 TFLOPs (A100)   |
+| FP16 Tensor Cores | 256 FLOPs / 16 bytes    | ~300+ TFLOPs (A100) |
+
+In practice, we do not typically program Tensor Cores directly in assembly (PTX, SASS) and instead we use the WMMA API `nvcuda::wmma` which is a CUDA C++ intrinsics that map to Tensor Core instructions. 
+
+```cpp
+wmma::fragment<matrix_a, 16, 16, 16, half> a_frag;
+wmma::fragment<matrix_b, 16, 16, 16, half> b_frag;
+wmma::fragment<accumulator, 16, 16, 16, float> c_frag;
+wmma::load_matrix_sync(a_frag, A, lda);
+wmma::load_matrix_sync(b_frag, B, ldb);
+wmma::mma_sync(c_frag, a_frag, b_frag, c_frag);
+wmma::store_matrix_sync(C, c_frag, ldc);
+```
+
+Each SM contains dozens of CUDA cores for general math and several Tensor Cores for block matrix operations. Tensor Cores handle the dense GEMM work, whereas CUDA cores handle everything else - vector ops, address arithmetic, activation functions etc. Indeed, most of the GPU's advertised "AI perforamnce" comes almost entirely from their Tensor Cores. CUTLASS is the bridge that allows us a way to explicitly program Tensor Cores for custom kernels, without writing raw PTX. 
 
 ## The Training Loop: making many GPUs act like one
 
