@@ -78,7 +78,7 @@ Recall that FLOPS/s is a simple measurement that indicates the number of mathema
 
 $$\textbf{AI} = \frac{\textbf{Flops/s}}{\textbf{Memory Traffic}} = \frac{\textbf{flops/second}}{textbf{bytes/second}} = \frac{\textbf{flops}}{\textbf{bytes}}$$
 
-This metric is crucial in modern day hardware, where it is almost always that case that _memory operations are slow_. Whilst floating point operations like add, multiply only take 1 CPU cycle (or even less if they are fused like FMAC or FMA), the loads and stores in a processor will take many 
+Because memory movement operations are extraordinarily slow in all modern-day hardware (compared to <1 clock cycle latency of math operations, which can be reduced by fusing operations into for example FMAC), it is in our best interest to maximize arithmetic intensity - hence for every memory movement operation, we have more math being performed, giving us more "bang for our buck". 
 
 ## The Training Loop: making many GPUs act like one
 
