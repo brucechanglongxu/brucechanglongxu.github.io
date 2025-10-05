@@ -51,7 +51,7 @@ When we train or serve a large model, every step involves a _graph_ of kernels: 
 | Control & memory kernels     | Poorly parallel                           | indexing, scatter/gather | ~0.5                             |
 | Communication                | Serially coupled                          | all-reduce, all-gather   | ~0.7–0.95 depending on bandwidth |
 
-When we optimize or scale a system, we are not accelerating the whole workload, but only parts of it e.g. speeding up GEMMs with Tensor Cores or fusing several small ops into one. With Amdahl's law, we are reminded that the _non-accelerated and parallelized_ portions dominate once the fast parts are already fast. 
+When we optimize or scale a system, we are not accelerating the whole workload, but only parts of it e.g. speeding up GEMMs with Tensor Cores or fusing several small ops into one. With Amdahl's law, we are reminded that the _non-accelerated and parallelized_ portions dominate once the fast parts are already fast. Indeed suppose that our LLM training consists of $80$ percent GEMM (which runs on Tensor Cores), $10$ percent communication (all-reduce), and 10 percent everything else (elementwise, indexing, overhead). Now say that we double Tensor Core throughput (2x faster GEMMs), then our total speedup, via Amdahl's law, is actually on 1.67. The takeaway is that even enormouse hardware speedups yield modest end-to-end gains if the remaining kernels or communication cannot keep up.
 
 ## The Inner Loop: making a single GPU sing
 
