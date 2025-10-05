@@ -53,6 +53,16 @@ When we train or serve a large model, every step involves a _graph_ of kernels: 
 
 When we optimize or scale a system, we are not accelerating the whole workload, but only parts of it e.g. speeding up GEMMs with Tensor Cores or fusing several small ops into one. With Amdahl's law, we are reminded that the _non-accelerated and parallelized_ portions dominate once the fast parts are already fast. Indeed suppose that our LLM training consists of $80$ percent GEMM (which runs on Tensor Cores), $10$ percent communication (all-reduce), and 10 percent everything else (elementwise, indexing, overhead). Now say that we double Tensor Core throughput (2x faster GEMMs), then our total speedup, via Amdahl's law, is actually on 1.67. The takeaway is that even enormouse hardware speedups yield modest end-to-end gains if the remaining kernels or communication cannot keep up.
 
+Within a GPU (micro-scale) at the kernel-level, fusing bias and activation and dropout eliminates kernel launch overhead and redundant memory reads, improving the _serial fraction_ between kernels. Over time, this matters more than another 10 percen tin GEMM throughput. Across GPUs (meso-scale) for distribuied training or inference, compute scales well (GEMM), but communication (all-reduce) adds serial or latency-bound segments. No matter how many GPUs we add, the network-bound fraction sets the Amdahl ceiling. 
+
+Across infrastructure (macro-scale) for the full-pipeline, preprocessing, I/O, scheduling, logging will dominate the performance hits - the "outer loop" serial components, even once we have beautiful orchestration over beastly processors. Modern compiler and infrastructure stacks (Triton, CUTLASS, XLA, PyTorch 2.0) fight Amdahl's ceiling in three key ways:
+
+1. **Fusion:** Converting multiple small kernels into one large kernel to reduce launch overhead (reducing the serial fraction).
+2. **Asynchronous execution:** Overlapping compute and data movement (hides the serial part under parallel compute)
+3. **Rerouting:** Moving serial or low-intensity tasks onto faster subsystems (e.g. FP8 Tensor Cores, NVLink all-reduce engines)
+
+All of these strategies reduces or hides the non-parallel/serial part of the workload, which is the primary way we can combat Amdahl's ceiling. 
+
 ## The Inner Loop: making a single GPU sing
 
 At the very center of AI infrastructure is the question: **is your GPU doing useful math, or is it wasting cycles?** Every model, no matter how large, eventually boils down to kernels running on a single device. If those kernels are inefficient, no amount of distributed wizardry will save you - because inefficiency just multiplies as you scale. The innermost loop is about runtime and kernel performance: understanding where the cycles are going, and how to keep the accelerator fed with a steady diet of compute. 
