@@ -40,7 +40,7 @@ What makes this framing powerful is that most "mysterious" performance or reliab
 
 We will begin the exposition on the three loops first with an overview of the highly valuable _Amdahl's Law_. 
 
-> **Amdahl's Law:** This gives us a theoretical limit of speedup from parallelization or acceleration. $$S_{max} = \frac{1}{(1 - P) + \frac{P}{N}} where $P$ is the fraction of work that _can_ be parallielized, $(1 - P)$ is the fraction that is inherently serial, and $N$ is the speedup factor (or number of parallel units) present in our processor. As $N$ tends to infinity, the best speedup that we can ever get is $\frac{1}{1-P}$, which means that even if 99 percent of our workload parallelizes perfectly, the remaining 1 percent caps the total speedup to $100x$, no matter how many GPUs that we throw at it. 
+> **Amdahl's Law:** This gives us a theoretical limit of speedup from parallelization or acceleration. $$S_{max} = \frac{1}{(1 - P) + \frac{P}{N}}$$ where $P$ is the fraction of work that _can_ be parallielized, $(1 - P)$ is the fraction that is inherently serial, and $N$ is the speedup factor (or number of parallel units) present in our processor. As $N$ tends to infinity, the best speedup that we can ever get is $\frac{1}{1-P}$, which means that even if 99 percent of our workload parallelizes perfectly, the remaining 1 percent caps the total speedup to $100x$, no matter how many GPUs that we throw at it. 
 
 When we train or serve a large model, every step involves a _graph_ of kernels: matrix multiplies, layernorms, activation functions, attention, all-reduce ops etc. Each kernel has different scaling characteristics:
 
