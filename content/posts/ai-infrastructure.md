@@ -76,7 +76,7 @@ Every GPU (and indeed AI processor) kernel lives between two limits:  _how fast 
 
 Recall that FLOPS/s is a simple measurement that indicates the number of mathematical operations that the computer does per second on a given algorithm; usually dependent on the hardware, algorithm, and implementation. The independent variable in the roofline model is _arithmetic intensity_, which is the measure of how many operations are done per bytes loaded or stored from memory. 
 
-$$\textbf{AI} = \frac{\textbf{Flops/s}}{\textbf{Memory Traffic}} = \frac{\textbf{flops/second}}{textbf{bytes/second}} = \frac{\textbf{flops}}{\textbf{bytes}}$$
+$$\textbf{AI} = \frac{\textbf{Flops/s}}{\textbf{Memory Traffic}} = \frac{\textbf{flops/second}}{\textbf{bytes/second}} = \frac{\textbf{flops}}{\textbf{bytes}}$$
 
 Because memory movement operations are extraordinarily slow in all modern-day hardware (compared to <1 clock cycle latency of math operations, which can be reduced by fusing operations into for example FMAC), it is in our best interest to maximize arithmetic intensity - hence for every memory movement operation, we have more math being performed, giving us more "bang for our buck". 
 
