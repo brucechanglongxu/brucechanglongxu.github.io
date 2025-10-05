@@ -96,6 +96,8 @@ cublasSaxpy(handle, n, &alpha, d_x, 1, d_y, 1);
 
 Here `d_x` and `d_y` are pointers to vectors in GPU memory. cuBLAS handles the kernel launch, memory scheduling, and synchronization. In the papers dissecting the [volta](https://arxiv.org/pdf/1804.06826) and [turing](https://arxiv.org/pdf/1903.07486) GPUs via benchmarking, the authors demonstrate that even though cuBLAS is NVIDIA's GPU-optimized, production-grade linear-algebra library that most frameworks (PyTorch, TensorFlow etc.) use under the hood for all GEMMs and related ops, we can still hand optimize lets say an single-precision AXPY (e.g. with 128-bit vectorized loads/stores [^5]) with knowledge of the underlying architecture to push even a mature library like cuBLAS closer to the theoretical bandwith roofline.  
 
+> **Tensor cores** perform mixed-precision arithmetic.
+
 ## The Training Loop: making many GPUs act like one
 
 Once we have squeezed everything we can out of a single GPU, the next challenge is scale. Modern foundation models don't fit on a single device's memory, and even if they did, training them in a reasonable wall-clock time requires spreading the work across dozens, hundreds, or thousands of accelerators. That shift takes us from the **inner loop** (are we doing useful math on one GPU?) to the **training loop:** how do we coordinate many GPUs so they behave like one coherent machine? 
