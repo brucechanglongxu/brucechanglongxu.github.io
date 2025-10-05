@@ -116,7 +116,7 @@ As mentioned thematically, all of artifiical intelligence and high performance c
 | **Goal**                  | General-purpose compute       | Dense linear algebra (esp. GEMM)                       |
 | **Performance**           | High flexibility              | High throughput (10–100× higher TFLOPs for matrix ops) |
 
-Ultimately, Tensor Cores are _specialized, fixed-function units_ built inside the GPU's Streaming Multiprocessor (SMs), where each one executes a _matrix fused multiply-add_ (MMA) on a small tile of operands - on Volta/Turing this is defined as $$16 x 8 x 8$$. This tile size is the shape of the micro-matrix each Tensor Core computes per instruction i.e. we a multiply a $$16 x 8$$ tile of matrix A by an $$8 x 8$$ tile of matrix B, and accumulate the result into a $$16 x 8$$ tile of C. 
+Ultimately, Tensor Cores are _specialized, fixed-function units_ built inside the GPU's Streaming Multiprocessor (SMs), where each one executes a _matrix fused multiply-add_ (MMA) on a small tile of operands - on Volta/Turing this is defined as $16 * 8 * 8$. This tile size is the shape of the micro-matrix each Tensor Core computes per instruction i.e. we a multiply a $16 * 8$ tile of matrix A by an $8 * 8$ tile of matrix B, and accumulate the result into a $16 * 8$ tile of C.
 
 ## The Training Loop: making many GPUs act like one
 
