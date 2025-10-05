@@ -68,6 +68,10 @@ Modern accelerators live and die by their memory systems. The same kernel can lo
 
 As a concrete example of inner-loop optimization paying real dividends, the PyTorch team recentlyd etailed a fused TLX (Triton Low-level Extensions) kernel for **2-Simplicial Attention** - an attention variant that models trilinear interactions among token triples. 
 
+### Case study: From roofline theory to real tensor-core kernels
+
+Every GPU (and indeed AI processor) kernel lives between two limits:  _how fast it can perform math_ and _how fast it can move data_. The first is set by the peak floating-point throughput of the hardware -- usually measured in FLOP/s (denoted $\tau$). The second is set by the bandwidth of the memory system i.e. the number of bytes per second that can reach the compute units (denoted $\beta$). 
+
 ## The Training Loop: making many GPUs act like one
 
 Once we have squeezed everything we can out of a single GPU, the next challenge is scale. Modern foundation models don't fit on a single device's memory, and even if they did, training them in a reasonable wall-clock time requires spreading the work across dozens, hundreds, or thousands of accelerators. That shift takes us from the **inner loop** (are we doing useful math on one GPU?) to the **training loop:** how do we coordinate many GPUs so they behave like one coherent machine? 
