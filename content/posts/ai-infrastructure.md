@@ -84,7 +84,17 @@ Because memory movement operations are extraordinarily slow in all modern-day ha
 
 Under the hood, cuBLAS launches highly optimized CUDA kernels written and tuned by NVIDIA kernel engineers. It chooses kernels dynamically depending on the GPU architecture (e.g. Volta, Turing, Ampere, Hopper, Blackwell), and uses **tensor cores**, shared-memory tiling, double buffering, and vectorized loads/stores for maximum throughput. It handles details such as memory coalescing, alignment, and fused multiply-adds so that the code achieves near-peak FLOP/s without manual PTX work. 
 
-Since linear-algebra operations dominate most of AI, graphics, and scientific workloads, by off-loading these primitives to cuBLAS, developers can 1. Get close to hardware peak performance out of the box 2. Avoid reinventing and tuning kernslf for each GPU generation 3. Rely on a consistent API that mirrors CPU BLAS, easing porting from existing code. 
+Since linear-algebra operations dominate most of AI, graphics, and scientific workloads, by off-loading these primitives to cuBLAS, developers can 1. Get close to hardware peak performance out of the box 2. Avoid reinventing and tuning kernslf for each GPU generation 3. Rely on a consistent API that mirrors CPU BLAS, easing porting from existing code. For example, we can use the following function call for a single-precision [^4] saxpy: 
+
+```cpp
+// Single-precision saxpy: y = alpha * x + y
+float alpha = 2.0f;
+cublasHandle_t handle;
+cublasCreate(&handle);
+cublasSaxpy(handle, n, &alpha, d_x, 1, d_y, 1);
+```
+
+Here `d_x` and `d_y` are pointers to vectors in GPU memory. cuBLAS handles the kernel launch, memory scheduling, and synchronization. 
 
 ## The Training Loop: making many GPUs act like one
 
@@ -169,3 +179,4 @@ AI infrastructure is diagnosis first, optimization second. In the **inner loop**
 [^1]: This is a performance bottleneck that occurs in multi-threaded programs when a CPU-intensive thread holds the Global Interpreter Lock (GIL) for an extended period, preventing other threads - including I/O-bound ones - from running. This effectively serializes execution and can cause application-wide delays, leading to unresponsiveness. 
 [^2]: All-reduce is a fundamental collective communication operation used in distributed AI training, to efficiently synchronize and aggregate data (most commonly gradients), across multiple devices. The first phase **reduction phase** each device calculates its local contribution to the overall computation (e.g. gradients from a subset of data), and these are then combined "reduced" across all devices (via summation, averaging or another operation) to incorporate into a global result. The second phase is the **broadcast phase** where the aggregated global result is then distributed back to all participating devices, so every device has access to the same, synchronized information for subsequent steps. 
 [^3]: The forward pass in AI is like an orchestra performing a symphony: each musician (neuron) plays their part from the sheet music (input data), and together they produce the music heard by the audience (the output prediction). The conductor compares what was played to the intended score (the ground truth), and the difference is the loss. In the backward pass, the conductor walks back through the sections, giving targeted feedback—“violins, soften here,” “trumpets, enter later”—so each player adjusts. These corrections propagate backward from the overall performance to individual musicians, refining the ensemble so that next time the music aligns more closely with the composer’s vision.
+[^4]: Single-precision refers to FP32 floating-point format, where we use one-bit for the sign, eight bits for the exponent and 23 bits for the fraction (standard format for many applications, offers a balance of speed and accuracy and is often considered the full precision). Half-precision refers to FP16 floating-point format where we use 10 bits for the mantissa and 5 bits for the exponent, and 1 bit for the sign (uses less memory and allows for faster computation but less accuracy). Double-precision refers to FP64 floating-point, where we use 52 bits for the mantissa and 11 bits for the exponent (provides the highest level of accuracy and range, used for applications where rounding errors cannot be tolerated). Note that higher precision, whilst increasing memory usage (limiting for large models and batch sizes), can lead to greater numerical stability by reducing the risk of overflow and underflow. 
