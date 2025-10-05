@@ -94,7 +94,7 @@ cublasCreate(&handle);
 cublasSaxpy(handle, n, &alpha, d_x, 1, d_y, 1);
 ```
 
-Here `d_x` and `d_y` are pointers to vectors in GPU memory. cuBLAS handles the kernel launch, memory scheduling, and synchronization. 
+Here `d_x` and `d_y` are pointers to vectors in GPU memory. cuBLAS handles the kernel launch, memory scheduling, and synchronization. In the papers dissecting the [volta](https://arxiv.org/pdf/1804.06826) and [turing](https://arxiv.org/pdf/1903.07486) GPUs via benchmarking, the authors demonstrate that even though cuBLAS is NVIDIA's GPU-optimized, production-grade linear-algebra library that most frameworks (PyTorch, TensorFlow etc.) use under the hood for all GEMMs and related ops, we can still hand optimize lets say an single-precision AXPY (e.g. with 128-bit vectorized loads/stores) with knowledge of the underlying architecture to push even a mature library like cuBLAS closer to the theoretical bandwith roofline.  
 
 ## The Training Loop: making many GPUs act like one
 
