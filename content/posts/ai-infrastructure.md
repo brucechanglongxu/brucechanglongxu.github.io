@@ -70,7 +70,15 @@ As a concrete example of inner-loop optimization paying real dividends, the PyTo
 
 ### Case study: From roofline theory to real tensor-core kernels
 
-Every GPU (and indeed AI processor) kernel lives between two limits:  _how fast it can perform math_ and _how fast it can move data_. The first is set by the peak floating-point throughput of the hardware -- usually measured in FLOP/s (denoted $\tau$). The second is set by the bandwidth of the memory system i.e. the number of bytes per second that can reach the compute units (denoted $\beta$). 
+Every GPU (and indeed AI processor) kernel lives between two limits:  _how fast it can perform math_ and _how fast it can move data_. The first is set by the peak floating-point throughput of the hardware -- usually measured in FLOP/s (denoted $\tau$). The second is set by the bandwidth of the memory system i.e. the number of bytes per second that can reach the compute units (denoted $\beta$); these two parameters are key components to consider in the **roofline model** of processor performance.
+
+> The roofline model is a performance model seeking to give the limitations of a specific hardware component in terms of algorithm performance. It is employed visually as a log-log plot of _Arithmetic Intensity_ versus _Flops/s_
+
+Recall that FLOPS/s is a simple measurement that indicates the number of mathematical operations that the computer does per second on a given algorithm; usually dependent on the hardware, algorithm, and implementation. The independent variable in the roofline model is _arithmetic intensity_, which is the measure of how many operations are done per bytes loaded or stored from memory. 
+
+$$\textbf{AI} = \frac{\textbf{Flops/s}}{\textbf{Memory Traffic}} = \frac{\textbf{flops/second}}{textbf{bytes/second}} = \frac{\textbf{flops}}{\textbf{bytes}}$$
+
+This metric is crucial in modern day hardware, where it is almost always that case that _memory operations are slow_. Whilst floating point operations like add, multiply only take 1 CPU cycle (or even less if they are fused like FMAC or FMA), the loads and stores in a processor will take many 
 
 ## The Training Loop: making many GPUs act like one
 
