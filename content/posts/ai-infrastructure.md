@@ -38,6 +38,21 @@ A useful way to frame it is as **three nested loops** wrapped around every model
 
 What makes this framing powerful is that most "mysterious" performance or reliability problems stop being mysterious once you identify which loop you are really in. If a profiler shows long gaps on the GPU timeline, that is an inner loop problem. If throughput collapses when yous cale from one rack to three, that is the training loop. If P95 latency is spiky even though single-GPU kernels are fast, you are in the product loop. The moment you can name the loop, you know where to look and which tools to bring to bear. 
 
+We will begin the exposition on the three loops first with an overview of the highly valuable _Amdahl's Law_. 
+
+> **Amdahl's Law:** This gives us a theoretical limit of speedup from parallelization or acceleration. $$S_{max} = \frac{1}{(1 - P) + \frac{P}{N}} where $P$ is the fraction of work that _can_ be parallielized, $(1 - P)$ is the fraction that is inherently serial, and $N$ is the speedup factor (or number of parallel units) present in our processor. As $N$ tends to infinity, the best speedup that we can ever get is $\frac{1}{1-P}$, which means that even if 99 percent of our workload parallelizes perfectly, the remaining 1 percent caps the total speedup to $100x$, no matter how many GPUs that we throw at it. 
+
+When we train or serve a large model, every step involves a _graph_ of kernels: matrix multiplies, layernorms, activation functions, attention, all-reduce ops etc. Each kernel has different scaling characteristics:
+
+| Kernel type                  | Nature                                    | Example                  | Parallel fraction (P)            |
+| ---------------------------- | ----------------------------------------- | ------------------------ | -------------------------------- |
+| Dense GEMM / Tensor Core ops | Highly parallel                           | `matmul`, convolution    | ~0.999                           |
+| Reduction / softmax          | Partly parallel, serial across dimensions | `reduce_sum`, `softmax`  | ~0.9                             |
+| Control & memory kernels     | Poorly parallel                           | indexing, scatter/gather | ~0.5                             |
+| Communication                | Serially coupled                          | all-reduce, all-gather   | ~0.7–0.95 depending on bandwidth |
+
+When we optimize or scale a system, we are not accelerating the whole workload, but only parts of it e.g. speeding up GEMMs with Tensor Cores or fusing several small ops into one. With Amdahl's law, we are reminded that the _non-accelerated and parallelized_ portions dominate once the fast parts are already fast. 
+
 ## The Inner Loop: making a single GPU sing
 
 At the very center of AI infrastructure is the question: **is your GPU doing useful math, or is it wasting cycles?** Every model, no matter how large, eventually boils down to kernels running on a single device. If those kernels are inefficient, no amount of distributed wizardry will save you - because inefficiency just multiplies as you scale. The innermost loop is about runtime and kernel performance: understanding where the cycles are going, and how to keep the accelerator fed with a steady diet of compute. 
