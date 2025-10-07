@@ -23,6 +23,8 @@ The same scaling narrative is now playing out in _world models_ - systems that l
 
 Threaded through all of these advancements is the deeply _"human layer"_ that turns capability into dependable tools, through domain-specific post-training the encodes policy, ontology, and constraints. It is paramount to work towards AGI that incrementally widens what is routine; models that read, cite, plan and excute; agents that coorperate under governance; AI training, evaluation and deployment stacks that do not collapse under the auspice of low-quality and potentially adversarial data. From science and medicine to technology and education, codified intelligence is now reshaping and redefining human flourishing. 
 
+If you want to dig deeper into the foundations of AGI/ASI, feel free to read my five principles [data foundations](https://brucechanglongxu.github.io/posts/vagelos-series-v-infectious-disease-and-microbiology/), [infrastructure](https://brucechanglongxu.github.io/posts/ai-infrastructure/), [pretraining](https://brucechanglongxu.github.io/posts/ai-pretraining/), [posttraining](https://brucechanglongxu.github.io/posts/ai-posttraining/) , [applications](https://brucechanglongxu.github.io/posts/ai-applications/). Enjoy!
+
 ### From Serendipity to Specificity
 
 The modern arc of medicine is a sequence of precise bets on biology that became therapies -- and then infrastructures. _Penicillin_ leaked from a contaminated plate and revealed that B-lactams sabotage bacterial cell-wall cross-linking - an Achilles' heel unique to microbes. A generation later, ulcers, once blamed on stress adn acid, yielded to _omeprazole_: a prodrug that accumulates in parietal-cell canialiculi and, in its sulfenamide form, irrversibly ties up the H+/K+-ATPase. What started as empirical symptom control became mechanism capture - find the essential machine, jam it, and let physiology recover. 
@@ -41,6 +43,8 @@ Every blockbuster here sits on the same fundamental principles: identify a causa
 4. Room for combinations that address the predictable failure modes (vertical/horizontal, modality-switch, CNS-aware)
 
 We pull on the rope that actually moves tumor fitness and a tolerable window, instrument the line so we can see tension (biomarkers), and we pack the splices that we will need when fibers snap (resistance). This is why imatinib, osimertinib, BRAF+MEK, CDK4/6 and endocrine therapy, PARP in HRD, BTK and venetoclax and HER2 ADCs each became - and remain - defining therapies. 
+
+I'll stop there because the rabbit hole never ends, if you want to learn more about this space read my posts on [oncology](https://brucechanglongxu.github.io/posts/towards-oncological-superintelligence/), [immunology](https://brucechanglongxu.github.io/posts/vagelos-series-iii-immunological-intelligence/), [neuroscience/neurosurgery](https://brucechanglongxu.github.io/posts/vagelos-series-iv-neuroscience-at-the-edge/), [infectious disease/global health](https://brucechanglongxu.github.io/posts/vagelos-series-v-infectious-disease-and-microbiology/) and [cardiometabolic medicine](https://brucechanglongxu.github.io/posts/cardiometabolic-supercycle/).
 
 If you have read this far, thank you, and welcome to my blog. Enjoy!
 
