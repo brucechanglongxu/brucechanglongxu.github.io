@@ -175,6 +175,10 @@ Each SM contains dozens of CUDA cores for general math and several Tensor Cores 
 
 ![Alt text](/image-4.png)
 
+> `FMACH dst = src0 + src1 * src2` is the canonical instruction underpinning GEMMS.
+
+One way that GEMMs can be performed is to hold 
+
 ## The Training Loop: making many GPUs act like one
 
 Once we have squeezed everything we can out of a single GPU, the next challenge is scale. Modern foundation models don't fit on a single device's memory, and even if they did, training them in a reasonable wall-clock time requires spreading the work across dozens, hundreds, or thousands of accelerators. That shift takes us from the **inner loop** (are we doing useful math on one GPU?) to the **training loop:** how do we coordinate many GPUs so they behave like one coherent machine? 
