@@ -78,7 +78,7 @@ When _memory is the problem_, the fix is often algorithmic. Attention kernels ar
 
 When _overhead is the problem_, you need to reduce the number of trips between host and device. Every kernel launch carries a cost, and if your training loop is littered with tiny ops, that cost adds up. The solution is fusion: combining bias, activation, and dropout in a single kernel, or capturing whole decode loops with CUDA Graphs so they run as a single replayable unit. The mantra is **"fewer, fatter kernels."**
 
-And whent he GPU seems underfed, the problem often lies outside the device. Dataloaders stuck behind the Python GIL, disk I/O that cannot keep up with training, or underpinned host memory can all cause the device to starve. In those cases, the fix is not in CUDA at all but how you structure the pipeline feeding the accelerator: double-buffering, pagelocked transfers, and async prefetch all matter here. 
+And when the GPU seems underfed, the problem often lies outside the device. Dataloaders stuck behind the Python GIL, disk I/O that cannot keep up with training, or underpinned host memory can all cause the device to starve. In those cases, the fix is not in CUDA at all but how you structure the pipeline feeding the accelerator: double-buffering, pagelocked transfers, and async prefetch all matter here. 
 
 Finally, there are subtle low-level effects taht the microbenchmark papers document (Jia et al.) and that few developers think about. Volta and Turing both use two 64-bit wide register banks, which means that certain three-operand instructions like FFMA can still suffer from bank conflicts if all sources happen to map to the same bank. Researchers showed that remapping registers to avoid these conflicts yielded 15% throughput improvements. Similarly, the T4's "uniform datapath" for scalar integer ops was introduced precisely to prevent loop counters and address arithmetic from polluting the main floating-point pipelines. These are the kinds of details that explain why a kernel doesn't hit its theoretical throughput even when you've done everything else "right". 
 
@@ -170,6 +170,10 @@ wmma::store_matrix_sync(C, c_frag, ldc);
 ```
 
 Each SM contains dozens of CUDA cores for general math and several Tensor Cores for block matrix operations. Tensor Cores handle the dense GEMM work, whereas CUDA cores handle everything else - vector ops, address arithmetic, activation functions etc. Indeed, most of the GPU's advertised "AI perforamnce" comes almost entirely from their Tensor Cores. CUTLASS is the bridge that allows us a way to explicitly program Tensor Cores for custom kernels, without writing raw PTX. 
+
+### Accelerating GEMMs with sparsity, interleaved DSRs and SIMD-32
+
+![Alt text](image-4.png)
 
 ## The Training Loop: making many GPUs act like one
 
