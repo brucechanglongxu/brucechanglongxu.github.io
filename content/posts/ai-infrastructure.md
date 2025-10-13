@@ -173,7 +173,7 @@ Each SM contains dozens of CUDA cores for general math and several Tensor Cores 
 
 ### Accelerating GEMMs with sparsity, interleaved DSRs and SIMD-32
 
-![Alt text](image-4.png)
+![Alt text](/image-4.png)
 
 ## The Training Loop: making many GPUs act like one
 
