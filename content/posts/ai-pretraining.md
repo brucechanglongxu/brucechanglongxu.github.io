@@ -51,6 +51,16 @@ Validation deserves paranoia. Hold out stratified sets that mirror your mixture,
 
 Finally, treat the run like a product with artifacts you could hand to a future you. Seed management, checkpoint cadence, and resumability are boring until they are the only things that let you survive a cluster hiccup without derailing compute-optimal plans. Tag checkpoints with mixture versions and context windows, not just step numbers, so downstream comparisons are apples-to-apples. Log the metrics that matter—tokens per second, realized FLOPs per second, memory headroom, attention flop share, validation curves by domain—so you can tell whether you are moving along the planned frontier or wandering off it. Pretraining doesn’t have the immediate dopamine hit of a post-training win-rate bump, but it sets the gradient for everything that follows. When done well, it makes the later stages feel like sculpting; when done poorly, it turns them into repair.
 
+## Backpropagation
+
+We feed an input $x$ into the network, and layer by layer it computes: 
+
+$$a^{(0)} := x$$
+$$z^{(l)} := W^{(l)} a^{(l-1)} + b^{(l)}$$
+$$a^{(l)} := \sigma(z^{(l)}) \textbf{(e.g. ReLU/GELU/Softmax)}$$
+
+The tensors $z^{(l)}$ and $a^{(l)}$ are the layer's forward activations, the intermediate results produced on the way to the final output. In Transformer's, _"activations"_ includes hidden states per token, the Q/K/V projects, attention scores/probabilities, MLP intermedaites, LayerNorm stats, etc. 
+
 ## Napkin Heuristics
 
 > **Theorem Alpha:** $$C \simeq C_{\textbf{forward}} + C_{\textbf{backward}} \simeq \tau T = 6PD$$ 
@@ -67,7 +77,21 @@ Indeed suppose that we have a 70B parameter open source model (e.g. LLaMA), whic
 
 The above napkin math is often an estimate on the optimistic end, because more often than not, as mentioned briefly, we will not achieve the peak throughput $\tau$ on our GPUs or processors with our current distributed training paradigms and communication overhead. This is the variable that is primarily responsible for our margin of error. 
 
+_Checkpointing Caveat_
+
+During training, backpropagation needs each layer's forward activations to compute gradients. If we store 
+
+- Pytorch: `torch.utils.checkpoint.checkpoint(function, *inputs)`
+- JAX: `jax.checkpoint` / `jax.remat`
+- DeepSpeed/FSDP: _"activation checkpointing"_ per layer/block
+
+> Checkpointing reduces activation memory by intentionally forgetting and later recomputing, so the FLOPs budget goes up (extra forward work during backward). 
+
 _Derivation of Theorem Alpha_
 
-> **Axiom FLOPS:** The FLOPs that truly matter in training are weight FLOPs, that are performed when intermediate states are multiplied by weight matrices. 
+> **Axiom FLOPS:** The FLOPs that truly matter in training are weight FLOPs, that are performed when intermediate states are multiplied by weight matrices. As we tend towards infinity, weight FLOPs dominate until non-weight FLOPs are negligible. 
 
+Weight FLOPs for multiplying a matrix $W$ is equal to $6$ times the batch size times the size of $W$. 
+
+1. Hoffmann et al. _Training Compute-Optimal Large Language Models_ Google Deepmind, 2022.
+2. 
