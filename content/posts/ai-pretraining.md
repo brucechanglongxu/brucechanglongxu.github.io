@@ -107,6 +107,18 @@ _Derivation of Theorem Alpha_
 
 Weight FLOPs for multiplying a matrix $W$ is equal to $6$ times the batch size times the size of $W$. 
 
+## Quantization at pre-training
+
+There are two main forms of quantization at the pre-training phase. The first is _low-precision training._ 
+
+> **Low-precision training** is where we run the forward and backward pass math in lower precision (BF16 and FP16) and then FP8 to get more throughput and fit in bigger batches. This is now standard (BF16) and increasingly common (FP8), with libraries like Transformer Engine on both NVIDIA and AMD ROCm. 
+
+The second is _quantization-aware training._
+
+> **Quantization-aware training** is when we simulate the integers that we will use at inference (e.g. INT8/INT4) _during_ training by inserting fake-quant/dequant ops and learning good scales/clip threshold so the final model is robust to low-bit inference. Canonical methods include LSQ and its variants. 
+
+These two methods can be combined, we can train mostly in FP8/BF16 for pseed, and optionally add QAT late in training to target an INT8/INT4 deployment. 
+
 1. Hoffmann et al. _Training Compute-Optimal Large Language Models_ Google Deepmind, 2022.
 2. 
 
