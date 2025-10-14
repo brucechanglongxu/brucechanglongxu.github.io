@@ -71,4 +71,7 @@ At inference, LLMs are usually memory and bandwidth bound - weights and KV-cache
 
 > The goal of PTQ is to cut inference cost by shrinking numbers into more compact bit representations, we turn FP16/BF16 weights and activations into low-bit integers _after_ we finish pre-training the model. 
 
-PTQ does this process _after_ pretraining, using a small _"calibration"_ set, not a full finetune. 
+1. Frantar, Elias, et al. "Gptq: Accurate post-training quantization for generative pre-trained transformers." arXiv preprint arXiv:2210.17323 (2022).
+2. Wang, Hongyu, et al. "Bitnet: Scaling 1-bit transformers for large language models." arXiv preprint arXiv:2310.11453 (2023).
+3. Ma, Shuming, et al. "The era of 1-bit llms: All large language models are in 1.58 bits." arXiv preprint arXiv:2402.17764 (2024).
+4. Dettmers, Tim, et al. "Qlora: Efficient finetuning of quantized llms." Advances in Neural Information Processing Systems 36 (2024).
