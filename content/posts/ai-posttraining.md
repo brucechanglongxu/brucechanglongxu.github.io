@@ -64,3 +64,11 @@ Diversity metrics help catch collapse into a single verbose style. Online, run s
 Ship with the boring but essential runbook. Releases should pass quarantine evals and safety gates, carry a model card that explains capabilities and known risks, and include a rollback hash that on-call engineers can flip without debate. Observability should capture request and response traces including tool calls, token-level logs with sensitive data redacted, utilization and saturation metrics across the serving path, and real dollars per request. Define service-level objectives that reflect user experience—latency at P50/P95/P99, error rate, grounding precision, a safety incident budget—and add one business-flavored metric that keeps everyone honest: cost per helpful answer. If a guardrail trips or an SLO breaches, the canary rolls back automatically while you investigate; if behavior changes, the changelog explains what moved and why.
 
 Post-training is never “done.” It’s a continuous control loop where behavior shaping, preference alignment, and hardening reinforce each other. Keep the loop tight, keep the signals clean, and keep the rollback switch close. That’s how a capable model turns into a product you can trust—day after day, release after release.
+
+## PTQ: Post-training Quantization
+
+At inference, LLMs are usually memory and bandwidth bound - weights and KV-cache traffic dominate latency and cost. PTQ is a method that trades precision for improved footprint and bandwidth. Recall that quantization shrinks numbers (weights/activations/KV-cache) from FP16/BF16 to fewer bits so that your model uses less memory and bandwidth at inference. For LLMs, bandwidth (moving weights/KV) if often the bottlenck, so fewer bits leads to fewer bytes moved, and therefore better latency and throughput without retraining. 
+
+> The goal of PTQ is to cut inference cost by shrinking numbers into more compact bit representations, we turn FP16/BF16 weights and activations into low-bit integers _after_ we finish pre-training the model. 
+
+PTQ does this process _after_ pretraining, using a small _"calibration"_ set, not a full finetune. 
