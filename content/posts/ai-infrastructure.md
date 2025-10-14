@@ -177,7 +177,7 @@ Each SM contains dozens of CUDA cores for general math and several Tensor Cores 
 
 > `FMACH dst = src0 + src1 * src2` is the canonical instruction underpinning GEMMS.
 
-One way that GEMMs can be performed is to hold 
+To increase arithmetic intensity
 
 ## The Training Loop: making many GPUs act like one
 
