@@ -61,6 +61,8 @@ $$a^{(l)} := \sigma(z^{(l)}) \textbf{(e.g. ReLU/GELU/Softmax)}$$
 
 The tensors $z^{(l)}$ and $a^{(l)}$ are the layer's forward activations, the intermediate results produced on the way to the final output. In Transformer's, _"activations"_ includes hidden states per token, the Q/K/V projects, attention scores/probabilities, MLP intermedaites, LayerNorm stats, etc. 
 
+_Backpropagation_ is the chain rule applied backward to compute gradients of the loss $L$ with respect to every parameter. Starting from the loss gradient at the output, we propagate an _"upstream gradient"_ $\delta^{(l)} := \delta$
+
 ## Napkin Heuristics
 
 > **Theorem Alpha:** $$C \simeq C_{\textbf{forward}} + C_{\textbf{backward}} \simeq \tau T = 6PD$$ 
