@@ -53,4 +53,21 @@ Finally, treat the run like a product with artifacts you could hand to a future 
 
 ## Napkin Heuristics
 
-> $$C \simeq \tau T = 6PD$$ 
+> **Theorem Alpha:** $$C \simeq C_{\textbf{forward}} + C_{\textbf{backward}} \simeq \tau T = 6PD$$ 
+
+This is the cost that is required to train a transformer, where we sum the cost (in FLOPs) of the forward and backward pass. $\tau$ denotes the cluster's throughput, and $T$ denotes its training time. 
+
+Indeed suppose that we have a 70B parameter open source model (e.g. LLaMA), which was trained on 200B tokens using 2048 NVIDIA A100 GPUs. We can apply the above equation:
+
+- The peak float16 FLOPs throughput of an A100 is $\tau = 312$ teraFLOPs $\simeq 3.12e14$ FLOPs. Since we have $2048$ A100 GPUs, the "collective" (of course in practice we probably would have less flops due to communication overhead), throughput is $2048 * 3.12e14$. 
+
+- Based on the above  _Theorem Alpha_, we know that the total compute required is $7.9e10 * 2.0e11 * 6 = 9.48e22$
+
+- This means that the training time for the model must take around $T = C / \tau = 9.48e22 / (2048 * 3.12e14) / 86400 \simeq 1.72$ days. 
+
+The above napkin math is often an estimate on the optimistic end, because more often than not, as mentioned briefly, we will not achieve the peak throughput $\tau$ on our GPUs or processors with our current distributed training paradigms and communication overhead. This is the variable that is primarily responsible for our margin of error. 
+
+_Derivation of Theorem Alpha_
+
+> **Axiom FLOPS:** The FLOPs that truly matter in training are weight FLOPs, that are performed when intermediate states are multiplied by weight matrices. 
+
