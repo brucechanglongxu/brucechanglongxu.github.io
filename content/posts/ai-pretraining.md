@@ -41,9 +41,7 @@ Pretraining is where you turn a mountain of tokens into a general-purpose model 
 
 Formally, pretraining minimizes the negative log-likelihood over a mixture of datasets. Let the training distribution be $M=\sum_{i}\lambda_i D_i$ with $\lambda_i\ge 0$ and $\sum_i \lambda_i=1$. The objective is the usual autoregressive loss
 
-$$
-L(\theta)=\mathbb{E}_{x_{1:n}\sim M}\Big[-\sum_{t=1}^{n}\log p_\theta(x_t\mid x_{<t})\Big],
-$$
+$L(\theta)=\mathbb{E}_{x_{1:n}\sim M}\Big[-\sum_{t=1}^{n}\log p_\theta(x_t\mid x_{<t})\Big]$
 
 but the interesting work hides in the choice of the $\lambda_i$ and how they evolve. Mixture weights should not be static; they should anneal with a curriculum that starts with cleaner, simpler distributions and gradually increases difficulty—more code and math, more multilingual and domain-specific data, longer contexts, more tool-marked traces—while guarding eval integrity and license boundaries. Measure effective tokens, not raw tokens; de-duplicate aggressively, remove templated spam, quarantine known evals, and keep lineage so you can trace any sample from source to checkpoint.
 
