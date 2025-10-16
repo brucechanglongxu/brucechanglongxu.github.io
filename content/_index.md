@@ -90,7 +90,7 @@ and under perturbations to sensing/actuation noise within specified envelopes.
 
 4. _Safety and constraints:_ $U$ includes constraint violations (harm, legal breaches) with large negative terms; dominance must hold without increasing expected harm above human baselines.
 
-This makes “decisive and sustained superiority” into **$(\delta,\beta,\epsilon)$-dominance**, measurable and auditable.
+This makes the notion of _“decisive and sustained superiority”_ into **$(\delta,\beta,\epsilon)$-dominance** quantifiable and measurable. 
 
 \paragraph{Practical metrics.}
 Dominance Ratio:
