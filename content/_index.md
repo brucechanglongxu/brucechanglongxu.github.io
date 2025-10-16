@@ -68,14 +68,11 @@ _Decisive, general dominance._ An agent $\pi^\*$ is **superintelligent (ASI)** w
 
 1. _Average dominance:_
 $$
-\[
 S(\pi^\*) \;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
 \quad \text{for some margin } \delta>0.
-\]
 $$
 
-2. _Breadth coverage:_
-Let ${\mathcal{T}_k}_{k=1}^K$ be a partition of $\mathcal{T}$ into disjoint task families (e.g., robotics, design, negotiation, scientific discovery). For at least a fraction $\beta$ of these families,
+2. _Breadth coverage:_ Let ${\mathcal{T}_k}_{k=1}^K$ be a partition of $\mathcal{T}$ into disjoint task families (e.g., robotics, design, negotiation, scientific discovery). For at least a fraction $\beta$ of these families,
 $$
 \[
 \mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi^\*,e) \big]
