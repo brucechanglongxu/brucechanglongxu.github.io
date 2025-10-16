@@ -68,7 +68,7 @@ Let $\Pi_{\mathrm{H}}$ be the reference frontier of the best human experts and i
 
 % Decisive, general dominance
 
-\paragraph{Decisive, general dominance.}
+_Decisive, general dominance._
 An agent $\pi^\*$ is \emph{superintelligent (ASI)} w.r.t.\ $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
 
 1. \textbf{Average dominance:}
