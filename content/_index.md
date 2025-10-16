@@ -55,9 +55,7 @@ Let:
 _Normalized, resource-fair performance (resource-normalized score)._ 
 
 $$
-\[
 S(\pi) = \mathbb{E}_{e \sim \mathcal{T}}\left[U(\pi,e) \middle| \mathcal{R} \right]
-\]
 $$
 with the following langrangian to price resource use:
 $$
