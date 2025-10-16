@@ -62,14 +62,9 @@ $$
 U'(\pi,e) = U(\pi,e) - \lambda \cdot \mathrm{Resources}(\pi,e)
 $$
 
-_Human/institutional reference set_
+_Human/institutional reference set._ Let $\Pi_{\mathrm{H}}$ be the reference frontier of the best human experts and institutions under the same $\mathcal{R}$ (operationalized via champion baselines, world records, or certified human-team policies measured in the same testbed).
 
-Let $\Pi_{\mathrm{H}}$ be the reference frontier of the best human experts and institutions under the same $\mathcal{R}$ (operationalized via champion baselines, world records, or certified human-team policies measured in the same testbed).
-
-% Decisive, general dominance
-
-_Decisive, general dominance._
-An agent $\pi^\*$ is **superintelligent (ASI)** w.r.t.\ $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
+_Decisive, general dominance._ An agent $\pi^\*$ is **superintelligent (ASI)** w.r.t.\ $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
 
 1. \textbf{Average dominance:}
 $$
@@ -102,7 +97,6 @@ $U$ includes constraint violations (harm, legal breaches) with large negative te
 
 This makes “decisive and sustained superiority” into \textbf{$(\delta,\beta,\epsilon)$-dominance}, measurable and auditable.
 
-% Practical metrics (optional, if you want to include)
 \paragraph{Practical metrics.}
 Dominance Ratio:
 \[
