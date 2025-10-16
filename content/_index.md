@@ -64,9 +64,9 @@ $$
 
 _Human/institutional reference set._ Let $\Pi_{\mathrm{H}}$ be the reference frontier of the best human experts and institutions under the same $\mathcal{R}$ (operationalized via champion baselines, world records, or certified human-team policies measured in the same testbed).
 
-_Decisive, general dominance._ An agent $\pi^\*$ is **superintelligent (ASI)** w.r.t.\ $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
+_Decisive, general dominance._ An agent $\pi^\*$ is **superintelligent (ASI)** w.r.t. $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
 
-1. \textbf{Average dominance:}
+1. _Average dominance:_
 $$
 \[
 S(\pi^\*) \;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
@@ -74,7 +74,7 @@ S(\pi^\*) \;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
 \]
 $$
 
-2. \textbf{Breadth/coverage:}
+2. _Breadth coverage:_
 Let $\{\mathcal{T}_k\}_{k=1}^K$ be a partition of $\mathcal{T}$ into disjoint task families (e.g., robotics, design, negotiation, scientific discovery). For at least a fraction $\beta$ of these families,
 $$
 \[
@@ -83,7 +83,7 @@ $$
 \mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi,e) \big].
 \]
 $$
-3. \textbf{Robustness:}
+3. _Robustness:_
 The inequalities above hold under bounded distribution shift
 $$
 \[
@@ -92,7 +92,7 @@ $$
 $$
 and under perturbations to sensing/actuation noise within specified envelopes.
 
-4. \textbf{Safety/constraints:}
+4. _Safety and constraints:_
 $U$ includes constraint violations (harm, legal breaches) with large negative terms; dominance must hold without increasing expected harm above human baselines.
 
 This makes “decisive and sustained superiority” into \textbf{$(\delta,\beta,\epsilon)$-dominance}, measurable and auditable.
