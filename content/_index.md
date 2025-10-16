@@ -72,7 +72,7 @@ S(\pi^\*) \;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
 \quad \text{for some margin } \delta>0.
 $$
 
-2. _Breadth coverage:_ Let ${\mathcal{T}_k}_{k=1}$ be a partition of 
+2. _Breadth coverage:_ Let ${\mathcal{T}_k}$ be a partition of 
 
 
 
