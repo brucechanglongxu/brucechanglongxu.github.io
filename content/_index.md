@@ -42,6 +42,77 @@ Together with cofounders, I started _Meirona_ a stealth platform building a glob
 
 > **Superintelligence:** An artificial system—whether a single model, a network of models, or a tightly coordinated agentic collective—whose general problem‑solving and strategic abilities across virtually all domains are decisively and sustainably superior to those of the best human experts and human organizations, enabling it to create new knowledge, plan and act autonomously in open‑ended environments, and (often, though not necessarily) improve its own capabilities.
 
+From a more rigorous, axiomatic perspective, I propose that superintelligence can be defined with the following framework.
+Let:
+- $\mathcal{E}$ be a set of environments (simulated or real), each modeled as a partially observable, stochastic control process (e.g., POMDPs with continuous state/action for physical tasks).
+- $\mathcal{T}$ be a task distribution over $\mathcal{E}$ (covering science, engineering, manipulation, navigation, multi-agent coordination, etc.).
+- $\mathcal{R}$ be resource budgets: time, sample/episode count, energy, compute, sensors/actuators, and allowed external tools.
+- $\Pi$ be the set of admissible policies/agents (human teams, institutions, and AI systems), each bound to the same $\mathcal{R}$.
+- For task $e \sim \mathcal{T}$, let $U(\pi,e)$ be the utility/performance (cumulative reward, task success, profit, safety-weighted return, etc.), with penalties for unsafe actions, violations, or collateral harm.
+
+% Normalized, resource-fair performance
+\paragraph{Resource-normalized score.}
+\[
+S(\pi) \;=\; \mathbb{E}_{e \sim \mathcal{T}}\!\left[\, U(\pi,e) \;\middle|\; \mathcal{R} \,\right].
+\]
+(If needed, include a Lagrangian to price resource use:
+\[
+U'(\pi,e) \;=\; U(\pi,e) \;-\; \lambda \cdot \mathrm{Resources}(\pi,e).
+\])
+
+% Human/institutional reference set
+\paragraph{Human/institutional reference set.}
+Let $\Pi_{\mathrm{H}}$ be the reference frontier of the best human experts and institutions under the same $\mathcal{R}$ (operationalized via champion baselines, world records, or certified human-team policies measured in the same testbed).
+
+% Decisive, general dominance
+\paragraph{Decisive, general dominance.}
+An agent $\pi^\*$ is \emph{superintelligent (ASI)} w.r.t.\ $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
+
+1. \textbf{Average dominance:}
+\[
+S(\pi^\*) \;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
+\quad \text{for some margin } \delta>0.
+\]
+
+2. \textbf{Breadth/coverage:}
+Let $\{\mathcal{T}_k\}_{k=1}^K$ be a partition of $\mathcal{T}$ into disjoint task families (e.g., robotics, design, negotiation, scientific discovery). For at least a fraction $\beta$ of these families,
+\[
+\mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi^\*,e) \big]
+\;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}}
+\mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi,e) \big].
+\]
+
+3. \textbf{Robustness:}
+The inequalities above hold under bounded distribution shift
+\[
+\mathsf{Shift}(\mathcal{T}\!\to\!\mathcal{T}') \;\le\; \epsilon
+\]
+and under perturbations to sensing/actuation noise within specified envelopes.
+
+4. \textbf{Safety/constraints:}
+$U$ includes constraint violations (harm, legal breaches) with large negative terms; dominance must hold without increasing expected harm above human baselines.
+
+This makes “decisive and sustained superiority” into \textbf{$(\delta,\beta,\epsilon)$-dominance}, measurable and auditable.
+
+% Practical metrics (optional, if you want to include)
+\paragraph{Practical metrics.}
+Dominance Ratio:
+\[
+D \;=\; \frac{S(\pi^\*)}{\max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)}.
+\]
+Breadth Index:
+\[
+\mathrm{BI} \;=\; \frac{1}{K}\sum_{k=1}^K
+\mathbf{1}\!\left[
+\mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi^\*,e) \big]
+\;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}}
+\mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi,e) \big]
+\right].
+\]
+
+Robustness radius: the largest $\epsilon$ for which the dominance conditions hold.
+Safety gap: the difference in incident rates vs.\ the human frontier at equal performance.
+
 ### A Hitchhiker's Timeline of Modern-day AGI
 
 Modern AI rides on more than 70 years of compounding technologies. From the 1947 transistor and 1958 integrated circuit to the 1971 microprocessor and deep-submicron CMOS. This foundation led to the invention fo the modern day AI processor, and in 2006 CUDA made GPUs generally programmable - in 2010-1015, Fermi, Kepler and Maxwell normalized massive parallelism and device memory hierarchies within and across GPUs, to train the intelligence we now call AI. The art of intimate "co-design" between hardware and software evolved to make sure that AI was being fed with meaningful work and data - in 2017 the "Tensor Core" (and corresponding software advances such as CUTLASS) was introduced that revolutionized the possibility of GEMMs (general matrix multiplies) at global economic scale, alongside innovations such as the TPU, Cerebras Wafer and more. Transformers became important enough that entire cores were introduced to accelerate this particular workload (H100s introduced "Transformer Engines" in FP8 to truly optimize attention and MLP). cuDNN, NCCL, Horovod industrialized multi-GPU training; leading to innovations such as Megatron, DeepSpeed that enabled tensor, pipeline, data parallel training paradigms to complement sharding (ZeRO/FSDP) techniques, activation checkpointing and optimizer state partitioning - trillion parameter models could perceivably be accomplished even in light of the memory wall. Every processor could be individually tightly controlled with JAX, Triton and custom-kernels (e.g. FlashAttention), and orchestrated alongside its peers with these new techniques. 
