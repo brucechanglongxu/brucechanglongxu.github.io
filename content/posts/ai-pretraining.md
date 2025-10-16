@@ -107,7 +107,7 @@ _Derivation of Theorem Alpha_
 
 Weight FLOPs for multiplying a matrix $W$ is equal to $6$ times the batch size times the size of $W$. 
 
-## Quantization at pre-training
+## Quantization during pre-training
 
 There are two main forms of quantization at the pre-training phase. The first is _low-precision training._ 
 
