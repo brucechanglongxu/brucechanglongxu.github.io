@@ -89,7 +89,7 @@ and under perturbations to sensing/actuation noise within specified envelopes.
 
 This makes the notion of _“decisive and sustained superiority”_ into **$(\delta,\beta,\epsilon)$-dominance** quantifiable and measurable. 
 
-Some more practical metrics, we define the _dominance ratio_ as $D \;=\; \frac{S(\pi^\*)}{\max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)}.$, and the _breadth index_ as 
+Some more practical metrics, we define the _dominance ratio_ as $D = \frac{S(\pi^\*)}{\max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)}.$, and the _breadth index_ as 
 
 Breadth Index:
 \[
