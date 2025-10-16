@@ -44,8 +44,7 @@ Together with cofounders, I started _Meirona_ a stealth platform building a glob
 
 > **Superintelligence:** An artificial system—whether a single model, a network of models, or a tightly coordinated agentic collective—whose general problem‑solving and strategic abilities across virtually all domains are decisively and sustainably superior to those of the best human experts and human organizations, enabling it to create new knowledge, plan and act autonomously in open‑ended environments, and (often, though not necessarily) improve its own capabilities.
 
-From a more rigorous, axiomatic perspective, I propose that superintelligence can be defined with the following framework.
-Let:
+All powerful frameworks begin with robust definitions. From a more rigorous, axiomatic perspective, I propose that superintelligence can be defined as follows. Let:
 - $\mathcal{E}$ be a set of environments (simulated or real), each modeled as a partially observable, stochastic control process (e.g., POMDPs with continuous state/action for physical tasks).
 - $\mathcal{T}$ be a task distribution over $\mathcal{E}$ (covering science, engineering, manipulation, navigation, multi-agent coordination, etc.).
 - $\mathcal{R}$ be resource budgets: time, sample/episode count, energy, compute, sensors/actuators, and allowed external tools.
