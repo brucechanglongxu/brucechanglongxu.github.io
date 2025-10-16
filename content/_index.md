@@ -3,6 +3,33 @@ title: "Bruce Changlong Xu"
 description: "AI, healthcare, and the road to superintelligence."
 ---
 
+<!-- MathJax site-local init -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']]
+  },
+  options: {
+    skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+
+<!-- Enable blockquotes -->
+<style>
+blockquote {
+  font-style: italic;
+  color: #444;
+  border-left: 4px solid #aaa;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background: #f9f9f9;
+}
+</style>
+
 I currently support frontier AI training and inference systems at _Cerebras_, where we work with the world's most pioneering enterprises, governments, and institutions such as GlaxoSmithKline, Novo Nordisk, Perplexity, Mistral, G42 and other leaders to build transformative artificial intelligence.  
 
 I have the privilege to support my talented friends at [3Cap AGI Partners](https://3cagi.vc/) to invest in the next generation of companies defining AGI infrastructure. Alongside them, I was fortunate to personally invest in [Synchron's Series D](https://synchron.com/), which is pioneering endovascular brain-computer interface technology for patients worldwide. As a member of _Asia Society's Dragon and Eagle Rising Leaders Council_, I am part of a wonderful community that helps to promote crucial dialogue between the East and the West in areas such as AI Governance and Oncology Clinical Trial Harmonization. 
