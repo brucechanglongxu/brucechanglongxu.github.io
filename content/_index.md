@@ -69,27 +69,32 @@ Let $\Pi_{\mathrm{H}}$ be the reference frontier of the best human experts and i
 % Decisive, general dominance
 
 _Decisive, general dominance._
-An agent $\pi^\*$ is \emph{superintelligent (ASI)} w.r.t.\ $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
+An agent $\pi^\*$ is **superintelligent (ASI)** w.r.t.\ $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
 
 1. \textbf{Average dominance:}
+$$
 \[
 S(\pi^\*) \;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
 \quad \text{for some margin } \delta>0.
 \]
+$$
 
 2. \textbf{Breadth/coverage:}
 Let $\{\mathcal{T}_k\}_{k=1}^K$ be a partition of $\mathcal{T}$ into disjoint task families (e.g., robotics, design, negotiation, scientific discovery). For at least a fraction $\beta$ of these families,
+$$
 \[
 \mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi^\*,e) \big]
 \;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}}
 \mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi,e) \big].
 \]
-
+$$
 3. \textbf{Robustness:}
 The inequalities above hold under bounded distribution shift
+$$
 \[
 \mathsf{Shift}(\mathcal{T}\!\to\!\mathcal{T}') \;\le\; \epsilon
 \]
+$$
 and under perturbations to sensing/actuation noise within specified envelopes.
 
 4. \textbf{Safety/constraints:}
