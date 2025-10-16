@@ -50,9 +50,9 @@ Let:
 - $\Pi$ be the set of admissible policies/agents (human teams, institutions, and AI systems), each bound to the same $\mathcal{R}$.
 - For task $e \sim \mathcal{T}$, let $U(\pi,e)$ be the utility/performance (cumulative reward, task success, profit, safety-weighted return, etc.), with penalties for unsafe actions, violations, or collateral harm.
 
-% Normalized, resource-fair performance
+Normalized, resource-fair performance (resource-normalized score). 
+
 $$
-\paragraph{Resource-normalized score.}
 \[
 S(\pi) \;=\; \mathbb{E}_{e \sim \mathcal{T}}\!\left[\, U(\pi,e) \;\middle|\; \mathcal{R} \,\right].
 \]
@@ -67,6 +67,7 @@ $$
 Let $\Pi_{\mathrm{H}}$ be the reference frontier of the best human experts and institutions under the same $\mathcal{R}$ (operationalized via champion baselines, world records, or certified human-team policies measured in the same testbed).
 
 % Decisive, general dominance
+
 \paragraph{Decisive, general dominance.}
 An agent $\pi^\*$ is \emph{superintelligent (ASI)} w.r.t.\ $(\mathcal{T},\mathcal{R},U)$ if it Pareto-dominates $\Pi_{\mathrm{H}}$ across domains, not just on average:
 
