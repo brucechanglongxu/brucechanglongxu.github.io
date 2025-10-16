@@ -51,6 +51,7 @@ Let:
 - For task $e \sim \mathcal{T}$, let $U(\pi,e)$ be the utility/performance (cumulative reward, task success, profit, safety-weighted return, etc.), with penalties for unsafe actions, violations, or collateral harm.
 
 % Normalized, resource-fair performance
+$$
 \paragraph{Resource-normalized score.}
 \[
 S(\pi) \;=\; \mathbb{E}_{e \sim \mathcal{T}}\!\left[\, U(\pi,e) \;\middle|\; \mathcal{R} \,\right].
@@ -59,6 +60,7 @@ S(\pi) \;=\; \mathbb{E}_{e \sim \mathcal{T}}\!\left[\, U(\pi,e) \;\middle|\; \ma
 \[
 U'(\pi,e) \;=\; U(\pi,e) \;-\; \lambda \cdot \mathrm{Resources}(\pi,e).
 \])
+$$
 
 % Human/institutional reference set
 \paragraph{Human/institutional reference set.}
