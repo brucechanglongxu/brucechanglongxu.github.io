@@ -64,8 +64,8 @@ U'(\pi,e) = U(\pi,e) - \lambda \cdot \mathrm{Resources}(\pi,e)
 \]
 $$
 
-% Human/institutional reference set
-\paragraph{Human/institutional reference set.}
+_Human/institutional reference set_
+
 Let $\Pi_{\mathrm{H}}$ be the reference frontier of the best human experts and institutions under the same $\mathcal{R}$ (operationalized via champion baselines, world records, or certified human-team policies measured in the same testbed).
 
 % Decisive, general dominance
