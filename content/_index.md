@@ -56,10 +56,12 @@ $$
 \[
 S(\pi) \;=\; \mathbb{E}_{e \sim \mathcal{T}}\!\left[\, U(\pi,e) \;\middle|\; \mathcal{R} \,\right].
 \]
-(If needed, include a Lagrangian to price resource use:
+$$
+with the following langrangian to price resource use:
+$$
 \[
 U'(\pi,e) \;=\; U(\pi,e) \;-\; \lambda \cdot \mathrm{Resources}(\pi,e).
-\])
+\]
 $$
 
 % Human/institutional reference set
