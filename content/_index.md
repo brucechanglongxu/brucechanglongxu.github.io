@@ -81,17 +81,15 @@ $$
 \]
 $$
 
-3. _Robustness:_
-The inequalities above hold under bounded distribution shift
+3. _Robustness:_ The inequalities above hold under bounded distribution shift
 $$
 \[
-\mathsf{Shift}(\mathcal{T}\!\to\!\mathcal{T}') \;\le\; \epsilon
+\mathsf{Shift}(\mathcal{T} \to \mathcal{T}') \le \epsilon
 \]
 $$
 and under perturbations to sensing/actuation noise within specified envelopes.
 
-4. _Safety and constraints:_
-$U$ includes constraint violations (harm, legal breaches) with large negative terms; dominance must hold without increasing expected harm above human baselines.
+4. _Safety and constraints:_ $U$ includes constraint violations (harm, legal breaches) with large negative terms; dominance must hold without increasing expected harm above human baselines.
 
 This makes “decisive and sustained superiority” into \textbf{$(\delta,\beta,\epsilon)$-dominance}, measurable and auditable.
 
