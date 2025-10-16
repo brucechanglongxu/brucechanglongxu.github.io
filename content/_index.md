@@ -40,6 +40,8 @@ Together with cofounders, I started _Meirona_ a stealth platform building a glob
 
 ---
 
+**Towards ASI: _A Rigorous Definition_**
+
 > **Superintelligence:** An artificial system—whether a single model, a network of models, or a tightly coordinated agentic collective—whose general problem‑solving and strategic abilities across virtually all domains are decisively and sustainably superior to those of the best human experts and human organizations, enabling it to create new knowledge, plan and act autonomously in open‑ended environments, and (often, though not necessarily) improve its own capabilities.
 
 From a more rigorous, axiomatic perspective, I propose that superintelligence can be defined with the following framework.
