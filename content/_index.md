@@ -50,17 +50,17 @@ Let:
 - $\Pi$ be the set of admissible policies/agents (human teams, institutions, and AI systems), each bound to the same $\mathcal{R}$.
 - For task $e \sim \mathcal{T}$, let $U(\pi,e)$ be the utility/performance (cumulative reward, task success, profit, safety-weighted return, etc.), with penalties for unsafe actions, violations, or collateral harm.
 
-Normalized, resource-fair performance (resource-normalized score). 
+_Normalized, resource-fair performance (resource-normalized score)._ 
 
 $$
 \[
-S(\pi) \;=\; \mathbb{E}_{e \sim \mathcal{T}}\!\left[\, U(\pi,e) \;\middle|\; \mathcal{R} \,\right].
+S(\pi) = \mathbb{E}_{e \sim \mathcal{T}}\left[U(\pi,e) \middle| \mathcal{R} \right]
 \]
 $$
 with the following langrangian to price resource use:
 $$
 \[
-U'(\pi,e) \;=\; U(\pi,e) \;-\; \lambda \cdot \mathrm{Resources}(\pi,e).
+U'(\pi,e) = U(\pi,e) - \lambda \cdot \mathrm{Resources}(\pi,e)
 \]
 $$
 
