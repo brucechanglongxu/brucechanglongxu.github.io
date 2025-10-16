@@ -77,7 +77,7 @@ $$
 \mathbb{E}_{e \sim \mathcal{T}_k} \big[ U(\pi^*,e) \big] \ge (1 + \delta)
 \cdot M$$
 
-where $M = \max_{\pi \in \Pi_{H}} \mathbb{E}_{e \in \mathcal{T}_k}[U(\pi, e)]$
+where $M = \max_{\pi \in \Pi_{H}} \mathbb{E}_{e \in \mathcal{T}_k}[U(\pi, e)]$.
 
 3. _Robustness:_ The inequalities above hold under bounded distribution shift
 $$
