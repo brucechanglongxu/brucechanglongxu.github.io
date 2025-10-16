@@ -68,7 +68,7 @@ _Decisive, general dominance._ An agent $\pi^\*$ is **superintelligent (ASI)** w
 
 1. _Average dominance:_
 $$
-S(\pi^\*) \;\ge\; (1+\delta)\, \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
+S(\pi^\*) \ge (1+\delta)\ \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
 \quad \text{for some margin } \delta>0.
 $$
 
