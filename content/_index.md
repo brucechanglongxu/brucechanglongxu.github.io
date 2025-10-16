@@ -73,10 +73,9 @@ S(\pi^\*) \ge (1+\delta)\ \max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)
 $$
 
 2. _Breadth coverage:_ Let ${\mathcal{T}_k}$ ($k=1,...,K$) be a partition of $\mathcal{T}$ into disjoint task families (e.g. robotics, design, negotiation, scientific discovery). For at least a fraction $\beta$ of these familes:
+
 $$
 \mathbb{E}_{e \sim \mathcal{T}_k} \big[ U(\pi^*,e) \big]
-\ge (1+\delta), \max_{\pi \in \Pi_{\mathrm{H}}}
-\mathbb{E}_{e \sim \mathcal{T}_k} \big[ U(\pi,e) \big].
 $$
 
 3. _Robustness:_ The inequalities above hold under bounded distribution shift
