@@ -96,9 +96,6 @@ Some more practical metrics, we define the _dominance ratio_ as $D = \frac{S(\pi
 $$
 \mathrm{BI} = \frac{1}{K}\sum_{k=1}^K = \mathbf{1} \left[ \mathbb{E}_{e \sim \mathcal{T}_k}[U(\pi^*, e)] \ge (1 + \delta)  \right]
 $$
-$$
-\max_{\pi \in \Pi_{H}}
-$$
 
  \mathbf{max}_{x \in \Pi_{H}} \mathbb{E}_{e \sim \mathcal{T}_k}[U(\pi, e)]
 
