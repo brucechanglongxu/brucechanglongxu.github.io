@@ -91,19 +91,6 @@ and under perturbations to sensing/actuation noise within specified envelopes.
 
 This makes the notion of _“decisive and sustained superiority”_ into **$(\delta,\beta,\epsilon)$-dominance** quantifiable and measurable. 
 
-Some more practical metrics, we define the _dominance ratio_ as $D = \frac{S(\pi^\*)}{\max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)}.$, and the _breadth index_ as 
-
-$$
-\mathrm{BI} = \frac{1}{K}\sum_{k=1}^K = \mathbf{1} \left[ \mathbb{E}_{e \sim \mathcal{T}_k}[U(\pi^*, e)] \ge (1 + \delta)  \right]
-$$
-$$
-\mathbf{max}_{x\in \Pi_{H}}
-$$
- \mathbf{max}_{x \in \Pi_{H}} \mathbb{E}_{e \sim \mathcal{T}_k}[U(\pi, e)]
-
-Robustness radius: the largest $\epsilon$ for which the dominance conditions hold.
-Safety gap: the difference in incident rates vs.\ the human frontier at equal performance.
-
 ### A Hitchhiker's Timeline of Modern-day AGI
 
 Modern AI rides on more than 70 years of compounding technologies. From the 1947 transistor and 1958 integrated circuit to the 1971 microprocessor and deep-submicron CMOS. This foundation led to the invention fo the modern day AI processor, and in 2006 CUDA made GPUs generally programmable - in 2010-1015, Fermi, Kepler and Maxwell normalized massive parallelism and device memory hierarchies within and across GPUs, to train the intelligence we now call AI. The art of intimate "co-design" between hardware and software evolved to make sure that AI was being fed with meaningful work and data - in 2017 the "Tensor Core" (and corresponding software advances such as CUTLASS) was introduced that revolutionized the possibility of GEMMs (general matrix multiplies) at global economic scale, alongside innovations such as the TPU, Cerebras Wafer and more. Transformers became important enough that entire cores were introduced to accelerate this particular workload (H100s introduced "Transformer Engines" in FP8 to truly optimize attention and MLP). cuDNN, NCCL, Horovod industrialized multi-GPU training; leading to innovations such as Megatron, DeepSpeed that enabled tensor, pipeline, data parallel training paradigms to complement sharding (ZeRO/FSDP) techniques, activation checkpointing and optimizer state partitioning - trillion parameter models could perceivably be accomplished even in light of the memory wall. Every processor could be individually tightly controlled with JAX, Triton and custom-kernels (e.g. FlashAttention), and orchestrated alongside its peers with these new techniques. 
