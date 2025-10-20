@@ -94,6 +94,7 @@ This makes the notion of _“decisive and sustained superiority”_ into **$(\de
 Some more practical metrics, we define the _dominance ratio_ as $D = \frac{S(\pi^\*)}{\max_{\pi \in \Pi_{\mathrm{H}}} S(\pi)}.$, and the _breadth index_ as 
 
 Breadth Index:
+$$
 \[
 \mathrm{BI} \;=\; \frac{1}{K}\sum_{k=1}^K
 \mathbf{1}\!\left[
@@ -102,7 +103,7 @@ Breadth Index:
 \mathbb{E}_{e \sim \mathcal{T}_k}\!\big[ U(\pi,e) \big]
 \right].
 \]
-
+$$
 Robustness radius: the largest $\epsilon$ for which the dominance conditions hold.
 Safety gap: the difference in incident rates vs.\ the human frontier at equal performance.
 
