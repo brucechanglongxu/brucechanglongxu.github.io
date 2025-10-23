@@ -5,7 +5,6 @@ draft: false
 math: true
 ---
 
-
 <!-- MathJax site-local init -->
 <script>
 window.MathJax = {
@@ -20,6 +19,18 @@ window.MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+
+<!-- Enable blockquotes -->
+<style>
+blockquote {
+  font-style: italic;
+  color: #444;
+  border-left: 4px solid #aaa;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background: #f9f9f9;
+}
+</style>
 
 ## Multi-head Attention (MHA) in Transformers
 
