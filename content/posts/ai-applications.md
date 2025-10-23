@@ -23,7 +23,9 @@ window.MathJax = {
 
 ## Multi-head Attention (MHA) in Transformers
 
-At its core, an attention mechanism lets a model focus on the most relevant pieces of information by computing a _weighted sum_ of values, where the weights reflect the relevance of each value to a given query. 
+At its core, an attention mechanism lets a model focus on the most relevant pieces of information by computing a _weighted sum_ of values, where the weights reflect the relevance of each value to a given query. This can be viewed as a "soft" form of information retrieval, each query looks up all keys and softly retrieves their associated values according to a similarity score. 
+
+
 
 Applications are where capability meets consequence. A good application does not look like “a model with a UI”; it looks like a choreographed system that turns intent into outcomes under real constraints: latency, trust, safety, compliance, and cost. The model is the engine, but the car is everything around it—retrieval that keeps answers grounded and current, tools that execute real actions, guardrails that prevent harm, observability that explains behavior, and a feedback loop that steadily improves the whole stack. Done well, the experience feels simple to the user and operationally boring to the on-call engineer, even though it’s balancing tight budgets and shifting risk in the background.
 
