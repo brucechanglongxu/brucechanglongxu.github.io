@@ -21,6 +21,10 @@ window.MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
 
+## Multi-head Attention (MHA) in Transformers
+
+At its core, an attention mechanism lets a model focus on the most relevant pieces of information by computing a _weighted sum_ of values, where the weights reflect the relevance of each value to a given query. 
+
 Applications are where capability meets consequence. A good application does not look like “a model with a UI”; it looks like a choreographed system that turns intent into outcomes under real constraints: latency, trust, safety, compliance, and cost. The model is the engine, but the car is everything around it—retrieval that keeps answers grounded and current, tools that execute real actions, guardrails that prevent harm, observability that explains behavior, and a feedback loop that steadily improves the whole stack. Done well, the experience feels simple to the user and operationally boring to the on-call engineer, even though it’s balancing tight budgets and shifting risk in the background.
 
 Start with the serving path. Decoding is the hot loop, so you budget it like any other production system: shape requests into batches without blowing out tail latency, pin memory headroom for KV caches, and size concurrency to match your admission limits. Little’s law is a helpful sanity check for capacity planning—if requests arrive at rate $\lambda$ and the average time in system is $W$, then the average in-flight load is $L=\lambda W$; when $L$ rises, either slow the intake or shorten the work. Speculative decoding trims wall time, paged caches keep long contexts from thrashing, and autoscaling should be driven by both utilization and SLO proximity, not just raw QPS. Multi-tenant isolation and cost attribution matter as much as raw speed; an application that can’t keep tenants from starving each other, or can’t explain its cloud bill, is one outage or one executive review away from rollback.
