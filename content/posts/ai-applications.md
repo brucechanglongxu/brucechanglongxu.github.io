@@ -36,6 +36,15 @@ blockquote {
 
 The study of attention and Transformers is a journey from intuitive analogies (e.g. focusing on parts of the input like human attention) to sophisticated mathematical tools (e.g. softmax of dot products) to large-scale engineering (e.g. distributed training across GPUs). Mastering this will require an ability to fluidly move between these different levels of abstractionn, which is a challenging endeavour. However this will form a powerful foundation to deeply understand the backbone of almost every state-of-the-art AI system today, and the ability to push these frontiers even further - designing new model variants, and building infrastructure that serves a 100B parameter model to millions of users. 
 
+The complete Transformer architecture consists of the following components:
+
+1. **Positional Encoding:** 
+2. **Encoder Layer:** 
+  a. _Multi-head Self-Attention (MHA):_ This takes the outputs from the previous layer (or the embedding/positional-encoding outputs for the first layer) and performs multi-head self-attention as described. Because it is an encoder, this attention is now over the entire sequence (no future masking), and the output is a set of context-mixed representations for each token. 
+3. **Decoder Layer:** 
+  a. 
+4. **Layer Normalization and Residuals:**
+
 ## Self-attention in Transformers
 
 > Self-attention is a mechanism that enables a model to weigh the importance of different elements within a single input sequence to better understand the context and relationships between them, regardless of their distance in the sequence.
