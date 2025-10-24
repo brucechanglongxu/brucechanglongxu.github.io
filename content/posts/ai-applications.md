@@ -148,8 +148,7 @@ Version 1 rearranges the attention computation to avoid materializing the entire
 
 All the steps, $Q \cdot K^T$, softmax, dropout, and $P V$ are **fused in a single CUDA kernel**, eliminating redundant memory reads/writes between steps. The algorithm proceeds as follows (for one attention head at a time, though batch and heads are parallelized as usual):
 
-- _Tiled Forward Pass:_ Instead of computing $S = QK^T$ for all queries and keys at once, FlashAttention partitions the sequence into blocks (for example, blocks of 128 queries by 128 keys). It loops over key/value blocks 
-
+- _Tiled Forward Pass:_ Instead of computing $S = QK^T$ for all queries and keys at once, FlashAttention partitions the sequence into blocks (for example, blocks of 128 queries by 128 keys). It loops over key/value blocks for a given block of queries, loading a block of $Q$ and a block of $K$ (and corresponding $V$) from HBM into shared memory, computing the partial attention scores for that tile, and immediately applying Softmax normalization _within that tile_. Crucially, it keeps track of partial Softmax results so that after iterating over all key blocks, the final Softmax is correct as if done in one pass. 
 
 #### FlashAttention v2
 
