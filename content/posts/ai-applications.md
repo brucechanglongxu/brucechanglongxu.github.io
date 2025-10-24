@@ -125,14 +125,14 @@ Implementing MHA efficiently is critical for both training and inference of larg
 
 #### FlashAttention
 
-As discussed, the standard attention mechanism has two dominant bottlnecks:
+As discussed, the standard attention mechanism has two dominant bottlenecks:
 
 1. **Memory $O(N^2)$:** This is computing the attention matrix $A = \textbf{softmax}(\frac{QK^T}{\sqrt{d}})$ requires storing an N by N matrix in GPU memory, where N is the sequence length.
     - This is _prohibitively large_ for long sequences (e.g. N=16k would lead to 256 _million_ elements in our matrix)
     - Even if compute on the static matrix is feasible, writing intermediate results (e.g. $QK^T$ and the attention scores) to and from our HBM will completely dominate runtime.
 2. Even though the GPU has plenty of FLOPs (e.g. from Tensor Cores), the time is dominated by moving data (I/O) between HBM and on-chip SRAM/registers.
 
-
+From a kernel engineering standpoint, the FlashAttention is a streamining GEMM, softmax, and reduction fusion kernel. The key innovation is I/O-aware scheduling, where we minimize the read/write between DRAM, shared memory and registers, and maximize reuse inside the warp tiles. 
 
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
 
