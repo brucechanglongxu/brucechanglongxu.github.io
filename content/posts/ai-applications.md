@@ -38,7 +38,7 @@ The study of attention and Transformers is a journey from intuitive analogies (e
 
 The complete Transformer architecture consists of the following components:
 
-1. **Positional Encoding:** 
+1. **Positional Encoding:** Since self-attention on its on has no sense of token order, we must inject information about position. The original Transformer introduced _positional encodings_ which are fixed vectors that are added to the token embeddings at the bottom of the model to give each position a unique signal; Originally _sinusoidal positional embeddings_ were used.
 2. **Encoder Layer:** 
     - _Multi-head Self-Attention (MHA):_ This takes the outputs from the previous layer (or the embedding/positional-encoding outputs for the first layer) and performs multi-head self-attention as described. Because it is an encoder, this attention is now over the entire sequence (no future masking), and the output is a set of context-mixed representations for each token. 
 3. **Decoder Layer:** The decoder layer is similar to an encoder layer with one crucial addition, there are in total three sub-layers in the decoder layer of the transformer. 
