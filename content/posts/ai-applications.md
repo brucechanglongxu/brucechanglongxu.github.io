@@ -279,7 +279,7 @@ __global__  void flash_attn_fwd_kernel(
       O[i * d + k] = __float2half(val);
     }
   }
-  
+
 ```
 
 Here `__restrict__` tells the compiler that this pointer is the only way to access the memory that it points to. In GPU programming, especially in memory-bound kernels like attention, it is critical for the compiler to know when two pointers cannot alias (i.e point to the same memory). When we write `const half* __restrict Q` then we are promising that `Q`, `K`, `V` and `O` all point to distinct, non-overlapping memory regions. This allows the compiler (e.g. nvcc) to safely cache values in registers, avoid unnecessary loads, and fuse memory instructions more aggressively.
@@ -293,6 +293,65 @@ The `__shared__` memory space is a very important feature of the CUDA programmin
 Shared memory is a small, on-chip memory store (an SRAM cache) located very close to the GPU's SMs, and accessing this is up to 1000x faster than accessing global HBM. The memory allocated with `__shared__` is visible to all threads within the same thread block, but is not accessible to threads in different blocks, which makes it an ideal mechanism for cooperative data sharing among threads working on the same chunk of data (e.g. the tiling algorithms that we use in FlashAttention).
 
 Because multiple threads within a block might read and write to the same shared memory location, a synchronization function `__syncthreads()` is often required, to ensure that all threads in the block have completed their memory accesses before proceeding, to _prevent race conditions_. 
+
+Now let us take a look at how this kernel will be called and launched from the host (CPU) side. We will use `cudaMalloc` to allocate device (GPU) memory, copy data to and from the device with `cudaMemcpy`, launch the kernel with our grid/block configuration, and synchronize all the events with `cudaEventRecord`, `cudaDeviceSynchronize`, eventually freeing memory with `cudaFree`. 
+
+```cpp
+#include <cuda_runtime.h>
+#include <cstdio>
+
+void flash_attn_forward_launcher(
+    const half* h_Q, const half* h_K, const half* h_V,  // host input
+    half* h_O,                                          // host output
+    int N, int d
+) {
+    const size_t size_QKV = N * d * sizeof(half);
+    half *d_Q, *d_K, *d_V, *d_O;
+
+    // Allocate on device
+    cudaMalloc(&d_Q, size_QKV);
+    cudaMalloc(&d_K, size_QKV);
+    cudaMalloc(&d_V, size_QKV);
+    cudaMalloc(&d_O, size_QKV);
+
+    // Copy host → device
+    cudaMemcpy(d_Q, h_Q, size_QKV, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_K, h_K, size_QKV, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_V, h_V, size_QKV, cudaMemcpyHostToDevice);
+
+    // Kernel launch config
+    const int BLOCK_SIZE = 128;
+    int grid_size = (N + BLOCK_SIZE - 1) / BLOCK_SIZE;
+
+    // Timing (optional but best practice)
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+    cudaEventRecord(start);
+
+    flash_attn_fwd_kernel<<<grid_size, BLOCK_SIZE>>>(
+        d_Q, d_K, d_V, d_O, N, d);
+
+    cudaEventRecord(stop);
+    cudaEventSynchronize(stop);
+
+    float ms = 0.0f;
+    cudaEventElapsedTime(&ms, start, stop);
+    printf("FlashAttention forward took %.3f ms\n", ms);
+
+    // Copy result back
+    cudaMemcpy(h_O, d_O, size_QKV, cudaMemcpyDeviceToHost);
+
+    // Clean up
+    cudaFree(d_Q);
+    cudaFree(d_K);
+    cudaFree(d_V);
+    cudaFree(d_O);
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
+}
+
+```
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
