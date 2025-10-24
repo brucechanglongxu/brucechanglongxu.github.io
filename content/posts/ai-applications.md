@@ -63,8 +63,9 @@ Let us analyze the computational complexity at every step of this self-attention
 3. Softmax computation - $O(N^2)$
     - We apply the softmax function as a row-wise operation on the $N \times N$ score matrix, for each of the $N$ rows, the operations scale with the length of the row $N$. The complexity of this is $O(N^2)$, which is much smaller than $O(N^2 \cdot d)$ and is typically ignored in the final complexity value. 
 4. Computing the output matrix (attention weights multiplied by $V$) - $O(N^2 \cdot d)$ 
-    - Finally, the normalized $N \times N$ attention weight matrix is multiplied by the value matrix $V$ ($N \times d$).
-    - 
+    - Finally, the normalized $N \times N$ attention weight matrix is multiplied by the value matrix $V$ ($N \times d$). The overall time complexity of this operation is $O(N \cdot N \cdot d) = O(N^2 \cdot d)$. 
+
+Hence we see that the total computational complexity is the sum of $O(N \cdot d^2 + N^2 \cdot d + N^2 \cdot d)$. Note that $O(N^2 \cdot d)$ is usually the dominant factor (since N can become very very large), and cause the "quadratic complexity problem" for long sequences. 
 
 ## Expanding and Contracting in FFNs
 
