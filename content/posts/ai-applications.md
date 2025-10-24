@@ -210,7 +210,36 @@ __global__  void flash_attn_fwd_kernel(
     int i = blockIdx.x * BLOCK_SIZE + threadIdx.x;
     if (i >= N) return;
 
+    // Register for Q row and output accumulator
+    half q_row[D_HEAD];
+    float acc_row[D_HEAD] = {0.0f};
 
+    // Load q_row from global memory
+    #pragma unroll
+    for (int j = 0; j < D_HEAD; j++) {
+      q_row[j] = Q[i * d + j];
+    }
+
+    // Softmax accumulator (for numerical stability)
+    float max_score = -1e9f;
+    float sum_exp = 0.0f;
+
+    // Iterate over K/V tiles
+    for (int t = 0; t < gridDim.x; ++t) {
+      int j_base = t * BLOCK_SIZE;
+
+      // Load K/V tiles into shared memory
+      int j = j_base + threadIdx.x;
+      if (j < N) {
+        # pragma unroll
+        for (int d_i = 0; d_i < D_HEAD; d_i++) {
+            tile_K[threadIdx.x][d_i] = K[j * d + d_i];
+            tile_V[threadIdx.x][d_i] = V[j * d + d_i];
+        }
+      }
+
+      __syncthreads();
+    }
 
     }
 ```
