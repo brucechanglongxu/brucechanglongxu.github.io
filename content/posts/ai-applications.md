@@ -100,7 +100,8 @@ Implementing MHA efficiently is critical for both training and inference of larg
 
 - **Fused Attention Kernels:** One common yet effective strategy is to fuse the multiple sub-operations of attention ($Q \cdot K^T$, softmax, and applying the attention weights to $V$) into a single GPU kernel. By doing this, the intermediate results (e.g. the attentions cores) need not be written out to global memory and read back in; instead they are kept in on-chip registers or shared memory and immediately used for the next step, greatly reducing memory traffic and latency. 
 
-- **Leveraging Tensor Cores and Hardware Optimizations:** 
+- **Leveraging Tensor Cores and Hardware Optimizations:** Modern GPUs excel at dense matrix operations (via their Tensor Cores). Optimized MHA implementations tile their computations to make full use of these units. The $Q \cdot K^T$ and attention-weighted $V$ multiplies are cast into forms that utilize these tensor operations at maximum throughput. Meanwhile, certain transformations (like scaling by $\frac{1}{\sqrt{d_k}}$ and softmax) might be merged or overlapped with these matrix operations so that the GPU spends more time doing high-throughput math and less time on memory moves or scalar operations. 
+
 - **Memory and Cache Optimizations:** 
 
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
