@@ -96,7 +96,7 @@ _Additive vs. Dot-product Attention_
 
 > Every new idea in this space, be it FlashAttention, GQA, ALiBI, RoPE or block-sparse patterns, contributes to one of two goals: 1. Making attention faster/leaner or 2. Enabling attention to capture needed information more efficiently. 
 
-Implementing MHA efficiently is critical for both training and inference of large-scale AI models. The MHA mechanism is often a major contributor to the overall computation and memory usage in large Transformer networks; indeed training time can become very long dur to the quadratic cost complexity as models scale up in size. 
+Implementing MHA efficiently is critical for both training and inference of large-scale AI models. The MHA mechanism is often a major contributor to the overall computation and memory usage in large Transformer networks; indeed training time can become very long due to the quadratic cost complexity as models scale up in size. Naively computing MHA would involve multiple large matrix operations and memory-heavy steps: computing the $QK^T$ attention score matrix for each head (which for a sequence length $n$ is a huge $nxn$ matrix i.e. $O(n^2)$ operation), storing these scores, applying softmax, and then multiplying by the $V$ matrix. This could lead to significant memory bandwidth demand and under-utilization of compute units if not optimized. For example, the softmax computation is sequential, element-wise that does not fully leverage our GPU's parallel FMA units; and we will also need to read and write large intermediate matrices from high bandwidth memory (HBM). 
 
 - **Fused Attention Kernels:**
 - **Leveraging Tensor Cores and Hardware Optimizations:** 
