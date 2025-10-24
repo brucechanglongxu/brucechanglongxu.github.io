@@ -134,7 +134,11 @@ As discussed, the standard attention mechanism has two dominant bottlenecks:
 
 ![Alt text](/image-6.png)
 
+Before FlashAttention, there were attempts such as Triton-based kernels and newer cuDNN fused ops that improved on base-line naive full attention by fusing some steps of the operation, however FlashAttention established a new paradigm where we fuse _all_ the attention steps in one kernel, and reorganize computations to exploit the GPU memory hierarchy, yielding dramatic speedups without approximations.
+
 From a kernel engineering standpoint, the FlashAttention is a streamining GEMM, softmax, and reduction fusion kernel. The key innovation is I/O-aware scheduling, where we minimize the read/write between DRAM, shared memory and registers, and maximize reuse inside the warp tiles. 
+
+FlashAttention v1 was introduced to achive $O(N)$ memory usage instead of quadratic cost, and significantly higher speed by minimizing expensive HBM traffic. It does so by tiling the computation and working in on-chip SRAM (shared memory) as much as possible. 
 
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
 
