@@ -150,6 +150,8 @@ All the steps, $Q \cdot K^T$, softmax, dropout, and $P V$ are **fused in a singl
 
 - _Tiled Forward Pass:_ Instead of computing $S = QK^T$ for all queries and keys at once, FlashAttention partitions the sequence into blocks (for example, blocks of 128 queries by 128 keys). It loops over key/value blocks for a given block of queries, loading a block of $Q$ and a block of $K$ (and corresponding $V$) from HBM into shared memory, computing the partial attention scores for that tile, and immediately applying Softmax normalization _within that tile_. Crucially, it keeps track of partial Softmax results so that after iterating over all key blocks, the final Softmax is correct as if done in one pass. 
 
+> This choice of tile size (e.g. how many queries per block and how many keys per sub-block) is crucial. Larger tiles mean more reuse and fewer iterations (which improves compute efficiency), but they consume more shared memory and registers. 
+
 #### FlashAttention v2
 
 #### FlashAttention v3
