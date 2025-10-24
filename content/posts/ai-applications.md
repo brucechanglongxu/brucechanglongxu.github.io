@@ -132,6 +132,8 @@ As discussed, the standard attention mechanism has two dominant bottlenecks:
     - Even if compute on the static matrix is feasible, writing intermediate results (e.g. $QK^T$ and the attention scores) to and from our HBM will completely dominate runtime.
 2. Even though the GPU has plenty of FLOPs (e.g. from Tensor Cores), the time is dominated by moving data (I/O) between HBM and on-chip SRAM/registers.
 
+![Alt text](/image-6.png)
+
 From a kernel engineering standpoint, the FlashAttention is a streamining GEMM, softmax, and reduction fusion kernel. The key innovation is I/O-aware scheduling, where we minimize the read/write between DRAM, shared memory and registers, and maximize reuse inside the warp tiles. 
 
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
