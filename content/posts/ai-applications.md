@@ -146,6 +146,15 @@ FlashAttention v1 was introduced to achive $O(N)$ memory usage instead of quadra
 
 #### FlashAttention v3
 
+FlashAttention v1, v2 and v3 demonstrate how algorithm and kernel co-design can yield massive performance gains for a critical operation like attention, by being mindful of GPU memory hierarchies and parallel execution capabilities. The key takeaways are:
+
+1. Fuse operations to avoid memory bottlenecks
+2. Tile data to maximize on-chip reuse
+3. Parallelize across all available dimensions
+4. Overlap different computations to utilize all hardware units
+
+By following these principles and adjusting to the specifics of the GPU architecture, one can achieve performance that approaches the physical limits of the device, enabling training and inference of long-context LLMs at feasible speeds. 
+
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
