@@ -52,6 +52,8 @@ The input to a self-atttention layer is a sequence of N items (e.g. words or tok
 
 The output of the self-attention layer is a new sequence of N vectors, where each output vector is a _contextualized representation_ of the corresponding input item i.e. a list of new, context-aware word embeddings. It retains the exact same shape as the input. 
 
+In practice, we represent data as triplets of query (Q), key (K) and value (V) vectors. The _query_ represents what content we are looking for, each _key_ represents what content a particular value contains, and each _value_ is the content to retrieve. The model learns projections to produce Q, K, V from inputs (e.g. the same input sequence for self-attention), and uses a scoring function between Q and K to decide how much of each value to include in the output. This mechanism was first popularized to help sequence models _attend_ to relevant parts of an input. 
+
 ## Expanding and Contracting in FFNs
 
 > The **"expand and contract"** mechanism of the FFN allows us to take a rich, detailed summary of the input data, place it in a larger embedding/workspace to analyze it more thoroughly and give us more "room to think" in complex/non-linear ways, before contracting and distilling down to a smaller dimension to bring back our conclusions to a precise format. 
@@ -84,11 +86,15 @@ _Multihead Attention (MHA) with Mixture of Experts (MoE)_
 
 MHA is a core component for _how_ a Transformer attends to information, while MoE is an architectural modification (usually to the FFN layer) primarily aimed at improving the _efficiency and scalability_ of the model's overall capacity. [^1]
 
-
-
 _How MHA works_ 
 
-In practice, we represent data as triplets of query (Q), key (K) and value (V) vectors. The _query_ represents what content we are looking for, each _key_ represents what content a particular value contains, and each _value_ is the content to retrieve. The model learns projections to produce Q, K, V from inputs (e.g. the same input sequence for self-attention), and uses a scoring function between Q and K to decide how much of each value to include in the output. This mechanism was first popularized to help sequence models _attend_ to relevant parts of an input. 
+The mechanics of MHA is similar to that of self-attention, however for every input vector to the MHA layer of dimension $d$ (for example 512 dimensions), we decompose this vector into smaller sub-dimensions that are fed into each MHA head. For example, if we had $8$ heads, a $512$-dimension vector might be split into $8$ chumnks of $64$ dimensions each, creating $8$ separate sets of ${Q, K, V}$ matrices, each with its own independent, learned weight matrices $(W^Q, W^K, W^V)$. 
+
+Each of the $8$ heads independently computes the standard _scaled dot-product attention_ (described in the self-attention section), and each head produces its own contextualized output for every token, based on its specific focus. The outputs from all 8 heads are then concatenated (joined back together end-to-end), which results in a matrix that has the full original dimension (e.g. $8x \times 64 = 512$ dimensions). The concatenated output is passed through a final, dense linear layer with a new learned weight matrix ($W^O$) which mixes the information gathered by all the different heads and projects it into the final output space that has the correct dimensiosn to be passed to the next layer of the Transformer. 
+
+$$\textbf{MultiHeadAttention}(Q,K,V) = \textbf{Concat}(H_1, \cdots, H_h) \cdot W^O$$
+
+Indeed, MHA works by creating multiple "subspaces" where attention can operate differently - allowing our model to capture richer and more diverse set of relationships within the data simultaneously, providing a much more robust and powerful contextual understanding than a single attention mechanism could achieve alone. Furthermore, we can parallelize the operations of each of these 8 independent heads which makes wall-clock time much faster compared to running a single, large 512-dimension attention operation sequentially. 
 
 _Additive vs. Dot-product Attention_ 
 
