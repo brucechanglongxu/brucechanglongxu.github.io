@@ -36,7 +36,7 @@ blockquote {
 
 ![Alt text](/multi-head-attention.png)
 
-At its core, an attention mechanism lets a model focus on the most relevant pieces of information by computing a _weighted sum_ of values, where the weights reflect the relevance of each value to a given query. This can be viewed as a "soft" form of information retrieval, each query looks up all keys and softly retrieves their associated values according to a similarity score. 
+At its core, an attention mechanism lets a model focus on the most relevant pieces of information by computing a _weighted sum_ of values, where the weights reflect the relevance of each value to a given query. This can be viewed as a "soft" form of information retrieval, each query looks up all keys and softly retrieves their associated values according to a similarity score. Multi-Head Attention is an extension of the self-attention mechanism of Transformers that performs multiple attention operations in parallel, allowing our model to jointly attent to information from different representation subspaces at different positions. 
 
 > Multi-head attention (MHA) lends transformer-based AI models the ability to _jointly attend to information from across a sequence_. By running multiple attention heads in parallel, we are able to learn orthogonal and complementary representations, and create a more robust overall representation of the input data than a single attention head could.
 
@@ -45,6 +45,8 @@ Indeed, each attention head learns to focus on different aspects of data, for ex
 _Multihead Attention (MHA) with Mixture of Experts (MoE)_
 
 MHA is a core component for _how_ a Transformer attends to information, while MoE is an architectural modification (usually to the FFN layer) primarily aimed at improving the _efficiency and scalability_ of the model's overall capacity. [^1]
+
+_How MHA works_ 
 
 In practice, we represent data as triplets of query (Q), key (K) and value (V) vectors. The _query_ represents what content we are looking for, each _key_ represents what content a particular value contains, and each _value_ is the content to retrieve. The model learns projections to produce Q, K, V from inputs (e.g. the same input sequence for self-attention), and uses a scoring function between Q and K to decide how much of each value to include in the output. This mechanism was first popularized to help sequence models _attend_ to relevant parts of an input. 
 
