@@ -64,6 +64,8 @@ Note that there are a plethora of activation functions that we could use to intr
 
 The other activation function that has largely replaced ReLU is GeLU, which weights the input by its probability according to a Gaussian distribution, which applies a "probabilistic" form of gating. We apply the transformation $f(x) = x \cdot P(X \le x)$ where $P(X \le x)$ is the cumulative distribution function of the normal distribution. Note that this is smooth and continuous, and attenuates negative inputs but doesn't strictly zero them out like ReLU, which allows small negative values to pas through. This facilitates more stable training, and better performance - albeit, much more computational intensive. 
 
+> There are **four** sets of learnable parameters per FFN layer; the first $W_1$ is an expand weight matrix learned during training, the second is the corresponding bias for the first layer $b_1$. The third $W_2$ is a contract weight matrix learned during training, and the corresponding learned bias for that layer $b_2$. These parameters are shared _across all token positions_ within a single FFN layer.
+
 ## Multi-head Attention (MHA) in Transformers
 
 ![Alt text](/image-5.png)
