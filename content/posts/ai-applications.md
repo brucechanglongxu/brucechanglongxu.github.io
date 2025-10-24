@@ -34,6 +34,8 @@ blockquote {
 
 ## History of Transformers
 
+The study of attention and Transformers is a journey from intuitive analogies (e.g. focusing on parts of the input like human attention) to sophisticated mathematical tools (e.g. softmax of dot products) to large-scale engineering (e.g. distributed training across GPUs). Mastering this will require an ability to fluidly move between these different levels of abstractionn, which is a challenging endeavour. However this will form a powerful foundation to deeply understand the backbone of almost every state-of-the-art AI system today, and the ability to push these frontiers even further - designing new model variants, and building infrastructure that serves a 100B parameter model to millions of users. 
+
 ## Self-attention in Transformers
 
 > Self-attention is a mechanism that enables a model to weigh the importance of different elements within a single input sequence to better understand the context and relationships between them, regardless of their distance in the sequence.
@@ -52,7 +54,6 @@ The second linear layer then contracts this expanded, processed vector back to t
 
 ## Multi-head Attention (MHA) in Transformers
 
-![Alt text](/multi-head-attention.png)
 ![Alt text](/image-5.png)
 
 At its core, an attention mechanism lets a model focus on the most relevant pieces of information by computing a _weighted sum_ of values, where the weights reflect the relevance of each value to a given query. This can be viewed as a "soft" form of information retrieval, each query looks up all keys and softly retrieves their associated values according to a similarity score. Multi-Head Attention is an extension of the self-attention mechanism of Transformers that performs multiple attention operations in parallel, allowing our model to jointly attent to information from different representation subspaces at different positions. 
@@ -63,7 +64,11 @@ Indeed, each attention head learns to focus on different aspects of data, for ex
 
 _Multihead Attention (MHA) with Mixture of Experts (MoE)_
 
+![Alt text](/multi-head-attention.png)
+
 MHA is a core component for _how_ a Transformer attends to information, while MoE is an architectural modification (usually to the FFN layer) primarily aimed at improving the _efficiency and scalability_ of the model's overall capacity. [^1]
+
+
 
 _How MHA works_ 
 
