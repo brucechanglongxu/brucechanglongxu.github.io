@@ -131,7 +131,7 @@ Implementing MHA efficiently is critical for both training and inference of larg
 
   **[insert diagram]**
 
-  Several groups have implemented _block-sparse FlashAtttention_, which applies the original FA's IO-aware approach but skips blocks that are not needed. For example, using a sliding window of radius $w$, we would compute blocks near the diagonal and not the far-off blocks, leading to much faster computation times than dense FlashAttention for large contexts, at the cost of missing some long-range connections (depending on the sparsity pattern). Researchers have found however that cleverly chosen patterns (with some global tokens or random attention) can approximate full attention well. NVIDIA's ampere GPU even introduce hardware support for sparse (2:4 structured sparsity) matrix multiply. 
+  Several groups have implemented _block-sparse FlashAtttention_, which applies the original FA's IO-aware approach but skips blocks that are not needed. For example, using a sliding window of radius $w$, we would compute blocks near the diagonal and not the far-off blocks, leading to much faster computation times than dense FlashAttention for large contexts, at the cost of missing some long-range connections (depending on the sparsity pattern). Researchers have found however that cleverly chosen patterns (with some global tokens or random attention) can approximate full attention well. NVIDIA's ampere GPU even introduce hardware support for sparse (2:4 structured sparsity [^2]) matrix multiply. 
 
 > By sacrificing the ability of every token to attend to every other token, and instead structuring the pattern (often based on prior knowledge of locality in language or vision), one can bring the quadratic cost down substantially. When combined with FlashAttention-style tiling, block-sparse methods can become even more powerful. 
 
@@ -180,6 +180,7 @@ FlashAttention v1, v2 and v3 demonstrate how algorithm and kernel co-design can 
 By following these principles and adjusting to the specifics of the GPU architecture, one can achieve performance that approaches the physical limits of the device, enabling training and inference of long-context LLMs at feasible speeds. 
 
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
+[^2]: 2:4 sparsity is a specific instance of a more generla N:M structured sparsity where a block of M consecutive weights must contain at most N non-zero values. This achieves excellent acceleration on modern GPUs. Coarse-grained sparsity refers to pruning entire channels or blocks, with less accuracy at high sparsity levels than N:M but a simpler implementation.
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
