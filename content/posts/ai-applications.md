@@ -127,6 +127,8 @@ Implementing MHA efficiently is critical for both training and inference of larg
 
 - **Sparsification:** One of the most direct ways to tackle the quadratic complexity of attention is to _sparsify_ the attention matrix i.e. limit which queries can attend to which keys. **Block-sparse attention** means that we divide the $N \times N$ matrix into blocks (e.g. 32 by 32 or 64 by 64 submatrices) and zero-out (or skip) many of those blocks, computing only a subset that follows some pattern.
 
+  This is more GPU-efficient than arbitrary elementwise sparsity because computations can still be vectorized on blocks. Many long-document transformer variants use patterns like _local attention_ (each token attends only to tokens within a window of size $w$), or _dilated patterns_ or a mix of local and global tokens. These can be represented as a block-sparse matrix (with blocks along the diagonal for local attention for instance). The net benefit is that complexity reduces to $O(n \cdot w)$ rather than $O(n^2)$ (if each query attends to at most $w$ keys). 
+
 #### FlashAttention
 
 As discussed, the standard attention mechanism has two dominant bottlenecks:
