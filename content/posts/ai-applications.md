@@ -54,6 +54,18 @@ The output of the self-attention layer is a new sequence of N vectors, where eac
 
 In practice, we represent data as triplets of query (Q), key (K) and value (V) vectors. The _query_ represents what content we are looking for, each _key_ represents what content a particular value contains, and each _value_ is the content to retrieve. The model learns projections to produce Q, K, V from inputs (e.g. the same input sequence for self-attention), and uses a scoring function between Q and K to decide how much of each value to include in the output. This mechanism was first popularized to help sequence models _attend_ to relevant parts of an input. 
 
+Let us analyze the computational complexity at every step of this self-attention mechanism. 
+
+1. Computing Q, K, V matrices - $O(N \cdot d^2)$
+    - This involves multiplying the input matrix $X (N \times d)$ by the learned weight matrices $W^Q, W^K, W^V$ which are each of dimension $d \times d$. This gives us the Q, K, V matrices e.g. $Q = X \cdot W^Q$, each of which is a $N \times d$ matrix multiplied by a $d \times d$ matrix. The computational complexity of this is $O(N \cdot d \cdot d) = O(N \cdot d^2)$. 
+2. (Bottleneck) Computing the attention score matrix $(Q \cdot K^T)$ - $O(N^2 \cdot d)$
+    - This is the most computationally intensive step, where we multiply the Query matrix $Q(N \times d)$ by the transpose of the key matrix $K^T (d \times N)$. This gives us the scores $Q \cdot K^T$, and a resulting matrix shape of $N \times N$. The complexity of this step is $O(N \cdot d \cdot N) = O(N^2 \cdot d)$. 
+3. Softmax computation - $O(N^2)$
+    - We apply the softmax function as a row-wise operation on the $N \times N$ score matrix, for each of the $N$ rows, the operations scale with the length of the row $N$. The complexity of this is $O(N^2)$, which is much smaller than $O(N^2 \cdot d)$ and is typically ignored in the final complexity value. 
+4. Computing the output matrix (attention weights multiplied by $V$) - $O(N^2 \cdot d)$ 
+    - Finally, the normalized $N \times N$ attention weight matrix is multiplied by the value matrix $V$ ($N \times d$).
+    - 
+
 ## Expanding and Contracting in FFNs
 
 > The **"expand and contract"** mechanism of the FFN allows us to take a rich, detailed summary of the input data, place it in a larger embedding/workspace to analyze it more thoroughly and give us more "room to think" in complex/non-linear ways, before contracting and distilling down to a smaller dimension to bring back our conclusions to a precise format. 
