@@ -38,6 +38,8 @@ blockquote {
 
 The input to a self-atttention layer is a sequence of N items (e.g. words or tokens), each represented by a vector of dimension d (the embedding size, or model dimension). Because the inputs and outputs of a self-attention layer have the exact same shape, the layers can be stacked on top of each other (e.g. in a Transformer Encoder). 
 
+The output of the self-attention layer is a new sequenc eof N vectors, where each output vector is a _contextualized representation_ of the corresponding input item i.e. a list of new, context-aware word embeddings. It retains the exact same shape as the input. 
+
 ## Multi-head Attention (MHA) in Transformers
 
 ![Alt text](/multi-head-attention.png)
