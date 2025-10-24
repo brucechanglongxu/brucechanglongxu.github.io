@@ -213,7 +213,9 @@ __global__  void flash_attn_fwd_kernel(
 
 Here `__restrict__` tells the compiler that this pointer is the only way to access the memory that it points to. In GPU programming, especially in memory-bound kernels like attention, it is critical for the compiler to know when two pointers cannot alias (i.e point to the same memory). When we write `const half* __restrict Q` then we are promising that `Q`, `K`, `V` and `O` all point to distinct, non-overlapping memory regions. This allows the compiler (e.g. nvcc) to safely cache values in registers, avoid unnecessary loads, and fuse memory instructions more aggressively.
 
-Let us say that we have `O[i] = Q[i] + V[i]`. If Q, V and O are not marked as `__restrict__`, the compiler must assume O might alias Q or V. It then has to reload from memory (to be safe), or might not cache or reorder. But with `__restrict__`, the compiler knows that these do not overlap so it can cache and optimize freely. 
+Let us say that we have `O[i] = Q[i] + V[i]`. If Q, V and O are not marked as `__restrict__`, the compiler must assume O might alias Q or V. It then has to reload from memory (to be safe), or might not cache or reorder. But with `__restrict__`, the compiler knows that these do not overlap so it can cache and optimize freely. In practice, for memory-bound GPU kernels (like attention, matmuls, convs) this can give up to 10-30 percent speedup because it helps the compiler skip unnecessary loads. 
+
+> `__restrict__` tells the compiler not to be paranoid, since the pointers are safely independent from each other; it can cache, reorder and optimize freely.
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
