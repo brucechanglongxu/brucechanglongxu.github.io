@@ -123,6 +123,17 @@ Implementing MHA efficiently is critical for both training and inference of larg
 
 - **Memory and Cache Optimizations:** 
 
+#### FlashAttention
+
+As discussed, the standard attention mechanism has two dominant bottlnecks:
+
+1. **Memory $O(N^2)$:** This is computing the attention matrix $A = \textbf{softmax}(\frac{QK^T}{\sqrt{d}})$ requires storing an N by N matrix in GPU memory, where N is the sequence length.
+    - This is _prohibitively large_ for long sequences (e.g. N=16k would lead to 256 _million_ elements in our matrix)
+    - Even if compute on the static matrix is feasible, writing intermediate results (e.g. $QK^T$ and the attention scores) to and from our HBM will completely dominate runtime.
+2. Even though the GPU has plenty of FLOPs (e.g. from Tensor Cores), the time is dominated by moving data (I/O) between HBM and on-chip SRAM/registers.
+
+
+
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
