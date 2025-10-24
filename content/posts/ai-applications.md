@@ -196,21 +196,23 @@ An example of a FlashAttention CUDA kernel is as follows:
 #define D_HEAD 64 // head size (e.g. 64 or 128)
 
 __global__  void flash_attn_fwd_kernel(
+    // This is all stored in global, main HBM GPU memory, access is quite slow (high latency), and the Q/O matrices are read/written once per thread. The K/V matrices are accessed repeatedly in tiles.
     const half* __restrict__ Q,
     const half* __restrict__ K, 
     const half* __restrict__ V,
     half* __restrict__ O,
     int N, int d) {
     
-    // Shared memory for K and V tiles
+    // Shared memory for K and V tiles. This is fast on-chip SRAM cache, the BLOCK_SIZE (128) is the size of the tile being loaded by the thread block. D_HEAD is the dimension of the data. Threads within the same block read chunks of K/V from slow global memory into this fast shared memory to maximize computational throughput.
     __shared__ half tile_K[BLOCK_SIZE][D_HEAD];
     __shared__ half tile_V[BLOCK_SIZE][D_HEAD];
 
     // Load Q row assigned to this thread
+    // Each CUDA thread in this kernel is assigned to compute the full output for a single query row (corresponding to a single token in the input sequence)
     int i = blockIdx.x * BLOCK_SIZE + threadIdx.x;
     if (i >= N) return;
 
-    // Register for Q row and output accumulator
+    // Register for Q row and output accumulator. This is the fastest memory space, local to a single thread. q_row holds the query for the current token being processed, and the acc_row holds the accumulating output vector for the current token. Keeping data in registers avoids slow memory access during recomputation. 
     half q_row[D_HEAD];
     float acc_row[D_HEAD] = {0.0f};
 
