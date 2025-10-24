@@ -144,7 +144,7 @@ FlashAttention v1 was introduced to achive $O(N)$ memory usage instead of quadra
 
 Version 1 rearranges the attention computation to avoid materializing the entire $N \times N$ attention matrix on slow HBM. The core idea is to use _tiling_ in the sequence dimension and perform softmax reduction incrementally, so that only smaller sub-matrices are handled at any given time in fast on-chip memory.
 
-> The fundamental motivation of FlashAttention v1 was to reduce memory I/O even at the cost of extra compute. This bet paid off because GPUs have far higher FLOP capability than HBM bandwidth.
+> The fundamental motivation of FlashAttention v1 was to reduce memory I/O even at the cost of extra compute. This bet paid off because GPUs have far higher FLOP capability than HBM bandwidth. The key result was to bring _memory complexity_ down from $O(N^2)$ to $O(N)$ with a tiling technique and online softmax.
 
 All the steps, $Q \cdot K^T$, softmax, dropout, and $P V$ are **fused in a single CUDA kernel**, eliminating redundant memory reads/writes between steps. The algorithm proceeds as follows (for one attention head at a time, though batch and heads are parallelized as usual):
 
