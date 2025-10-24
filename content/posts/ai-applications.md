@@ -129,6 +129,12 @@ Implementing MHA efficiently is critical for both training and inference of larg
 
   This is more GPU-efficient than arbitrary elementwise sparsity because computations can still be vectorized on blocks. Many long-document transformer variants use patterns like _local attention_ (each token attends only to tokens within a window of size $w$), or _dilated patterns_ or a mix of local and global tokens. These can be represented as a block-sparse matrix (with blocks along the diagonal for local attention for instance). The net benefit is that complexity reduces to $O(n \cdot w)$ rather than $O(n^2)$ (if each query attends to at most $w$ keys). 
 
+  **[insert diagram]**
+
+  Several groups have implemented _block-sparse FlashAtttention_, which applies the original FA's IO-aware approach but skips blocks that are not needed. For example, using a sliding window of radius $w$, we would compute blocks near the diagonal and not the far-off blocks, leading to much faster computation times than dense FlashAttention for large contexts, at the cost of missing some long-range connections (depending on the sparsity pattern). Researchers have found however that cleverly chosen patterns (with some global tokens or random attention) can approximate full attention well. NVIDIA's ampere GPU even introduce hardware support for sparse (2:4 structured sparsity) matrix multiply. 
+
+> By sacrificing the ability of every token to attend to every other token, and instead structuring the pattern (often based on prior knowledge of locality in language or vision), one can bring the quadratic cost down substantially. When combined with FlashAttention-style tiling, block-sparse methods can become even more powerful. 
+
 #### FlashAttention
 
 As discussed, the standard attention mechanism has two dominant bottlenecks:
