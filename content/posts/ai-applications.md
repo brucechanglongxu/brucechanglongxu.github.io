@@ -146,7 +146,9 @@ Version 1 rearranges the attention computation to avoid materializing the entire
 
 > The fundamental motivation of FlashAttention v1 was to reduce memory I/O even at the cost of extra compute. This bet paid off because GPUs have far higher FLOP capability than HBM bandwidth. The key result was to bring _memory complexity_ down from $O(N^2)$ to $O(N)$ with a tiling technique and online softmax.
 
-All the steps, $Q \cdot K^T$, softmax, dropout, and $P V$ are **fused in a single CUDA kernel**, eliminating redundant memory reads/writes between steps. The algorithm proceeds as follows (for one attention head at a time, though batch and heads are parallelized as usual):
+All the steps, $Q \cdot K^T$, softmax, dropout, and $P V$ are **fused in a single CUDA kernel**, eliminating redundant memory reads/writes between steps. We break down the large matrix operations with tiling, and on-the-fly softmax normalization to avoid ever writing the full attention matrix to HBM. Queries Q are processed in blocks, and for each block Q, the kernel iterates over blocks K (and V), loading them into SRAM and computing partial scores $S = QK^T$ for that tile. These partial scores are exponentiated and accumulated into the softmax sum. Output aprtials ($P V$) are accumulated as well - by the end, the correct attention output is produced without storing intermediate $N \times N$ matrices. 
+
+The algorithm proceeds as follows (for one attention head at a time, though batch and heads are parallelized as usual):
 
 - _Tiled Forward Pass:_ Instead of computing $S = QK^T$ for all queries and keys at once, FlashAttention partitions the sequence into blocks (for example, blocks of 128 queries by 128 keys). It loops over key/value blocks for a given block of queries, loading a block of $Q$ and a block of $K$ (and corresponding $V$) from HBM into shared memory, computing the partial attention scores for that tile, and immediately applying Softmax normalization _within that tile_. Crucially, it keeps track of partial Softmax results so that after iterating over all key blocks, the final Softmax is correct as if done in one pass. 
 
