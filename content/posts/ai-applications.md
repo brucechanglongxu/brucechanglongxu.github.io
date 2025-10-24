@@ -125,6 +125,8 @@ Implementing MHA efficiently is critical for both training and inference of larg
 
   Multi-Query Attention (MQA) and Grouped-Query Attention (GQA) is a powerful innovation where instead of each head having its own distinct Key and Value matrices, multiple heads share a single K/V (or a smaller set of K/V groups). This reduces the memory footprint and overhead of the attention mechanism (especially beneficial for inference where K/V from all the past tokens are cached), and whilst we sacrifice some flexibility, we gain _drastically lower memory usage_. For instance, if 8 heads share one key/value set, the size of the cache (and the cost of computing attention) drops roughly by a factor of 8.
 
+- **Sparsification:** One of the most direct ways to tackle the quadratic complexity of attention is to _sparsify_ the attention matrix i.e. limit which queries can attend to which keys. **Block-sparse attention** means that we divide the $N \times N$ matrix into blocks (e.g. 32 by 32 or 64 by 64 submatrices) and zero-out (or skip) many of those blocks, computing only a subset that follows some pattern.
+
 #### FlashAttention
 
 As discussed, the standard attention mechanism has two dominant bottlenecks:
