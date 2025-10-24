@@ -62,7 +62,7 @@ The second linear layer then contracts this expanded, processed vector back to t
 
 Note that there are a plethora of activation functions that we could use to introduce non-linearities into our MLP, we mentioned ReLU (Rectified Linear Unit) which outputs the input directly if it is positive, otherwise it outputs zero. It is extremely fast to compute, and also sets negative values to zero, which makes the network sparse (fewer active neurons), leading to efficient computation. The problem with this is that if a neuron consistently receives negative inputs, its output is always zero, and gradients can no longer flow through it during training, which makes the neuron permanently inactive. Furthermore, the sharp "kink" at zero can sometimes lead to instability during training.
 
-The other activation function that has largely replaced ReLU is GeLU, which weights the input by its probability according to a Gaussian distribution, which applies a "probabilistic" form of gating. 
+The other activation function that has largely replaced ReLU is GeLU, which weights the input by its probability according to a Gaussian distribution, which applies a "probabilistic" form of gating. We apply the transformation $f(x) = x \cdot P(X \le x)$ where $P(X \le x)$ is the cumulative distribution function of the normal distribution. Note that this is smooth and continuous, and attenuates negative inputs but doesn't strictly zero them out like ReLU, which allows small negative values to pas through. This facilitates more stable training, and better performance - albeit, much more computational intensive. 
 
 ## Multi-head Attention (MHA) in Transformers
 
