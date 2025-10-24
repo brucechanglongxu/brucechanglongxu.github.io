@@ -42,6 +42,10 @@ At its core, an attention mechanism lets a model focus on the most relevant piec
 
 Indeed, each attention head learns to focus on different aspects of data, for example one might focus on positional relationships, another on syntactic dependencies, and a third on semantic meaning; each head projects the inputs queries, keys and values in different subspaces, allowing it to capture unique patterns. 
 
+_Multihead Attention (MHA) with Mixture of Experts (MoE)_
+
+MHA is a core component for _how_ a Transformer attends to information, while MoE is an architectural modification (usually to the FFN layer) primarily aimed at improving the _efficiency and scalability_ of the model's overall capacity. [^1]
+
 In practice, we represent data as triplets of query (Q), key (K) and value (V) vectors. The _query_ represents what content we are looking for, each _key_ represents what content a particular value contains, and each _value_ is the content to retrieve. The model learns projections to produce Q, K, V from inputs (e.g. the same input sequence for self-attention), and uses a scoring function between Q and K to decide how much of each value to include in the output. This mechanism was first popularized to help sequence models _attend_ to relevant parts of an input. 
 
 _Additive vs. Dot-product Attention_ 
@@ -70,3 +74,5 @@ In production, quality and economics meet. It helps to look at a simple ratio: t
 Shipping discipline keeps you out of the news. Releases ride canaries with automatic rollback on SLO breach or safety incident; model cards and changelogs turn behavior changes into something leaders and regulators can read. The same rigor applies to A/Bs: pre-register hypotheses, define stopping rules, and guard against peeking and novelty effects so you don’t ship mirages. When incidents happen—and they will—the application offers a clear path to remediation: reproduce, explain, patch, re-evaluate, and, if necessary, revert.
 
 In the end, “Applications” is not a veneer on top of a clever model; it is the environment in which the model learns to be useful, safe, and affordable. The best products make that environment explicit: grounded by retrieval, empowered by tools, wrapped in guardrails, observable to a fault, and stitched into a feedback loop that steadily raises the floor while lowering the cost. That is how real-world ASI earns trust—one request at a time, under the bright light of production.
+
+[^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
