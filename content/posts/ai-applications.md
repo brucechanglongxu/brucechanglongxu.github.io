@@ -142,6 +142,8 @@ FlashAttention v1 was introduced to achive $O(N)$ memory usage instead of quadra
 
 #### FlashAttention v1
 
+> The fundamental motivation of FlashAttention v1 was to reduce memory I/O even at the cost of extra compute. This bet paid off because GPUs have far higher FLOP capability than HBM bandwidth.
+
 #### FlashAttention v2
 
 #### FlashAttention v3
