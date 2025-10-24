@@ -34,6 +34,8 @@ blockquote {
 
 ## Multi-head Attention (MHA) in Transformers
 
+![Alt text](multi-head-attention.png)
+
 At its core, an attention mechanism lets a model focus on the most relevant pieces of information by computing a _weighted sum_ of values, where the weights reflect the relevance of each value to a given query. This can be viewed as a "soft" form of information retrieval, each query looks up all keys and softly retrieves their associated values according to a similarity score. 
 
 > Multi-head attention (MHA) lends transformer-based AI models the ability to _jointly attend to information from across a sequence_. 
