@@ -146,6 +146,10 @@ Version 1 rearranges the attention computation to avoid materializing the entire
 
 > The fundamental motivation of FlashAttention v1 was to reduce memory I/O even at the cost of extra compute. This bet paid off because GPUs have far higher FLOP capability than HBM bandwidth.
 
+All the steps, $Q \cdot K^T$, softmax, dropout, and $P V$ are fused in a single kernel, eliminating redundant memory reads/writes between steps. The algorithm proceeds as follows (for one attention head at a time, though batch and heads are parallelized as usual):
+
+
+
 #### FlashAttention v2
 
 #### FlashAttention v3
