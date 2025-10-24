@@ -140,6 +140,12 @@ From a kernel engineering standpoint, the FlashAttention is a streamining GEMM, 
 
 FlashAttention v1 was introduced to achive $O(N)$ memory usage instead of quadratic cost, and significantly higher speed by minimizing expensive HBM traffic. It does so by tiling the computation and working in on-chip SRAM (shared memory) as much as possible. The subsequent versions FlashAttention-2 (2023) and FlashAttention-3 (2024) build on this foundation, introducing better parallelism and leveraging new GPU features, respectively. Collectively, these methods have become the industry standard for high-performance attention, widely adopted in PyTorch's `scaled_dot_product_attention` and have enabled long-context LLMs.
 
+#### FlashAttention v1
+
+#### FlashAttention v2
+
+#### FlashAttention v3
+
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
