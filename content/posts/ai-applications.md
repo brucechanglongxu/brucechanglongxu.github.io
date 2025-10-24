@@ -206,6 +206,10 @@ __global__  void flash_attn_fwd_kernel(
     __shared__ half tile_K[BLOCK_SIZE][D_HEAD];
     __shared__ half tile_V[BLOCK_SIZE][D_HEAD];
 
+    // Load Q row assigned to this thread
+    int i = blockIdx.x * BLOCK_SIZE + threadIdx.x;
+    if (i >= N) return;
+
 
 
     }
@@ -216,6 +220,12 @@ Here `__restrict__` tells the compiler that this pointer is the only way to acce
 Let us say that we have `O[i] = Q[i] + V[i]`. If Q, V and O are not marked as `__restrict__`, the compiler must assume O might alias Q or V. It then has to reload from memory (to be safe), or might not cache or reorder. But with `__restrict__`, the compiler knows that these do not overlap so it can cache and optimize freely. In practice, for memory-bound GPU kernels (like attention, matmuls, convs) this can give up to 10-30 percent speedup because it helps the compiler skip unnecessary loads. 
 
 > `__restrict__` tells the compiler not to be paranoid, since the pointers are safely independent from each other; it can cache, reorder and optimize freely.
+
+The `__shared__` memory space is a very important feature of the CUDA programming model taht tells the CUDA compiler to allocate a variable in the GPU's shared memory rather than in the slower global memory or the private registers of a single thread. 
+
+Shared memory is a small, on-chip memory store (an SRAM cache) located very close to the GPU's SMs, and accessing this is up to 1000x faster than accessing global HBM. The memory allocated with `__shared__` is visible to all threads within the same thread block, but is not accessible to threads in different blocks, which makes it an ideal mechanism for cooperative data sharing among threads working on the same chunk of data (e.g. the tiling algorithms that we use in FlashAttention).
+
+Because multiple threads within a block might read and write to the same shared memory location, a synchronization function `__syncthreads()` is often required, to ensure that all threads in the block have completed their memory accesses before proceeding, to _prevent race conditions_. 
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
