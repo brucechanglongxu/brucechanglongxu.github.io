@@ -241,9 +241,45 @@ __global__  void flash_attn_fwd_kernel(
       }
 
       __syncthreads();
-    }
 
+    // Compute QK^T for this tile
+    #pragma unroll
+    for (int j_tile = 0; j_tile < BLOCK_SIZE; ++j_tile) {
+      int j_pos = j_base + j_tile;
+      if (j_pos >= N || j_pos > i) continue;
+
+      float dot = 0.0f;
+      #pragma unroll
+      for (int k = 0; k < D_HEAD; ++k) {
+        dot += __half2float(q_row[k]) * __half2float(tile_K[j_tile][k]);
+      }
+
+      float score = dot / sqrtf((float)D_HEAD);
+      float exp_score = __expf(score - max_score); // stable softmax 
+
+      // Update softmax denominator and max
+      max_score = fmaxf(max_score, score);
+      sum_exp += exp_score;
+
+      // Accumulate softmax * V
+      #pragma unroll
+      for (int k = 0; k < D_HEAD; ++k) {
+        acc_row[k] += exp_score * __half2float(tile_V[j_tile][k]);
+      }
     }
+    __syncthreads(); // reload new K/V tile
+
+  }
+
+    // Normalize output
+    float inv_sum_exp = 1.0f / (sum_exp + 1e-6f);
+    #pragma unroll
+    for (int k = 0; k < D_HEAD; ++k) {
+      float val = acc_row[k] * inv_sum_exp;
+      O[i * d + k] = __float2half(val);
+    }
+  }
+  
 ```
 
 Here `__restrict__` tells the compiler that this pointer is the only way to access the memory that it points to. In GPU programming, especially in memory-bound kernels like attention, it is critical for the compiler to know when two pointers cannot alias (i.e point to the same memory). When we write `const half* __restrict Q` then we are promising that `Q`, `K`, `V` and `O` all point to distinct, non-overlapping memory regions. This allows the compiler (e.g. nvcc) to safely cache values in registers, avoid unnecessary loads, and fuse memory instructions more aggressively.
