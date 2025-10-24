@@ -121,7 +121,9 @@ Implementing MHA efficiently is critical for both training and inference of larg
 
 - **Leveraging Tensor Cores and Hardware Optimizations:** Modern GPUs excel at dense matrix operations (via their Tensor Cores). Optimized MHA implementations tile their computations to make full use of these units. The $Q \cdot K^T$ and attention-weighted $V$ multiplies are cast into forms that utilize these tensor operations at maximum throughput. Meanwhile, certain transformations (like scaling by $\frac{1}{\sqrt{d_k}}$ and softmax) might be merged or overlapped with these matrix operations so that the GPU spends more time doing high-throughput math and less time on memory moves or scalar operations. 
 
-- **Memory and Cache Optimizations:** 
+- **Memory and Cache Optimizations:** Because attention can be memory-bandwidth bound for large $n$, layout and caching optimizations are important. This includes using shared memory to cache chunks of K or V that are reused across threads, coallescing memory accesses for reading/writing Q, K, V and organizing threads to reduce redundant loads. In multi-head attention, there is also opportunity to parallelize across heads (since each head's computation is independent until the final concatenation), GPUs can dispatch threads or warps for different heads concurrently, as long as the kernel is designed to handle that. 
+
+Multi-Query Attention (MQA) and Grouped-Query Attention (GQA) is a powerful innovation where instead of each head having its own distinct Key and Value matrices, multiple heads share a single K/V (or a smaller set of K/V groups). This reduces the memory footprint and overhead of the attention mechanism (especially beneficial for inference where K/V from all the past tokens are cached), and whilst we sacrifice some flexibility, we gain _drastically lower memory usage_. For instance, if 8 heads share one key/value set, the size of the cache (and the cost of computing attention) drops roughly by a factor of 8.
 
 #### FlashAttention
 
