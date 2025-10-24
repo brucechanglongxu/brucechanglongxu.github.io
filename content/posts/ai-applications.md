@@ -32,6 +32,8 @@ blockquote {
 }
 </style>
 
+## History of Transformers
+
 ## Self-attention in Transformers
 
 > Self-attention is a mechanism that enables a model to weigh the importance of different elements within a single input sequence to better understand the context and relationships between them, regardless of their distance in the sequence.
@@ -51,6 +53,7 @@ The second linear layer then contracts this expanded, processed vector back to t
 ## Multi-head Attention (MHA) in Transformers
 
 ![Alt text](/multi-head-attention.png)
+![Alt text](/image-5.png)
 
 At its core, an attention mechanism lets a model focus on the most relevant pieces of information by computing a _weighted sum_ of values, where the weights reflect the relevance of each value to a given query. This can be viewed as a "soft" form of information retrieval, each query looks up all keys and softly retrieves their associated values according to a similarity score. Multi-Head Attention is an extension of the self-attention mechanism of Transformers that performs multiple attention operations in parallel, allowing our model to jointly attent to information from different representation subspaces at different positions. 
 
