@@ -44,6 +44,10 @@ The output of the self-attention layer is a new sequence of N vectors, where eac
 
 > The **"expand and contract"** mechanism of the FFN allows us to take a rich, detailed summary of the input data, place it in a larger embedding/workspace to analyze it more thoroughly and give us more "room to think" in complex/non-linear ways, before contracting and distilling down to a smaller dimension to bring back our conclusions to a precise format. 
 
+More concretely, the input vector $x$ to the FFN layer (with a dimension d e.g. 512) is multiplied by a large weight matrix $W_1$, transforming it into a much larger vector (with dimension $4d$ e.g. 2048), allowing us to use an expanded embedding space to discover rich, non-linear patterns and store meaningful representations. Typically a non-linear activation function (usually GELU or ReLU) _immediately after expansion_, to prevent the FFN (essentially a 2-layer MLP) to collapse into a monolithic linear transform. 
+
+The second linear layer then contracts this expanded, processed vector back to the original dimension, forcing the network to distill the most important and useful information it found during the expansion phase. It ensures that the output vector fits the expected dimensions of the rest of the Transformer block (specifically the residual conneciton and the next layer). 
+
 ## Multi-head Attention (MHA) in Transformers
 
 ![Alt text](/multi-head-attention.png)
