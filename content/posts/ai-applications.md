@@ -80,3 +80,5 @@ Shipping discipline keeps you out of the news. Releases ride canaries with autom
 In the end, “Applications” is not a veneer on top of a clever model; it is the environment in which the model learns to be useful, safe, and affordable. The best products make that environment explicit: grounded by retrieval, empowered by tools, wrapped in guardrails, observable to a fault, and stitched into a feedback loop that steadily raises the floor while lowering the cost. That is how real-world ASI earns trust—one request at a time, under the bright light of production.
 
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
+
+1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
