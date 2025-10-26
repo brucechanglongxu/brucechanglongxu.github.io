@@ -376,7 +376,7 @@ void flash_attn_forward_launcher(
 
 ### Deconstructing Frontier OSS models from first principles
 
-To consolidate everything that we have discussed in this post, we will deconstruct two leading (as of 2025) open source models, Kimi K2 and Qwen2.5-32B. 
+To consolidate everything that we have discussed in this post, we will deconstruct two leading (as of 2025) open source models, Kimi K2 and Qwen2.5-32B, both are autoregressive decoder-only models that are intended to be served at scale, with low latency as text-generating intelligent assistants.
 
 | **Specification**            | **Qwen2.5-32B**                                 | **Kimi K2 (MoE)**                                                                                       |
 | ---------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
