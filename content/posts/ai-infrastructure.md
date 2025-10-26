@@ -42,7 +42,7 @@ To understand the relative latencies of memory operations in the SM (global memo
 
 ![Alt text](/image-9.png)
 
-We see that the GPU has enormous parallelism capacity. In practice this high throughput process exists as the _device_ in a data center, controlled and orchestrated by a _host_ (typically a CPU), connected via a PCIe network. Now the overarching and dominating heuristic in such a network topology is the amount of FLOPs provided to us far exceeds the memory bandwidth and network bandwidth that the PCIe, NVLink and HBM give us. In 
+We see that the GPU has enormous parallelism capacity. In practice this high throughput process exists as the _device_ in a data center, controlled and orchestrated by a _host_ (typically a CPU), connected via a PCIe network. Now the overarching and dominating heuristic in such a network topology is the amount of FLOPs provided to us far exceeds the memory bandwidth and network bandwidth that the PCIe, NVLink and HBM give us. The problem often isn't how much work our GPU can perform per second, _but how to keep the GPU fed_.
 
 ![Alt text](/image-10.png)
 
