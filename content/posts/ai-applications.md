@@ -291,100 +291,207 @@ By following these principles and adjusting to the specifics of the GPU architec
 An example of a FlashAttention CUDA kernel is as follows:
 
 ```cpp
-// Assumptions:
-// - Q, K, V: [N, d], row-major
-// - O: [N, d], row-major (output)
-// - N = sequence length, d = head dimension
-// - causal mask: ignore j > i when computing softmax(QK^T)
-// - all matrices in FP16
+// flash_attn_minimal.cu
+// A didactic FlashAttention-style forward kernel (single head).
+// - Q, K, V: [N, D] row-major, FP16 inputs
+// - O: [N, D] row-major, FP16 output
+// - Online softmax with running max m_i and exp-sum l_i
+// - Tiling over sequence (K/V tiles in shared memory)
+// - Causal flag masks j > i
+// NOTE: For clarity we keep math in float; real kernels vectorize and use Tensor Cores.
 
-#define BLOCK_SIZE 128
-#define D_HEAD 64 // head size (e.g. 64 or 128)
+#include <cuda_fp16.h>
+#include <cmath>
 
-__global__  void flash_attn_fwd_kernel(
-    // This is all stored in global, main HBM GPU memory, access is quite slow (high latency), and the Q/O matrices are read/written once per thread. The K/V matrices are accessed repeatedly in tiles.
-    const half* __restrict__ Q,
-    const half* __restrict__ K, 
-    const half* __restrict__ V,
-    half* __restrict__ O,
-    int N, int d) {
-    
-    // Shared memory for K and V tiles. This is fast on-chip SRAM cache, the BLOCK_SIZE (128) is the size of the tile being loaded by the thread block. D_HEAD is the dimension of the data. Threads within the same block read chunks of K/V from slow global memory into this fast shared memory to maximize computational throughput.
-    __shared__ half tile_K[BLOCK_SIZE][D_HEAD];
-    __shared__ half tile_V[BLOCK_SIZE][D_HEAD];
+#ifndef TILE_Q
+#define TILE_Q 128
+#endif
 
-    // Load Q row assigned to this thread
-    // Each CUDA thread in this kernel is assigned to compute the full output for a single query row (corresponding to a single token in the input sequence)
-    int i = blockIdx.x * BLOCK_SIZE + threadIdx.x;
-    if (i >= N) return;
+#ifndef TILE_KV
+#define TILE_KV 128
+#endif
 
-    // Register for Q row and output accumulator. This is the fastest memory space, local to a single thread. q_row holds the query for the current token being processed, and the acc_row holds the accumulating output vector for the current token. Keeping data in registers avoids slow memory access during recomputation. 
-    half q_row[D_HEAD];
-    float acc_row[D_HEAD] = {0.0f};
+#ifndef D_HEAD
+#define D_HEAD 64
+#endif
 
-    // Load q_row from global memory
-    #pragma unroll
-    for (int j = 0; j < D_HEAD; j++) {
-      q_row[j] = Q[i * d + j];
-    }
+// Convert half pointer row to float registers
+__device__ __forceinline__ void load_row_fp16_to_fp32(const __half* src, float* dst, int d) {
+  #pragma unroll
+  for (int i = 0; i < D_HEAD; ++i) {
+    dst[i] = __half2float(src[i]);
+  }
+}
 
-    // Softmax accumulator (for numerical stability)
-    float max_score = -1e9f;
-    float sum_exp = 0.0f;
+// Store float row to half
+__device__ __forceinline__ void store_row_fp32_to_fp16(const float* src, __half* dst, int d) {
+  #pragma unroll
+  for (int i = 0; i < D_HEAD; ++i) {
+    dst[i] = __float2half(src[i]);
+  }
+}
 
-    // Iterate over K/V tiles
-    for (int t = 0; t < gridDim.x; ++t) {
-      int j_base = t * BLOCK_SIZE;
+// Dot product between two float rows of length D_HEAD
+__device__ __forceinline__ float dot_row(const float* __restrict__ a,
+                                         const float* __restrict__ b) {
+  float acc = 0.f;
+  #pragma unroll
+  for (int i = 0; i < D_HEAD; ++i) acc += a[i] * b[i];
+  return acc;
+}
 
-      // Load K/V tiles into shared memory
-      int j = j_base + threadIdx.x;
+extern "C" __global__
+void flash_attn_fwd_minimal(
+    const __half* __restrict__ Q,   // [N, D_HEAD]
+    const __half* __restrict__ K,   // [N, D_HEAD]
+    const __half* __restrict__ V,   // [N, D_HEAD]
+    __half* __restrict__ O,         // [N, D_HEAD]
+    int N,                          // sequence length
+    int d_head,                     // must equal D_HEAD here
+    int causal                      // 0 = noncausal, 1 = causal
+) {
+  // One block handles TILE_Q query rows.
+  // One thread per query row (1D block of size TILE_Q).
+  const int q_block_start = blockIdx.x * TILE_Q;
+  const int qi = q_block_start + threadIdx.x;  // query index handled by this thread
+
+  // Shared memory tiles for K and V (TILE_KV x D_HEAD), row-major
+  __shared__ __half sK[TILE_KV][D_HEAD];
+  __shared__ __half sV[TILE_KV][D_HEAD];
+
+  // Per-thread registers: q row, running unscaled output, and softmax stats
+  float q_row[D_HEAD];
+  float o_row[D_HEAD];   // unnormalized accumulator (Ō_i)
+  #pragma unroll
+  for (int i = 0; i < D_HEAD; ++i) o_row[i] = 0.f;
+
+  float m = -INFINITY;   // running max of scores for row i
+  float l = 0.f;         // running sum of exp(scores - m)
+
+  // Load Q row to registers (if in-bounds)
+  if (qi < N) {
+    const __half* q_ptr = Q + qi * D_HEAD;
+    load_row_fp16_to_fp32(q_ptr, q_row, D_HEAD);
+  }
+
+  // Iterate over K/V tiles
+  const float inv_sqrt_d = 1.0f / sqrtf((float)D_HEAD);
+
+  for (int kv_start = 0; kv_start < N; kv_start += TILE_KV) {
+    // Cooperative load of a TILE_KV block of K and V into shared memory
+    // Map threads to rows in the KV tile (reuse same 1D threadIdx for simplicity)
+    int kv_row = threadIdx.x;
+    if (kv_row < TILE_KV) {
+      int j = kv_start + kv_row;
       if (j < N) {
-        # pragma unroll
-        for (int d_i = 0; d_i < D_HEAD; d_i++) {
-            tile_K[threadIdx.x][d_i] = K[j * d + d_i];
-            tile_V[threadIdx.x][d_i] = V[j * d + d_i];
+        const __half* k_ptr = K + j * D_HEAD;
+        const __half* v_ptr = V + j * D_HEAD;
+        #pragma unroll
+        for (int c = 0; c < D_HEAD; ++c) {
+          sK[kv_row][c] = k_ptr[c];
+          sV[kv_row][c] = v_ptr[c];
+        }
+      } else {
+        // Zero-pad out-of-bounds tile rows
+        #pragma unroll
+        for (int c = 0; c < D_HEAD; ++c) {
+          sK[kv_row][c] = __float2half(0.f);
+          sV[kv_row][c] = __float2half(0.f);
+        }
+      }
+    }
+    __syncthreads();
+
+    // Each thread processes its own query qi against this K/V tile
+    if (qi < N) {
+      // First pass over the tile: compute tile-local max (to update global m)
+      float tile_max = -INFINITY;
+
+      // For causal attention, ignore future positions j > qi
+      const int j_limit = causal ? min(N, max(kv_start + TILE_KV, qi + 1)) : min(N, kv_start + TILE_KV);
+
+      // Compute scores for this tile on the fly (q_row · k_row) / sqrt(d)
+      for (int j = kv_start; j < j_limit; ++j) {
+        // Load K_j from shared memory into registers (as float)
+        float k_row[D_HEAD];
+        #pragma unroll
+        for (int c = 0; c < D_HEAD; ++c) k_row[c] = __half2float(sK[j - kv_start][c]);
+
+        float s = dot_row(q_row, k_row) * inv_sqrt_d;
+        tile_max = fmaxf(tile_max, s);
+      }
+
+      // Update running max m
+      float m_new = fmaxf(m, tile_max);
+
+      // Second pass: accumulate exp-normalized contributions and update l, Ō
+      float l_scaled = l * expf(m - m_new);
+      float delta_sum = 0.f;   // sum_j exp(score_j - m_new) in this tile
+
+      // Vector accumulator for Ō tile contribution
+      float o_delta[D_HEAD];
+      #pragma unroll
+      for (int c = 0; c < D_HEAD; ++c) o_delta[c] = 0.f;
+
+      for (int j = kv_start; j < j_limit; ++j) {
+        // Recompute score (could cache; kept simple)
+        float k_row[D_HEAD];
+        float v_row[D_HEAD];
+        #pragma unroll
+        for (int c = 0; c < D_HEAD; ++c) {
+          k_row[c] = __half2float(sK[j - kv_start][c]);
+          v_row[c] = __half2float(sV[j - kv_start][c]);
+        }
+
+        float s = dot_row(q_row, k_row) * inv_sqrt_d;
+        float w = expf(s - m_new);   // exp(score - new max)
+
+        delta_sum += w;
+        #pragma unroll
+        for (int c = 0; c < D_HEAD; ++c) {
+          o_delta[c] += w * v_row[c];
         }
       }
 
-      __syncthreads();
+      // Merge this tile’s contribution into running stats
+      float l_new = l_scaled + delta_sum;
+      float scale_prev = (l_new > 0.f) ? (l_scaled / l_new) : 0.f;
+      float scale_delta = (l_new > 0.f) ? (1.f / l_new) : 0.f;
 
-    // Compute QK^T for this tile
-    #pragma unroll
-    for (int j_tile = 0; j_tile < BLOCK_SIZE; ++j_tile) {
-      int j_pos = j_base + j_tile;
-      if (j_pos >= N || j_pos > i) continue;
-
-      float dot = 0.0f;
       #pragma unroll
-      for (int k = 0; k < D_HEAD; ++k) {
-        dot += __half2float(q_row[k]) * __half2float(tile_K[j_tile][k]);
+      for (int c = 0; c < D_HEAD; ++c) {
+        o_row[c] = o_row[c] * scale_prev + o_delta[c] * scale_delta;
       }
 
-      float score = dot / sqrtf((float)D_HEAD);
-      float exp_score = __expf(score - max_score); // stable softmax 
-
-      // Update softmax denominator and max
-      max_score = fmaxf(max_score, score);
-      sum_exp += exp_score;
-
-      // Accumulate softmax * V
-      #pragma unroll
-      for (int k = 0; k < D_HEAD; ++k) {
-        acc_row[k] += exp_score * __half2float(tile_V[j_tile][k]);
-      }
+      m = m_new;
+      l = l_new;
     }
-    __syncthreads(); // reload new K/V tile
 
+    __syncthreads(); // next KV tile
   }
 
-    // Normalize output
-    float inv_sum_exp = 1.0f / (sum_exp + 1e-6f);
-    #pragma unroll
-    for (int k = 0; k < D_HEAD; ++k) {
-      float val = acc_row[k] * inv_sum_exp;
-      O[i * d + k] = __float2half(val);
-    }
+  // Write final normalized output (o_row already normalized by construction)
+  if (qi < N) {
+    __half* o_ptr = O + qi * D_HEAD;
+    store_row_fp32_to_fp16(o_row, o_ptr, D_HEAD);
   }
+}
+
+// -------------------------
+// Example host launcher
+// -------------------------
+#include <cuda_runtime.h>
+void launch_flash_attn_fwd_minimal(const __half* Q,
+                                   const __half* K,
+                                   const __half* V,
+                                   __half* O,
+                                   int N, int d_head, bool causal,
+                                   cudaStream_t stream) {
+  dim3 block(TILE_Q);                 // one thread per query in the block
+  dim3 grid((N + TILE_Q - 1) / TILE_Q);
+  flash_attn_fwd_minimal<<<grid, block, 0, stream>>>(
+      Q, K, V, O, N, d_head, causal ? 1 : 0);
+}
 
 ```
 
