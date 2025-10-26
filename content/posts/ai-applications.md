@@ -378,6 +378,16 @@ void flash_attn_forward_launcher(
 
 To consolidate everything that we have discussed in this post, we will deconstruct two leading (as of 2025) open source models, Kimi K2 and Qwen2.5-32B, both are autoregressive decoder-only models that are intended to be served at scale, with low latency as text-generating intelligent assistants.
 
+Here when we say that Qwen2.5-32B has 64 layers, we mean that there are 64 repetitions of:
+
+```mathematica
+RMSNorm -> attention -> residual -> RMSNorm -> FFN -> residual
+```
+
+where each repetition deepens the reasoning chain and allows the model to integrate increasingly abstract contextual information. The attention sublayer is used for token-token communication ("talk to the other tokens"), the feedforward sublayer is used as a uniform nonlinear transformation per token (no mixing between the tokens, allowing the tokens to transform and "think for themselves") [^6], and then the residuals and norms are used to stay stable whilst stacking the layers deep. 
+
+
+
 | **Specification**            | **Qwen2.5-32B**                                 | **Kimi K2 (MoE)**                                                                                       |
 | ---------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Release / Type**           | Dense, decoder-only                             | Mixture-of-Experts, decoder-only                                                                        |
@@ -414,6 +424,7 @@ The decoder-only model however is a think-aloud monologue, for example in a live
 [^3]: Some examples of encoder-decoder models are T5 (text-to-text transformer) and BART (bidirectional and auto-regressive transformer) as well as UL5. They are used mainly for speech recognition, image captioning, text summarization and language conversion.
 [^4]: It would actually be an interesting study to analyze say for a fixed number of parameters $B$, if we have a $X:Y$ split amongst the encoder-decoder, compared to just a decoder with the same number of of parameters $B$, the comparative performance between the two. How does this change as $B$ gets large. 
 [^5]: Suppose we want to accurately cite every aspect of a scientific article without hallucinations, an encoder-decoder architecture would be much better at this specific task than a decoder-only model. 
+[^6]: In mixture of experts blocks like Kimi, the FFN step is replaced by multiple "expert" MLPs, and a small gating network picks a few experts (e.g. top-8 of 384) to process each token. The outputs are combined, and then passed to the next block. 
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
