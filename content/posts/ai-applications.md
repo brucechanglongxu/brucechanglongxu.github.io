@@ -67,6 +67,16 @@ Let us analyze the computational complexity at every step of this self-attention
 
 Hence we see that the total computational complexity is the sum of $O(N \cdot d^2 + N^2 \cdot d + N^2 \cdot d)$. Note that $O(N^2 \cdot d)$ is usually the dominant factor (since N can become very very large), and cause the "quadratic complexity problem" for long sequences. 
 
+#### Understanding the softmax - why it exists and what it does
+
+At the heart of self-attention lies a deceptively simple question:
+
+> Given a query token, how much should it pay attention to each other token in the sequence? 
+
+When we compute the dot products $QK^T$, we obtain raw similarity scores -- large numbers if the query and key vectors point in similar directions, and small (or negative) numbers otherwise. But these raw scores by themselves are just unbounded real numbers; they do not yet have the semantics of "attention weights". We need a way to turn them into _a smooth probability distribution_ over all possible keys - one that says, in effect, _"out of all tokens, here is how much I will listen to each."_ 
+
+
+
 ## Expanding and Contracting in FFNs
 
 > The **"expand and contract"** mechanism of the FFN allows us to take a rich, detailed summary of the input data, place it in a larger embedding/workspace to analyze it more thoroughly and give us more "room to think" in complex/non-linear ways, before contracting and distilling down to a smaller dimension to bring back our conclusions to a precise format. 
@@ -178,7 +188,7 @@ _FlashAttention v2_ pushes this slightly further, by rethinking 1. the bookkeepi
 
 > The intuition here is that if we are filling a bucket from many faucets, it is wasteful to stop and remeasure the bucket's fraction full after each cup. We should instead just keep pouring, track the total, and then normalize once. 
 
-
+2. **Paralli
 
 #### FlashAttention v3
 
