@@ -220,6 +220,7 @@ All the steps, $Q \cdot K^T$, softmax, dropout, and $P V$ are **fused in a singl
 To better appreciate the power of this fusion, let us first recap the naive pipeline from a vanilla framework from PyTorch or TensorFlow (from a memory movement perspective, which is the key factor that FlashAttention endeavours to optimize):
 
 1. _Compute (attention) scores:_ $S = QK^T / \sqrt{d}$, and write $S$ (a matrix of size $N \times N$) to HBM.
+    - With FlashAttention, we will compute $QK^T$ in small tiles (e.g. 128x128) inside shared memory, and apply the softmax immediately to those partial results while they are still on-chip. We will never write the full score matrix to HBM (this saves 2 global memory passes - write and read - of a huge N by N matrix). 
 2. _Apply mask and softmax:_ We ready $S$ from HBM and apply causal mask, exponentiate, and then normalize. Then write a normalized $A$ (=softmax$(S)$) which is again an $N \times N$ matrix back to HBM.
 3. _Multiply by values:_ Read $A$ and $V$ from HBM, and compute $O = AV$, then write $O$ (a matrix of size $N \times d$) back to HBM.
 
