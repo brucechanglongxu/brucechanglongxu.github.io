@@ -229,11 +229,11 @@ FlashAttention optimizes the I/O on each of these steps - every global read (fro
 
 | Stage                             | Naïve attention I/O               | FlashAttention I/O                                               |
 | --------------------------------- | --------------------------------- | ---------------------------------------------------------------- |
-| **Scores (QK^\top)**              | Written to and read from HBM (2×) | Kept in shared memory only                                       |
+| **Scores ($QK^T$)**              | Written to and read from HBM (2×) | Kept in shared memory only                                       |
 | **Softmax intermediates**         | Written & read (2×)               | On-chip streaming, no writes                                     |
 | **K,V reuse**                     | Reloaded for every query          | Reused within tile from shared memory                            |
 | **Kernel boundaries**             | Separate kernels = flush to DRAM  | Fused single kernel                                              |
-| **Global reads/writes per token** | (O(N^2)) loads/stores             | (O(N \times \text{tile size})) local loads, linear global access |
+| **Global reads/writes per token** | ($O(N^2)$) loads/stores             | ($O(N \times \text{tile size})$) local loads, linear global access |
 
 
 > FlashAttention's entire gain comes from removing all redundant global memory I/O - it never writes $QK^T$ or the softmax matrix to DRAM, fuses all substeps into one kernel, and reuses each $K/V$ tile multiple times in shared memory, making attention compute-bound, rather than memory-bound.
