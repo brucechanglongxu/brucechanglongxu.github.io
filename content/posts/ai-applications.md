@@ -220,11 +220,14 @@ All the steps, $Q \cdot K^T$, softmax, dropout, and $P V$ are **fused in a singl
 To better appreciate the power of this fusion, let us first recap the naive pipeline from a vanilla framework from PyTorch or TensorFlow (from a memory movement perspective, which is the key factor that FlashAttention endeavours to optimize):
 
 1. _Compute (attention) scores:_ $S = QK^T / \sqrt{d}$, and write $S$ (a matrix of size $N \times N$) to HBM.
-    - With FlashAttention, we will compute $QK^T$ in small tiles (e.g. 128x128) inside shared memory, and apply the softmax immediately to those partial results while they are still on-chip. We will never write the full score matrix to HBM (this saves 2 global memory passes - write and read - of a huge N by N matrix). 
 2. _Apply mask and softmax:_ We ready $S$ from HBM and apply causal mask, exponentiate, and then normalize. Then write a normalized $A$ (=softmax$(S)$) which is again an $N \times N$ matrix back to HBM.
 3. _Multiply by values:_ Read $A$ and $V$ from HBM, and compute $O = AV$, then write $O$ (a matrix of size $N \times d$) back to HBM.
 
 Pay particular attention to the memory movement from HBM to on-chip - indeed each step forces hundreds of GB of data to move through HBM, especially as $N$ (our context length) becomes large. In particular both $S$ and $A$ are quadratic-size intermediates, and each $K, V$ block is reloaded from global memory every time it is needed for a different query; every kernel boundary forces a write-read pair to DRAM. 
+
+FlashAttention optimizes the I/O on each of these steps - every global read (from HBM) is _reused many times_ before being evicted, and no intermediate tensors ever touch HBM - the only thing sthat leave the chip are the inputs $(Q, K, V)$ once and the final output $O$ once. Everything else, $QK^T$, softmax, exponentials, normalizations and partial $AV$ values will all stay and live out their usefulness in fast on-chip memory. 
+
+> FlashAttention's entire gain comes from removing all redundant global memory I/O - it never writes $QK^T$ or the softmax matrix to DRAM, fuses all substeps into one kernel, and reuses each $K/V$ tile multiple times in shared memory, making attention compute-bound, rather than memory-bound.
 
 The algorithm proceeds as follows (for one attention head at a time, though batch and heads are parallelized as usual):
 
