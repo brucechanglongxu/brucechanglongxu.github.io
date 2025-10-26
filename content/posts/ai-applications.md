@@ -377,24 +377,26 @@ void flash_attn_forward_launcher(
 
 ```
 
-### Deconstructing GPT-4 and Claude from first principles
+### Deconstructing Frontier OSS models from first principles
 
-| **Spec**              | **GPT-NeoX-20B**                                 | **Qwen2.5-7B**                    | **Qwen2.5-32B**                       | **Kimi K2 (MoE)**                                                      |
-| --------------------- | ------------------------------------------------ | --------------------------------- | ------------------------------------- | ---------------------------------------------------------------------- |
-| **Release / Type**    | Dense, decoder-only                              | Dense, decoder-only               | Dense, decoder-only                   | MoE, decoder-only                                                      |
-| **Params (total)**    | **20B**                                          | **7.6B**                          | **32.5B**                             | **1T** total; **32B activated**                                        |
-| **Layers**            | **44**                                           | **28**                            | **64**                                | **61** (incl. 1 dense layer)                                           |
-| **Hidden size**       | **6144**                                         | **3584**                          | **5120**                              | **7168** (attn); MoE FFN per-expert **2048**                           |
-| **Attention heads**   | **64**                                           | **GQA:** 28 (Q) / 4 (KV)          | **GQA:** 40 (Q) / 8 (KV)              | **64**                                                                 |
-| **Positional enc.**   | Rotary (RoPE)                                    | RoPE                              | RoPE                                  | (noted as MLA-based attention)                                         |
-| **Activation / FFN**  | GeLU-style MLP (GPT-3-like)                      | **SwiGLU**, RMSNorm               | **SwiGLU**, RMSNorm                   | **SwiGLU**                                                             |
-| **Context window**    | **2048**                                         | **131,072**                       | **131,072**                           | **128,000**                                                            |
-| **Tokenizer / Vocab** | GPT-NeoX tokenizer                               | —                                 | —                                     | **160K**                                                               |
-| **Notes**             | Parallel Attn+FF trick; RoPE applied to 25% dims | Attn QKV bias; long-context ready | Long-context + GQA (smaller KV cache) | **384 experts**, **top-8** routing; **1 shared expert**; MLA attention |
-
-
+| **Specification**            | **Qwen2.5-7B**                                            | **Qwen2.5-32B**                      | **Kimi K2 (MoE)**                                                                                       |
+| ---------------------------- | --------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| **Release / Type**           | Dense, decoder-only                                       | Dense, decoder-only                  | Mixture-of-Experts, decoder-only                                                                        |
+| **Parameters (total)**       | **7.6 B**                                                 | **32.5 B**                           | **≈ 1 T** total ; **≈ 32 B activated**                                                                  |
+| **Layers**                   | **28**                                                    | **64**                               | **61** (incl. 1 dense layer)                                                                            |
+| **Hidden size (d_model)**    | **3584**                                                  | **5120**                             | **7168** (attn dim) ; FFN per-expert ≈ 2048                                                             |
+| **Attention Heads (Q / KV)** | **28 / 4** (GQA)                                          | **40 / 8** (GQA)                     | **64**                                                                                                  |
+| **Positional Encoding**      | Rotary (PosEnc, RoPE)                                     | Rotary (PosEnc, RoPE)                | MLA-based attention (positional bias built in)                                                          |
+| **Activation / FFN**         | **SwiGLU**, RMSNorm                                       | **SwiGLU**, RMSNorm                  | **SwiGLU**                                                                                              |
+| **Context Window**           | **131 072 tokens**                                        | **131 072 tokens**                   | **128 000 tokens**                                                                                      |
+| **Tokenizer / Vocab Size**   | ≈ 152 k tokens (BPE)                                      | ≈ 152 k tokens (BPE)                 | ≈ 160 k tokens (BPE)                                                                                    |
+| **Architecture Notes**       | Long-context ready; bias in QKV proj.; optimized KV cache | Long-context + GQA reduces KV memory | **384 experts**, **top-8** routing (+ 1 shared expert); MLA attention; sparse activation for efficiency |
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
 3. Chowdhery, A., Narang, S., Devlin, J., Bosma, M., Mishra, G., Roberts, A., Barham, P., et al. (2022). PaLM: Scaling Language Modeling with Pathways. arXiv preprint arXiv:2204.02311.
 4. "Accelerating sparse deep neural networks" is Mishra, A., Latorre, J. A., Pool, J., Stosic, D., Stosic, D., Venkatesh, G., Yu, C., & Micikevicius, P. (2021). Accelerating sparse deep neural networks (arXiv:2104.08378).
+5. Qwen2.5 (7B / 32B and family)
+Qwen Team. (2024/2025). Qwen2.5 Technical Report. arXiv:2412.15115 (v2, Jan 3, 2025).
+6. Kimi K2 (Moonshot AI)
+Kimi Team. (2025). Kimi K2: Open Agentic Intelligence (Technical Report). arXiv
