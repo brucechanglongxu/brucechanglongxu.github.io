@@ -225,7 +225,16 @@ To better appreciate the power of this fusion, let us first recap the naive pipe
 
 Pay particular attention to the memory movement from HBM to on-chip - indeed each step forces hundreds of GB of data to move through HBM, especially as $N$ (our context length) becomes large. In particular both $S$ and $A$ are quadratic-size intermediates, and each $K, V$ block is reloaded from global memory every time it is needed for a different query; every kernel boundary forces a write-read pair to DRAM. 
 
-FlashAttention optimizes the I/O on each of these steps - every global read (from HBM) is _reused many times_ before being evicted, and no intermediate tensors ever touch HBM - the only thing sthat leave the chip are the inputs $(Q, K, V)$ once and the final output $O$ once. Everything else, $QK^T$, softmax, exponentials, normalizations and partial $AV$ values will all stay and live out their usefulness in fast on-chip memory. 
+FlashAttention optimizes the I/O on each of these steps - every global read (from HBM) is _reused many times_ before being evicted, and no intermediate tensors ever touch HBM - the only thing sthat leave the chip are the inputs $(Q, K, V)$ once and the final output $O$ once. Everything else, $QK^T$, softmax, exponentials, normalizations and partial $AV$ values will all stay and live out their usefulness in fast on-chip memory. We never need to move the huge $QK^T$ matrix because it never materializes, do not need to move the many softmax weights because they are never written to HBM, and we perform the $AV$ operations locally per tile, on the fly; and we fuse all of these operations into a single kernel to prevent unnecessary flushes to DRAM, so synchronization is done with very lightweight thread-block barriers rather than device-wide writes.
+
+| Stage                             | Naïve attention I/O               | FlashAttention I/O                                               |
+| --------------------------------- | --------------------------------- | ---------------------------------------------------------------- |
+| **Scores (QK^\top)**              | Written to and read from HBM (2×) | Kept in shared memory only                                       |
+| **Softmax intermediates**         | Written & read (2×)               | On-chip streaming, no writes                                     |
+| **K,V reuse**                     | Reloaded for every query          | Reused within tile from shared memory                            |
+| **Kernel boundaries**             | Separate kernels = flush to DRAM  | Fused single kernel                                              |
+| **Global reads/writes per token** | (O(N^2)) loads/stores             | (O(N \times \text{tile size})) local loads, linear global access |
+
 
 > FlashAttention's entire gain comes from removing all redundant global memory I/O - it never writes $QK^T$ or the softmax matrix to DRAM, fuses all substeps into one kernel, and reuses each $K/V$ tile multiple times in shared memory, making attention compute-bound, rather than memory-bound.
 
