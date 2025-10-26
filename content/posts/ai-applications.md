@@ -246,6 +246,8 @@ The algorithm proceeds as follows (for one attention head at a time, though batc
 
 - _Online softmax and output accumulation:_ In naive attention, we would compute the softmax, write the normalized $A$ attention matrix, read the attention matrix then compute $AV$. In FlashATtention, for each tile once we compute the partial attention scores on our tile, we apply softmax incrementally (streaming), and immediately multiply by $V_{tile}$, accumulating the running outputs $O_i$. This saves $2$ global memory passes of the $N \times N$ attention matrix $A$ i.e. the intermediate attention weights never leave on-chip memory. To perform the online, running softmax, each query row only needs the current running maximum $m_i$, the current running sum $l_i$ and the accumulated output $O_i$ - which are very small, only $O(d)$ per row, so they fit entirely in registers and shared memory. 
 
+> If we use a cooking analogy, in naive attention we are cooking one dish, washing everything, starting over and every intermediate snapshot and dish leaves and comes back with high movement inefficiency. In FlashAttention we have one contiguous cooking session without interruptions with different ingredients per step, and the "tiling" is governing how we portion the ingredients and work inside that single cooking session (single CUDA kernel), and only the final meal (output matrix) leaves our kitchen (to HBM).
+
 - _Reuse K, V tiles:_ In naive attention, every row needs to attend to all keys and values, so $K, V$ are reread $N$ times. In FlashAttention, we split the sequence into tiles of queries (Q-blocks) and keys (K,V-blocks) and for each Q-block, we load one K,V-block into shared memory once, and reuse it for 128 queries (the entire tile). Then move to the next K,V-block. So instead of $O(N^2)$ global reads of K, V, we get $O(N \cdot N/\textit{tile_size}))$, effectively each $K, V$ element is read only once per $Q$-tile, amortizing the cost.
 
 - _Single fused kernel:_ All of this (including all of the tiling) happens inside a single fused kernel, this is independent of the number of tiles we have. In the naive implementation, each subset (computing the $QK^T$ scores, softmax, and $AV$ output values) would have its own CUDA kernel launch (kernel 1, kernel 2, kernel 3), which causes the GPU to read input tensors from global memory, compute results, write intermediates back to HBM and cause overhead from host-device orchestration; leading to 3 or more kernels per attention head per layer, spearated by an expensive global memory flush. FlashAttention does all of this in a single kernel, where each thread block is assigne da tile of queries, and all the tiles are processed sequentially within the same kernel. 
@@ -260,8 +262,6 @@ for (int kv_start = 0; kv_start < N; kv_start += TILE_KV) {
   // Accumulate partial 0
 }
 ```
-
-> If we use a cooking analogy, in naive attention we are cooking one dish, washing everything, starting over and every intermediate snapshot and dish leaves and comes back with high movement inefficiency. In FlashAttention we have one contiguous cooking session without interruptions with different ingredients per step, and the "tiling" is governing how we portion the ingredients and work inside that single cooking session (single CUDA kernel), and only the final meal (output matrix) leaves our kitchen (to HBM).
 
 #### FlashAttention v2
 
