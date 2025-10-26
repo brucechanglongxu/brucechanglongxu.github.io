@@ -384,7 +384,7 @@ To consolidate everything that we have discussed in this post, we will deconstru
 | **Specification**            | **Qwen2.5-32B**                                 | **Kimi K2 (MoE)**                                                                                       |
 | ---------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Release / Type**           | Dense, decoder-only                             | Mixture-of-Experts, decoder-only                                                                        |
-| **Parameters (total)**       | **32.5 B**                                      | **≈ 1 T** total; **≈ 32 B activated**                                                                   |
+| **Parameters (total)**       | 32.5 B                                      | ≈ 1 T total; ≈ 32 B activated                                                                   |
 | **Layers**                   | 64                                          | 61 (incl. 1 dense layer)                                                                            |
 | **Hidden size (d_model)**    | 5120                                        | 7168 (attn); FFN per-expert ≈ 2048                                                                  |
 | **Attention Heads (Q / KV)** | 40 / 8 (GQA)                                | 64                                                                                                  |
