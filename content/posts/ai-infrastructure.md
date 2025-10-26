@@ -42,6 +42,10 @@ To understand the relative latencies of memory operations in the SM (global memo
 
 ![Alt text](/image-9.png)
 
+We see that the GPU has enormous parallelism capacity. In practice this high throughput process exists as the _device_ in a data center, controlled and orchestrated by a _host_ (typically a CPU), connected via a PCIe network. Now the overarching and dominating heuristic in such a network topology is the amount of FLOPs provided to us far exceeds the memory bandwidth and network bandwidth that the PCIe, NVLink and HBM give us. In 
+
+![Alt text](/image-10.png)
+
 But raw hardware alone doesn’t explain why some teams ship reliable systems at scale while others struggle with bottlenecks and cost explosions. The difference comes down to how you think about optimization.
 
 A useful way to frame it is as **three nested loops** wrapped around every model. Each loop sits at a different layer of abstraction, and each has its own gauges, and levers. The innermost loop is about the raw efficiency of a single device: is the GPU actually doing useful math, or is it starved by memory bandwidth or kernel overhead? The next loop out is the training loop: how do we scale beyond one GPU and make hundreds or thousands of them behave like a single machine? And finally, there is the product loop: once the model is trained, can we serve it reliably under real-world traffic, meet our latency and safety SLOs, and do so at a cost per token that won't sink the business? 
