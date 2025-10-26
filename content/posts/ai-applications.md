@@ -240,11 +240,11 @@ FlashAttention optimizes the I/O on each of these steps - every global read (fro
 
 The algorithm proceeds as follows (for one attention head at a time, though batch and heads are parallelized as usual):
 
-- _Tiled Forward Pass:_ Instead of computing $S = QK^T$ for all queries and keys at once, FlashAttention partitions the sequence into blocks (for example, blocks of 128 queries by 128 keys). It loops over key/value blocks for a given block of queries, loading a block of $Q$ and a block of $K$ (and corresponding $V$) from HBM into shared memory, computing the partial attention scores for that tile, and immediately applying Softmax normalization _within that tile_. Crucially, it keeps track of partial Softmax results so that after iterating over all key blocks, the final Softmax is correct as if done in one pass. 
+- _Tiled Forward Pass:_ Instead of computing $S = QK^T$ for all queries and keys at once, FlashAttention partitions the sequence into blocks (for example, blocks of 128 queries by 128 keys). It loops over key/value blocks for a given block of queries, loading a block of $Q$ and a block of $K$ (and corresponding $V$) from HBM into shared memory, computing the partial attention scores for that tile, and immediately applying Softmax normalization _within that tile_. Crucially, it keeps track of partial Softmax results so that after iterating over all key blocks, the final Softmax is correct as if done in one pass. This saves $2$ global memory passes (write and read) of an $N \times N$ matrix.
 
 > This choice of tile size (e.g. how many queries per block and how many keys per sub-block) is crucial. Larger tiles mean more reuse and fewer iterations (which improves compute efficiency), but they consume more shared memory and registers. 
 
-_Online softmax_
+- _Online softmax and output accumulation:_ In naive attention, we would compute the softmax, write the normalized $A$ attention matrix, read the attention matrix then compute $AV$. In FlashATtention, for each tile once we compute the partial attention scores on our tile, we apply softmax incrementally (streaming), and immediately multiply by $V_{tile}$, accumulating the running outputs $O_i$. THis saves $2$ global memory passes of the $N \times N$ attention matrix $A$ i.e. the intermediate attention weights never leave on-chip memory.
 
 #### FlashAttention v2
 
