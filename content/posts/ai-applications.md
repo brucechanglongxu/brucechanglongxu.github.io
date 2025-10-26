@@ -510,58 +510,99 @@ Because multiple threads within a block might read and write to the same shared 
 Now let us take a look at how this kernel will be called and launched from the host (CPU) side. We will use `cudaMalloc` to allocate device (GPU) memory, copy data to and from the device with `cudaMemcpy`, launch the kernel with our grid/block configuration, and synchronize all the events with `cudaEventRecord`, `cudaDeviceSynchronize`, eventually freeing memory with `cudaFree`. 
 
 ```cpp
+// host_flash_attn_minimal.cpp
 #include <cuda_runtime.h>
+#include <cuda_fp16.h>
 #include <cstdio>
+#include <vector>
+#include <random>
+#include <cmath>
 
-void flash_attn_forward_launcher(
-    const half* h_Q, const half* h_K, const half* h_V,  // host input
-    half* h_O,                                          // host output
-    int N, int d
-) {
-    const size_t size_QKV = N * d * sizeof(half);
-    half *d_Q, *d_K, *d_V, *d_O;
+// --- kernel decl (from your .cu) ---
+void launch_flash_attn_fwd_minimal(const __half* Q,
+                                   const __half* K,
+                                   const __half* V,
+                                   __half* O,
+                                   int N, int d_head, bool causal,
+                                   cudaStream_t stream);
 
-    // Allocate on device
-    cudaMalloc(&d_Q, size_QKV);
-    cudaMalloc(&d_K, size_QKV);
-    cudaMalloc(&d_V, size_QKV);
-    cudaMalloc(&d_O, size_QKV);
+// --- error-check helper ---
+#define CUDA_CHECK(call) do { \
+  cudaError_t _e = (call); \
+  if (_e != cudaSuccess) { \
+    fprintf(stderr, "CUDA error %s:%d: %s\n", __FILE__, __LINE__, cudaGetErrorString(_e)); \
+    std::exit(1); \
+  } \
+} while(0)
 
-    // Copy host → device
-    cudaMemcpy(d_Q, h_Q, size_QKV, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_K, h_K, size_QKV, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_V, h_V, size_QKV, cudaMemcpyHostToDevice);
+// --- simple CPU init of fp16 tensors ---
+static inline __half f2h(float x) { return __float2half(x); }
 
-    // Kernel launch config
-    const int BLOCK_SIZE = 128;
-    int grid_size = (N + BLOCK_SIZE - 1) / BLOCK_SIZE;
+int main() {
+  // Problem size (must match D_HEAD in the kernel or make D_HEAD a runtime param)
+  const int N = 1024;       // sequence length
+  const int D = 64;         // head dim
+  const bool causal = true; // causal or non-causal path
 
-    // Timing (optional but best practice)
-    cudaEvent_t start, stop;
-    cudaEventCreate(&start);
-    cudaEventCreate(&stop);
-    cudaEventRecord(start);
+  // Host buffers (row-major [N, D])
+  std::vector<__half> hQ(N * D), hK(N * D), hV(N * D), hO(N * D);
 
-    flash_attn_fwd_kernel<<<grid_size, BLOCK_SIZE>>>(
-        d_Q, d_K, d_V, d_O, N, d);
+  // Initialize Q/K/V with small random values
+  std::mt19937 rng(123);
+  std::normal_distribution<float> dist(0.f, 0.02f);
+  for (int i = 0; i < N * D; ++i) {
+    hQ[i] = f2h(dist(rng));
+    hK[i] = f2h(dist(rng));
+    hV[i] = f2h(dist(rng));
+  }
 
-    cudaEventRecord(stop);
-    cudaEventSynchronize(stop);
+  // Device buffers
+  __half *dQ = nullptr, *dK = nullptr, *dV = nullptr, *dO = nullptr;
+  size_t bytes = size_t(N) * D * sizeof(__half);
+  CUDA_CHECK(cudaMalloc(&dQ, bytes));
+  CUDA_CHECK(cudaMalloc(&dK, bytes));
+  CUDA_CHECK(cudaMalloc(&dV, bytes));
+  CUDA_CHECK(cudaMalloc(&dO, bytes));
 
-    float ms = 0.0f;
-    cudaEventElapsedTime(&ms, start, stop);
-    printf("FlashAttention forward took %.3f ms\n", ms);
+  // Copy host -> device
+  CUDA_CHECK(cudaMemcpy(dQ, hQ.data(), bytes, cudaMemcpyHostToDevice));
+  CUDA_CHECK(cudaMemcpy(dK, hK.data(), bytes, cudaMemcpyHostToDevice));
+  CUDA_CHECK(cudaMemcpy(dV, hV.data(), bytes, cudaMemcpyHostToDevice));
 
-    // Copy result back
-    cudaMemcpy(h_O, d_O, size_QKV, cudaMemcpyDeviceToHost);
+  // Stream + (optional) timing
+  cudaStream_t stream;
+  CUDA_CHECK(cudaStreamCreate(&stream));
+  cudaEvent_t start, stop;
+  CUDA_CHECK(cudaEventCreate(&start));
+  CUDA_CHECK(cudaEventCreate(&stop));
+  CUDA_CHECK(cudaEventRecord(start, stream));
 
-    // Clean up
-    cudaFree(d_Q);
-    cudaFree(d_K);
-    cudaFree(d_V);
-    cudaFree(d_O);
-    cudaEventDestroy(start);
-    cudaEventDestroy(stop);
+  // --- Launch the fused FlashAttention-like kernel ---
+  launch_flash_attn_fwd_minimal(dQ, dK, dV, dO, N, D, causal, stream);
+
+  // Sync + timing
+  CUDA_CHECK(cudaEventRecord(stop, stream));
+  CUDA_CHECK(cudaEventSynchronize(stop));
+  float ms = 0.f;
+  CUDA_CHECK(cudaEventElapsedTime(&ms, start, stop));
+  printf("flash_attn_fwd_minimal: %.3f ms (N=%d, D=%d, causal=%d)\n", ms, N, D, int(causal));
+
+  // Copy device -> host
+  CUDA_CHECK(cudaMemcpy(hO.data(), dO, bytes, cudaMemcpyDeviceToHost));
+
+  // (Optional) sanity: print first row slice
+  printf("O[0, 0:8] = ");
+  for (int j = 0; j < 8 && j < D; ++j) {
+    printf("%0.5f ", __half2float(hO[j]));
+  }
+  printf("\n");
+
+  // Cleanup
+  cudaEventDestroy(start);
+  cudaEventDestroy(stop);
+  cudaStreamDestroy(stream);
+  cudaFree(dQ); cudaFree(dK); cudaFree(dV); cudaFree(dO);
+  return 0;
 }
 
 ```
