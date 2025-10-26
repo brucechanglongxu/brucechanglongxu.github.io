@@ -86,6 +86,17 @@ This is much cheaper (there is no mean computation), keeps the direction of the 
 
 > Intuitively, imagine each token's embedding as a point in a high-dimensional space. After each layer's transformations (attention, FFN), some embeddings blow up in length, whereas others shrink. LayerNorm/RMSNorm act to re-center and re-scale, so that all these embeddings are kept roughly on a sphere of radius 1, and no single dimension dominates, thereby making optimization smoother. Indeed RMSNOrm literally projects each token's vector onto a hypersphere of fixed radius scaled by $gamma$. 
 
+Now, we typically combine RMSNorm with a _residual connection_, which means that instead of letting each layer completely overwrite its input, we let it add its transformation on top of it:
+
+$$y = x + f(x)$$
+
+This leads to easier gradient flow, and acts like an incremental update - we refine the representation rather than replace it entirely. We normalize the signal so the layer can learn a clean delta, then add the delta back to the running state. Think of this process as a scientist refining a hypothesis.
+
+- The residual connections allow each layer to slowly accumulate and refine their representation without overwriting their former work.
+- RMSNorm/LayerNorm and the normalization layer calibrates the embeddings so that each layer operates under stable numerical conditions. 
+
+The combination fo these two elemnets enables us to train extraodinarily deep transformer-based networks without stability issues.
+
 #### Understanding the softmax - why it exists and what it does
 
 At the heart of self-attention lies a deceptively simple question:
