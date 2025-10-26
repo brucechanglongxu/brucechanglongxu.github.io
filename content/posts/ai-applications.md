@@ -67,6 +67,25 @@ Let us analyze the computational complexity at every step of this self-attention
 
 Hence we see that the total computational complexity is the sum of $O(N \cdot d^2 + N^2 \cdot d + N^2 \cdot d)$. Note that $O(N^2 \cdot d)$ is usually the dominant factor (since N can become very very large), and cause the "quadratic complexity problem" for long sequences. 
 
+_Layer Normalization and Residuals_ 
+
+As more layers of nonlinear functions are stacked on top of one another, the distribution of activations (means, variances) tends to drift as it passes through layers, causing vanishing/exploding gradients (backward signals get too small or too large) and internal covariate shift (each layer sees changing input statistics during training). 
+
+**LayerNorm:** For each token's hidden vector $x \in \mathbb{R}^d$:
+$$\mu = \frac{1}{d} \sum_i x_i, \sigma = \sqrt{\frac{1}{d} \sum_i (x_i - \mu)^2}$$
+then we normalize:
+$$\textbf{LN}(x)_i = \gamma \frac{x_i - \mu}{\sigma + \epsilon} + \beta$$
+
+where $\gamma, \beta$ are the learned scale and shift (per feature), and $\epsilon$ avoids division by zero. It normalizes across the feature dimension for each token, ensuring each embedding vector has zero mean and unit variance. 
+
+**RMSNorm:** This simplifies LayerNorm by dropping the mean subtraction, and only normalizes the _magnitude_.
+
+$$\textbf{RMSNorm}(x) = \frac{x}{\sqrt{\frac{1}{d} \sum_i x_i^2 + \epsilon}} \cdot \gamma$$
+
+This is much cheaper (there is no mean computation), keeps the direction of the hidden vector intact, and works equally well empirically when we combine this with residuals.
+
+> Intuitively, imagine each token's embedding as a point in a high-dimensional space. After each layer's transformations (attention, FFN), some embeddings blow up in length, whereas others shrink. LayerNorm/RMSNorm act to re-center and re-scale, so that all these embeddings are kept roughly on a sphere of radius 1, and no single dimension dominates, thereby making optimization smoother. Indeed RMSNOrm literally projects each token's vector onto a hypersphere of fixed radius scaled by $gamma$. 
+
 #### Understanding the softmax - why it exists and what it does
 
 At the heart of self-attention lies a deceptively simple question:
