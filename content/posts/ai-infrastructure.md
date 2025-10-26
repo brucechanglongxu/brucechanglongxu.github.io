@@ -112,6 +112,8 @@ To control the destiny of our compute at the single GPU level, our single most p
 
 When we launch the CUDA kernel, we will need to pass in several dimension parameters based on the CUDA hierarchy. The smallest unit in our hierarchy is a _Thread_, where each thread is assigned to a particular workload (for instance multiplying two elements in a matrix). Multiple threads are grouped into a _Thread Block_ which, and the location of a particular individual thread within this block is provided by `threadIdx.x`, `threadIdx.y` and `threadIdx.z`, bounded above by the dimensions of the block `blockDim.x`, `blockDim.y` and `blockDim.z`. 
 
+Now multiple thread blocks are in turn aggregated to form a _Grid_, with a size specified by the grid dimensions `gridDim.x`, `gridDim.y` and `gridDim.z`. The positional information of a single thread block within this grid is provided by the block index values `blockDim.x`, `blockDim.y` and `blockDim.z`.  
+
 ### Case study: 2-simplicial attention meets the roofline (TLX on H100)
 
 As a concrete example of inner-loop optimization paying real dividends, the PyTorch team recentlyd etailed a fused TLX (Triton Low-level Extensions) kernel for **2-Simplicial Attention** - an attention variant that models trilinear interactions among token triples. 
