@@ -111,7 +111,7 @@ $$\textbf{softmax}(s_i)_j = \frac{e^{s_{ij}}}{\sum_{k=1}^N e^{s_{ik}}}$$
 
 where each score is exponentiated, and then normalized by the sum across all keys. This accomplishes two crucial goals:
 
-1. _Exponentiation_ amplifies differences between scores, so slightly higher similarities become disproportionately more important, helping the model focus.
+1. _Exponentiation_ [^7] amplifies differences between scores, so slightly higher similarities become disproportionately more important, helping the model focus.
 2. _Normalization_ ensures that all resulting weights are positive and sum to 1, turning the vector into a valid probability distribution over which tokens the query attends to. 
 
 Hence, the softmax transforms a raw, unbounded vector of similarity scores into a set of interpretable attention weights, where larger values mean "listen more closely" and smaller values mean "pay less attention." 
@@ -461,6 +461,7 @@ The decoder-only model however is a think-aloud monologue, for example in a live
 [^4]: It would actually be an interesting study to analyze say for a fixed number of parameters $B$, if we have a $X:Y$ split amongst the encoder-decoder, compared to just a decoder with the same number of of parameters $B$, the comparative performance between the two. How does this change as $B$ gets large. 
 [^5]: Suppose we want to accurately cite every aspect of a scientific article without hallucinations, an encoder-decoder architecture would be much better at this specific task than a decoder-only model. 
 [^6]: In mixture of experts blocks like Kimi, the FFN step is replaced by multiple "expert" MLPs, and a small gating network picks a few experts (e.g. top-8 of 384) to process each token. The outputs are combined, and then passed to the next block. 
+[^7]: We use exponentials for a variety of reasons (at a high level they provide smoothness and contrast). They ensure non-negativity (no negative probabilities), make the function differentiable everwhere (very important for moving over the loss curve and backpropagation) and they yield a sharp focus when needed - a few large scores dominate, while small ones fade exponentially; a "controllable soft selection". 
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
