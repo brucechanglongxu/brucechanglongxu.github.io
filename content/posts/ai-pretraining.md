@@ -119,6 +119,12 @@ The second is _quantization-aware training._
 
 These two methods can be combined, we can train mostly in FP8/BF16 for pseed, and optionally add QAT late in training to target an INT8/INT4 deployment. 
 
+_Low-precision training_
+
+_Quantization-aware training (QAT)_
+
+
+
 1. Hoffmann et al. _Training Compute-Optimal Large Language Models_ Google Deepmind, 2022.
 2. 
 

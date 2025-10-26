@@ -1,5 +1,5 @@
 ---
-title: "Vagelos Series II: Cardiometabolic Supercycle"
+title: "Vagelos Series II: Cardiometabolic"
 date: 2025-09-03
 draft: false
 ---
