@@ -42,7 +42,7 @@ The complete Transformer architecture consists of the following components:
 2. **Encoder Layer:** 
     - _Multi-head Self-Attention (MHA):_ This takes the outputs from the previous layer (or the embedding/positional-encoding outputs for the first layer) and performs multi-head self-attention as described. Because it is an encoder, this attention is now over the entire sequence (no future masking), and the output is a set of context-mixed representations for each token. 
 3. **Decoder Layer:** The decoder layer is similar to an encoder layer with one crucial addition, there are in total three sub-layers in the decoder layer of the transformer. 
-4. **Layer Normalization and Residuals:**
+4. **Layer Normalization and Residuals:** When we stack many layers of nonlinear functions (e.g. self-attention and feedforward blocks) the distribution of activations (means, variances) tend to drift as it passes through layers. This causes vanishing / exploding gradients (backward signals get too small or too large), and internal covariate shift (each layer sees changing input statistics during training, making learning unstable). We want to keep these activations in a "healthy range" i.e. roughly zero-centered and unit-scaled so gradients flow smoothly through hundreds of layers. 
 
 ## Self-attention in Transformers
 
@@ -385,8 +385,6 @@ RMSNorm -> attention -> residual -> RMSNorm -> FFN -> residual
 ```
 
 where each repetition deepens the reasoning chain and allows the model to integrate increasingly abstract contextual information. The attention sublayer is used for token-token communication ("talk to the other tokens"), the feedforward sublayer is used as a uniform nonlinear transformation per token (no mixing between the tokens, allowing the tokens to transform and "think for themselves") [^6], and then the residuals and norms are used to stay stable whilst stacking the layers deep. 
-
-
 
 | **Specification**            | **Qwen2.5-32B**                                 | **Kimi K2 (MoE)**                                                                                       |
 | ---------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
