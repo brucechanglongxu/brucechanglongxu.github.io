@@ -105,9 +105,7 @@ At the heart of self-attention lies a deceptively simple question:
 
 When we compute the dot products $QK^T$, we obtain raw similarity scores -- large numbers if the query and key vectors point in similar directions, and small (or negative) numbers otherwise. But these raw scores by themselves are just unbounded real numbers; they do not yet have the semantics of "attention weights". We need a way to turn them into _a smooth probability distribution_ over all possible keys - one that says, in effect, _"out of all tokens, here is how much I will listen to each."_ 
 
-This is where the softmax function comes in; for every row of scores $s_i = (s_{i1}, s_{i2}, \cdots, s_{iN})$, it computes:
-
-$$S(s_i)_j =$$
+This is where the softmax function comes in; for every row of scores $s_i = (s_{i1}, s_{i2}, \cdots, s_{iN})$, it computes, over all of the $j = 1, \cdots, N$ elements in this row $S(s_i)_j$:
 
 $$ \frac{e^{s_{ij}}}{\sum_{k=1}^N e^{s_{ik}}}$$
 
