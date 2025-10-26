@@ -403,9 +403,14 @@ Note that both of these models are _decoder-only_ models instead of encoder-deco
 | **Fine-tuning & data**  | One objective (causal LM) across tasks; instruction/RLHF sits naturally.                | Pretrain often denoising/seq2seq; finetunes may need task-specific mixes.                                   |
 | **Memory footprint**    | KV cache only for decoder; predictable growth with output length.                       | Encoder activations + decoder KV + cross-attn; larger per-request memory.                                   |
 
+Note that if cost, scalability and speed were not a concern, encoder-decoder models would be strictly superior than a pure decoder-only model (given that the decoder portions of both models are the same size [^4]), because the encoder-decoder is a two-stage thinker that reads the entire input like a careful researcher, builds a compact, bidirectional representation, then decodes this into an output whilst looking back at the encoded representation (via. cross-attention). It reads, organizes its thoughts, and then writes. 
+
+The decoder-only model however is a think-aloud monologue, for example in a live presidential debate, where we have a growing conversation from left to right that speaks as it thinks - it is optimized for the "just keep going" mentality, appending tokens, reusing the KV cache, and emitting the next token with minimal overhead. 
+
 [^1]: Though there have been recent efforts to combine the two ideas, e.g. "Mixture-of-Head Attention" (MoH) where attention heads themselves are treated as experts and are sparsely activated.
 [^2]: 2:4 sparsity is a specific instance of a more generla N:M structured sparsity where a block of M consecutive weights must contain at most N non-zero values. This achieves excellent acceleration on modern GPUs. Coarse-grained sparsity refers to pruning entire channels or blocks, with less accuracy at high sparsity levels than N:M but a simpler implementation.
 [^3]: Some examples of encoder-decoder models are T5 (text-to-text transformer) and BART (bidirectional and auto-regressive transformer) as well as UL5. They are used mainly for speech recognition, image captioning, text summarization and language conversion.
+[^4]: It would actually be an interesting study to analyze say for a fixed number of parameters $B$, if we have a $X:Y$ split amongst the encoder-decoder, compared to just a decoder with the same number of of parameters $B$, the comparative performance between the two. How does this change as $B$ gets large. 
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
