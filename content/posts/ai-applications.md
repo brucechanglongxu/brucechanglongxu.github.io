@@ -75,6 +75,8 @@ At the heart of self-attention lies a deceptively simple question:
 
 When we compute the dot products $QK^T$, we obtain raw similarity scores -- large numbers if the query and key vectors point in similar directions, and small (or negative) numbers otherwise. But these raw scores by themselves are just unbounded real numbers; they do not yet have the semantics of "attention weights". We need a way to turn them into _a smooth probability distribution_ over all possible keys - one that says, in effect, _"out of all tokens, here is how much I will listen to each."_ 
 
+This is where the softmax function comes in; for every row of scores $s_i = (s_{i1}, s_{i2}, \cdots, s_{iN})$, it computes:
+
 
 
 ## Expanding and Contracting in FFNs
@@ -374,6 +376,23 @@ void flash_attn_forward_launcher(
 }
 
 ```
+
+### Deconstructing GPT-4 and Claude from first principles
+
+| **Spec**              | **GPT-NeoX-20B**                                 | **Qwen2.5-7B**                    | **Qwen2.5-32B**                       | **Kimi K2 (MoE)**                                                      |
+| --------------------- | ------------------------------------------------ | --------------------------------- | ------------------------------------- | ---------------------------------------------------------------------- |
+| **Release / Type**    | Dense, decoder-only                              | Dense, decoder-only               | Dense, decoder-only                   | MoE, decoder-only                                                      |
+| **Params (total)**    | **20B**                                          | **7.6B**                          | **32.5B**                             | **1T** total; **32B activated**                                        |
+| **Layers**            | **44**                                           | **28**                            | **64**                                | **61** (incl. 1 dense layer)                                           |
+| **Hidden size**       | **6144**                                         | **3584**                          | **5120**                              | **7168** (attn); MoE FFN per-expert **2048**                           |
+| **Attention heads**   | **64**                                           | **GQA:** 28 (Q) / 4 (KV)          | **GQA:** 40 (Q) / 8 (KV)              | **64**                                                                 |
+| **Positional enc.**   | Rotary (RoPE)                                    | RoPE                              | RoPE                                  | (noted as MLA-based attention)                                         |
+| **Activation / FFN**  | GeLU-style MLP (GPT-3-like)                      | **SwiGLU**, RMSNorm               | **SwiGLU**, RMSNorm                   | **SwiGLU**                                                             |
+| **Context window**    | **2048**                                         | **131,072**                       | **131,072**                           | **128,000**                                                            |
+| **Tokenizer / Vocab** | GPT-NeoX tokenizer                               | —                                 | —                                     | **160K**                                                               |
+| **Notes**             | Parallel Attn+FF trick; RoPE applied to 25% dims | Attn QKV bias; long-context ready | Long-context + GQA (smaller KV cache) | **384 experts**, **top-8** routing; **1 shared expert**; MLA attention |
+
+
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
