@@ -107,7 +107,8 @@ When we compute the dot products $QK^T$, we obtain raw similarity scores -- larg
 
 This is where the softmax function comes in; for every row of scores $s_i = (s_{i1}, s_{i2}, \cdots, s_{iN})$, it computes:
 
-$$\textbf{softmax}(s_i)_j = \frac{e^{s_{ij}}}{\sum_{k=1}^N e^{s_{ik}}}$$
+$$\textbf{softmax}(s_i)_j = $$
+$$\frac{e^{s_{ij}}}{\sum_{k=1}^N e^{s_{ik}}}$$
 
 where each score is exponentiated, and then normalized by the sum across all keys. This accomplishes two crucial goals:
 
