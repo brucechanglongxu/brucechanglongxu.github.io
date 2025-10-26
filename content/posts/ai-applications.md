@@ -120,9 +120,9 @@ Hence, the softmax transforms a raw, unbounded vector of similarity scores into 
 
 In the attention equation, we always divide the dot product $QK^T$ here $d$ is the head dimension. Thisi s because the dot product of two random $d$-dimensional vectors grows with $d$, and without scaling, as dimensionality increases, the variance of the scores would blow up. The exponentials in the softmax would then saturate (most weights become near 0, and one dominates), which will hurt gradient flow. Dividng by $\sqrt{d}$ keeps the scores roughly unit-scaled regardless of dimension, keeping the softmax in its linear regime where gradients remain healthy. 
 
-In self-attention, we compute this softmax for each query token independently - that is, row-wise over the score matrix $S = QK^T$:
+In self-attention, we compute this softmax for each query token independently - that is, row-wise over the score matrix $S = QK^T$, subtracting the maximum of each of the scores first $M = \max_j S_{ij}$:
 
-
+$$A_{ij} = \frac{e^{S_{ij} - M}}{\sum_k e^{S_{ik} = M}}$$
 
 ## Expanding and Contracting in FFNs
 
