@@ -399,9 +399,8 @@ To consolidate everything that we have discussed in this post, we will deconstru
 
 Here when we say that Qwen2.5-32B has 64 layers, we mean that there are 64 repetitions of:
 
-```mathematica
-RMSNorm -> attention -> residual -> RMSNorm -> FFN -> residual
-```
+`RMSNorm -> attention -> residual -> RMSNorm -> FFN -> residual
+`
 
 where each repetition deepens the reasoning chain and allows the model to integrate increasingly abstract contextual information. The attention sublayer is used for token-token communication ("talk to the other tokens"), the feedforward sublayer is used as a uniform nonlinear transformation per token (no mixing between the tokens, allowing the tokens to transform and "think for themselves") [^6], and then the residuals and norms are used to stay stable whilst stacking the layers deep. 
 
