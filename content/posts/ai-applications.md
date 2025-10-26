@@ -383,14 +383,14 @@ void flash_attn_forward_launcher(
 | ---------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Release / Type**           | Dense, decoder-only                             | Mixture-of-Experts, decoder-only                                                                        |
 | **Parameters (total)**       | **32.5 B**                                      | **≈ 1 T** total; **≈ 32 B activated**                                                                   |
-| **Layers**                   | **64**                                          | **61** (incl. 1 dense layer)                                                                            |
-| **Hidden size (d_model)**    | **5120**                                        | **7168 (attn)**; FFN per-expert ≈ 2048                                                                  |
-| **Attention Heads (Q / KV)** | **40 / 8 (GQA)**                                | **64**                                                                                                  |
+| **Layers**                   | 64                                          | 61 (incl. 1 dense layer)                                                                            |
+| **Hidden size (d_model)**    | 5120                                        | 7168 (attn); FFN per-expert ≈ 2048                                                                  |
+| **Attention Heads (Q / KV)** | 40 / 8 (GQA)                                | 64                                                                                                  |
 | **Positional Encoding**      | Rotary (RoPE)                                   | MLA-based attention (positional bias built in)                                                          |
-| **Activation / FFN**         | **SwiGLU**, RMSNorm                             | **SwiGLU**                                                                                              |
-| **Context Window**           | **131 072 tokens**                              | **128 000 tokens**                                                                                      |
+| **Activation / FFN**         | SwiGLU, RMSNorm                             | SwiGLU                                                                                              |
+| **Context Window**           | 131 072 tokens                              | 128 000 tokens                                                                                      |
 | **Tokenizer / Vocab Size**   | ≈ 152 k tokens (BPE)                            | ≈ 160 k tokens (BPE)                                                                                    |
-| **Architecture Notes**       | Long-context + GQA for efficient KV cache usage | **384 experts**, **top-8 routing** (+ 1 shared expert); MLA attention; sparse activation for efficiency |
+| **Architecture Notes**       | Long-context + GQA for efficient KV cache usage | 384 experts, top-8 routing (+ 1 shared expert); MLA attention; sparse activation for efficiency |
 
 
 
