@@ -110,7 +110,7 @@ To control the destiny of our compute at the single GPU level, our single most p
 
 > A CUDA kernel, at its core, is a function that launched on the GPU and runs across SMs in the processor, assigning workloads to the threads and warps. 
 
-When we launch the CUDA kernel, we will need to pass in several dimension parameters based on the CUDA hierarchy. 
+When we launch the CUDA kernel, we will need to pass in several dimension parameters based on the CUDA hierarchy. The smallest unit in our hierarchy is a _Thread_, where each thread is assigned to a particular workload (for instance multiplying two elements in a matrix). Multiple threads are grouped into a _Thread Block_ which, and the location of a particular individual thread within this block is provided by `threadIdx.x`, `threadIdx.y` and `threadIdx.z`, bounded above by the dimensions of the block `blockDim.x`, `blockDim.y` and `blockDim.z`. 
 
 ### Case study: 2-simplicial attention meets the roofline (TLX on H100)
 
