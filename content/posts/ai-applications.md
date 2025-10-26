@@ -118,6 +118,8 @@ Hence, the softmax transforms a raw, unbounded vector of similarity scores into 
 
 > We can think of the softmax as a spotlight that distributes a fixed amount of "attention energy" across all tokens, tokens whose keys are strongly aligned with the query (large dot product) receive a larger share of light, whereas tokens that are unrelated get very little. The total light intensity is always 1, ensuring stable scaling across all layers. Hence there is a competitive mehcanism across tokens, where they all "bid" for the query's attention. 
 
+In the attention equation, we always divide the dot product $QK^T$ here $d$ is the head dimension. Thisi s because the dot product of two random $d$-dimensional vectors grows with $d$, and without scaling, as dimensionality increases, the variance of the scores would blow up. The exponentials in the softmax would then saturate (most weights become near 0, and one dominates), which will hurt gradient flow. Dividng by $\sqrt{d}$ keeps the scores roughly unit-scaled regardless of dimension, keeping the softmax in its linear regime where gradients remain healthy. 
+
 ## Expanding and Contracting in FFNs
 
 > The **"expand and contract"** mechanism of the FFN allows us to take a rich, detailed summary of the input data, place it in a larger embedding/workspace to analyze it more thoroughly and give us more "room to think" in complex/non-linear ways, before contracting and distilling down to a smaller dimension to bring back our conclusions to a precise format. 
