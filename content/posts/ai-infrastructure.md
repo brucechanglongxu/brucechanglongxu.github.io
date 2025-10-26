@@ -120,6 +120,8 @@ Now multiple thread blocks are in turn aggregated to form a _Grid_, with a size 
 4. Once all the computation and processing is finished, the resulting data is moved back to HBM
 5. The host pulls this resulting data from the device HBM back to host memory, and proceeds with using this processed data
 
+Now what if we wanted to broadcast data _between_ multiple GPUs? NVIDIA has created a library _nccl_ that accelerates communication between GPUs and nodes. This library allows us to `AllReduce` that performs reductions on data across multiple devices and stores the result in the receive buffer of every rank (for example broadcasting gradients to all the involved devices in a training run), the library also allows us to simply `Reduce`, which still performs a reduction on data across multiple devices, but only accumulates this on a single specified root rank (for example accumulating the gradient checkpoints of a training run on a single device). We are also able to `Broadcast` copies of an N-element buffer from the root rank to all the ranks, for example in the case we want to distribute initial model weights from a source node to all the other nodes. 
+
 ### Case study: 2-simplicial attention meets the roofline (TLX on H100)
 
 As a concrete example of inner-loop optimization paying real dividends, the PyTorch team recentlyd etailed a fused TLX (Triton Low-level Extensions) kernel for **2-Simplicial Attention** - an attention variant that models trilinear interactions among token triples. 
