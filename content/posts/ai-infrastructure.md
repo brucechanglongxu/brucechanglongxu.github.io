@@ -36,6 +36,8 @@ GPUs and custom AI hardware are the engines driving progress in AI research and 
 
 ![Alt text](/image-8.png)
 
+> An SM executes threads in groups called **warps**. A warp is a group of typically 32 threads, and they execute the same instructions in the same order in a _SIMT (single instruction multiple thread)_ fashion, on different data - similar to the SIMD execution model. At any given time, the SM may execute one wartp, switch between multiple warps or stall if there are dependencies or resource constraints. A single SM can manage multiple warps concurrently depending on their resource capacity. 
+
 But raw hardware alone doesn’t explain why some teams ship reliable systems at scale while others struggle with bottlenecks and cost explosions. The difference comes down to how you think about optimization.
 
 A useful way to frame it is as **three nested loops** wrapped around every model. Each loop sits at a different layer of abstraction, and each has its own gauges, and levers. The innermost loop is about the raw efficiency of a single device: is the GPU actually doing useful math, or is it starved by memory bandwidth or kernel overhead? The next loop out is the training loop: how do we scale beyond one GPU and make hundreds or thousands of them behave like a single machine? And finally, there is the product loop: once the model is trained, can we serve it reliably under real-world traffic, meet our latency and safety SLOs, and do so at a cost per token that won't sink the business? 
