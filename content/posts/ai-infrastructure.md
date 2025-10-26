@@ -36,7 +36,11 @@ GPUs and custom AI hardware are the engines driving progress in AI research and 
 
 ![Alt text](/image-8.png)
 
-> An SM executes threads in groups called **warps**. A warp is a group of typically 32 threads, and they execute the same instructions in the same order in a _SIMT (single instruction multiple thread)_ fashion, on different data - similar to the SIMD execution model. At any given time, the SM may execute one wartp, switch between multiple warps or stall if there are dependencies or resource constraints. A single SM can manage multiple warps concurrently depending on their resource capacity. 
+> An SM executes threads in groups called **warps**. A warp is a group of typically 32 threads, and they execute the same instructions in the same order in a _SIMT (single instruction multiple thread)_ fashion, on different data - similar to the SIMD execution model. At any given time, the SM may execute one wart, switch between multiple warps or stall if there are dependencies or resource constraints. A single SM can manage multiple warps concurrently depending on their resource capacity. 
+
+To understand the relative latencies of memory operations in the SM (global memory access, L1/2 cache access, thread register accesses) compared with compute operations such as FMA or tensor core operations (orders of magnitude faster), the EleutherAI has an extraordinarily educational exposition on this topic. 
+
+![Alt text](/image-9.png)
 
 But raw hardware alone doesn’t explain why some teams ship reliable systems at scale while others struggle with bottlenecks and cost explosions. The difference comes down to how you think about optimization.
 
