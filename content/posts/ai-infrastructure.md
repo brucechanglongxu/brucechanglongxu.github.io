@@ -32,7 +32,11 @@ blockquote {
 }
 </style>
 
-GPUs and custom AI hardware are the engines driving progress in AI research and applications. But raw hardware alone doesn’t explain why some teams ship reliable systems at scale while others struggle with bottlenecks and cost explosions. The difference comes down to how you think about optimization.
+GPUs and custom AI hardware are the engines driving progress in AI research and applications. This of a CPU like a sports car that often has better single performance statistics than a GPU, which is more like a bus (there are a lot more seats, but it takes a longer time to get from A to B). Indeed, it often takes sometimes orders of magnitude less time to do an L2 access in a CPU than a GPU, or an HBM DRAM access; the key however is that GPUs can take advantage of _enormous_ parallelism and throughput despite their lower single-use latency. This parallelism arises from the many "SM" cores that consist of multiple arithmetic logical units (INT32, FP32, FP64 ALUs), special function units, and memory (registers, shared memory) - but the true star here in the GPU is the "tensor core" which is heavily optimized for GEMM accelerations, giving us incredible FLOP performance for deep learning matrix multiplications.
+
+![Alt text](/image-8.png)
+
+But raw hardware alone doesn’t explain why some teams ship reliable systems at scale while others struggle with bottlenecks and cost explosions. The difference comes down to how you think about optimization.
 
 A useful way to frame it is as **three nested loops** wrapped around every model. Each loop sits at a different layer of abstraction, and each has its own gauges, and levers. The innermost loop is about the raw efficiency of a single device: is the GPU actually doing useful math, or is it starved by memory bandwidth or kernel overhead? The next loop out is the training loop: how do we scale beyond one GPU and make hundreds or thousands of them behave like a single machine? And finally, there is the product loop: once the model is trained, can we serve it reliably under real-world traffic, meet our latency and safety SLOs, and do so at a cost per token that won't sink the business? 
 
