@@ -379,18 +379,20 @@ void flash_attn_forward_launcher(
 
 ### Deconstructing Frontier OSS models from first principles
 
-| **Specification**            | **Qwen2.5-7B**                                            | **Qwen2.5-32B**                      | **Kimi K2 (MoE)**                                                                                       |
-| ---------------------------- | --------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| **Release / Type**           | Dense, decoder-only                                       | Dense, decoder-only                  | Mixture-of-Experts, decoder-only                                                                        |
-| **Parameters (total)**       | **7.6 B**                                                 | **32.5 B**                           | **≈ 1 T** total ; **≈ 32 B activated**                                                                  |
-| **Layers**                   | **28**                                                    | **64**                               | **61** (incl. 1 dense layer)                                                                            |
-| **Hidden size (d_model)**    | **3584**                                                  | **5120**                             | **7168** (attn dim) ; FFN per-expert ≈ 2048                                                             |
-| **Attention Heads (Q / KV)** | **28 / 4** (GQA)                                          | **40 / 8** (GQA)                     | **64**                                                                                                  |
-| **Positional Encoding**      | Rotary (PosEnc, RoPE)                                     | Rotary (PosEnc, RoPE)                | MLA-based attention (positional bias built in)                                                          |
-| **Activation / FFN**         | **SwiGLU**, RMSNorm                                       | **SwiGLU**, RMSNorm                  | **SwiGLU**                                                                                              |
-| **Context Window**           | **131 072 tks**                                        | **131 072 tks**                   | **128 000 tks**                                                                                      |
-| **Tokenizer / Vocab Size**   | ≈ 152 k (BPE)                                      | ≈ 152 k (BPE)                 | ≈ 160k (BPE)                                                                                    |
-| **Architecture Notes**       | Long-context ready; bias in QKV proj.; optimized KV cache | Long-context + GQA reduces KV memory | **384 experts**, **top-8** routing (+ 1 shared expert); MLA attention; sparse activation for efficiency |
+| **Specification**            | **Qwen2.5-32B**                                 | **Kimi K2 (MoE)**                                                                                       |
+| ---------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Release / Type**           | Dense, decoder-only                             | Mixture-of-Experts, decoder-only                                                                        |
+| **Parameters (total)**       | **32.5 B**                                      | **≈ 1 T** total; **≈ 32 B activated**                                                                   |
+| **Layers**                   | **64**                                          | **61** (incl. 1 dense layer)                                                                            |
+| **Hidden size (d_model)**    | **5120**                                        | **7168 (attn)**; FFN per-expert ≈ 2048                                                                  |
+| **Attention Heads (Q / KV)** | **40 / 8 (GQA)**                                | **64**                                                                                                  |
+| **Positional Encoding**      | Rotary (RoPE)                                   | MLA-based attention (positional bias built in)                                                          |
+| **Activation / FFN**         | **SwiGLU**, RMSNorm                             | **SwiGLU**                                                                                              |
+| **Context Window**           | **131 072 tokens**                              | **128 000 tokens**                                                                                      |
+| **Tokenizer / Vocab Size**   | ≈ 152 k tokens (BPE)                            | ≈ 160 k tokens (BPE)                                                                                    |
+| **Architecture Notes**       | Long-context + GQA for efficient KV cache usage | **384 experts**, **top-8 routing** (+ 1 shared expert); MLA attention; sparse activation for efficiency |
+
+
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 5998–6008.
 2. Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. Advances in Neural Information Processing Systems (NeurIPS 2022)
