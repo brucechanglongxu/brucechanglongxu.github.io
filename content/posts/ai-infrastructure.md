@@ -104,6 +104,14 @@ It is the layer where hardware meets math. Get this wrong, and your scaling expe
 
 Modern accelerators live and die by their memory systems. The same kernel can look _compute-bound_ on one device and _memory-bound_ on another simply because L1/L2/DRAM behavior shifts the roofline under your feet. We will build a mental model of the GPU memory stack, and what to do when profiles show that our math engines are waiting. 
 
+#### CUDA programming
+
+To control the destiny of our compute at the single GPU level, our single most powerful tool is CUDA, a parallel computing platform and programming model that enables to to control the dynamics of the GPU at a relatively fine-grained level; allowing code tobe executed in _parallel_ of the many SMs in a single GPU. 
+
+> A CUDA kernel, at its core, is a function that launched on the GPU and runs across SMs in the processor, assigning workloads to the threads and warps. 
+
+When we launch the CUDA kernel, we will need to pass in several dimension parameters based on the CUDA hierarchy. 
+
 ### Case study: 2-simplicial attention meets the roofline (TLX on H100)
 
 As a concrete example of inner-loop optimization paying real dividends, the PyTorch team recentlyd etailed a fused TLX (Triton Low-level Extensions) kernel for **2-Simplicial Attention** - an attention variant that models trilinear interactions among token triples. 
