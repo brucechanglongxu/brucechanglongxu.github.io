@@ -112,7 +112,13 @@ To control the destiny of our compute at the single GPU level, our single most p
 
 When we launch the CUDA kernel, we will need to pass in several dimension parameters based on the CUDA hierarchy. The smallest unit in our hierarchy is a _Thread_, where each thread is assigned to a particular workload (for instance multiplying two elements in a matrix). Multiple threads are grouped into a _Thread Block_ which, and the location of a particular individual thread within this block is provided by `threadIdx.x`, `threadIdx.y` and `threadIdx.z`, bounded above by the dimensions of the block `blockDim.x`, `blockDim.y` and `blockDim.z`. 
 
-Now multiple thread blocks are in turn aggregated to form a _Grid_, with a size specified by the grid dimensions `gridDim.x`, `gridDim.y` and `gridDim.z`. The positional information of a single thread block within this grid is provided by the block index values `blockDim.x`, `blockDim.y` and `blockDim.z`.  
+Now multiple thread blocks are in turn aggregated to form a _Grid_, with a size specified by the grid dimensions `gridDim.x`, `gridDim.y` and `gridDim.z`. The positional information of a single thread block within this grid is provided by the block index values `blockDim.x`, `blockDim.y` and `blockDim.z`. The general recipe of a CUDA program is as follows:
+
+1. The host will allocate data structures in the host (CPU) memory, and copy all the necessary data to the device (GPU) HBM to prepare for the kernel launch.
+2. The host will launch the kernel on the device for processing of a particular nature, and the device (GPU) begins to load necessary data from the HBM to on-chip SRAM.
+3. The SMs, warps and threads will be allocated work from the CUDA hierarchy (grids, blocks, threads) in a way that is maximally efficient
+4. Once all the computation and processing is finished, the resulting data is moved back to HBM
+5. The host pulls this resulting data from the device HBM back to host memory, and proceeds with using this processed data
 
 ### Case study: 2-simplicial attention meets the roofline (TLX on H100)
 
