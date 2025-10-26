@@ -168,6 +168,18 @@ The algorithm proceeds as follows (for one attention head at a time, though batc
 
 #### FlashAttention v2
 
+FlashAttention v1 noticed that naive attention materializes an $N \times N$ score matrix in DRAM and shuttles it back and forth through softmax and weighting $V$, inducing an enormous cost from I/O and DRAM movement. FlashAttention v1 asked _"What is the minimum information we truly need to keep off chip?"_, and indeed the answer is it is sufficient to only keep tiny, per-row softmax statistics and a running output rather than the whole attention score matrix. We therefore tile the sequence, load one $K, V$ tile at a time into on-chip memory, updates an online softmax for a block of queries, and immediately folds that into the output, without ever writing a giant score matrix into DRAM. 
+
+_FlashAttention v2_ pushes this slightly further, by rethinking 1. the bookkeeping around softmax 2. the shape of parallelism 3. the division of work inside a thread block. 
+
+1. **Softmax bookkeeping:** Online softmax needs two pieces of information per row - a running maximum $m$ for numerical stability, and a running exponential sum $l$. In v1, eaach time a new tile of keys/values arrives, we update $(m,l)$ and rescale the running output so it remains correctly normalized at every step. This rescale is a small, but frequent recurring scalar operation, often in higher precision, sitting on the critical path. 
+
+  In v2, the insight is that _we do not keep the output permanently normalized_ and instead keep an unscaled output $\tilde{O}$ while we sweep over the tiles, and apply the single $\frac{1}{l}$ normalization at the very end. The softmax math is unchanged; we just defer the cheap but constant rescaling that used to happen after every tile. In backward, v2 stores only _one_ number per row now $$L = m + \log l$$ and recomputes local probabilities when needed. This leads to fewer tiny saled ops, fewer converstions, and more uninterrupted time on Tensor Cores. 
+
+> The intuition here is that if we are filling a bucket from many faucets, it is wasteful to stop and remeasure the bucket's fraction full after each cup. We should instead just keep pouring, track the total, and then normalize once. 
+
+
+
 #### FlashAttention v3
 
 FlashAttention v1, v2 and v3 demonstrate how algorithm and kernel co-design can yield massive performance gains for a critical operation like attention, by being mindful of GPU memory hierarchies and parallel execution capabilities. The key takeaways are:
