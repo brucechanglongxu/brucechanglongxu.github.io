@@ -95,7 +95,7 @@ This leads to easier gradient flow, and acts like an incremental update - we ref
 - The residual connections allow each layer to slowly accumulate and refine their representation without overwriting their former work.
 - RMSNorm/LayerNorm and the normalization layer calibrates the embeddings so that each layer operates under stable numerical conditions. 
 
-The combination fo these two elemnets enables us to train extraodinarily deep transformer-based networks without stability issues.
+The combination of these two elemnets enables us to train extraodinarily deep transformer-based networks without stability issues.
 
 #### Understanding the softmax - why it exists and what it does
 
@@ -107,7 +107,16 @@ When we compute the dot products $QK^T$, we obtain raw similarity scores -- larg
 
 This is where the softmax function comes in; for every row of scores $s_i = (s_{i1}, s_{i2}, \cdots, s_{iN})$, it computes:
 
+$$\textbf{softmax}(s_i)_j = \frac{e^{s_{ij}}}{\sum_{k=1}^N e^{s_{ik}}}$$
 
+where each score is exponentiated, and then normalized by the sum across all keys. This accomplishes two crucial goals:
+
+1. _Exponentiation_ amplifies differences between scores, so slightly higher similarities become disproportionately more important, helping the model focus.
+2. _Normalization_ ensures that all resulting weights are positive and sum to 1, turning the vector into a valid probability distribution over which tokens the query attends to. 
+
+Hence, the softmax transforms a raw, unbounded vector of similarity scores into a set of interpretable attention weights, where larger values mean "listen more closely" and smaller values mean "pay less attention." 
+
+> We can think of the softmax as a spotlight that distributes a fixed amount of "attention energy" across all tokens, tokens whose keys are strongly aligned with the query (large dot product) receive a larger share of light, whereas tokens that are unrelated get very little. The total light intensity is always 1, ensuring stable scaling across all layers. Hence there is a competitive mehcanism across tokens, where they all "bid" for the query's attention. 
 
 ## Expanding and Contracting in FFNs
 
