@@ -235,7 +235,7 @@ When you scale beyond a single GPU, you have four main levers to pull: **data pa
 
 **Data parallelism** is the most straightforward. Every GPU (or groups of GPUs) gets a copy of the model, processes a different shard of the training data, and at the end of each step all the gradients are averaged. It is conceptually simple and works well for medium-sized models, but it comes with a hidden tax: every device must hold a fully copy of the model's parameters and optimizer state. For tody's multi-hundred-billion-parameter models, that memory overhead is unsustainable unless you shard optimizer state with systems like ZeRO or Fully Sharded Data Parallel (FSDP). Data parallelism scales throughput linearly with more devices, but only if the all-reduce [^2] bandwidth is there to keep up. 
 
-#### ZeRO: Memory Optimizations Toward Training Trillion Parameter Models
+#### ZeRO Memory Optimizations
 
 In vanilla data parallel, every GPU keeps full copies of parameters, gradients, and optimizer states (e.g. Adam's FP32 master weights and moments). This wastes memory N times over N GPUs. For mixed-precision training with Addam, this amounts to 16 bytes per parameter (2B weights, 2B gradients, 12B optimizer states), so 1 trillion parameters is 16 TB just for model states (not even taking into account CUDA kernel overhead etc.), which is far beyond a single GPU. 
 
