@@ -247,6 +247,12 @@ Fundamentally ZeRO exists to solve the scaling problem - models are not becoming
 
 > _Activation memory footprint_ is the memory consumed by intermediate activations of each layer that must be stored for the backward pass and backpropagation during training. This grows linearly with model depth and batch size and often dominates total memory usage during training - it typically increases during the forward pass, and decrease during the backward pass as activations are freed. The _steady state memory footprint_ is the baseline, persistent memory usage that remains stable across iterations, regardless of which layer is currently being processed - including the model parameters (weights), optimizer states (e.g. Adam), gradients and CUDA context overhead - this is constant across both the forward and backward passes once the model is loaded, scaling with model size, precision and optimizers. **This memory footprint is the primary target for zero**. The _peak memory footprint_ is the sum of all of these, and typically occurs near the end of the forward pass or start of the backward pass, when our activations spike. 
 
+1. **ZeRO-DP Stage I (Optimization State):**
+2. **ZeRO-DP Stage II (Parameters):**
+3. **ZeRO-DP Stage III (Gradient):**
+
+> ZeRO-R is slightly 
+
 Now some precuror solutions to the ZeRO methodology are well-published, widely used techniques such as mixed precision training, data parallelism, pipeline parallelism (Gpipe, zerobubble), tensor parallelism (can split row-wise or column-wise) [^9] and sharding. 
 
 **Tensor parallelism** digs deeper. Instead of copying the whole model, you split the math inside a single layer. Imagine a huge matrix multiply: one GPU handles the first block of columns, another the next block, and so on. After each multiply, results are exchanged and stitched back together. This approach lets you fit extremely large layers across multiple GPUs, but it ties you to fast interconnects. Within a single server with NVLink or NVSwitch, tensor parallelism is efficient; stretch it across racks with slower fabrics, and the communication cost can swamp the benefits.
