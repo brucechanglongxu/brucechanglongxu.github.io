@@ -1,5 +1,5 @@
 ---
-title: "Vagelos Series I: Oncological SuperI"
+title: "Vagelos Series I: Oncology"
 date: 2025-09-03
 draft: false
 ---
