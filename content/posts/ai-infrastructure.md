@@ -207,8 +207,6 @@ Each SM contains dozens of CUDA cores for general math and several Tensor Cores 
 
 ### Accelerating GEMMs with sparsity, interleaved DSRs and SIMD-32
 
-![Alt text](/image-4.png)
-
 > `FMACH dst = src0 + src1 * src2` is the canonical instruction underpinning GEMMS.
 
 To increase arithmetic intensity
